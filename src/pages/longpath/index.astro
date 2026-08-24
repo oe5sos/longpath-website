@@ -18,8 +18,8 @@ const kette = [
   {
     nr: "02", stufe: "Spektrum",
     titel: "Panadapter auf der Grafikkarte",
-    text: "QRhi über Metal, Vulkan und D3D12, mit der vollständigen Thetis-Display-Fläche dahinter — Spektrum, Wasserfall, Gitter und Skalen, je Band gespeichert über alle vierzehn Bänder. Clarity verfolgt den Rauschboden und hält das Bild lesbar, während sich das Band darunter bewegt.",
-    marken: ["Clarity-Palette", "Rauschboden EWMA", "Zoom bleibt"],
+    text: "QRhi über Metal, Vulkan und D3D12, mit der vollständigen Thetis-Display-Fläche dahinter — Spektrum, Wasserfall, Gitter und Skalen, je Band gespeichert über alle vierzehn Bänder. Clarity verfolgt den Rauschboden und hält das Bild lesbar, während sich das Band darunter bewegt. Neun Anordnungen für mehrere Bandbilder nebeneinander, jedes davon auch als eigenes Fenster auf einem zweiten Bildschirm.",
+    marken: ["Clarity-Palette", "Rauschboden EWMA", "9 Anordnungen", "Zoom bleibt"],
   },
   {
     nr: "03", stufe: "Empfang",
@@ -36,7 +36,7 @@ const kette = [
   {
     nr: "05", stufe: "Der Tisch",
     titel: "Alles, was bisher ein eigenes Programm war",
-    text: "Ein TCI-v2.0-Server bedient WSJT-X, JTDX, N1MM und Log4OM ohne virtuelles Kabel. Sieben Spot-Quellen — Cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — landen gestapelt auf dem Panadapter, anklickbar zum Abstimmen. RADE ist eine echte Betriebsart, sendend wie empfangend.",
+    text: "Ein TCI-v2.0-Server bedient WSJT-X, JTDX, N1MM und Log4OM ohne virtuelles Kabel. Sieben Spot-Quellen — Cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — landen gestapelt auf dem Bandbild, anklickbar zum Abstimmen. RADE ist eine echte Betriebsart, sendend wie empfangend. Endstufe und Tuner von 4O3A und RF-Kit hängen mit dran.",
     marken: ["TCI v2.0", "Spot-Zentrale", "RADE", "VAX-Audio"],
   },
 ];
@@ -54,6 +54,31 @@ const hardware = [
   { protokoll: "Protokoll 1", titel: "Hermes · Angelia · Orion · Metis",
     text: "Die älteren OpenHPSDR-Boards werden erkannt, liefern I/Q und laufen durch WDSP; Dämpfungsglied und Vorverstärker direkt am Board.",
     stand: "RX geprüft", ok: false },
+];
+
+/* Was am Tisch sonst noch steht. Quellen: CHANGELOG.md und
+   docs/architecture/ im Longpath-Baum. `neu: true` heisst: gebaut,
+   aber noch nicht in einer Veroeffentlichung — steht im CHANGELOG
+   unter [Unreleased]. */
+const werkzeuge = [
+  { bereich: "Sendeton", titel: "Ein Kanalzug vor dem Funkgerät",
+    text: "Gate, Entzerrer, De-Esser, Kompressor, Röhre, PUDU, Hall und Begrenzer in Signalreihenfolge — am Mikrofon, bevor WDSP es sieht. Abgeschaltet ist der Ton bitgenau der von vorher, der Vergleich also echt und nicht ungefähr. Dazu Voice Check: aufnehmen, der Zug läuft offline darüber, abhören — das Funkgerät taktet dabei nichts.",
+    marken: ["8 Stufen", "A/B im Halten", "Voice Check"], neu: true },
+  { bereich: "Logbuch", titel: "Verbindungen, die sich wiederfinden lassen",
+    text: "Aus der schmalen Leiste wird ein voller Arbeitsplatz: suchen über Rufzeichen, Name, QTH, Land, Feld oder Bemerkung, filtern nach Band und Betriebsart, ADIF und Cabrillo hinein und hinaus. Daneben die Stammdaten von QRZ, die Peilung dorthin und eine Karte.",
+    marken: ["ADIF", "Cabrillo", "QRZ", "Karte"], neu: true },
+  { bereich: "Antenne", titel: "Der Rotor lernt deine Richtungen",
+    text: "Vier Vorwahlen unter der Himmelsrichtungsreihe: Rechtsklick merkt sich die aktuelle Peilung, Linksklick fährt sie wieder an. Dazu Park und der lange Weg. Aus dem Spot-Menü im Bandbild heraus: „Rotor auf dieses Rufzeichen“.",
+    marken: ["4 Vorwahlen", "Park", "Langer Weg"], neu: true },
+  { bereich: "Diversity", titel: "Zwei Antennen, ein Richtdiagramm",
+    text: "Phase und Verstärkung als Polardiagramm, das sich beim Drehen mitbewegt — man sieht die Keule, statt sie zu erraten. Acht Speicherplätze je Band, Klick holt, Rechtsklick legt ab.",
+    marken: ["Radar", "8 Speicher je Band"], neu: true },
+  { bereich: "Übersicht", titel: "Das ganze Band statt nur des Ausschnitts",
+    text: "Auf Protokoll 2 kommt der volle Wandlerbereich als zweiter Datenstrom herein und läuft durch eine eigene FFT. Ein Klick in den Randbereich verschiebt den Empfänger dorthin, ein Klick in die Mitte stimmt nur ab.",
+    marken: ["16 384 Punkte", "Klick verschiebt"], neu: true },
+  { bereich: "Fremde Geräte", titel: "Auch was kein OpenHPSDR spricht",
+    text: "Der SunSDR2 QRP über TCI und öffentliche KiwiSDR-Empfänger aus dem Verzeichnis. Beide hängen an derselben Sicherheitsschranke: ein Empfänger, der an einem echten Sender hängt, wird von dort niemals angefasst.",
+    marken: ["SunSDR2 QRP", "KiwiSDR"], neu: true },
 ];
 
 const pakete = [
@@ -109,6 +134,33 @@ const pakete = [
               <h3>{s.titel}</h3>
               <p>{s.text}</p>
               <div class="marken">{s.marken.map((m) => <span class="marke">{m}</span>)}</div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section wrap" id="werkzeuge">
+      <div class="section__head">
+        <p class="caps">Was am Tisch sonst noch steht</p>
+        <h2>Alles, wofür sonst ein zweites Programm offen wäre.</h2>
+        <p class="intro">
+          Was hier mit <em>im Bau</em> gekennzeichnet ist, läuft bereits — es steckt
+          aber noch nicht in Version {VERSION}, sondern kommt mit der nächsten.
+        </p>
+      </div>
+
+      <div class="werk">
+        {werkzeuge.map((w) => (
+          <article class="panel werk__karte">
+            <div class="panel__head">
+              <span class="caps num">{w.bereich}</span>
+              {w.neu && <span class="werk__neu caps">im Bau</span>}
+            </div>
+            <div class="werk__body">
+              <h3>{w.titel}</h3>
+              <p>{w.text}</p>
+              <div class="marken">{w.marken.map((m) => <span class="marke">{m}</span>)}</div>
             </div>
           </article>
         ))}
@@ -281,6 +333,22 @@ const pakete = [
     border-radius: var(--radius-s); padding: .3rem .55rem;
   }
   @media (max-width: 560px) { .stufe { grid-template-columns: 1fr; gap: .45rem; } .stufe__nr { padding-top: 0; } }
+
+  .werk { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .werk__karte { display: flex; flex-direction: column; }
+  .werk__karte .panel__head { justify-content: space-between; }
+  .werk__neu {
+    color: var(--measured); border: 1px solid var(--measured-border, #6b5426);
+    background: var(--measured-bg, #33280f); border-radius: var(--radius-s);
+    padding: .2rem .45rem; flex-shrink: 0;
+  }
+  .werk__body { padding: 1.1rem .9rem 1rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+  .werk__body h3 { font-size: 1.12rem; font-weight: 500; }
+  .werk__body p { margin: 0; font-size: .95rem; color: var(--t4); }
+  .werk__body .marken { margin-top: auto; padding-top: .6rem; }
+
+  .section__head .intro { margin: 0; color: var(--t4); max-width: 60ch; }
+  .section__head .intro em { color: var(--measured); font-style: normal; }
 
   .hw { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1rem; }
   .karte { display: flex; flex-direction: column; }
