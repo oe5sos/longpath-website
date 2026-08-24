@@ -1,0 +1,80 @@
+---
+/**
+ * Die Leiste. Traegt in beiden Raeumen denselben Schriftzug — eine
+ * Marke, zwei Raeume, nicht zwei Marken. Der Zusatz dahinter sagt,
+ * wo man ist; der Knopf rechts fuehrt in den jeweils anderen Raum.
+ */
+import Wordmark from "./Wordmark.astro";
+
+interface Props {
+  raum: "app" | "blog";
+  /** Aktueller Pfad, damit der laufende Punkt markiert werden kann. */
+  pfad?: string;
+}
+const { raum, pfad = "" } = Astro.props;
+
+const punkte = raum === "app"
+  ? [
+      { text: "Signalkette", href: "/longpath/#signalkette", klein: true },
+      { text: "Hardware",    href: "/longpath/#hardware",    klein: true },
+      { text: "Download",    href: "/longpath/#download",    klein: false },
+    ]
+  : [
+      { text: "Beiträge", href: "/blog/",        klein: false },
+      { text: "Archiv",   href: "/blog/archiv/", klein: false },
+      { text: "Station",  href: "/blog/station/", klein: true },
+    ];
+
+const wechsel = raum === "app"
+  ? { text: "Blog", href: "/blog/" }
+  : { text: "App",  href: "/longpath/" };
+---
+
+<nav class="bar">
+  <a class="bar__home" href="/">
+    <Wordmark />
+    <span class="bar__sub">{raum === "app" ? "Stationskonsole" : "Blog"}</span>
+  </a>
+  <div class="bar__nav">
+    {punkte.map((p) => (
+      <a
+        href={p.href}
+        class:list={[p.klein && "hide-sm"]}
+        aria-current={pfad === p.href ? "page" : undefined}
+      >{p.text}</a>
+    ))}
+    <a class="pill" href={wechsel.href}>{wechsel.text}</a>
+  </div>
+</nav>
+
+<style>
+  .bar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    padding: .78rem var(--pad);
+    background: linear-gradient(to bottom, var(--tile-top), var(--tile-mid) 55%, var(--tile-bot));
+    border-bottom: 1px solid var(--tile-line);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  .bar__home { display: inline-flex; align-items: center; gap: .6rem; flex-shrink: 0; }
+  .bar__home :global(.wm) { font-size: 1.14rem; }
+  .bar__sub {
+    font-family: var(--ff-mono); font-size: 9px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--t5);
+    border-left: 1px solid var(--border); padding-left: .7rem;
+  }
+  .bar__nav {
+    display: flex; align-items: center; gap: clamp(.7rem, 2.2vw, 1.7rem);
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase;
+  }
+  .bar__nav a { color: var(--t5); transition: color var(--ease); white-space: nowrap; }
+  .bar__nav a:hover, .bar__nav a[aria-current] { color: var(--t2); }
+  .bar__nav a.pill {
+    color: var(--t3); background: var(--btn); border: 1px solid var(--border);
+    border-radius: var(--radius-s); padding: .5rem .8rem;
+    transition: background var(--ease), color var(--ease), border-color var(--ease);
+  }
+  .bar__nav a.pill:hover { background: var(--btn-hover); color: var(--t1); border-color: var(--border-2); }
+  @media (max-width: 720px) { .bar__nav .hide-sm, .bar__sub { display: none; } }
+</style>

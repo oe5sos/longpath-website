@@ -1,0 +1,42 @@
+---
+/**
+ * Das Ablesegitter aus dem Hausstil: gleich grosse Felder, Ueberschrift
+ * versal klein, Wert monospaced darunter. Regel 7 — was fehlt, ist ein
+ * Strich, keine Null.
+ */
+import { STRICH } from "../lib/sota";
+
+interface Feld { k: string; v: string | number | undefined | null; }
+interface Props { titel: string; felder: Feld[]; }
+const { titel, felder } = Astro.props;
+
+const zeige = (v: Feld["v"]) =>
+  v === undefined || v === null || v === "" ? STRICH : String(v);
+---
+<div class="panel readout">
+  <div class="panel__head"><span class="caps">{titel}</span></div>
+  <div class="readout__grid">
+    {felder.map((f) => (
+      <div class="readout__cell">
+        <span class="caps">{f.k}</span>
+        <span class:list={["readout__v", zeige(f.v) === STRICH && "none"]}>{zeige(f.v)}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .readout { margin: clamp(2rem, 5vh, 3rem) 0; }
+  .readout__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); }
+  .readout__cell {
+    padding: .85rem .9rem;
+    display: flex; flex-direction: column; gap: .3rem;
+    border-left: 1px solid var(--border-fine);
+    border-top: 1px solid var(--border-fine);
+  }
+  .readout__v {
+    font-family: var(--ff-mono); font-size: .98rem;
+    color: var(--measured-hi); font-variant-numeric: tabular-nums;
+  }
+  .readout__v.none { color: var(--t6); }
+</style>

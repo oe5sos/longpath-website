@@ -1,0 +1,265 @@
+---
+/**
+ * Die Startseite — "Die Naht".
+ *
+ * Diagonal geteilt; die Trennlinie ist der lange Weg aus der Bildmarke.
+ * Links die Konsole (ein Spektrum, live gezeichnet), rechts der Blog
+ * (das Aufmacherfoto des neuesten Beitrags). Zeigt man auf eine
+ * Haelfte, wandert die Naht dorthin.
+ */
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Wordmark from "../components/Wordmark.astro";
+import { alleBeitraege } from "../lib/sota";
+
+const beitraege = await alleBeitraege();
+const neuester = beitraege[0];
+---
+
+<Base
+  titel="Longpath — Stationskonsole und Blog"
+  beschreibung="Longpath: eine native OpenHPSDR-Stationskonsole für macOS, Linux und Windows. Dazu ein Blog von den Gipfeln über dem Traunsee."
+  raum="app"
+  nackt
+>
+  <div class="landing" id="landing">
+
+    <a class="half half--app" href="/longpath/" data-f="a">
+      <canvas id="spektrum" aria-hidden="true"></canvas>
+      <div class="half__in">
+        <p class="caps">OpenHPSDR · Protokoll 1 + 2</p>
+        <div class="big"><Wordmark /></div>
+        <p class="lede">Die Stationskonsole. Nativ für macOS, Linux und Windows.</p>
+        <span class="go">Zur App <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+
+    <a class="half half--blog" href="/blog/" data-f="b">
+      {neuester && (
+        <Image
+          class="foto"
+          src={neuester.data.aufmacher}
+          alt={neuester.data.aufmacherAlt}
+          widths={[720, 1200, 1800]}
+          sizes="(max-width: 800px) 100vw, 60vw"
+          loading="eager"
+          format="avif"
+        />
+      )}
+      <div class="half__in">
+        <p class="caps">Summits on the Air · OE/OO</p>
+        <div class="big">BLOG</div>
+        <p class="lede">Fotos und Notizen von den Gipfeln über dem Traunsee.</p>
+        <span class="go">Zum Blog <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+
+    <div class="seam" aria-hidden="true"></div>
+
+    <div class="corner corner--t">
+      <span class="caps">OE5SOS · Martin Fischer</span>
+      <span class="caps num">JN67 · Gmunden</span>
+    </div>
+    <div class="corner corner--b">
+      <span class="caps">Zwei Wege, eine Station</span>
+      {neuester && (
+        <span class="caps num">
+          Zuletzt {neuester.data.sota?.referenz ?? ""} ·
+          {" "}{neuester.data.datum.toLocaleDateString("de-AT")}
+        </span>
+      )}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .landing { position: relative; height: 100svh; min-height: 640px; overflow: hidden; background: var(--bg); }
+  /* Traegt die Eckbeschriftung, egal wie hell das Foto oben ist. */
+  .landing::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 22%; z-index: 3;
+    background: linear-gradient(to bottom, rgba(8,8,10,.6), transparent);
+    pointer-events: none;
+  }
+
+  .half {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: var(--pad) var(--pad) clamp(3rem, 9vh, 6rem);
+    transition: clip-path .55s cubic-bezier(.22,.7,.3,1);
+    will-change: clip-path;
+  }
+  .half canvas, .half :global(img) {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .half::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  }
+  /* Ueber dem Spektrum darf es dunkel sein — da steht nichts drunter. */
+  .half--app::after {
+    background: linear-gradient(to bottom, rgba(8,8,10,.28), rgba(8,8,10,.9));
+  }
+  /* Ueber dem Foto nur so viel, wie die Schrift zum Lesen braucht. */
+  .half--blog::after {
+    background: linear-gradient(to bottom,
+      rgba(8,8,10,.22) 0%, rgba(8,8,10,.16) 30%, rgba(8,8,10,.55) 58%, rgba(8,8,10,.88) 78%, rgba(8,8,10,.95) 100%);
+  }
+  .half__in { position: relative; z-index: 2; max-width: 31ch; display: flex; flex-direction: column; gap: .5rem; }
+
+  .half--app  { background: var(--bg);    clip-path: polygon(0 0, 63% 0, 37% 100%, 0 100%); }
+  .half--blog {
+    background: var(--panel); clip-path: polygon(63% 0, 100% 0, 100% 100%, 37% 100%);
+    align-items: flex-end; text-align: right;
+  }
+  .half--blog .half__in { margin-left: auto; align-items: flex-end; }
+
+  .landing[data-f="a"] .half--app  { clip-path: polygon(0 0, 74% 0, 48% 100%, 0 100%); }
+  .landing[data-f="a"] .half--blog { clip-path: polygon(74% 0, 100% 0, 100% 100%, 48% 100%); }
+  .landing[data-f="b"] .half--app  { clip-path: polygon(0 0, 52% 0, 26% 100%, 0 100%); }
+  .landing[data-f="b"] .half--blog { clip-path: polygon(52% 0, 100% 0, 100% 100%, 26% 100%); }
+
+  /* Der lange Weg als Naht — 1 px. Farbe traegt die Marke, nicht der Grund. */
+  .seam {
+    position: absolute; z-index: 3; top: -20%; left: 50%;
+    width: 1px; height: 140%;
+    transform: translateX(-50%) rotate(14.5deg);
+    background: linear-gradient(to bottom, transparent,
+      rgba(194,146,79,.16) 22%, var(--measured) 50%, rgba(194,146,79,.16) 78%, transparent);
+    box-shadow: 0 0 0 1px rgba(8,8,10,.55), 0 0 14px 2px rgba(194,146,79,.2);
+    pointer-events: none;
+    transition: transform .55s cubic-bezier(.22,.7,.3,1);
+  }
+  .landing[data-f="a"] .seam { transform: translateX(-50%) rotate(14.5deg) translateX(140px); }
+  .landing[data-f="b"] .seam { transform: translateX(-50%) rotate(14.5deg) translateX(-140px); }
+
+  .big {
+    font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em;
+    line-height: 1; color: var(--t1);
+    font-size: clamp(2.4rem, 6.4vw, 4.8rem); margin: .3rem 0 0;
+  }
+  .big :global(.wm) { font-size: inherit; }
+  .lede { margin: .5rem 0 0; color: var(--t4); font-size: 1rem; max-width: 30ch; }
+  /* Ueber einem Foto steht Skalengrau zu schwach. Eine Stufe hoeher,
+     aber nur auf der Blog-Haelfte — die Konsolenseite bleibt ruhig. */
+  .half--blog .caps { color: var(--t3); }
+  .half--blog .lede { color: var(--t2); }
+  .half:hover .go { gap: .9rem; color: var(--t1); border-color: var(--border-2); }
+
+  .corner {
+    position: absolute; z-index: 4; left: 0; right: 0;
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding-inline: var(--pad); pointer-events: none;
+  }
+  .corner--t { top: clamp(1.1rem, 3.4vh, 2.1rem); }
+  .corner--b { bottom: clamp(1rem, 3vh, 1.8rem); }
+
+  @media (max-width: 800px) {
+    .landing { height: auto; min-height: 0; }
+    .half {
+      position: relative; clip-path: none !important;
+      min-height: 54svh; padding-top: clamp(4.5rem, 12vh, 7rem);
+    }
+    .half--blog { text-align: left; align-items: flex-start; }
+    .half--blog .half__in { margin-left: 0; align-items: flex-start; }
+    /* Die Naht haengt jetzt an der Kante der zweiten Haelfte statt an
+       einer Zahl, die zufaellig dazu passt. */
+    .seam { display: none; }
+    .half--blog {
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(to right, transparent, var(--measured) 50%, transparent) 1;
+    }
+    .corner--b { position: relative; flex-direction: column; gap: .25rem; padding-block: 1.5rem; }
+  }
+</style>
+
+<script>
+  /* Die Naht folgt dem Zeiger. */
+  const landing = document.getElementById("landing");
+  if (landing) {
+    for (const el of landing.querySelectorAll<HTMLElement>("[data-f]")) {
+      const an = () => landing.setAttribute("data-f", el.dataset.f!);
+      el.addEventListener("mouseenter", an);
+      el.addEventListener("focus", an);
+    }
+    landing.addEventListener("mouseleave", () => landing.removeAttribute("data-f"));
+  }
+
+  /* Spektrum und Wasserfall.
+     Hausstil: duenne Linie 1,6 px, Verlauf darunter 22 % -> 0.
+     Die Kurve ist ein Messwert, also warm — nie blau. */
+  const cv = document.getElementById("spektrum") as HTMLCanvasElement | null;
+  if (cv) {
+    const ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const traeger = [0.17, 0.3, 0.46, 0.61, 0.79];
+    const verlauf: number[][] = [];
+    let t = 0;
+
+    const bild = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const r = cv.getBoundingClientRect();
+      const w = Math.max(1, Math.round(r.width));
+      const h = Math.max(1, Math.round(r.height));
+      cv.width = w * dpr; cv.height = h * dpr;
+      const ctx = cv.getContext("2d")!;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+
+      const bins = Math.max(60, Math.round(w / 3));
+      const werte = new Array<number>(bins);
+      t += 0.011;
+
+      for (let i = 0; i < bins; i++) {
+        const x = i / bins;
+        const rauschen =
+          Math.sin(x * 41 + t * 2.1) * 0.5 +
+          Math.sin(x * 97 - t * 3.3) * 0.3 +
+          Math.sin(x * 211 + t * 5.7) * 0.2;
+        let v = 0.13 + rauschen * 0.045;
+        for (let c = 0; c < traeger.length; c++) {
+          const d = Math.abs(x - traeger[c]);
+          v += (0.3 + 0.15 * Math.sin(t * (1.1 + c * 0.4) + c)) * Math.exp(-(d * d) / 0.00016);
+        }
+        werte[i] = Math.min(1, Math.max(0, v));
+      }
+
+      const trenn = h * 0.55;
+      const hub = h * 0.3;   // Ausschlag der Kurve, unabhaengig von der Grundlinie
+      verlauf.unshift(werte);
+      if (verlauf.length > 84) verlauf.pop();
+
+      const zeile = (h - trenn) / 84;
+      for (let r2 = 0; r2 < verlauf.length; r2++) {
+        const row = verlauf[r2];
+        for (let b = 0; b < row.length; b++) {
+          const a = Math.pow(row[b], 1.5);
+          ctx.fillStyle = `rgba(${Math.round(26 + a * 190)},${Math.round(24 + a * 140)},${Math.round(24 + a * 70)},${0.42 * (1 - r2 / 104)})`;
+          ctx.fillRect((b / bins) * w, trenn + r2 * zeile, w / bins + 1, zeile + 1);
+        }
+      }
+
+      ctx.beginPath();
+      ctx.moveTo(0, trenn);
+      for (let k = 0; k < bins; k++) ctx.lineTo((k / bins) * w, trenn - werte[k] * hub);
+      ctx.lineTo(w, trenn);
+      ctx.closePath();
+      const fuell = ctx.createLinearGradient(0, trenn - hub, 0, trenn);
+      fuell.addColorStop(0, "rgba(194,146,79,.22)");
+      fuell.addColorStop(1, "rgba(194,146,79,0)");
+      ctx.fillStyle = fuell;
+      ctx.fill();
+
+      ctx.beginPath();
+      for (let m = 0; m < bins; m++) {
+        const px = (m / bins) * w;
+        const py = trenn - werte[m] * hub;
+        m === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.strokeStyle = "rgba(216,165,95,.62)";
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
+
+      if (!ruhig) requestAnimationFrame(bild);
+    };
+    bild();
+  }
+</script>

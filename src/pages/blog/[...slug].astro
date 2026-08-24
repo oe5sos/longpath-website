@@ -1,0 +1,169 @@
+---
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Photo from "../../components/Photo.astro";
+import Readout from "../../components/Readout.astro";
+import { alleBeitraege, datumLang, wert, type Beitrag } from "../../lib/sota";
+
+export async function getStaticPaths() {
+  const beitraege = await alleBeitraege();
+  return beitraege.map((beitrag, i) => ({
+    params: { slug: beitrag.id },
+    props: {
+      beitrag,
+      // Neuere zuerst sortiert: [i-1] ist der neuere, [i+1] der aeltere.
+      neuer: beitraege[i - 1],
+      aelter: beitraege[i + 1],
+    },
+  }));
+}
+
+interface Props { beitrag: Beitrag; neuer?: Beitrag; aelter?: Beitrag; }
+const { beitrag, neuer, aelter } = Astro.props;
+const d = beitrag.data;
+const { Content } = await render(beitrag);
+
+/* Das Ablesegitter. Regel 7 — was nicht gemessen wurde, bleibt leer
+   und wird als Strich gezeigt, nicht als Null. */
+const felder = [
+  { k: "Referenz",   v: d.sota?.referenz },
+  { k: "Höhe",       v: d.sota ? `${d.sota.hoehe.toLocaleString("de-AT")} m` : undefined },
+  { k: "Punkte",     v: d.sota?.punkte },
+  { k: "QSO",        v: d.funk?.qso },
+  { k: "Leistung",   v: d.funk?.leistung },
+  { k: "Aufstieg",   v: d.funk?.aufstieg },
+  { k: "Weiteste",   v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString("de-AT")} km` : undefined },
+  { k: "Bänder",     v: d.funk?.baender?.join(" / ") },
+];
+const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
+---
+
+<Base titel={`${d.titel} — Longpath Blog`} beschreibung={d.vorspann} raum="blog">
+  <article class="article wrap">
+
+    <header class="head">
+      {d.sota && (
+        <p class="caps">
+          {d.sota.referenz} · {d.sota.gipfel} · {d.sota.hoehe.toLocaleString("de-AT")} m
+        </p>
+      )}
+      <h1>{d.titel}</h1>
+      <div class="meta">
+        <span>{datumLang(d.datum)}</span>
+        {d.funk?.qso && <><span class="sep">·</span><span>{d.funk.qso} QSO</span></>}
+        {d.funk?.baender?.length && <><span class="sep">·</span><span>{d.funk.baender.join(" / ")}</span></>}
+        {d.funk?.leistung && <><span class="sep">·</span><span>{d.funk.leistung}</span></>}
+      </div>
+      <p class="vorspann">{d.vorspann}</p>
+    </header>
+
+    <div class="aufmacher">
+      <Photo bild={d.aufmacher} alt={d.aufmacherAlt} ref={d.aufmacherRef}
+             format={d.aufmacherFormat} vordergrund sizes="100vw" />
+    </div>
+
+    <div class="body">
+      <Content />
+
+      {zeigeGitter && <Readout titel="Die Aktivierung in Zahlen" felder={felder} />}
+
+      {d.ausruestung && d.ausruestung.length > 0 && (
+        <>
+          <h2>Was mitgegangen ist</h2>
+          <ul class="kit">
+            {d.ausruestung.map((z) => (
+              <li><span>{z.was}</span><span>{wert(z.womit)}</span></li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <p class="caps signatur">73 · OE5SOS</p>
+    </div>
+
+    {(neuer || aelter) && (
+      <nav class="pager">
+        {aelter ? (
+          <a href={`/blog/${aelter.id}/`}>
+            <span class="caps">← Älter</span>
+            <strong>{aelter.data.titel}</strong>
+          </a>
+        ) : <span></span>}
+        {neuer ? (
+          <a href={`/blog/${neuer.id}/`} class="rechts">
+            <span class="caps">Neuer →</span>
+            <strong>{neuer.data.titel}</strong>
+          </a>
+        ) : <span></span>}
+      </nav>
+    )}
+  </article>
+</Base>
+
+<style>
+  .article { padding-bottom: clamp(3rem, 8vh, 5rem); }
+
+  .head {
+    max-width: var(--measure); margin: 0 auto;
+    padding: clamp(2.5rem, 7vh, 4.5rem) 0 clamp(1.5rem, 4vh, 2.5rem);
+    display: flex; flex-direction: column; gap: .8rem;
+  }
+  .head h1 { font-size: clamp(1.9rem, 4.6vw, 3.2rem); font-weight: 600; }
+  .vorspann { margin: .2rem 0 0; font-size: clamp(1.05rem, 2vw, 1.24rem); color: var(--t3); }
+
+  .aufmacher { margin: 0 0 clamp(2rem, 5vh, 3rem); }
+
+  .body { max-width: var(--measure); margin: 0 auto; }
+  .body :global(p) { margin: 0 0 1.25em; color: var(--t3); }
+  .body :global(h2) {
+    font-size: clamp(1.3rem, 2.6vw, 1.75rem); font-weight: 500;
+    margin: 2.2em 0 .7em; color: var(--t1);
+  }
+  .body :global(strong) { color: var(--t1); font-weight: 500; }
+  .body :global(a) { color: var(--t2); border-bottom: 1px solid var(--border-2); }
+  .body :global(a:hover) { color: var(--t1); border-color: var(--measured); }
+
+  /* Merksatz: > Zitat im Markdown */
+  .body :global(blockquote) {
+    margin: clamp(2rem, 5vh, 3rem) 0;
+    padding-left: 1.2rem; border-left: 2px solid var(--measured);
+    font-family: var(--ff-cond); font-weight: 400;
+    font-size: clamp(1.3rem, 2.8vw, 1.85rem); line-height: 1.28;
+    color: var(--t1); letter-spacing: .01em;
+  }
+  .body :global(blockquote p) { margin: 0; color: inherit; }
+
+  .body :global(figure) { margin: clamp(1.8rem, 5vh, 3rem) 0; }
+  .body :global(figcaption) {
+    margin-top: .6rem; font-family: var(--ff-mono); font-size: 9px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--t5);
+  }
+  .body :global(hr) { border: 0; border-top: 1px solid var(--border-fine); margin: 2.5rem 0; }
+
+  .kit { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .kit li {
+    display: flex; gap: 1rem; justify-content: space-between; align-items: baseline;
+    padding: .6rem 0; border-bottom: 1px solid var(--border-fine);
+  }
+  .kit span:first-child { color: var(--t2); }
+  .kit span:last-child { font-family: var(--ff-mono); font-size: .78rem; color: var(--t5); text-align: right; }
+
+  .signatur { margin-top: 2.5rem; }
+
+  .pager {
+    max-width: var(--measure); margin: clamp(3rem, 7vh, 4.5rem) auto 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    border-top: 1px solid var(--border-fine); padding-top: 1.6rem;
+  }
+  .pager a { display: flex; flex-direction: column; gap: .35rem; }
+  .pager a.rechts { text-align: right; align-items: flex-end; }
+  .pager strong {
+    font-family: var(--ff-cond); font-weight: 500; font-size: 1.08rem;
+    color: var(--t2); transition: color var(--ease);
+  }
+  .pager a:hover strong { color: var(--t1); }
+  @media (max-width: 560px) {
+    .pager { grid-template-columns: 1fr; }
+    .pager a.rechts { text-align: left; align-items: flex-start; }
+  }
+</style>

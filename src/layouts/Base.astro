@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  titel: string;
+  beschreibung: string;
+  raum: "app" | "blog";
+  vorschau?: string;
+  /** Startseite: ohne Leiste und Fuss. */
+  nackt?: boolean;
+}
+const { titel, beschreibung, raum, vorschau, nackt = false } = Astro.props;
+---
+<!doctype html>
+<html lang="de">
+  <head><BaseHead titel={titel} beschreibung={beschreibung} vorschau={vorschau} /></head>
+  <body>
+    {!nackt && <Nav raum={raum} pfad={Astro.url.pathname} />}
+    <slot />
+    {!nackt && <div class="wrap"><Footer raum={raum} /></div>}
+  </body>
+</html>

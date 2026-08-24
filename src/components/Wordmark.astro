@@ -1,0 +1,46 @@
+---
+/**
+ * Der Longpath-Schriftzug.
+ *
+ * Uebernommen aus ../NereusSDR/resources/branding/longpath-wordmark.svg:
+ * das O ist die Bildmarke — kurzer Weg gestrichelt oben herum, langer
+ * Weg kraeftig unten. Marke und Wort sind dasselbe Zeichen.
+ *
+ * Setzt Barlow Condensed SemiBold voraus (siehe BaseHead.astro).
+ * Skaliert mit font-size, laesst sich also ueberall einsetzen.
+ */
+interface Props {
+  /** Den kurzen Weg weglassen — unter etwa 24 px verschwindet er ohnehin. */
+  klein?: boolean;
+  class?: string;
+}
+const { klein = false, class: klass = "" } = Astro.props;
+---
+
+<span class:list={["wm", klass]}>L<svg
+    class="wm__o" viewBox="-2 -2 52 52" fill="none" aria-hidden="true"
+  ><circle class="wm__ring" cx="24" cy="24" r="21" stroke-width="6.5"></circle>{
+    !klein && (
+      <path class="wm__short" d="M9 12 A25 25 0 0 1 39 12"
+            stroke-width="2.4" stroke-dasharray="3 3" stroke-linecap="round" />
+    )
+  }<path class="wm__long" d="M9 12 A21 21 0 0 0 24 45 A21 21 0 0 0 39 12"
+         stroke-width="4.5" stroke-linecap="round"></path></svg
+>NGPATH</span>
+
+<style>
+  .wm {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--ff-cond);
+    font-weight: 600;
+    letter-spacing: .06em;
+    line-height: 1;
+    color: var(--t1);
+    white-space: nowrap;
+  }
+  .wm__o { height: .78em; width: auto; margin-inline: .045em; flex-shrink: 0; overflow: visible; }
+  .wm__ring  { stroke: var(--t1); }
+  .wm__short { stroke: var(--t6); }
+  .wm__long  { stroke: var(--measured); }
+</style>

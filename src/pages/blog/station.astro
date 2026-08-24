@@ -1,0 +1,51 @@
+---
+import Base from "../../layouts/Base.astro";
+import Readout from "../../components/Readout.astro";
+import { alleBeitraege, nurAktivierungen, jahresbilanz } from "../../lib/sota";
+
+const beitraege = await alleBeitraege();
+const akt = nurAktivierungen(beitraege);
+const b = jahresbilanz(beitraege);
+const hoechster = akt.length
+  ? akt.reduce((a, c) => (c.data.sota!.hoehe > a.data.sota!.hoehe ? c : a))
+  : undefined;
+const weiteste = akt.reduce<number | undefined>(
+  (m, c) => (c.data.funk?.weiteste && (!m || c.data.funk.weiteste > m) ? c.data.funk.weiteste : m),
+  undefined,
+);
+---
+<Base titel="Station — Longpath Blog"
+      beschreibung="Die portable Station von OE5SOS und was sie bisher gemacht hat."
+      raum="blog">
+  <main class="wrap seite">
+    <p class="caps">OE5SOS · JN67</p>
+    <h1>Die Station</h1>
+
+    <Readout titel="Bisher" felder={[
+      { k: "Beiträge", v: b.beitraege },
+      { k: "Gipfel",   v: b.gipfel },
+      { k: "QSO",      v: b.qso },
+      { k: "Punkte",   v: b.punkte },
+      { k: "Höchster", v: hoechster ? `${hoechster.data.sota!.hoehe.toLocaleString("de-AT")} m` : undefined },
+      { k: "Weiteste", v: weiteste ? `${weiteste.toLocaleString("de-AT")} km` : undefined },
+    ]} />
+
+    <div class="text">
+      <p>
+        Portabel: fünf Watt, eine endgespeiste Antenne am Wanderstock, drei
+        Amperestunden LiFePO₄. Zu Hause läuft die Gegenstelle unter
+        <a href="/longpath/">Longpath</a>, der Konsole, die ich für
+        OpenHPSDR-Geräte schreibe — was auf dem Berg auffällt, landet
+        früher oder später als Änderung im Programm.
+      </p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .seite { padding-block: clamp(3rem, 9vh, 6rem); }
+  .seite h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: .6rem 0 0; }
+  .text { max-width: var(--measure); }
+  .text a { color: var(--t2); border-bottom: 1px solid var(--border-2); }
+  .text a:hover { color: var(--t1); border-color: var(--measured); }
+</style>

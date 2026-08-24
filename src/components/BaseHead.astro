@@ -1,0 +1,34 @@
+---
+interface Props {
+  titel: string;
+  beschreibung: string;
+  /** Bild fuer die Vorschau in Chat und sozialen Netzen. */
+  vorschau?: string;
+}
+const { titel, beschreibung, vorschau } = Astro.props;
+const kanonisch = new URL(Astro.url.pathname, Astro.site);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={kanonisch} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<title>{titel}</title>
+<meta name="description" content={beschreibung} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={titel} />
+<meta property="og:description" content={beschreibung} />
+<meta property="og:url" content={kanonisch} />
+{vorschau && <meta property="og:image" content={new URL(vorschau, Astro.site)} />}
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+/>
+
+<link rel="alternate" type="application/rss+xml" title="Longpath Blog" href="/blog/rss.xml" />

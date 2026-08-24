@@ -1,0 +1,106 @@
+@import "./tokens.css";
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--t3);
+  font-family: var(--ff-body);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--sel-border); outline-offset: 3px; }
+::selection { background: var(--sel-bg); color: var(--sel-text); }
+
+img, canvas, svg, video { max-width: 100%; }
+
+h1, h2, h3 {
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.1;
+  color: var(--t1);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Regel 1 — nie ein Block ohne Ueberschrift.
+   Versalzeile: 9 px, Laufweite .18em, Farbe Skala. */
+.caps {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--t5);
+  margin: 0;
+}
+.caps--m { color: var(--measured); }
+
+/* Regel 4 — Zahlen sind Monospace, Woerter nicht. */
+.num { font-family: var(--ff-mono); font-variant-numeric: tabular-nums; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+
+.meta {
+  display: flex; align-items: center; gap: .55rem; flex-wrap: wrap;
+  font-family: var(--ff-mono); font-size: 9px;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--t5); font-variant-numeric: tabular-nums;
+}
+.meta .sep { color: var(--border-2); }
+
+.go {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--t3);
+  border-bottom: 1px solid var(--border); padding-bottom: .35rem;
+  align-self: flex-start;
+  transition: gap var(--ease), color var(--ease), border-color var(--ease);
+}
+a:hover .go { gap: .9rem; color: var(--t1); border-color: var(--border-2); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .7rem;
+  height: 34px; padding: 0 1.2rem; border-radius: var(--radius-s);
+  font-family: var(--ff-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--sel-text);
+  background: linear-gradient(to bottom, var(--sel-bg), var(--sel-bg-2));
+  border: 1px solid var(--sel-border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  transition: filter var(--ease);
+}
+.btn:hover { filter: brightness(1.14); }
+.btn--quiet {
+  color: var(--t3); background: var(--btn);
+  border-color: var(--border); box-shadow: none;
+}
+.btn--quiet:hover { background: var(--btn-hover); color: var(--t1); filter: none; }
+
+/* Panelkopf — Regel 3: 3 px Akzentbalken, Titel versal */
+.panel { background: var(--panel); border: 1px solid var(--border-fine); border-radius: var(--radius); overflow: hidden; }
+.panel__head {
+  position: relative; display: flex; align-items: center; gap: .6rem;
+  height: 33px; padding-inline: .9rem;
+  background: linear-gradient(to bottom, #16161a, #111113);
+  border-bottom: 1px solid var(--border-fine);
+}
+.panel__head::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--accent-bar);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}

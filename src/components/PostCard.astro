@@ -1,0 +1,55 @@
+---
+import Photo from "./Photo.astro";
+import { datumKurz, type Beitrag } from "../lib/sota";
+
+interface Props { beitrag: Beitrag; gross?: boolean; }
+const { beitrag, gross = false } = Astro.props;
+const d = beitrag.data;
+const href = `/blog/${beitrag.id}/`;
+const ref = d.sota ? `${d.sota.referenz} · ${d.sota.hoehe.toLocaleString("de-AT")} m` : undefined;
+---
+{gross ? (
+  <a class="lead" href={href}>
+    <Photo bild={d.aufmacher} alt={d.aufmacherAlt} ref={ref} format="breit" vordergrund
+           sizes="(max-width: 800px) 100vw, 700px" />
+    <div class="lead__text">
+      <div class="meta">
+        <span>{datumKurz(d.datum)} {d.datum.getFullYear()}</span>
+        {d.funk?.qso && <><span class="sep">·</span><span>{d.funk.qso} QSO</span></>}
+        {d.funk?.baender?.length && <><span class="sep">·</span><span>{d.funk.baender.join(" / ")}</span></>}
+      </div>
+      <h2>{d.titel}</h2>
+      <p>{d.vorspann}</p>
+      <span class="go">Weiterlesen <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+) : (
+  <a class="post" href={href}>
+    <Photo bild={d.aufmacher} alt={d.aufmacherAlt} ref={ref}
+           sizes="(max-width: 700px) 100vw, 380px" />
+    <div class="meta">
+      <span>{datumKurz(d.datum)} {d.datum.getFullYear()}</span>
+      {d.funk?.qso && <><span class="sep">·</span><span>{d.funk.qso} QSO</span></>}
+    </div>
+    <h3>{d.titel}</h3>
+    <p>{d.vorspann}</p>
+  </a>
+)}
+
+<style>
+  .lead {
+    display: grid; grid-template-columns: 1.45fr 1fr;
+    gap: clamp(1.4rem, 4vw, 3rem); align-items: center;
+    padding-bottom: clamp(2.5rem, 6vh, 4rem);
+    border-bottom: 1px solid var(--border-fine);
+  }
+  .lead__text { display: flex; flex-direction: column; gap: .65rem; }
+  .lead h2 { font-size: clamp(1.5rem, 3.2vw, 2.3rem); font-weight: 500; }
+  .lead p { margin: 0; color: var(--t4); max-width: 44ch; }
+  @media (max-width: 800px) { .lead { grid-template-columns: 1fr; } }
+
+  .post { display: flex; flex-direction: column; gap: .75rem; }
+  .post h3 { font-size: 1.28rem; font-weight: 500; color: var(--t2); transition: color var(--ease); }
+  .post:hover h3 { color: var(--t1); }
+  .post p { margin: 0; font-size: .95rem; color: var(--t4); }
+</style>

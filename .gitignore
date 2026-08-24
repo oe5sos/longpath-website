@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# Ergebnis der Bildpipeline — entsteht beim Bauen aus photos/raw/.
+# Die Originale sind das Gedaechtnis, das Gradierte ist reproduzierbar.
+src/assets/photos/*.jpg
+src/assets/photos/*.jpeg
+src/assets/photos/*.png

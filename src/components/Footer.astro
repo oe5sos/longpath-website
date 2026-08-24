@@ -1,0 +1,52 @@
+---
+interface Props { raum: "app" | "blog"; }
+const { raum } = Astro.props;
+---
+<footer class="foot">
+  <div>
+    <p class="caps">OE5SOS · Martin Fischer</p>
+    <p class="caps num" style="margin:.4rem 0 0">
+      Gmunden, Österreich · JN67{raum === "blog" ? " · 5 W portabel" : ""}
+    </p>
+  </div>
+  <div class="foot__cols">
+    <div class="foot__col">
+      {raum === "app" ? (
+        <>
+          <a href="/longpath/#download">Versionen</a>
+          <a href="/longpath/#hardware">Hardware</a>
+          <a href="/longpath/#signalkette">Signalkette</a>
+        </>
+      ) : (
+        <>
+          <a href="/blog/">Beiträge</a>
+          <a href="/blog/archiv/">Archiv</a>
+          <a href="/blog/rss.xml">RSS</a>
+        </>
+      )}
+    </div>
+    <div class="foot__col">
+      <a href={raum === "app" ? "/blog/" : "/longpath/"}>{raum === "app" ? "Blog" : "App"}</a>
+      <a href="/">Start</a>
+      <a href="/impressum/">Impressum</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .foot {
+    border-top: 1px solid var(--border-fine);
+    margin-top: clamp(3rem, 7vh, 5rem);
+    padding-block: clamp(2.2rem, 5vh, 3.5rem);
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    justify-content: space-between; align-items: flex-end;
+  }
+  .foot__cols { display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 5vw, 3.5rem); }
+  .foot__col { display: flex; flex-direction: column; gap: .45rem; }
+  .foot__col a {
+    font-family: var(--ff-mono); font-size: 9px;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--t5); transition: color var(--ease);
+  }
+  .foot__col a:hover { color: var(--t2); }
+</style>

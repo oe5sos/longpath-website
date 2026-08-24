@@ -1,0 +1,67 @@
+/* ─────────────────────────────────────────────────────────────
+   Longpath — Farb- und Schriftmarken der Website.
+
+   Die Werte stammen aus dem Programm, nicht von dieser Seite:
+     ../NereusSDR/src/gui/StyleConstants.h
+     ../NereusSDR/themes/oe5sos.json
+     ../NereusSDR/docs/design/HAUSSTIL.md
+
+   Wer dort etwas aendert, muss es hier mitziehen. Zwei Zahlen
+   fuer eine Rolle sind schlimmer als die falschere von beiden.
+
+   Die eine Regel: Farbe bedeckt hoechstens zwei Prozent der
+   Flaeche. Bernstein nur, wo etwas gemessen wird. Blau nur,
+   wo man klickt.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* Flaechen — neutrale Grautoene, nie blaustichig */
+  --bg:          #08080a;
+  --panel:       #0c0c0e;
+  --panel-2:     #111113;
+  --btn:         #1a1a1e;
+  --btn-hover:   #1e1e22;
+  --border-fine: #191a1d;
+  --border:      #26262b;
+  --border-2:    #2c2c31;
+
+  /* Titelleiste, wie im Programm */
+  --tile-top:    #26262b;
+  --tile-mid:    #1c1c20;
+  --tile-bot:    #141417;
+  --tile-line:   #0d0d0f;
+
+  /* Die Textleiter, Stand 2026-08-20 */
+  --t1: #dcdce1;   /* Werte */
+  --t2: #c4c4ca;   /* Titel */
+  --t3: #a6a6ac;   /* Beschriftung, Fliesstext */
+  --t4: #909096;   /* nachgeordnet */
+  --t5: #7e7e85;   /* Skala, Versalzeilen */
+  --t6: #58585e;   /* inaktiv */
+
+  /* Bedeutung — jede Farbe genau ein Job */
+  --measured:    #c2924f;   /* gemessen, Kurve, der lange Weg */
+  --measured-hi: #d8a55f;   /* Zeiger und Messwerte */
+  --warn:        #a8853f;
+  --ok:          #6fa384;
+  --ok-bg:       #1c3a2a;
+  --ok-border:   #2c5c44;
+  --sel-bg:      #254a72;   /* anfassbar */
+  --sel-bg-2:    #1e3d5f;
+  --sel-border:  #2f5c86;
+  --sel-text:    #cfe2f5;
+  --accent-bar:  linear-gradient(to bottom, #a87a3c, #8a6a30);
+
+  /* Schrift */
+  --ff-cond: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  --ff-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --ff-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Masse */
+  --pad:     clamp(1.25rem, 4vw, 4.5rem);
+  --maxw:    1180px;
+  --measure: 66ch;          /* Zeilenlaenge im Fliesstext */
+  --radius:  8px;
+  --radius-s: 6px;
+  --ease:    150ms ease;    /* Nichts springt. */
+}

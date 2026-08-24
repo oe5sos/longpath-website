@@ -1,0 +1,121 @@
+---
+import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
+import {
+  alleBeitraege, nurAktivierungen, schlagworte,
+  alsAdresse, datumIso, wert,
+} from "../../lib/sota";
+
+const beitraege = await alleBeitraege();
+const [aufmacher, ...rest] = beitraege;
+const marken = schlagworte(beitraege).slice(0, 6);
+const aktivierungen = nurAktivierungen(beitraege);
+---
+
+<Base
+  titel="Blog — Longpath"
+  beschreibung="Fotos und Notizen von den Gipfeln über dem Traunsee. Summits on the Air, OE5SOS."
+  raum="blog"
+>
+  <main class="wrap">
+    <header class="hero">
+      <p class="caps">Summits on the Air · OE/OO · seit 2023</p>
+      <h1>BLOG</h1>
+      <p>Fotos und Notizen von den Gipfeln über dem Traunsee — was fünf Watt wirklich schaffen, wenn man die Station selbst hinaufträgt.</p>
+    </header>
+
+    {marken.length > 0 && (
+      <div class="filters">
+        <a class="filter" href="/blog/" aria-current="page">Alle</a>
+        {marken.map((m) => (
+          <a class="filter" href={`/blog/schlagwort/${alsAdresse(m)}/`}>{m}</a>
+        ))}
+      </div>
+    )}
+
+    {aufmacher && <PostCard beitrag={aufmacher} gross />}
+
+    <section class="posts">
+      {rest.map((b) => <PostCard beitrag={b} />)}
+    </section>
+
+    {aktivierungen.length > 0 && (
+      <section class="section">
+        <div class="section__head">
+          <p class="caps">Aktivierungen</p>
+          <h2>Jeder Gipfel, direkt aus den Beiträgen gezogen.</h2>
+          <p>Diese Tabelle wird nicht gepflegt. Sie entsteht beim Bauen aus den Kopfdaten der Beiträge — wer einen Beitrag schreibt, hat sie schon geschrieben.</p>
+        </div>
+        <div class="log-scroll">
+          <table class="log">
+            <thead>
+              <tr>
+                <th>Datum</th><th>Referenz</th><th>Gipfel</th><th>Höhe</th>
+                <th>Band</th><th>Art</th><th>QSO</th><th>Pkt</th>
+              </tr>
+            </thead>
+            <tbody>
+              {aktivierungen.map((b) => (
+                <tr>
+                  <td>{datumIso(b.data.datum)}</td>
+                  <td>{b.data.sota!.referenz}</td>
+                  <td class="name"><a href={`/blog/${b.id}/`}>{b.data.sota!.gipfel}</a></td>
+                  <td>{b.data.sota!.hoehe.toLocaleString("de-AT")} m</td>
+                  <td>{wert(b.data.funk?.baender?.join(" / "))}</td>
+                  <td>{wert(b.data.funk?.arten?.join(" · "))}</td>
+                  <td>{wert(b.data.funk?.qso)}</td>
+                  <td class="pts">{b.data.sota!.punkte}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+  </main>
+</Base>
+
+<style>
+  .hero { padding: clamp(3rem, 9vh, 6rem) 0 clamp(1.8rem, 4vh, 3rem); display: flex; flex-direction: column; gap: .7rem; }
+  .hero h1 { font-size: clamp(2.2rem, 6.5vw, 4.2rem); letter-spacing: .05em; }
+  .hero p:not(.caps) { margin: .3rem 0 0; max-width: 48ch; font-size: clamp(1rem, 1.9vw, 1.16rem); color: var(--t4); }
+
+  /* Regel 2 — genau einer leuchtet, der Rest tritt zurueck. */
+  .filters { display: flex; flex-wrap: wrap; gap: .4rem; padding-bottom: clamp(1.5rem, 4vh, 2.5rem); }
+  .filter {
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--t5); background: var(--btn); border: 1px solid var(--border-fine);
+    border-radius: var(--radius-s); padding: .4rem .7rem;
+    transition: color var(--ease), border-color var(--ease);
+  }
+  .filter:hover { color: var(--t2); border-color: var(--border); }
+  .filter[aria-current] {
+    color: var(--sel-text);
+    background: linear-gradient(to bottom, var(--sel-bg), var(--sel-bg-2));
+    border-color: var(--sel-border);
+  }
+
+  .posts {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    gap: clamp(1.6rem, 3.6vw, 2.6rem);
+    padding-block: clamp(2.5rem, 6vh, 4rem);
+  }
+
+  .section { padding-block: clamp(3rem, 8vh, 5.5rem); border-top: 1px solid var(--border-fine); }
+  .section__head { display: flex; flex-direction: column; gap: .7rem; margin-bottom: clamp(1.8rem, 4vh, 2.8rem); }
+  .section__head h2 { font-size: clamp(1.5rem, 3.2vw, 2.2rem); max-width: 24ch; }
+  .section__head p:not(.caps) { margin: 0; color: var(--t4); max-width: 58ch; }
+
+  .log { width: 100%; border-collapse: collapse; font-family: var(--ff-mono); font-size: .76rem; font-variant-numeric: tabular-nums; }
+  .log th {
+    text-align: left; font-weight: 500; font-size: 9px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--t5);
+    padding: 0 1.1rem .75rem 0; border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  .log td { padding: .7rem 1.1rem .7rem 0; border-bottom: 1px solid var(--border-fine); color: var(--t4); white-space: nowrap; }
+  .log tr:hover td { color: var(--t3); }
+  .log td.name { color: var(--t2); font-family: var(--ff-body); font-size: .95rem; white-space: normal; }
+  .log td.pts { color: var(--measured-hi); }
+  .log-scroll { overflow-x: auto; }
+</style>

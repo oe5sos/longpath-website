@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base titel="Impressum — Longpath" beschreibung="Angaben nach § 5 ECG." raum="app">
+  <main class="wrap seite">
+    <p class="caps">Angaben nach § 5 ECG</p>
+    <h1>Impressum</h1>
+    <div class="text">
+      <p>
+        Martin Fischer, OE5SOS<br />
+        Gmunden, Oberösterreich<br />
+        <!-- TODO: Anschrift und Kontakt eintragen -->
+      </p>
+      <h2>Zur Software</h2>
+      <p>
+        Longpath ist freie Software unter der GNU General Public License v3.
+        Es ist ein Fork von NereusSDR (J. J. Boyd, KG4VCF), selbst eine
+        C++20/Qt6-Portierung von Thetis. Das DSP ist WDSP von Warren Pratt (NR0V).
+        Die vollständige Herkunft steht im Quellbaum unter
+        <code>docs/attribution/</code>.
+      </p>
+      <h2>Haftung</h2>
+      <p>
+        Die Software wird ohne jede Gewährleistung bereitgestellt. Der Betrieb
+        eines Senders erfolgt in eigener Verantwortung des lizenzierten
+        Funkamateurs.
+      </p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .seite { padding-block: clamp(3rem, 9vh, 6rem); }
+  .seite h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: .6rem 0 1.5rem; }
+  .text { max-width: var(--measure); }
+  .text p { margin: 0 0 1.25em; }
+  .text h2 { font-size: 1.4rem; font-weight: 500; margin: 2em 0 .6em; }
+  .text code { font-family: var(--ff-mono); font-size: .85em; color: var(--t2); }
+</style>
