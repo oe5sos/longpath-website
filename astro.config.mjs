@@ -4,11 +4,14 @@ import sitemap from "@astrojs/sitemap";
 
 // Die Seite ist statisch. Kein Server, kein Update-Zwang.
 export default defineConfig({
-  // ⚠️ HIER die eigene Domain eintragen, sobald sie da ist.
-  // Davon haengen ab: RSS-Feed, sitemap.xml und die Vorschaubilder
-  // beim Teilen. Solange hier ein Platzhalter steht, zeigen alle
-  // drei ins Leere.
-  site: "https://longpath.example",
+  // Die massgebliche Adresse. Daran haengen RSS-Feed, sitemap.xml,
+  // die kanonischen Verweise und die Vorschaubilder beim Teilen.
+  //
+  // MIT www, nicht ohne: eine Seite braucht genau EINE Adresse, unter
+  // der sie steht. Stuenden beide, waeren es fuer Suchmaschinen zwei
+  // Seiten mit demselben Inhalt. longpath.at leitet darum hierher
+  // (public/_redirects).
+  site: "https://www.longpath.at",
   integrations: [sitemap()],
   build: { inlineStylesheets: "auto" },
   image: {

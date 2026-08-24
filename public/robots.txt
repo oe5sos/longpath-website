@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://longpath.example/sitemap-index.xml
+Sitemap: https://www.longpath.at/sitemap-index.xml

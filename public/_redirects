@@ -1,0 +1,10 @@
+# Cloudflare Pages liest diese Datei beim Ausliefern.
+#
+# Eine Seite braucht genau eine Adresse. Ohne diese Zeile waere sie
+# unter longpath.at UND www.longpath.at erreichbar — fuer eine
+# Suchmaschine zwei Seiten mit demselben Inhalt, und Verweise von
+# aussen verteilen sich auf beide.
+#
+# 301 heisst "dauerhaft umgezogen": Browser und Suchmaschinen merken
+# es sich.
+https://longpath.at/*    https://www.longpath.at/:splat    301

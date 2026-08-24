@@ -37,17 +37,32 @@ Foto, ein Commit — Cloudflare baut selbst.
 
 ## Die Domain anhängen
 
-1. Domain kaufen (bei einem beliebigen Anbieter).
-2. Im Pages-Projekt → **Custom domains** → **Set up a domain**.
-3. Cloudflare nennt zwei Nameserver. Die beim Domain-Anbieter
-   eintragen.
-4. Warten (meist Minuten, im schlimmsten Fall Stunden). HTTPS richtet
-   Cloudflare selbst ein.
+Die Domain ist **longpath.at**, die maßgebliche Adresse
+**www.longpath.at**. Beides steht schon in `astro.config.mjs`,
+`public/robots.txt` und `public/_redirects` — daran ist nichts mehr
+zu tun.
 
-**Danach nicht vergessen:** die echte Domain in `astro.config.mjs`
-unter `site` eintragen und in `public/robots.txt` die Sitemap-Zeile
-mitziehen. Solange dort `longpath.example` steht, zeigen der
-RSS-Feed, `sitemap.xml` und die Vorschaubilder beim Teilen ins Leere.
+Im Pages-Projekt → **Custom domains** → **Set up a domain**. Dort
+**beide** eintragen:
+
+    www.longpath.at      ← die eigentliche Seite
+    longpath.at          ← leitet auf www weiter
+
+Cloudflare nennt zwei Nameserver. Die beim Domain-Anbieter (nic.at
+oder wo du sie gekauft hast) anstelle der bisherigen eintragen. Dann
+warten — meist Minuten, im schlimmsten Fall ein paar Stunden. HTTPS
+richtet Cloudflare selbst ein, ohne Zutun.
+
+### Warum www und nicht longpath.at allein
+
+Eine Seite braucht genau **eine** Adresse. Wären beide erreichbar,
+sähe eine Suchmaschine zwei Seiten mit demselben Inhalt, und Verweise
+von außen verteilten sich auf beide. `public/_redirects` schickt darum
+alles von `longpath.at` dauerhaft (301) auf `www.longpath.at`.
+
+Umgekehrt ginge genauso gut — dann müssten `site`, `robots.txt` und
+`_redirects` gemeinsam gedreht werden. Wichtig ist nur, dass alle drei
+dasselbe sagen.
 
 ---
 
