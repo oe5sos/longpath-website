@@ -1,22 +1,22 @@
 ---
 titel: "Die beiden, für die ich die Software schreibe"
 datum: 2026-08-25
-vorspann: "Zwei Kisten auf demselben Tisch, ähnlich groß, beide über LAN angebunden — und trotzdem zwei völlig verschiedene Verhältnisse zur Software."
+vorspann: "Zwei Kisten auf dem selben Tisch, ähnlich groß, beide über LAN angebunden — und trotzdem zwei völlig verschiedene Verhältnisse zur Software."
 aufmacher: "../../assets/photos/anan-und-sunsdr.jpg"
-aufmacherAlt: "Zwei Funkgeräte nebeneinander: links ein Apache-Labs-Gerät mit Lüfter obenauf, rechts ein SunSDR2 QRP mit großem Kühlkörper"
-aufmacherRef: "Links Apache Labs, rechts SunSDR2 QRP"
+aufmacherAlt: "Zwei Funkgeräte nebeneinander: links ein ANAN-10E von Apache Labs mit Lüfter obenauf, rechts ein SunSDR2 QRP mit großem Kühlkörper"
+aufmacherRef: "Links ANAN-10E, rechts SunSDR2 QRP"
 aufmacherFormat: "quer"
 schlagworte: ["Ausrüstung", "2026", "SunSDR", "OpenHPSDR"]
 ---
 
-Links das Apache-Labs-Gerät, rechts der SunSDR2 QRP von Expert
+Links der ANAN-10E von Apache Labs, rechts der SunSDR2 QRP von Expert
 Electronics. Von außen fast dasselbe: eine Handbreit, LAN hinein,
 Kopfhörer und Mikrofon vorne. Man würde nicht vermuten, dass sie in der
 Software zwei grundverschiedene Dinge sind.
 
 ## Der Unterschied steckt nicht im Blech
 
-**Beim Apache-Labs-Gerät rechnet Longpath.** Es meldet sich als
+**Beim ANAN-10E rechnet Longpath.** Das Gerät meldet sich als
 Hermes, spricht OpenHPSDR, und was aus dem Gehäuse kommt, sind rohe
 I/Q-Daten. Filtern, Demodulieren, Rauschminderung, die ganze
 Sendekette — das passiert alles im Rechner, in WDSP. Die Kiste ist im
@@ -36,7 +36,7 @@ Client und ExpertSDR2 der Server.
 
 Das klingt nach weniger, und das ist es auch. Aber es heißt, dass ein
 Gerät, das gar kein OpenHPSDR spricht, trotzdem im selben Fenster
-liegt — mit demselben Wasserfall, demselben Ton, derselben
+liegt — mit dem selben Wasserfall, dem selben Ton, der selben
 Abstimmung.
 
 ## Was man am Foto sieht
