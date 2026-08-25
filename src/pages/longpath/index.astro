@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Wordmark from "../../components/Wordmark.astro";
 import Screens from "../../components/Screens.astro";
+import Spektrum from "../../components/Spektrum.astro";
 
 /* Inhalte aus ../NereusSDR/README.md. Wenn dort eine Version steigt,
    gehoert sie hier mitgezogen — es gibt bisher keine Automatik dafuer. */
@@ -95,6 +96,7 @@ const pakete = [
   raum="app"
 >
   <header class="hero">
+    <Spektrum art="band" grundlinie={0.74} />
     <div class="hero__in">
       <p class="caps">Version {VERSION} · GPLv3</p>
       <div class="hero__wm"><Wordmark /></div>
@@ -286,8 +288,18 @@ const pakete = [
 </Base>
 
 <style>
-  .hero { position: relative; border-bottom: 1px solid var(--border-fine); }
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--border-fine); }
+  /* Der Schleier liegt zwischen Zeichnung und Schrift. Oben dunkler,
+     damit die Leiste sich nicht auf dem Wasserfall abzeichnet; unten
+     fast deckend, damit das Ablesegitter ruhig steht. */
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(to bottom,
+      rgba(8,8,10,.74) 0%, rgba(8,8,10,.44) 40%, rgba(8,8,10,.9) 100%);
+  }
+  .hero .readout { position: relative; z-index: 2; }
   .hero__in {
+    position: relative; z-index: 2;
     max-width: var(--maxw); margin: 0 auto;
     padding: clamp(4rem, 13vh, 8rem) var(--pad) clamp(2.5rem, 7vh, 4.5rem);
     display: flex; flex-direction: column; gap: 1.2rem; align-items: flex-start;

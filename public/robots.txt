@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /entwurf/
 
 Sitemap: https://www.longpath.at/sitemap-index.xml

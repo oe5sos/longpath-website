@@ -10,6 +10,7 @@
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Wordmark from "../components/Wordmark.astro";
+import Spektrum from "../components/Spektrum.astro";
 import { alleBeitraege } from "../lib/sota";
 
 const beitraege = await alleBeitraege();
@@ -25,7 +26,7 @@ const neuester = beitraege[0];
   <div class="landing" id="landing">
 
     <a class="half half--app" href="/longpath/" data-f="a">
-      <canvas id="spektrum" aria-hidden="true"></canvas>
+      <Spektrum art="band" grundlinie={0.55} />
       <div class="half__in">
         <p class="caps">OpenHPSDR · Protokoll 1 + 2</p>
         <div class="big"><Wordmark /></div>
@@ -184,82 +185,4 @@ const neuester = beitraege[0];
     landing.addEventListener("mouseleave", () => landing.removeAttribute("data-f"));
   }
 
-  /* Spektrum und Wasserfall.
-     Hausstil: duenne Linie 1,6 px, Verlauf darunter 22 % -> 0.
-     Die Kurve ist ein Messwert, also warm — nie blau. */
-  const cv = document.getElementById("spektrum") as HTMLCanvasElement | null;
-  if (cv) {
-    const ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const traeger = [0.17, 0.3, 0.46, 0.61, 0.79];
-    const verlauf: number[][] = [];
-    let t = 0;
-
-    const bild = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const r = cv.getBoundingClientRect();
-      const w = Math.max(1, Math.round(r.width));
-      const h = Math.max(1, Math.round(r.height));
-      cv.width = w * dpr; cv.height = h * dpr;
-      const ctx = cv.getContext("2d")!;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, w, h);
-
-      const bins = Math.max(60, Math.round(w / 3));
-      const werte = new Array<number>(bins);
-      t += 0.011;
-
-      for (let i = 0; i < bins; i++) {
-        const x = i / bins;
-        const rauschen =
-          Math.sin(x * 41 + t * 2.1) * 0.5 +
-          Math.sin(x * 97 - t * 3.3) * 0.3 +
-          Math.sin(x * 211 + t * 5.7) * 0.2;
-        let v = 0.13 + rauschen * 0.045;
-        for (let c = 0; c < traeger.length; c++) {
-          const d = Math.abs(x - traeger[c]);
-          v += (0.3 + 0.15 * Math.sin(t * (1.1 + c * 0.4) + c)) * Math.exp(-(d * d) / 0.00016);
-        }
-        werte[i] = Math.min(1, Math.max(0, v));
-      }
-
-      const trenn = h * 0.55;
-      const hub = h * 0.3;   // Ausschlag der Kurve, unabhaengig von der Grundlinie
-      verlauf.unshift(werte);
-      if (verlauf.length > 84) verlauf.pop();
-
-      const zeile = (h - trenn) / 84;
-      for (let r2 = 0; r2 < verlauf.length; r2++) {
-        const row = verlauf[r2];
-        for (let b = 0; b < row.length; b++) {
-          const a = Math.pow(row[b], 1.5);
-          ctx.fillStyle = `rgba(${Math.round(26 + a * 190)},${Math.round(24 + a * 140)},${Math.round(24 + a * 70)},${0.42 * (1 - r2 / 104)})`;
-          ctx.fillRect((b / bins) * w, trenn + r2 * zeile, w / bins + 1, zeile + 1);
-        }
-      }
-
-      ctx.beginPath();
-      ctx.moveTo(0, trenn);
-      for (let k = 0; k < bins; k++) ctx.lineTo((k / bins) * w, trenn - werte[k] * hub);
-      ctx.lineTo(w, trenn);
-      ctx.closePath();
-      const fuell = ctx.createLinearGradient(0, trenn - hub, 0, trenn);
-      fuell.addColorStop(0, "rgba(194,146,79,.22)");
-      fuell.addColorStop(1, "rgba(194,146,79,0)");
-      ctx.fillStyle = fuell;
-      ctx.fill();
-
-      ctx.beginPath();
-      for (let m = 0; m < bins; m++) {
-        const px = (m / bins) * w;
-        const py = trenn - werte[m] * hub;
-        m === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
-      }
-      ctx.strokeStyle = "rgba(216,165,95,.62)";
-      ctx.lineWidth = 1.6;
-      ctx.stroke();
-
-      if (!ruhig) requestAnimationFrame(bild);
-    };
-    bild();
-  }
 </script>

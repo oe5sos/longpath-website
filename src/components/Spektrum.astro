@@ -1,0 +1,133 @@
+---
+/**
+ * Das laufende Band als Hintergrund.
+ *
+ * Dieselbe Kurve, die auf der Startseite die linke Haelfte traegt,
+ * hier als eigenes Stueck — damit sie auch ueber einem Seitenkopf
+ * liegen kann, ohne den Code ein zweites Mal zu fuehren.
+ *
+ * Hausstil: duenne Linie 1,6 px, Verlauf darunter 22 % zur Grundlinie.
+ * Die Kurve ist ein Messwert, also warm — nie blau.
+ */
+interface Props {
+  /**
+   * band     Kurve mit Wasserfall darunter, wie auf der Startseite
+   * kurve    nur die Kurve, ohne Wasserfall — ruhiger
+   * rauschen nur der Rauschboden, ohne Traeger — am ruhigsten
+   */
+  art?: "band" | "kurve" | "rauschen";
+  /** Anteil der Hoehe, auf dem die Grundlinie sitzt. */
+  grundlinie?: number;
+  /** Deckkraft der ganzen Zeichnung. */
+  staerke?: number;
+  class?: string;
+}
+const { art = "band", grundlinie = 0.72, staerke = 1, class: klass = "" } = Astro.props;
+---
+
+<canvas
+  class:list={["spektrum", klass]}
+  data-spektrum={art}
+  data-grundlinie={grundlinie}
+  style={`opacity:${staerke}`}
+  aria-hidden="true"
+></canvas>
+
+<style>
+  .spektrum { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+</style>
+
+<script>
+  type Art = "band" | "kurve" | "rauschen";
+
+  function zeichne(cv: HTMLCanvasElement) {
+    const art = (cv.dataset.spektrum ?? "band") as Art;
+    const anteil = parseFloat(cv.dataset.grundlinie ?? "0.72");
+    const ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* Feste Traeger, damit das Bild nicht flimmert, sondern atmet.
+       Beim Rauschboden faellt der ganze Satz weg. */
+    const traeger = art === "rauschen" ? [] : [0.17, 0.3, 0.46, 0.61, 0.79];
+    const verlauf: number[][] = [];
+    let t = 0;
+
+    const bild = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const r = cv.getBoundingClientRect();
+      const w = Math.max(1, Math.round(r.width));
+      const h = Math.max(1, Math.round(r.height));
+      if (cv.width !== w * dpr || cv.height !== h * dpr) {
+        cv.width = w * dpr;
+        cv.height = h * dpr;
+      }
+      const ctx = cv.getContext("2d")!;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+
+      const bins = Math.max(60, Math.round(w / 3));
+      const werte = new Array<number>(bins);
+      t += 0.011;
+
+      for (let i = 0; i < bins; i++) {
+        const x = i / bins;
+        const rauschen =
+          Math.sin(x * 41 + t * 2.1) * 0.5 +
+          Math.sin(x * 97 - t * 3.3) * 0.3 +
+          Math.sin(x * 211 + t * 5.7) * 0.2;
+        let v = 0.13 + rauschen * 0.045;
+        for (let c = 0; c < traeger.length; c++) {
+          const d = Math.abs(x - traeger[c]);
+          v += (0.3 + 0.15 * Math.sin(t * (1.1 + c * 0.4) + c)) * Math.exp(-(d * d) / 0.00016);
+        }
+        werte[i] = Math.min(1, Math.max(0, v));
+      }
+
+      const grund = h * anteil;
+      const hub = art === "rauschen" ? h * 0.1 : h * 0.3;
+
+      /* Wasserfall nur bei "band" — er ist der laute Teil. */
+      if (art === "band") {
+        verlauf.unshift(werte);
+        if (verlauf.length > 84) verlauf.pop();
+        const zeile = (h - grund) / 84;
+        for (let z = 0; z < verlauf.length; z++) {
+          const reihe = verlauf[z];
+          for (let b = 0; b < reihe.length; b++) {
+            const a = Math.pow(reihe[b], 1.5);
+            ctx.fillStyle = `rgba(${Math.round(26 + a * 190)},${Math.round(24 + a * 140)},${Math.round(24 + a * 70)},${0.42 * (1 - z / 104)})`;
+            ctx.fillRect((b / bins) * w, grund + z * zeile, w / bins + 1, zeile + 1);
+          }
+        }
+      }
+
+      /* Verlauf unter der Kurve: 22 % am Scheitel, 0 an der Grundlinie. */
+      ctx.beginPath();
+      ctx.moveTo(0, grund);
+      for (let k = 0; k < bins; k++) ctx.lineTo((k / bins) * w, grund - werte[k] * hub);
+      ctx.lineTo(w, grund);
+      ctx.closePath();
+      const fuell = ctx.createLinearGradient(0, grund - hub, 0, grund);
+      fuell.addColorStop(0, "rgba(194,146,79,.22)");
+      fuell.addColorStop(1, "rgba(194,146,79,0)");
+      ctx.fillStyle = fuell;
+      ctx.fill();
+
+      ctx.beginPath();
+      for (let m = 0; m < bins; m++) {
+        const px = (m / bins) * w;
+        const py = grund - werte[m] * hub;
+        m === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.strokeStyle = "rgba(216,165,95,.62)";
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
+
+      if (!ruhig) requestAnimationFrame(bild);
+    };
+    bild();
+  }
+
+  for (const cv of document.querySelectorAll<HTMLCanvasElement>("canvas[data-spektrum]")) {
+    zeichne(cv);
+  }
+</script>

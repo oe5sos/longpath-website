@@ -1,0 +1,110 @@
+---
+/**
+ * Vier Vorschlaege fuer den Hintergrund im Seitenkopf.
+ * Nicht verlinkt, nicht in der Sitemap — ein Musterblatt zum Ansehen.
+ */
+import Base from "../../layouts/Base.astro";
+import Wordmark from "../../components/Wordmark.astro";
+import Spektrum from "../../components/Spektrum.astro";
+
+const entwuerfe = [
+  { nr: "01", name: "Das Band",
+    art: "band" as const, grundlinie: 0.74, staerke: 1, schleier: "stark",
+    warum: "Genau das, was auf der Startseite links steht: Kurve mit Wasserfall darunter. Am kräftigsten, am wiedererkennbarsten — und am lautesten. Der Wasserfall bringt Bewegung in eine Fläche, über der Schrift steht." },
+  { nr: "02", name: "Nur die Kurve",
+    art: "kurve" as const, grundlinie: 0.78, staerke: 1, schleier: "mittel",
+    warum: "Dieselbe Kurve, aber ohne Wasserfall. Der Kopf bekommt eine Kante am unteren Rand statt einer Textur. Ruhiger, und die Überschrift steht auf leerem Grund." },
+  { nr: "03", name: "Der Rauschboden",
+    art: "rauschen" as const, grundlinie: 0.88, staerke: 0.85, schleier: "leicht",
+    warum: "Keine Träger, nur der Rauschboden — ein feiner, unruhiger Saum ganz unten. Man erkennt es als Empfänger, ohne dass es sich vordrängt. Am nächsten an der Zwei-Prozent-Regel." },
+  { nr: "04", name: "Ganz schwarz",
+    art: null, grundlinie: 0, staerke: 0, schleier: "keiner",
+    warum: "Der heutige Stand, zum Vergleich. Nichts lenkt ab — aber der Kopf sagt auch nichts darüber, worum es auf der Seite geht." },
+];
+---
+
+<Base titel="Entwurf — Kopfhintergrund" beschreibung="Vier Vorschläge für den Hintergrund im Seitenkopf." raum="app" nackt>
+  <nav class="leiste">
+    <a href="/longpath/"><Wordmark /></a>
+    <span class="caps">Entwurf · Kopfhintergrund</span>
+  </nav>
+
+  {entwuerfe.map((e) => (
+    <section class="blatt">
+      <div class="blatt__kopf wrap">
+        <span class="caps num" style="color:var(--measured)">Entwurf {e.nr}</span>
+        <h2>{e.name}</h2>
+        <p>{e.warum}</p>
+      </div>
+
+      <header class:list={["probe", `probe--${e.schleier}`]}>
+        {e.art && <Spektrum art={e.art} grundlinie={e.grundlinie} staerke={e.staerke} />}
+        <div class="probe__in wrap">
+          <p class="caps">Version 0.5.2 · GPLv3</p>
+          <div class="probe__wm"><Wordmark /></div>
+          <h1>Die ganze Station in einem nativen Fenster.</h1>
+          <p class="probe__sub">
+            Longpath führt Thetis in C++20 und Qt6 weiter — Panadapter auf der
+            Grafikkarte, vollständige RX- und TX-Kette, PureSignal, TCI und Spots.
+          </p>
+          <span class="btn">Download ↓</span>
+        </div>
+      </header>
+    </section>
+  ))}
+
+  <div class="wrap schluss">
+    <p class="caps">Noch zu entscheiden</p>
+    <h2>Gilt das auch für den Blog?</h2>
+    <p>
+      Das Band gehört zur Konsole. Über einem Beitrag vom Gipfel wäre es
+      fehl am Platz — dort trägt das Foto. Mein Vorschlag: der Kopf der
+      App-Seite bekommt einen der drei, der Blog behält seinen ruhigen
+      Grund und lebt von den Bildern.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .leiste {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .8rem var(--pad);
+    background: linear-gradient(to bottom, var(--tile-top), var(--tile-mid) 55%, var(--tile-bot));
+    border-bottom: 1px solid var(--tile-line);
+  }
+  .leiste :global(.wm) { font-size: 1.1rem; }
+
+  .blatt { border-top: 1px solid var(--border-fine); }
+  .blatt__kopf { padding: 2rem 0 1.2rem; display: flex; flex-direction: column; gap: .5rem; }
+  .blatt__kopf h2 { font-size: 1.6rem; }
+  .blatt__kopf p { margin: 0; color: var(--t4); max-width: 66ch; }
+
+  /* Die Probe: derselbe Kopf wie auf der App-Seite, nur mit
+     wechselndem Hintergrund und wechselnd starkem Schleier. */
+  .probe {
+    position: relative; overflow: hidden;
+    border-block: 1px solid var(--border-fine);
+    background: var(--bg);
+  }
+  .probe::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  }
+  .probe--stark::after  { background: linear-gradient(to bottom, rgba(8,8,10,.72) 0%, rgba(8,8,10,.42) 42%, rgba(8,8,10,.9) 100%); }
+  .probe--mittel::after { background: linear-gradient(to bottom, rgba(8,8,10,.6) 0%, rgba(8,8,10,.3) 45%, rgba(8,8,10,.85) 100%); }
+  .probe--leicht::after { background: linear-gradient(to bottom, rgba(8,8,10,.45) 0%, rgba(8,8,10,.2) 50%, rgba(8,8,10,.8) 100%); }
+  .probe--keiner::after { background: none; }
+
+  .probe__in {
+    position: relative; z-index: 2;
+    padding-block: clamp(3rem, 9vh, 5.5rem);
+    display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;
+  }
+  .probe__wm :global(.wm) { font-size: clamp(2.4rem, 7vw, 5rem); }
+  .probe h1 { font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 500; color: var(--t2); max-width: 24ch; }
+  .probe__sub { margin: 0; max-width: 52ch; color: var(--t4); }
+  .probe .btn { margin-top: .4rem; }
+
+  .schluss { padding-block: clamp(3rem, 8vh, 5rem); display: flex; flex-direction: column; gap: .6rem; }
+  .schluss h2 { font-size: 1.6rem; }
+  .schluss p { margin: 0; color: var(--t4); max-width: 62ch; }
+</style>

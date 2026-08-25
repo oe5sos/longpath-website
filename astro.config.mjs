@@ -12,7 +12,13 @@ export default defineConfig({
   // Seiten mit demselben Inhalt. longpath.at leitet darum hierher
   // (public/_redirects).
   site: "https://www.longpath.at",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Musterblätter unter /entwurf/ gehören nicht in die Sitemap.
+      // Sie sind zum Ansehen da, nicht zum Gefundenwerden.
+      filter: (seite) => !seite.includes("/entwurf/"),
+    }),
+  ],
   build: { inlineStylesheets: "auto" },
   image: {
     // Fotos sind beim Bauen schon gradiert (scripts/grade-photos.mjs).
