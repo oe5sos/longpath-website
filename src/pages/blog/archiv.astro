@@ -22,7 +22,8 @@ const jahre = nachJahr(await alleBeitraege());
           <div class="year">
             <h2>{jahr}</h2>
             <span class="caps num">
-              {b.beitraege} Beiträge · {b.gipfel} Gipfel · {b.qso} QSO · {b.punkte} Punkte
+              {b.beitraege} Beiträge · {b.gipfel} Gipfel
+              {b.qso !== undefined && ` · ${b.qso} QSO`} · {b.punkte} Punkte
             </span>
           </div>
           <div class="rows">

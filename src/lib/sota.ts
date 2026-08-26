@@ -60,10 +60,19 @@ export function nachJahr(beitraege: Beitrag[]): [number, Beitrag[]][] {
 /** Summe eines Jahres fuer die Kopfzeile im Archiv. */
 export function jahresbilanz(beitraege: Beitrag[]) {
   const g = alleGipfel(beitraege);
+
+  /* QSO nur zaehlen, wo welche eingetragen sind. Sonst undefined —
+     Regel 7: eine Null sieht aus wie eine Messung. Wer keine Zahlen
+     fuehrt, hat nicht null Verbindungen gemacht. */
+  const mitQso = beitraege.filter((b) => typeof b.data.funk?.qso === "number");
+  const qso = mitQso.length
+    ? mitQso.reduce((s, b) => s + b.data.funk!.qso!, 0)
+    : undefined;
+
   return {
     beitraege: beitraege.length,
     gipfel: new Set(g.map((x) => x.referenz)).size,
-    qso: nurAktivierungen(beitraege).reduce((s, b) => s + (b.data.funk?.qso ?? 0), 0),
+    qso,
     punkte: g.reduce((s, x) => s + x.punkte, 0),
   };
 }
