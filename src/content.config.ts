@@ -71,6 +71,7 @@ const beitraege = defineCollection({
       /** Was das Funkgeraet gemacht hat. Jedes Feld einzeln optional. */
       funk: z
         .object({
+          qso: z.number().int().positive().optional(),  // Anzahl der Verbindungen
           baender: z.array(z.string()).optional(),   // ["40 m", "20 m"]
           arten: z.array(z.string()).optional(),     // ["SSB", "FT8"]
           weiteste: z.number().optional(),           // km

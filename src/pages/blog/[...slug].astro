@@ -30,6 +30,7 @@ const felder = [
   { k: "Referenz",   v: gipfel.map((g) => g.referenz).join(", ") || undefined },
   { k: "Gipfel",     v: gipfel.length > 1 ? gipfel.length : undefined },
   { k: "Punkte",     v: gipfel.length ? gipfel.reduce((s, g) => s + g.punkte, 0) : undefined },
+  { k: "QSO",        v: d.funk?.qso },
   { k: "Aufstieg",   v: d.funk?.aufstieg },
   { k: "Weiteste",   v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString("de-AT")} km` : undefined },
   { k: "Bänder",     v: d.funk?.baender?.join(" / ") },

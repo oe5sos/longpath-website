@@ -35,6 +35,18 @@ const GRADATION = {
   qualitaet: 88,
 };
 
+/**
+ * Ausrichtung von Hand, je Datei (ohne Endung).
+ *
+ * Manche Aufnahmen tragen ein falsches EXIF-Ausrichtungsmerkmal - typisch bei
+ * Bildern, die ueber eine App exportiert wurden. sharp folgt dem Merkmal und
+ * legt sie dadurch quer. Steht eine Datei hier, wird das Merkmal ignoriert und
+ * das Rohbild stattdessen um den angegebenen Winkel gedreht (0 = so lassen).
+ */
+const DREHUNG = {
+  "traunstein-kx2-20m": 0,   // Rohbild ist bereits aufrecht, EXIF sagt faelschlich quer
+};
+
 const ENDUNGEN = new Set([".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp"]);
 
 /** Kontrast um den Mittelwert: y = a·x + b mit b so, dass 128 fix bleibt. */
@@ -52,8 +64,9 @@ async function verarbeite(datei) {
   }
 
   const { waerme: w } = GRADATION;
-  await sharp(eingang)
-    .rotate()                                   // EXIF-Ausrichtung anwenden ...
+  const vonHand = DREHUNG[name];
+  await sharp(eingang, { autoOrient: vonHand === undefined })
+    .rotate(vonHand ?? 0)                       // EXIF-Ausrichtung, oder von Hand
     .resize({ width: GRADATION.maxBreite, withoutEnlargement: true })
     .modulate({
       saturation: GRADATION.saettigung,
