@@ -57,4 +57,4 @@ Am Sonntagmorgen lag in allen Tälern geschlossener Nebel, und die Masten stande
 
 ## Danke
 
-Vielen Dank an **Michael Kastelic, OE1MCU**, Präsident des Österreichischen Versuchssenderverbandes, an **Rainer, OE3REC**, und an **Emir, E77X** — für die Einladung, für die Zeit und dafür, dass ich einer Station bei der Arbeit zusehen durfte, die in dieser Liga spielt.
+Vielen Dank an **Michael Kastelic, OE1MCU**, Präsident des Österreichischen Versuchssenderverbandes, an **Rainer, OE3REC**, und an **Emir, E77DX** — für die Einladung, für die Zeit und dafür, dass ich einer Station bei der Arbeit zusehen durfte, die in dieser Liga spielt.

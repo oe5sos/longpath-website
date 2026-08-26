@@ -35,11 +35,11 @@ Am Gipfel dann die andere Richtung: Gmunden am Seeausfluss, dahinter das Alpenvo
 
 ## Chiemgau on Air
 
-An diesem Samstag lief die **erste Auflage von „Chiemgau on Air"** — ein SOTA-Aktionstag, den der DARC-Ortsverband Traunstein ins Leben gerufen hat. Nette Fügung: der Ortsverband heißt wie der Berg, auf dem ich saß, liegt aber gut hundert Kilometer weiter westlich in Bayern.
+Ich war an diesem Samstag bei der **ersten Auflage von „Chiemgau on Air"** dabei — einem SOTA-Aktionstag, den der DARC-Ortsverband Traunstein ins Leben gerufen hat. Nette Fügung: der Ortsverband heißt wie der Berg, auf dem ich saß, liegt aber gut hundert Kilometer weiter westlich in Bayern.
 
-Das Ziel war, an einem Tag **alle 42 Chiemgauer SOTA-Gipfel** zu besetzen, vom Sattelberg mit 820 Metern bis zum Sonntagshorn mit 1 961. Am Ende waren es **31 von 42**, gemacht von **35 Funkamateuren aus Deutschland, Österreich und Südtirol**. Wer wollte, konnte das Sonderrufzeichen **DL25COA** arbeiten.
+Das Ziel war, an einem Tag **alle 42 Chiemgauer SOTA-Gipfel** zu besetzen, vom Sattelberg mit 820 Metern bis zum Sonntagshorn mit 1 961. Am Ende waren es **31 von 42**, gemacht von **35 Funkamateuren aus Deutschland, Österreich und Südtirol**. Dazu ging das Sonderrufzeichen **DL25COA** in die Luft.
 
-Der Traunstein gehört nicht zum Chiemgau — aber an so einem Tag ist das eher ein Vorteil. Wenn dreißig Gipfel gleichzeitig auf den Bändern sind, muss man nicht lange suchen.
+Der Traunstein selbst zählt nicht zum Chiemgau — an so einem Tag ist das aber eher ein Vorteil. Wenn dreißig Gipfel gleichzeitig auf den Bändern sind, muss man nicht lange suchen: man dreht über das Band und sammelt eine Verbindung von Gipfel zu Gipfel nach der anderen ein.
 
 ## Die Station
 
