@@ -39,7 +39,7 @@ Das ist der Teil, der einen beim Ankommen zuerst trifft. Fünf Antennengruppen s
 
 Zusammen sind das über dreißig Yagis und, wenn man die Elemente zusammenzählt, gut dreihundert Stück. Dazu **ein Kilowatt** an der Endstufe.
 
-![Antennen in mehreren Ebenen übereinander, dazwischen die österreichische Fahne](../../assets/photos/oe1w-antennenwald.jpg)
+![Gestockte Yagis übereinander am Mast, dahinter Schleierwolken](../../assets/photos/oe1w-antennen-gruppe.jpg)
 
 OE1W zählt damit zu den modernsten UKW-Conteststationen in Europa. Das merkt man nicht an einem einzelnen Gerät, sondern daran, dass alles zusammenpasst: Antennen, Vorverstärker, Leitungen, Drehwerke, Rechner.
 
@@ -47,9 +47,9 @@ OE1W zählt damit zu den modernsten UKW-Conteststationen in Europa. Das merkt ma
 
 ## Vierundzwanzig Stunden
 
-Ein Contest über einen ganzen Tag hat einen eigenen Rhythmus. Der Samstagabend ist laut, in der Nacht wird es dünn und die Verbindungen werden weit, und am Sonntagvormittag kommt alles noch einmal zurück.
+Ein Contest über einen ganzen Tag hat einen eigenen Rhythmus. Der Samstagabend ist laut, in der Nacht wird es dünn und die Verbindungen werden weit, und am Sonntagvormittag kommt alles noch einmal zurück. Wenn die Sonne flach steht, sieht man erst, wie viel dort oben in der Luft hängt.
 
-![Abendrot über den Bergketten, aufgenommen vom Muckenkogel](../../assets/photos/oe1w-abendrot.jpg)
+![Der große Mast mit den gestockten Gruppen im flachen Licht, daneben die Fahne und die Dächer der Hütte](../../assets/photos/oe1w-abendsonne-mast.jpg)
 
 Am Sonntagmorgen lag in allen Tälern geschlossener Nebel, und die Masten standen frei darüber.
 

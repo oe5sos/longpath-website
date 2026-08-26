@@ -45,6 +45,9 @@ const GRADATION = {
  */
 const DREHUNG = {
   "traunstein-kx2-20m": 0,   // Rohbild ist bereits aufrecht, EXIF sagt faelschlich quer
+  "oe1w-masten-ueber-nebel": 90,   // Rohbild liegt auf der Seite, Boden rechts
+  "oe1w-abendsonne-mast": 90,      // dito
+  "oe1w-antennen-gruppe": 0,       // Rohbild aufrecht, EXIF sagt faelschlich quer
 };
 
 const ENDUNGEN = new Set([".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp"]);
@@ -64,9 +67,14 @@ async function verarbeite(datei) {
   }
 
   const { waerme: w } = GRADATION;
+  // .rotate() ohne Winkel folgt dem EXIF-Merkmal, .rotate(n) dreht fest und
+  // uebergeht es. Steht 0 in der Liste, wird gar nicht gedreht.
   const vonHand = DREHUNG[name];
-  await sharp(eingang, { autoOrient: vonHand === undefined })
-    .rotate(vonHand ?? 0)                       // EXIF-Ausrichtung, oder von Hand
+  const bild = sharp(eingang);
+  if (vonHand === undefined) bild.rotate();
+  else if (vonHand !== 0) bild.rotate(vonHand);
+
+  await bild
     .resize({ width: GRADATION.maxBreite, withoutEnlargement: true })
     .modulate({
       saturation: GRADATION.saettigung,
@@ -79,7 +87,9 @@ async function verarbeite(datei) {
       [0,   0,   2 - w],
     ])
     .jpeg({ quality: GRADATION.qualitaet, mozjpeg: true })
-    .withMetadata({})                           // ... und danach alles andere weg
+    // Ausrichtung fest auf 1: die Pixel liegen jetzt richtig. Bliebe das alte
+    // Merkmal stehen, wuerde die naechste Stufe (astro:assets) erneut drehen.
+    .withMetadata({ orientation: 1 })            // ... und danach alles andere weg
     .toFile(ausgang);
 
   return { name, uebersprungen: false };
