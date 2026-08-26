@@ -44,7 +44,7 @@ const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
       {gipfel.length > 0 && (
         <p class="caps">
           {gipfel.map((g, i) => (
-            <>{i > 0 && " · "}{g.referenz} {g.gipfel}</>
+            <>{i > 0 && " · "}{`${g.referenz} ${g.gipfel}`}</>
           ))}
         </p>
       )}
@@ -135,6 +135,18 @@ const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
   .body :global(blockquote p) { margin: 0; color: inherit; }
 
   .body :global(figure) { margin: clamp(1.8rem, 5vh, 3rem) 0; }
+
+  /* Bilder im Fliesstext behalten ihr Seitenverhaeltnis. Ohne height:auto
+     bleibt die Rohhoehe des Panoramas stehen und macht ein Hochformat daraus. */
+  .body :global(img) {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--border-fine);
+  }
+  /* Breite Aufnahmen duerfen aus der Textspalte heraustreten. */
+  @media (min-width: 60rem) {
+    .body :global(p:has(> img:only-child)),
+    .body :global(figure) { width: 118%; margin-left: -9%; }
+  }
   .body :global(figcaption) {
     margin-top: .6rem; font-family: var(--ff-mono); font-size: 9px;
     letter-spacing: .14em; text-transform: uppercase; color: var(--t5);
