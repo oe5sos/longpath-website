@@ -107,7 +107,7 @@ const pakete = [
         Drei Plattformen, gemeinsam gebaut und gemeinsam signiert.
       </p>
       <div class="cta">
-        <a class="btn" href="#download">Download <span aria-hidden="true">↓</span></a>
+        <a class="btn" href="#download">Stand der Pakete</a>
         <a class="btn btn--quiet" href="#signalkette">Signalkette ansehen</a>
       </div>
     </div>
@@ -252,11 +252,18 @@ const pakete = [
     <section class="section wrap" id="download">
       <div class="section__head">
         <p class="caps">Aktueller Stand</p>
-        <h2>Jede Plattform erscheint gemeinsam und signiert.</h2>
+        <h2>Noch nichts zum Laden — und das mit Absicht.</h2>
+        <p class="intro">
+          Die Pakete für alle drei Plattformen werden gemeinsam gebaut und
+          gemeinsam signiert. Online gestellt werden sie erst, wenn sie
+          <em>am Gerät geprüft</em> sind. Ein Paket, das niemand an echter
+          Hardware freigefahren hat, gehört nicht auf eine Seite, auf der
+          jemand einen Sender damit betreibt.
+        </p>
       </div>
       <div class="panel dl">
         <div class="panel__head dl__head">
-          <span class="caps">Kanal · stabil</span>
+          <span class="caps">Kanal · in Prüfung</span>
           <span class="caps num caps--m">v{VERSION} — {DATUM}</span>
         </div>
         <div class="dl__body">
@@ -267,9 +274,9 @@ const pakete = [
               </p>
               <span class="dl__os">{p.os}</span>
               <span class="dl__datei">{p.datei}</span>
-              <a class="dl__link" href="https://github.com/boydsoftprez/NereusSDR/releases">
-                {p.os === "Alle Pakete" ? "Prüfsummen" : "Laden ↓"}
-              </a>
+              <span class="dl__stand caps">
+                <span class="punkt"></span>Noch nicht freigegeben
+              </span>
             </div>
           ))}
         </div>
@@ -385,6 +392,15 @@ const pakete = [
   .dl__item--rec { background: var(--panel-2); }
   .dl__os { font-family: var(--ff-cond); font-weight: 500; font-size: 1.18rem; color: var(--t1); }
   .dl__datei { font-family: var(--ff-mono); font-size: 10px; letter-spacing: .06em; color: var(--t5); word-break: break-word; }
+  .dl__stand {
+    margin-top: .5rem; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: .45rem;
+    color: var(--t5); background: var(--btn);
+    border: 1px solid var(--border-fine); border-radius: var(--radius-s);
+    padding: .32rem .6rem;
+  }
+  .dl__stand .punkt { background: var(--t6); }
+
   .dl__link {
     margin-top: .5rem; align-self: flex-start;
     font-family: var(--ff-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
