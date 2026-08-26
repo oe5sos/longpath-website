@@ -27,7 +27,6 @@ const weiteste = akt.reduce<number | undefined>(
     <Readout titel="Bisher" felder={[
       { k: "Beiträge", v: b.beitraege },
       { k: "Gipfel",   v: b.gipfel },
-      { k: "QSO",      v: b.qso },
       { k: "Punkte",   v: b.punkte },
       { k: "Höchster", v: hoechster ? `${hoechster.data.sota!.hoehe!.toLocaleString("de-AT")} m` : undefined },
       { k: "Weiteste", v: weiteste ? `${weiteste.toLocaleString("de-AT")} km` : undefined },

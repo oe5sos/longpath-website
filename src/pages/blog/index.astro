@@ -51,7 +51,7 @@ const gipfel = alleGipfel(beitraege);
             <thead>
               <tr>
                 <th>Datum</th><th>Referenz</th><th>Gipfel</th><th>Höhe</th>
-                <th>Band</th><th>Art</th><th>QSO</th><th>Pkt</th>
+                <th>Pkt</th>
               </tr>
             </thead>
             <tbody>
@@ -61,9 +61,6 @@ const gipfel = alleGipfel(beitraege);
                   <td>{g.referenz}</td>
                   <td class="name"><a href={`/blog/${g.beitrag.id}/`}>{g.gipfel}</a></td>
                   <td>{g.hoehe ? `${g.hoehe.toLocaleString("de-AT")} m` : "——"}</td>
-                  <td>{wert(g.beitrag.data.funk?.baender?.join(" / "))}</td>
-                  <td>{wert(g.beitrag.data.funk?.arten?.join(" · "))}</td>
-                  <td>{wert(g.beitrag.data.funk?.qso)}</td>
                   <td class="pts">{g.punkte}</td>
                 </tr>
               ))}

@@ -30,8 +30,6 @@ const felder = [
   { k: "Referenz",   v: gipfel.map((g) => g.referenz).join(", ") || undefined },
   { k: "Gipfel",     v: gipfel.length > 1 ? gipfel.length : undefined },
   { k: "Punkte",     v: gipfel.length ? gipfel.reduce((s, g) => s + g.punkte, 0) : undefined },
-  { k: "QSO",        v: d.funk?.qso },
-  { k: "Leistung",   v: d.funk?.leistung },
   { k: "Aufstieg",   v: d.funk?.aufstieg },
   { k: "Weiteste",   v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString("de-AT")} km` : undefined },
   { k: "Bänder",     v: d.funk?.baender?.join(" / ") },
@@ -53,9 +51,7 @@ const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
       <h1>{d.titel}</h1>
       <div class="meta">
         <span>{datumLang(d.datum)}</span>
-        {d.funk?.qso && <><span class="sep">·</span><span>{d.funk.qso} QSO</span></>}
         {d.funk?.baender?.length && <><span class="sep">·</span><span>{d.funk.baender.join(" / ")}</span></>}
-        {d.funk?.leistung && <><span class="sep">·</span><span>{d.funk.leistung}</span></>}
       </div>
       <p class="vorspann">{d.vorspann}</p>
     </header>

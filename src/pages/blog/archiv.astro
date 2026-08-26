@@ -23,7 +23,7 @@ const jahre = nachJahr(await alleBeitraege());
             <h2>{jahr}</h2>
             <span class="caps num">
               {b.beitraege} Beiträge · {b.gipfel} Gipfel
-              {b.qso !== undefined && ` · ${b.qso} QSO`} · {b.punkte} Punkte
+               · {b.punkte} Punkte
             </span>
           </div>
           <div class="rows">
@@ -32,7 +32,6 @@ const jahre = nachJahr(await alleBeitraege());
                 <span class="row__date">{datumKurz(p.data.datum)}</span>
                 <span class="row__title">{p.data.titel}</span>
                 <span class="row__ref">{wert(p.data.sota?.referenz)}</span>
-                <span class="row__qso">{p.data.funk?.qso ? `${p.data.funk.qso} QSO` : "——"}</span>
               </a>
             ))}
           </div>
@@ -53,7 +52,7 @@ const jahre = nachJahr(await alleBeitraege());
 
   .rows { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
   .row {
-    display: grid; grid-template-columns: 7.5rem 1fr 8rem 5rem;
+    display: grid; grid-template-columns: 7.5rem 1fr 8rem;
     gap: 1rem; align-items: center;
     padding: .95rem 0; border-bottom: 1px solid var(--border-fine);
     transition: background var(--ease);
@@ -61,14 +60,12 @@ const jahre = nachJahr(await alleBeitraege());
   .row:hover { background: var(--panel); }
   .row__title { font-family: var(--ff-cond); font-weight: 500; font-size: 1.15rem; color: var(--t2); transition: color var(--ease); }
   .row:hover .row__title { color: var(--t1); }
-  .row__date, .row__ref, .row__qso {
+  .row__date, .row__ref {
     font-family: var(--ff-mono); font-size: .74rem; color: var(--t5); font-variant-numeric: tabular-nums;
   }
-  .row__qso { text-align: right; color: var(--measured-hi); }
   @media (max-width: 680px) {
     .row { grid-template-columns: 1fr auto; row-gap: .2rem; }
     .row__date { grid-column: 1; }
-    .row__qso { grid-column: 2; grid-row: 1; }
     .row__title, .row__ref { grid-column: 1 / -1; }
   }
 </style>
