@@ -1,7 +1,7 @@
 ---
-titel: "Eine Nacht am Gipfelkreuz"
+titel: "Überquerung des Höllengebirges, mit Nacht am Gipfel"
 datum: 2026-08-13
-vorspann: "Zwei Gipfel am Abend, einer am Morgen, dazwischen eine Nacht oben. Zwanzig Punkte für eine Runde, die eigentlich wegen des Lichts stattfand."
+vorspann: "Über den Kamm des Höllengebirges: Brunnkogel und Brennerin am ersten Tag, oben geblieben, am Morgen der Grünalmkogel. Drei Gipfel, zwanzig Punkte, eine Nacht dazwischen."
 aufmacher: "../../assets/photos/gipfelkreuz-daemmerung-gross.jpg"
 aufmacherAlt: "Das Gitterkreuz am Gipfel als Silhouette gegen die Morgendämmerung, davor ein Zelt, Schlafsäcke und zwei Gestalten"
 aufmacherRef: "13.08. · kurz vor Sonnenaufgang"
@@ -20,15 +20,18 @@ weitereGipfel:
     gipfel: "Brennerin"
     punkte: 6
     datum: 2026-08-12
-schlagworte: ["2026", "Biwak", "Mehrtagestour"]
+schlagworte: ["2026", "Höllengebirge", "Biwak", "Mehrtagestour"]
 ---
 
-Drei Gipfel, zwei Tage, eine Nacht dazwischen. Am zwölften **Brunnkogel**
-und **Brennerin**, je sechs Punkte, beide am Nachmittag. Dann oben
-bleiben, statt abzusteigen. Am dreizehnten in der Früh der
+Der Kamm des Höllengebirges ist lang genug, dass man ihn nicht an
+einem Tag abarbeitet — und schön genug, dass man es auch nicht will.
+Also über zwei Tage, mit einer Nacht oben.
+
+Am zwölften **Brunnkogel** und **Brennerin**, je sechs Punkte. Dann
+oben bleiben, statt abzusteigen. Am dreizehnten in der Früh der
 **Grünalmkogel** mit acht.
 
-Zwanzig Punkte für eine Runde, die eigentlich wegen des Lichts
+Zwanzig Punkte für eine Überquerung, die eigentlich wegen des Lichts
 stattfand.
 
 ## Der Abend

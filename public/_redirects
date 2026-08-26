@@ -8,3 +8,7 @@
 # 301 heisst "dauerhaft umgezogen": Browser und Suchmaschinen merken
 # es sich.
 https://longpath.at/*    https://www.longpath.at/:splat    301
+
+# Der erste Beitrag hiess anfangs anders. Wer den alten Verweis hat,
+# soll nicht ins Leere laufen.
+/blog/nacht-am-gipfelkreuz/    /blog/hoellengebirge-ueberquerung/    301
