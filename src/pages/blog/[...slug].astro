@@ -56,10 +56,12 @@ const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
       <p class="vorspann">{d.vorspann}</p>
     </header>
 
-    <div class="aufmacher">
-      <Photo bild={d.aufmacher} alt={d.aufmacherAlt} ref={d.aufmacherRef}
-             format={d.aufmacherFormat} vordergrund sizes="100vw" />
-    </div>
+    {d.aufmacher && (
+      <div class="aufmacher">
+        <Photo bild={d.aufmacher} alt={d.aufmacherAlt ?? d.titel} ref={d.aufmacherRef}
+               format={d.aufmacherFormat} vordergrund sizes="100vw" />
+      </div>
+    )}
 
     <div class="body">
       <Content />

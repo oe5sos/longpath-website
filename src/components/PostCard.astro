@@ -13,8 +13,8 @@ const ref = d.sota
 ---
 {gross ? (
   <a class="lead" href={href}>
-    <Photo bild={d.aufmacher} alt={d.aufmacherAlt} ref={ref} format="breit" vordergrund
-           sizes="(max-width: 800px) 100vw, 700px" />
+    {d.aufmacher && <Photo bild={d.aufmacher} alt={d.aufmacherAlt ?? d.titel} ref={ref} format="breit" vordergrund
+           sizes="(max-width: 800px) 100vw, 700px" />}
     <div class="lead__text">
       <div class="meta">
         <span>{datumKurz(d.datum)} {d.datum.getFullYear()}</span>
@@ -27,8 +27,8 @@ const ref = d.sota
   </a>
 ) : (
   <a class="post" href={href}>
-    <Photo bild={d.aufmacher} alt={d.aufmacherAlt} ref={ref}
-           sizes="(max-width: 700px) 100vw, 380px" />
+    {d.aufmacher && <Photo bild={d.aufmacher} alt={d.aufmacherAlt ?? d.titel} ref={ref}
+           sizes="(max-width: 700px) 100vw, 380px" />}
     <div class="meta">
       <span>{datumKurz(d.datum)} {d.datum.getFullYear()}</span>
     </div>

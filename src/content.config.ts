@@ -21,8 +21,8 @@ const beitraege = defineCollection({
       datum: z.coerce.date(),
       /** Ein bis zwei Saetze. Steht in der Uebersicht und als Vorspann. */
       vorspann: z.string(),
-      aufmacher: image(),
-      aufmacherAlt: z.string(),
+      aufmacher: image().optional(),
+      aufmacherAlt: z.string().optional(),
       /** Kennzeichnung unten links im Aufmacher, z. B. "05:38 · Gipfelkreuz". */
       aufmacherRef: z.string().optional(),
       /**

@@ -20,7 +20,8 @@ const beitraege = await alleBeitraege();
    unter der Ueberschrift "Fotos von den Gipfeln" verspricht das
    Falsche. Faellt auf den neuesten ueberhaupt zurueck, falls es noch
    keinen Gipfelbeitrag gibt. */
-const neuester = beitraege.find((b) => b.data.sota) ?? beitraege[0];
+const neuester = beitraege.find((b) => b.data.sota && b.data.aufmacher)
+  ?? beitraege.find((b) => b.data.aufmacher);
 ---
 
 <Base
@@ -52,11 +53,11 @@ const neuester = beitraege.find((b) => b.data.sota) ?? beitraege[0];
     </a>
 
     <a class="half half--blog" href="/blog/" data-f="b">
-      {neuester && (
+      {neuester?.data.aufmacher && (
         <Image
           class="foto"
           src={neuester.data.aufmacher}
-          alt={neuester.data.aufmacherAlt}
+          alt={neuester.data.aufmacherAlt ?? ""}
           widths={[720, 1200, 1800]}
           sizes="(max-width: 900px) 100vw, 40vw"
           loading="eager"
@@ -80,7 +81,7 @@ const neuester = beitraege.find((b) => b.data.sota) ?? beitraege[0];
     </div>
     <div class="corner corner--b">
       <span class="caps">Drei Wege, eine Station</span>
-      {neuester && (
+      {neuester?.data.aufmacher && (
         <span class="caps num">
           Zuletzt {neuester.data.sota?.referenz ?? ""} ·
           {" "}{neuester.data.datum.toLocaleDateString("de-AT")}
