@@ -35,7 +35,9 @@ const felder = [
   { k: "Weiteste",   v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString("de-AT")} km` : undefined },
   { k: "Bänder",     v: d.funk?.baender?.join(" / ") },
 ];
-const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
+// Nur echte Aktivierungen bekommen das Gitter. Ein Besuch bei einer anderen
+// Station ist keine Aktivierung - dort waere die Ueberschrift schlicht falsch.
+const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined && f.v !== null);
 ---
 
 <Base titel={`${d.titel} — Longpath Blog`} beschreibung={d.vorspann} raum="blog">
