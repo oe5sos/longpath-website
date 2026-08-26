@@ -140,7 +140,7 @@ const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
      bleibt die Rohhoehe des Panoramas stehen und macht ein Hochformat daraus. */
   .body :global(img) {
     display: block; width: 100%; height: auto;
-    border: 1px solid var(--border-fine);
+    max-height: 78vh; object-fit: contain;
   }
   /* Breite Aufnahmen duerfen aus der Textspalte heraustreten. */
   @media (min-width: 60rem) {
