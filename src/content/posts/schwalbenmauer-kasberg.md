@@ -1,9 +1,10 @@
 ---
 titel: "Schwalbenmauer und Kasberg an einem Tag"
 datum: 2026-07-25
-vorspann: "23 Kilometer, zwei Gipfel, perfektes Wetter — und ein Zustieg, der auf keinem Schild steht."
-aufmacherAlt: "Panorama vom Kasberg über die bewaldeten Täler zu den Kalkwänden im Hintergrund"
-aufmacherRef: "25.07. · Kasberg, 1 747 m"
+vorspann: "23 Kilometer in 5:30 Stunden, zwei Gipfel, perfektes Wetter — und ein Zustieg, der auf keinem Schild steht."
+aufmacher: "../../assets/photos/gipfelkreuz-am-grat.jpg"
+aufmacherAlt: "Weites Gipfelpanorama, rechts das Gipfelkreuz auf einer Grasschulter, dahinter die Kalkkette"
+aufmacherRef: "25.07. · zwei Gipfel, 23 Kilometer"
 aufmacherFormat: "pano"
 sota:
   referenz: "OE/OO-031"
@@ -18,12 +19,13 @@ weitereGipfel:
     punkte: 6
     datum: 2026-07-25
 schlagworte: ["2026", "Tagestour", "Zwei Gipfel"]
-entwurf: true
 ---
 
-Zwei Gipfel, ein Tag, 23 Kilometer. Fünfeinhalb Stunden unterwegs bei
+Zwei Gipfel, ein Tag, 23 Kilometer, 5:30 Stunden unterwegs. Bei
 Wetter, wie man es sich bestellt: klare Sicht bis zu den Kalkwänden
 im Hintergrund, kaum Wind, keine Wolke, die störte.
+
+![Blick über die bewaldeten Täler zur Kalkkette](../../assets/photos/kasberg-blick-kalkwaende.jpg)
 
 | | | | |
 |---|---|---|---|
@@ -51,3 +53,5 @@ man mehr, als man denkt.
 Neunzig Meter höher und ungleich freundlicher zu erreichen. Vom Gipfel
 aus liegt die ganze Kette offen, und man sieht, wie weit man gekommen
 ist.
+
+![Weitblick vom Kasberg über die Täler bis zum Alpenrand](../../assets/photos/kasberg-weitblick.jpg)
