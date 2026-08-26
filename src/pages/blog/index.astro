@@ -2,14 +2,14 @@
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import {
-  alleBeitraege, nurAktivierungen, schlagworte,
+  alleBeitraege, alleGipfel, schlagworte,
   alsAdresse, datumIso, wert,
 } from "../../lib/sota";
 
 const beitraege = await alleBeitraege();
 const [aufmacher, ...rest] = beitraege;
 const marken = schlagworte(beitraege).slice(0, 6);
-const aktivierungen = nurAktivierungen(beitraege);
+const gipfel = alleGipfel(beitraege);
 ---
 
 <Base
@@ -39,7 +39,7 @@ const aktivierungen = nurAktivierungen(beitraege);
       {rest.map((b) => <PostCard beitrag={b} />)}
     </section>
 
-    {aktivierungen.length > 0 && (
+    {gipfel.length > 0 && (
       <section class="section">
         <div class="section__head">
           <p class="caps">Aktivierungen</p>
@@ -55,16 +55,16 @@ const aktivierungen = nurAktivierungen(beitraege);
               </tr>
             </thead>
             <tbody>
-              {aktivierungen.map((b) => (
+              {gipfel.map((g) => (
                 <tr>
-                  <td>{datumIso(b.data.datum)}</td>
-                  <td>{b.data.sota!.referenz}</td>
-                  <td class="name"><a href={`/blog/${b.id}/`}>{b.data.sota!.gipfel}</a></td>
-                  <td>{b.data.sota!.hoehe.toLocaleString("de-AT")} m</td>
-                  <td>{wert(b.data.funk?.baender?.join(" / "))}</td>
-                  <td>{wert(b.data.funk?.arten?.join(" · "))}</td>
-                  <td>{wert(b.data.funk?.qso)}</td>
-                  <td class="pts">{b.data.sota!.punkte}</td>
+                  <td>{datumIso(g.datum)}</td>
+                  <td>{g.referenz}</td>
+                  <td class="name"><a href={`/blog/${g.beitrag.id}/`}>{g.gipfel}</a></td>
+                  <td>{g.hoehe ? `${g.hoehe.toLocaleString("de-AT")} m` : "——"}</td>
+                  <td>{wert(g.beitrag.data.funk?.baender?.join(" / "))}</td>
+                  <td>{wert(g.beitrag.data.funk?.arten?.join(" · "))}</td>
+                  <td>{wert(g.beitrag.data.funk?.qso)}</td>
+                  <td class="pts">{g.punkte}</td>
                 </tr>
               ))}
             </tbody>

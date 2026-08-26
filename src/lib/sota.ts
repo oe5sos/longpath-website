@@ -13,6 +13,39 @@ export function nurAktivierungen(beitraege: Beitrag[]): Beitrag[] {
   return beitraege.filter((b) => b.data.sota);
 }
 
+/** Ein Gipfel, wie ihn die Tabelle braucht — samt Herkunftsbeitrag. */
+export interface Gipfel {
+  referenz: string;
+  gipfel: string;
+  hoehe?: number;
+  punkte: number;
+  datum: Date;
+  beitrag: Beitrag;
+}
+
+/**
+ * Alle Gipfel eines Beitrags, der Hauptgipfel zuerst.
+ *
+ * Eine Tour ueber drei Gipfel steht in EINEM Beitrag; die Tabelle
+ * soll trotzdem drei Zeilen zeigen und die Jahressumme drei Gipfel
+ * zaehlen.
+ */
+export function gipfelVon(b: Beitrag): Gipfel[] {
+  const raus: Gipfel[] = [];
+  if (b.data.sota) {
+    raus.push({ ...b.data.sota, datum: b.data.sota.datum ?? b.data.datum, beitrag: b });
+  }
+  for (const w of b.data.weitereGipfel ?? []) {
+    raus.push({ ...w, datum: w.datum ?? b.data.datum, beitrag: b });
+  }
+  return raus;
+}
+
+/** Alle Gipfel aus mehreren Beitraegen, neueste zuerst. */
+export function alleGipfel(beitraege: Beitrag[]): Gipfel[] {
+  return beitraege.flatMap(gipfelVon).sort((a, b) => b.datum.valueOf() - a.datum.valueOf());
+}
+
 /** Nach Jahr gruppiert, Jahre absteigend. */
 export function nachJahr(beitraege: Beitrag[]): [number, Beitrag[]][] {
   const gruppen = new Map<number, Beitrag[]>();
@@ -26,12 +59,12 @@ export function nachJahr(beitraege: Beitrag[]): [number, Beitrag[]][] {
 
 /** Summe eines Jahres fuer die Kopfzeile im Archiv. */
 export function jahresbilanz(beitraege: Beitrag[]) {
-  const akt = nurAktivierungen(beitraege);
+  const g = alleGipfel(beitraege);
   return {
     beitraege: beitraege.length,
-    gipfel: new Set(akt.map((b) => b.data.sota!.referenz)).size,
-    qso: akt.reduce((s, b) => s + (b.data.funk?.qso ?? 0), 0),
-    punkte: akt.reduce((s, b) => s + b.data.sota!.punkte, 0),
+    gipfel: new Set(g.map((x) => x.referenz)).size,
+    qso: nurAktivierungen(beitraege).reduce((s, b) => s + (b.data.funk?.qso ?? 0), 0),
+    punkte: g.reduce((s, x) => s + x.punkte, 0),
   };
 }
 

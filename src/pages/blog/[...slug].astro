@@ -3,7 +3,7 @@ import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import Photo from "../../components/Photo.astro";
 import Readout from "../../components/Readout.astro";
-import { alleBeitraege, datumLang, wert, type Beitrag } from "../../lib/sota";
+import { alleBeitraege, gipfelVon, datumLang, wert, type Beitrag } from "../../lib/sota";
 
 export async function getStaticPaths() {
   const beitraege = await alleBeitraege();
@@ -22,13 +22,14 @@ interface Props { beitrag: Beitrag; neuer?: Beitrag; aelter?: Beitrag; }
 const { beitrag, neuer, aelter } = Astro.props;
 const d = beitrag.data;
 const { Content } = await render(beitrag);
+const gipfel = gipfelVon(beitrag);
 
 /* Das Ablesegitter. Regel 7 — was nicht gemessen wurde, bleibt leer
    und wird als Strich gezeigt, nicht als Null. */
 const felder = [
-  { k: "Referenz",   v: d.sota?.referenz },
-  { k: "Höhe",       v: d.sota ? `${d.sota.hoehe.toLocaleString("de-AT")} m` : undefined },
-  { k: "Punkte",     v: d.sota?.punkte },
+  { k: "Referenz",   v: gipfel.map((g) => g.referenz).join(", ") || undefined },
+  { k: "Gipfel",     v: gipfel.length > 1 ? gipfel.length : undefined },
+  { k: "Punkte",     v: gipfel.length ? gipfel.reduce((s, g) => s + g.punkte, 0) : undefined },
   { k: "QSO",        v: d.funk?.qso },
   { k: "Leistung",   v: d.funk?.leistung },
   { k: "Aufstieg",   v: d.funk?.aufstieg },
@@ -42,9 +43,11 @@ const zeigeGitter = felder.some((f) => f.v !== undefined && f.v !== null);
   <article class="article wrap">
 
     <header class="head">
-      {d.sota && (
+      {gipfel.length > 0 && (
         <p class="caps">
-          {d.sota.referenz} · {d.sota.gipfel} · {d.sota.hoehe.toLocaleString("de-AT")} m
+          {gipfel.map((g, i) => (
+            <>{i > 0 && " · "}{g.referenz} {g.gipfel}</>
+          ))}
         </p>
       )}
       <h1>{d.titel}</h1>

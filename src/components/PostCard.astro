@@ -6,7 +6,10 @@ interface Props { beitrag: Beitrag; gross?: boolean; }
 const { beitrag, gross = false } = Astro.props;
 const d = beitrag.data;
 const href = `/blog/${beitrag.id}/`;
-const ref = d.sota ? `${d.sota.referenz} · ${d.sota.hoehe.toLocaleString("de-AT")} m` : undefined;
+const ref = d.sota
+  ? [d.sota.referenz, d.sota.hoehe ? `${d.sota.hoehe.toLocaleString("de-AT")} m` : null]
+      .filter(Boolean).join(" · ")
+  : undefined;
 ---
 {gross ? (
   <a class="lead" href={href}>

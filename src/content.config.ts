@@ -41,10 +41,32 @@ const beitraege = defineCollection({
         .object({
           referenz: z.string(),      // OE/OO-023
           gipfel: z.string(),        // Traunstein
-          hoehe: z.number(),         // Meter
+          hoehe: z.number().optional(),   // Meter, wenn bekannt
           punkte: z.number(),
+          datum: z.coerce.date().optional(),  // wenn abweichend vom Beitrag
         })
         .optional(),
+
+      /**
+       * Weitere Gipfel derselben Runde.
+       *
+       * Eine Tour geht oft ueber mehrere Gipfel, manchmal ueber zwei
+       * Tage. Ein Beitrag beschreibt die Runde, nicht den einzelnen
+       * Aufstieg — deshalb haengen die uebrigen hier dran, statt in
+       * eigenen Beitraegen, die dieselbe Nacht dreimal erzaehlen.
+       * Aktivierungstabelle, Archiv und Jahressummen zaehlen sie mit.
+       */
+      weitereGipfel: z
+        .array(
+          z.object({
+            referenz: z.string(),
+            gipfel: z.string(),
+            hoehe: z.number().optional(),
+            punkte: z.number(),
+            datum: z.coerce.date().optional(),
+          }),
+        )
+        .default([]),
 
       /** Was das Funkgeraet gemacht hat. Jedes Feld einzeln optional. */
       funk: z
