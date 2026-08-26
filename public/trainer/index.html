@@ -153,15 +153,15 @@ body{font-family:var(--fui);background:var(--bg0);color:var(--txt);display:flex;
 /* ─ Login ─ */
 #login-screen{position:fixed;inset:0;background:rgba(8,8,15,.97);display:flex;align-items:center;justify-content:center;z-index:8000}
 .login-box{background:#14141f;border:1px solid rgba(74,123,168,.25);border-radius:20px;padding:40px 44px;width:380px;text-align:center}
-.login-logo{font-size:20px;font-weight:300;color:rgba(255,255,255,.9);letter-spacing:4px;margin-bottom:4px}
+.login-logo{font-size:22px;font-weight:300;color:rgba(255,255,255,.9);letter-spacing:4px;margin-bottom:4px}
 .login-logo span{color:var(--txt);font-weight:500}
 .login-sub{font-size:11px;color:var(--txt3);letter-spacing:2px;margin-bottom:32px}
-.login-lbl{font-size:10px;color:var(--txt2);letter-spacing:.5px;text-align:left;margin-bottom:6px;font-weight:500}
-.login-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--txt);padding:11px 14px;font-size:20px;font-family:var(--fmono);font-weight:500;text-transform:uppercase;width:100%;outline:none;letter-spacing:4px;border-radius:10px;text-align:center;transition:border-color .2s}
+.login-lbl{font-size:9px;color:var(--txt2);letter-spacing:.5px;text-align:left;margin-bottom:6px;font-weight:500}
+.login-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--txt);padding:11px 14px;font-size:22px;font-family:var(--fmono);font-weight:500;text-transform:uppercase;width:100%;outline:none;letter-spacing:4px;border-radius:8px;text-align:center;transition:border-color .2s}
 .login-input:focus{border-color:rgba(74,123,168,.5)}
-.login-btn{margin-top:18px;width:100%;padding:13px;background:var(--acc);border:none;color:#fff;font-family:var(--fui);font-size:13px;font-weight:600;letter-spacing:.5px;cursor:pointer;border-radius:10px;transition:opacity .15s}
+.login-btn{margin-top:18px;width:100%;padding:13px;background:var(--acc);border:none;color:#fff;font-family:var(--fui);font-size:13px;font-weight:600;letter-spacing:.5px;cursor:pointer;border-radius:8px;transition:opacity .15s}
 .login-btn:hover{opacity:.85}
-.login-hint{font-size:10px;color:var(--txt3);margin-top:12px}
+.login-hint{font-size:9px;color:var(--txt3);margin-top:12px}
 
 /* ─ Titlebar / Header ─ */
 .hdr{background:rgba(14,14,26,.96);border-bottom:1px solid rgba(255,255,255,.06);height:50px;padding:0 16px;display:flex;align-items:center;gap:14px;flex-shrink:0}
@@ -197,11 +197,11 @@ body{font-family:var(--fui);background:var(--bg0);color:var(--txt);display:flex;
 .wf-ov{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
 .wf-vfo-line{position:absolute;top:0;bottom:0;width:1px;background:rgba(74,123,168,.55)}
 .wf-passband{position:absolute;top:0;bottom:0;background:rgba(74,123,168,.05);border-left:1px solid rgba(74,123,168,.2);border-right:1px solid rgba(74,123,168,.2)}
-.wf-sig-label{position:absolute;top:4px;font-family:var(--fmono);font-size:8px;transform:translateX(-50%);color:rgba(255,255,255,.35);letter-spacing:.3px;white-space:nowrap}
+.wf-sig-label{position:absolute;top:4px;font-family:var(--fmono);font-size:9px;transform:translateX(-50%);color:rgba(255,255,255,.35);letter-spacing:.3px;white-space:nowrap}
 .wf-sig-label.main-sig{color:rgba(74,123,168,.8)}
-.wf-tooltip{position:absolute;bottom:4px;background:rgba(14,14,26,.92);border:1px solid rgba(74,123,168,.3);border-radius:6px;padding:2px 8px;font-family:var(--fmono);font-size:8px;color:var(--txt);pointer-events:none;white-space:nowrap;display:none;z-index:10}
+.wf-tooltip{position:absolute;bottom:4px;background:rgba(14,14,26,.92);border:1px solid rgba(74,123,168,.3);border-radius:8px;padding:2px 8px;font-family:var(--fmono);font-size:9px;color:var(--txt);pointer-events:none;white-space:nowrap;display:none;z-index:10}
 .wf-freq-scale{position:absolute;bottom:3px;left:0;right:0;display:flex;justify-content:space-between;padding:0 10px;pointer-events:none}
-.wf-freq-lbl{font-family:var(--fmono);font-size:8px;color:rgba(255,255,255,.18);letter-spacing:.3px}
+.wf-freq-lbl{font-family:var(--fmono);font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.3px}
 
 /* ─ Short viewports: shrink fixed-height elements so START stays visible ─ */
 @media(max-height:820px){
@@ -221,24 +221,24 @@ body{font-family:var(--fui);background:var(--bg0);color:var(--txt);display:flex;
 /* ─ Main layout ─ */
 .main{display:flex;flex:1;overflow:hidden}
 .lp{width:218px;background:var(--bg1);border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
-.lp::-webkit-scrollbar{width:3px}.lp::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+.lp::-webkit-scrollbar{width:3px}.lp::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:6px}
 .cp{flex:1;display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden;min-width:0;background:var(--bg0)}
-.cp::-webkit-scrollbar{width:3px}.cp::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+.cp::-webkit-scrollbar{width:3px}.cp::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:6px}
 .rp{width:206px;background:var(--bg1);border-left:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
-.rp::-webkit-scrollbar{width:3px}.rp::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+.rp::-webkit-scrollbar{width:3px}.rp::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:6px}
 .psec{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05)}
 .plbl{font-size:9px;font-weight:600;letter-spacing:1.5px;color:var(--txt3);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .plbl::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05)}
 
 
 /* ─ VFO ─ */
-.vfo-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 12px;text-align:center}
+.vfo-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;text-align:center}
 .vfo-freq{font-family:var(--fmono);font-size:22px;font-weight:300;color:var(--txt);letter-spacing:1px;font-variant-numeric:tabular-nums}
 .vfo-freq-acc{color:var(--txt);font-weight:500}
-.vfo-mode{font-size:10px;color:var(--txt3);letter-spacing:.5px;margin-top:3px}
+.vfo-mode{font-size:9px;color:var(--txt3);letter-spacing:.5px;margin-top:3px}
 
 /* ─ Buttons / Controls ─ */
-.btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--txt2);padding:6px 10px;font-size:10px;font-family:var(--fui);font-weight:500;letter-spacing:.3px;cursor:pointer;transition:all .15s;width:100%;text-align:left;border-radius:8px}
+.btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--txt2);padding:6px 10px;font-size:9px;font-family:var(--fui);font-weight:500;letter-spacing:.3px;cursor:pointer;transition:all .15s;width:100%;text-align:left;border-radius:8px}
 .btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--txt)}
 .btn:active{transform:scale(.97)}
 .btn.on{background:rgba(74,123,168,.1);border-color:rgba(74,123,168,.35);color:var(--txt)}
@@ -251,7 +251,7 @@ select option{background:#1c1c2e;color:var(--txt)}
 .sr-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
 .sr-lbl{font-size:9px;color:var(--txt3);width:38px;font-weight:600;letter-spacing:.5px;flex-shrink:0}
 .sr-val{font-size:9px;color:var(--txt2);width:26px;text-align:right;font-family:var(--fmono);font-variant-numeric:tabular-nums}
-input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radius:2px;outline:none;accent-color:var(--txt);cursor:pointer}
+input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radius:6px;outline:none;accent-color:var(--txt);cursor:pointer}
 
 /* ─ Auto-Adapt 45s Button ─ */
 .aa-wrap{display:flex;align-items:center;gap:7px;margin-top:5px}
@@ -277,7 +277,7 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 .aa-countdown svg{position:absolute;inset:0;transform:rotate(-90deg)}
 .aa-countdown-num{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--fmono);font-size:7px;font-weight:700;color:var(--txt);line-height:1;
+  font-family:var(--fmono);font-size:9px;font-weight:700;color:var(--txt);line-height:1;
 }
 .aa-countdown.hidden{display:none}
 /* light theme */
@@ -290,7 +290,7 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 .diff-preset-card{
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:2px;padding:8px 4px 7px;border-radius:9px;cursor:pointer;
+  gap:2px;padding:8px 4px 7px;border-radius:8px;cursor:pointer;
   border:1.5px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);
   transition:all .18s cubic-bezier(.4,0,.2,1);text-align:center;
 }
@@ -316,14 +316,14 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 .diff-preset-card.ck.active{border-color:rgba(194,146,79,.55);background:rgba(194,146,79,.06)}
 .diff-preset-card.ck .dpc-icon{color:var(--acc4)}
 .diff-preset-card.ck.active .dpc-name{color:var(--acc4)}
-.dpc-icon{font-size:15px;line-height:1;transition:transform .18s}
+.dpc-icon{font-size:16px;line-height:1;transition:transform .18s}
 .diff-preset-card:hover .dpc-icon{transform:scale(1.12)}
-.dpc-name{font-family:var(--fui);font-weight:700;font-size:8px;letter-spacing:.8px;color:var(--txt2);transition:color .18s;margin-top:1px}
-.dpc-sub{font-family:var(--fmono);font-size:7px;color:var(--txt3);letter-spacing:.3px;line-height:1.4;margin-top:2px}
+.dpc-name{font-family:var(--fui);font-weight:700;font-size:9px;letter-spacing:.8px;color:var(--txt2);transition:color .18s;margin-top:1px}
+.dpc-sub{font-family:var(--fmono);font-size:9px;color:var(--txt3);letter-spacing:.3px;line-height:1.4;margin-top:2px}
 .dpc-badge{
   position:absolute;top:4px;right:4px;
-  font-family:var(--fui);font-size:6px;font-weight:700;letter-spacing:.5px;
-  padding:1px 4px;border-radius:3px;
+  font-family:var(--fui);font-size:9px;font-weight:700;letter-spacing:.5px;
+  padding:1px 4px;border-radius:6px;
 }
 .diff-preset-card.easy .dpc-badge{background:rgba(111,163,132,.15);color:#6fa384}
 .diff-preset-card.advanced .dpc-badge{background:rgba(74,123,168,.15);color:var(--txt)}
@@ -353,7 +353,7 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 
 /* ─ Time buttons ─ */
 .time-grid{display:flex;gap:4px;flex-wrap:wrap}
-.time-btn{flex:1;min-width:30px;padding:5px 2px;font-size:10px;font-family:var(--fmono);text-align:center;cursor:pointer;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);color:var(--txt3);border-radius:20px;transition:all .12s}
+.time-btn{flex:1;min-width:30px;padding:5px 2px;font-size:9px;font-family:var(--fmono);text-align:center;cursor:pointer;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);color:var(--txt3);border-radius:20px;transition:all .12s}
 .time-btn:hover{border-color:rgba(255,255,255,.18);color:var(--txt2)}
 .time-btn.on{border-color:rgba(194,146,79,.45);color:var(--acc4);background:rgba(194,146,79,.07)}
 
@@ -366,17 +366,17 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 @keyframes cf{0%,100%{border-color:rgba(194,90,92,.5)}50%{border-color:rgba(194,146,79,.5)}}
 
 /* ─ CW ─ */
-.cw-speed-big{background:rgba(160,127,168,.06);border:1px solid rgba(160,127,168,.2);border-radius:10px;padding:10px;text-align:center;margin-bottom:8px}
-.cw-wpm{font-family:var(--fmono);font-size:32px;font-weight:300;color:var(--txt2);letter-spacing:2px}
+.cw-speed-big{background:rgba(160,127,168,.06);border:1px solid rgba(160,127,168,.2);border-radius:8px;padding:10px;text-align:center;margin-bottom:8px}
+.cw-wpm{font-family:var(--fmono);font-size:38px;font-weight:300;color:var(--txt2);letter-spacing:2px}
 .cw-wpm-lbl{font-size:9px;color:var(--txt3);letter-spacing:2px}
 .morse-vis{display:flex;gap:4px;align-items:center;justify-content:center;height:18px;margin:3px 0}
 .morse-dot{width:8px;height:8px;border-radius:50%;background:var(--purple);opacity:.15;transition:opacity .04s}
-.morse-dash{width:22px;height:8px;border-radius:4px;background:var(--purple);opacity:.15;transition:opacity .04s}
+.morse-dash{width:22px;height:8px;border-radius:6px;background:var(--purple);opacity:.15;transition:opacity .04s}
 .morse-dot.lit,.morse-dash.lit{opacity:1}
 
 
 /* ── TOOLBAR BUTTONS ── */
-.sp-toggle{padding:5px 14px;font-size:10px;font-family:var(--fui);font-weight:600;letter-spacing:1px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--txt3);border-radius:20px;transition:all .15s;text-transform:uppercase}
+.sp-toggle{padding:5px 14px;font-size:9px;font-family:var(--fui);font-weight:600;letter-spacing:1px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--txt3);border-radius:20px;transition:all .15s;text-transform:uppercase}
 /* ── BLIND MODE ── */
 .blind-call{filter:blur(5px);user-select:none;transition:filter .3s;cursor:pointer}
 .blind-call:hover{filter:blur(0px)}
@@ -389,49 +389,49 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 .zmap-box{background:#0d0d1a;border:1px solid rgba(74,123,168,.3);border-radius:14px;padding:18px;max-width:780px;width:96%;max-height:90vh;overflow-y:auto}
 .zmap-title{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--txt);text-align:center;margin-bottom:12px;text-transform:uppercase}
 .zmap-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin-bottom:8px}
-.zmap-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);border-radius:5px;background:rgba(255,255,255,.03);cursor:default;transition:all .15s;padding:2px}
+.zmap-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);border-radius:6px;background:rgba(255,255,255,.03);cursor:default;transition:all .15s;padding:2px}
 .zmap-cell.zm-active{background:rgba(168,133,63,.25);border-color:rgba(168,133,63,.8);box-shadow:0 0 8px rgba(168,133,63,.3)}
 .zmap-cell.zm-worked{background:rgba(47,92,134,.12);border-color:rgba(47,92,134,.4)}
-.zn{font-family:var(--fmono);font-size:12px;font-weight:600;color:var(--txt);line-height:1}
-.zpfx{font-size:6px;color:var(--txt3);text-align:center;line-height:1.3;margin-top:2px}
-.zreg{font-size:8px;font-weight:600;letter-spacing:.5px;color:var(--txt2);grid-column:1/-1;margin-top:6px;margin-bottom:2px;padding-left:2px}
+.zn{font-family:var(--fmono);font-size:11px;font-weight:600;color:var(--txt);line-height:1}
+.zpfx{font-size:9px;color:var(--txt3);text-align:center;line-height:1.3;margin-top:2px}
+.zreg{font-size:9px;font-weight:600;letter-spacing:.5px;color:var(--txt2);grid-column:1/-1;margin-top:6px;margin-bottom:2px;padding-left:2px}
 
 /* ── RESIDUAL PILE INDICATOR ── */
-.rpile-bar{height:2px;border-radius:1px;background:var(--acc3);transition:width .3s;margin-top:2px}
+.rpile-bar{height:2px;border-radius:6px;background:var(--acc3);transition:width .3s;margin-top:2px}
 
 .wf-vfo-line{position:absolute;top:0;bottom:0;width:1px;background:rgba(74,123,168,.7);box-shadow:0 0 4px rgba(74,123,168,.5)}
 .wf-passband{position:absolute;top:0;bottom:0;background:rgba(74,123,168,.06);border-left:1px solid rgba(74,123,168,.2);border-right:1px solid rgba(74,123,168,.2)}
-.wf-tooltip{position:absolute;bottom:4px;background:rgba(5,12,18,.92);border:1px solid var(--acc);border-radius:3px;padding:2px 7px;font-family:var(--fui);font-size:8px;color:var(--txt);pointer-events:none;white-space:nowrap;display:none;z-index:10}
+.wf-tooltip{position:absolute;bottom:4px;background:rgba(5,12,18,.92);border:1px solid var(--acc);border-radius:6px;padding:2px 7px;font-family:var(--fui);font-size:9px;color:var(--txt);pointer-events:none;white-space:nowrap;display:none;z-index:10}
 
 /* Status bar */
 .sbar{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08);padding:4px 12px;display:flex;align-items:center;gap:12px;flex-shrink:0;height:30px}
-.sm-bar{width:110px;height:8px;background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:1px;overflow:hidden}
+.sm-bar{width:110px;height:8px;background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
 .sm-fill{height:100%;background:linear-gradient(90deg,#254a72 0%,#4a7ba8 55%,#c2924f 78%,#c25a5c 100%);width:0%;transition:width .1s}
-.pb{width:4px;border-radius:1px;background:var(--acc);opacity:.15;transition:all .3s}
+.pb{width:4px;border-radius:6px;background:var(--acc);opacity:.15;transition:all .3s}
 .pb.on{opacity:1;box-shadow:0 0 4px var(--acc)}
 .stxt{flex:1;font-family:var(--fui);font-size:11px;color:var(--txt);letter-spacing:1px;font-weight:600}
-.voice-tag{font-size:8px;color:var(--txt3);font-family:var(--fui);border:1px solid rgba(255,255,255,.08);padding:1px 5px;border-radius:2px;white-space:nowrap;max-width:80px;overflow:hidden;text-overflow:ellipsis}
+.voice-tag{font-size:9px;color:var(--txt3);font-family:var(--fui);border:1px solid rgba(255,255,255,.08);padding:1px 5px;border-radius:6px;white-space:nowrap;max-width:80px;overflow:hidden;text-overflow:ellipsis}
 
 /* RX */
 .rxw{flex:1;overflow-y:auto;padding:6px 12px;background:var(--bg0);font-size:11px;min-height:50px;max-height:110px;border-bottom:1px solid rgba(255,255,255,.08)}
 .rxw::-webkit-scrollbar{width:3px}.rxw::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
 .rl{padding:1px 0;border-bottom:1px solid rgba(26,46,60,.4);color:#357a6a;line-height:1.5}
 .rl.cq{color:var(--txt)}.rl.pu{color:var(--acc4)}.rl.ok{color:var(--txt2)}.rl.er{color:var(--red)}.rl.sys{color:var(--txt3);font-style:italic}.rl.cw{color:var(--txt2)}
-.cw-rx-display{flex:1;overflow-y:auto;padding:8px 14px;background:var(--bg0);font-size:14px;font-family:var(--fui);min-height:50px;max-height:110px;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:3px}
+.cw-rx-display{flex:1;overflow-y:auto;padding:8px 14px;background:var(--bg0);font-size:13px;font-family:var(--fui);min-height:50px;max-height:110px;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:3px}
 .cw-rx-display::-webkit-scrollbar{width:3px}.cw-rx-display::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
 .cwrl{padding:2px 0;border-bottom:1px solid rgba(80,40,120,.3);color:var(--txt2);line-height:1.8}
-.cwrl.ok{color:var(--txt2)}.cwrl.er{color:var(--red)}.cwrl.sys{color:var(--txt3);font-size:10px;font-style:italic;font-family:var(--fmono)}
+.cwrl.ok{color:var(--txt2)}.cwrl.er{color:var(--red)}.cwrl.sys{color:var(--txt3);font-size:9px;font-style:italic;font-family:var(--fmono)}
 
 /* CW char area */
 .cw-char-area{padding:6px 14px;background:var(--bg0);border-bottom:1px solid rgba(255,255,255,.08);display:none}
-.cw-char-box{background:var(--bg0);border:1px solid var(--purple);border-radius:4px;padding:10px;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:inset 0 0 15px rgba(160,127,168,.05)}
-.cw-char-main{font-family:var(--fui);font-size:34px;font-weight:800;color:var(--txt2);letter-spacing:4px;text-shadow:0 0 12px rgba(160,127,168,.5)}
+.cw-char-box{background:var(--bg0);border:1px solid var(--purple);border-radius:6px;padding:10px;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:inset 0 0 15px rgba(160,127,168,.05)}
+.cw-char-main{font-family:var(--fui);font-size:38px;font-weight:800;color:var(--txt2);letter-spacing:4px;text-shadow:0 0 12px rgba(160,127,168,.5)}
 .cw-char-morse{font-family:var(--fmono);font-size:13px;color:var(--txt3);letter-spacing:3px;margin-top:3px}
 
 /* Input area */
 .inarea{background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);padding:8px 12px;flex-shrink:0}
-.clbl{font-family:var(--fui);font-size:8px;color:var(--txt3);letter-spacing:2px;margin-bottom:4px}
-.cinput{background:var(--bg0);border:1px solid rgba(255,255,255,.14);color:var(--txt);padding:7px 12px;font-size:20px;font-family:var(--fui);font-weight:600;text-transform:uppercase;width:100%;outline:none;letter-spacing:4px;border-radius:3px;transition:border-color .2s}
+.clbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:2px;margin-bottom:4px}
+.cinput{background:var(--bg0);border:1px solid rgba(255,255,255,.14);color:var(--txt);padding:7px 12px;font-size:22px;font-family:var(--fui);font-weight:600;text-transform:uppercase;width:100%;outline:none;letter-spacing:4px;border-radius:6px;transition:border-color .2s}
 .cinput:focus{border-color:var(--txt)}
 .cinput.ok2{border-color:var(--txt2);color:var(--txt2)}
 .cinput.err{border-color:var(--red);color:var(--red);background:rgba(194,90,92,.04)}
@@ -439,96 +439,96 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 .cinput.cw-mode:focus{border-color:var(--txt2)}
 
 /* Timer */
-.timer-d{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:5px 10px;display:flex;align-items:center;margin:6px 0}
+.timer-d{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:5px 10px;display:flex;align-items:center;margin:6px 0}
 .tval{font-family:var(--fui);font-size:16px;color:var(--acc3);letter-spacing:2px}
-.tprog{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin:0 9px;overflow:hidden}
-.tfill{height:100%;background:var(--acc3);border-radius:2px;transition:width 1s linear}
+.tprog{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:6px;margin:0 9px;overflow:hidden}
+.tfill{height:100%;background:var(--acc3);border-radius:6px;transition:width 1s linear}
 
 /* Action buttons */
 .actbar{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:5px}
-.abt{padding:8px 4px;text-align:center;cursor:pointer;border-radius:4px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;transition:all .12s;line-height:1.4}
+.abt{padding:8px 4px;text-align:center;cursor:pointer;border-radius:6px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;transition:all .12s;line-height:1.4}
 .abt:active{transform:scale(.96)}
-.abt .sub{font-size:7px;opacity:.5;font-family:var(--fui);display:block;margin-top:1px}
+.abt .sub{font-size:9px;opacity:.5;font-family:var(--fui);display:block;margin-top:1px}
 .ab-cq{border-color:var(--txt);color:var(--txt);background:rgba(74,123,168,.06)}.ab-cq:hover{background:rgba(74,123,168,.14)}
 .ab-rep{border-color:var(--acc3);color:var(--acc3);background:rgba(255,107,53,.06)}.ab-rep:hover{background:rgba(255,107,53,.14)}
 .ab-skip{border-color:var(--txt3);color:var(--txt2);background:var(--bg0)}.ab-skip:hover{border-color:var(--txt2)}
-.ab-log{border-color:var(--txt2);color:var(--txt2);background:rgba(74,123,168,.06);grid-column:1/-1;font-size:12px;padding:9px}.ab-log:hover{background:rgba(74,123,168,.14)}
+.ab-log{border-color:var(--txt2);color:var(--txt2);background:rgba(74,123,168,.06);grid-column:1/-1;font-size:11px;padding:9px}.ab-log:hover{background:rgba(74,123,168,.14)}
 /* START/STOP - now below LOG */
 .sess-btns{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:5px}
-.ab-start{border-color:var(--txt2);color:var(--txt2);background:rgba(74,123,168,.06);padding:10px 4px;text-align:center;cursor:pointer;border-radius:4px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:all .12s}
+.ab-start{border-color:var(--txt2);color:var(--txt2);background:rgba(74,123,168,.06);padding:10px 4px;text-align:center;cursor:pointer;border-radius:6px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:all .12s}
 .ab-start:hover{background:rgba(74,123,168,.14)}
-.ab-stop{border-color:var(--red);color:var(--red);background:rgba(194,90,92,.06);padding:10px 4px;text-align:center;cursor:pointer;border-radius:4px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:all .12s;display:none}
+.ab-stop{border-color:var(--red);color:var(--red);background:rgba(194,90,92,.06);padding:10px 4px;text-align:center;cursor:pointer;border-radius:6px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:all .12s;display:none}
 .ab-stop:hover{background:rgba(194,90,92,.14)}
-.ab-pause{border-color:var(--acc4);color:var(--acc4);background:rgba(194,146,79,.06);padding:10px 4px;text-align:center;cursor:pointer;border-radius:4px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:all .12s;display:none}
+.ab-pause{border-color:var(--acc4);color:var(--acc4);background:rgba(194,146,79,.06);padding:10px 4px;text-align:center;cursor:pointer;border-radius:6px;border:1px solid;font-family:var(--fui);font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:all .12s;display:none}
 .ab-pause:hover{background:rgba(194,146,79,.14)}
 
 /* Score panel */
 .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.sc-card{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:6px 8px;text-align:center}
-.sc-val{font-family:var(--fui);font-size:17px;font-weight:600;color:var(--txt);line-height:1}
-.sc-lbl{font-family:var(--fui);font-size:8px;color:var(--txt3);letter-spacing:1px;margin-top:2px;text-transform:uppercase}
-.big-score{background:linear-gradient(135deg,var(--bg0),rgba(255,255,255,.03));border:1px solid var(--acc);border-radius:4px;padding:9px;text-align:center}
-.big-score-val{font-family:var(--fui);font-size:26px;font-weight:800;color:var(--txt);text-shadow:var(--glow);letter-spacing:2px}
+.sc-card{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:6px 8px;text-align:center}
+.sc-val{font-family:var(--fui);font-size:16px;font-weight:600;color:var(--txt);line-height:1}
+.sc-lbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:1px;margin-top:2px;text-transform:uppercase}
+.big-score{background:linear-gradient(135deg,var(--bg0),rgba(255,255,255,.03));border:1px solid var(--acc);border-radius:6px;padding:9px;text-align:center}
+.big-score-val{font-family:var(--fui);font-size:22px;font-weight:800;color:var(--txt);text-shadow:var(--glow);letter-spacing:2px}
 .big-score-lbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:2px;margin-top:2px}
-.rg-wrap{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:3px;height:34px;overflow:hidden}
-.proj-box{background:rgba(194,146,79,.04);border:1px solid rgba(194,146,79,.18);border-radius:3px;padding:6px;text-align:center;margin-bottom:4px}
-.proj-val{font-family:var(--fui);font-size:14px;color:var(--acc4)}
-.proj-lbl{font-family:var(--fui);font-size:8px;color:var(--txt3);letter-spacing:1px;margin-top:1px}
+.rg-wrap{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;height:34px;overflow:hidden}
+.proj-box{background:rgba(194,146,79,.04);border:1px solid rgba(194,146,79,.18);border-radius:6px;padding:6px;text-align:center;margin-bottom:4px}
+.proj-val{font-family:var(--fui);font-size:13px;color:var(--acc4)}
+.proj-lbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:1px;margin-top:1px}
 .log-scroll{max-height:130px;overflow-y:auto}
 .log-scroll::-webkit-scrollbar{width:2px}.log-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
 .lt{width:100%;font-size:9px;border-collapse:collapse}
 .lt th{color:var(--txt3);text-align:left;padding:2px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--fui);font-weight:600;letter-spacing:1px}
 .lt td{padding:2px 4px;border-bottom:1px solid rgba(26,46,60,.4);font-family:var(--fmono);font-size:9px;color:#3a8a7a}
 .lt tr.bust td{color:var(--red)}.lt tr.dupe td{color:var(--txt3)}
-.bdg{display:inline-block;padding:0 4px;font-size:8px;border:1px solid;border-radius:1px}
+.bdg{display:inline-block;padding:0 4px;font-size:9px;border:1px solid;border-radius:6px}
 .bok{border-color:#1a5a3a;color:var(--txt2)}.bbust{border-color:#5a1a1a;color:var(--red)}.bdupe{border-color:rgba(255,255,255,.08);color:var(--txt3)}
-.adapt-badge{background:var(--bg0);border:1px solid var(--acc2);border-radius:3px;padding:5px 9px;display:flex;align-items:center;justify-content:space-between}
+.adapt-badge{background:var(--bg0);border:1px solid var(--acc2);border-radius:6px;padding:5px 9px;display:flex;align-items:center;justify-content:space-between}
 .adapt-level{font-family:var(--fui);font-size:11px;color:var(--txt2)}
 .adapt-xp{font-size:9px;color:var(--txt3)}
-.xp-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:4px;overflow:hidden}
-.xp-fill{height:100%;background:var(--acc2);border-radius:2px;transition:width .5s}
+.xp-bar{height:3px;background:rgba(255,255,255,.08);border-radius:6px;margin-top:4px;overflow:hidden}
+.xp-fill{height:100%;background:var(--acc2);border-radius:6px;transition:width .5s}
 
 /* Overlays */
 .ov{position:fixed;inset:0;background:rgba(0,4,8,.94);display:flex;align-items:center;justify-content:center;z-index:500}
-.ovbox{background:rgba(255,255,255,.04);border:1px solid var(--acc);border-radius:6px;padding:20px;max-width:520px;width:95%;box-shadow:0 0 40px rgba(74,123,168,.13);max-height:88vh;overflow-y:auto}
+.ovbox{background:rgba(255,255,255,.04);border:1px solid var(--acc);border-radius:8px;padding:20px;max-width:520px;width:95%;box-shadow:0 0 40px rgba(74,123,168,.13);max-height:88vh;overflow-y:auto}
 .ovbox::-webkit-scrollbar{width:3px}.ovbox::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
 .ovt{font-family:var(--fui);font-size:13px;font-weight:800;color:var(--txt);letter-spacing:3px;margin-bottom:14px;text-align:center;text-shadow:var(--glow)}
-.lb-tbl{width:100%;border-collapse:collapse;font-size:10px}
-.lb-tbl th{font-family:var(--fui);font-size:7px;letter-spacing:2px;color:var(--txt3);padding:4px 7px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+.lb-tbl{width:100%;border-collapse:collapse;font-size:9px}
+.lb-tbl th{font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);padding:4px 7px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
 .lb-tbl td{padding:5px 7px;border-bottom:1px solid rgba(26,46,60,.5);font-family:var(--fmono)}
 .lb-tbl tr.me td{background:rgba(74,123,168,.06);color:var(--txt)}
-.lb-search{background:var(--bg0);border:1px solid rgba(255,255,255,.08);color:var(--txt);padding:6px 10px;font-size:11px;font-family:var(--fmono);width:100%;outline:none;border-radius:3px;margin-bottom:10px}
+.lb-search{background:var(--bg0);border:1px solid rgba(255,255,255,.08);color:var(--txt);padding:6px 10px;font-size:11px;font-family:var(--fmono);width:100%;outline:none;border-radius:6px;margin-bottom:10px}
 .lb-search:focus{border-color:var(--txt)}
 .lb-tabs{display:flex;gap:4px;margin-bottom:10px}
-.lb-tab{flex:1;padding:5px;text-align:center;font-family:var(--fui);font-size:8px;letter-spacing:1px;cursor:pointer;border:1px solid rgba(255,255,255,.08);color:var(--txt3);border-radius:3px;transition:all .1s}
+.lb-tab{flex:1;padding:5px;text-align:center;font-family:var(--fui);font-size:9px;letter-spacing:1px;cursor:pointer;border:1px solid rgba(255,255,255,.08);color:var(--txt3);border-radius:6px;transition:all .1s}
 .lb-tab:hover{border-color:rgba(255,255,255,.14);color:var(--txt2)}
 .lb-tab.on{border-color:var(--txt);color:var(--txt);background:rgba(74,123,168,.08)}
 .lb-tab.on-cw{border-color:var(--txt2);color:var(--txt2);background:rgba(160,127,168,.08)}
 .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
-.rev-card{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:9px;text-align:center}
-.rev-val{font-family:var(--fui);font-size:19px;color:var(--txt)}
-.rev-lbl{font-size:8px;color:var(--txt3);letter-spacing:1px;margin-top:2px;font-family:var(--fui)}
-.bbar{background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);padding:3px 14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--fui);font-size:10px;color:var(--txt3);flex-shrink:0;height:24px}
+.rev-card{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px;text-align:center}
+.rev-val{font-family:var(--fui);font-size:16px;color:var(--txt)}
+.rev-lbl{font-size:9px;color:var(--txt3);letter-spacing:1px;margin-top:2px;font-family:var(--fui)}
+.bbar{background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);padding:3px 14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--fui);font-size:9px;color:var(--txt3);flex-shrink:0;height:24px}
 .bbar strong{color:var(--txt)}
 
 /* ── VOICE LAB ── */
 .vl-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .vl-row:last-child{border-bottom:none}
-.vl-name{flex:1;font-family:var(--fmono);font-size:10px;color:var(--txt2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.vl-lang{font-size:8px;color:var(--txt3);font-family:var(--fmono);width:46px;flex-shrink:0}
-.vl-badge{font-size:7px;padding:1px 5px;border-radius:3px;border:1px solid;flex-shrink:0}
+.vl-name{flex:1;font-family:var(--fmono);font-size:9px;color:var(--txt2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vl-lang{font-size:9px;color:var(--txt3);font-family:var(--fmono);width:46px;flex-shrink:0}
+.vl-badge{font-size:9px;padding:1px 5px;border-radius:6px;border:1px solid;flex-shrink:0}
 .vl-badge.neural{border-color:rgba(74,123,168,.4);color:var(--txt)}
 .vl-badge.premium{border-color:rgba(160,127,168,.4);color:var(--txt2)}
 .vl-badge.standard{border-color:rgba(255,255,255,.1);color:var(--txt3)}
-.vl-test{font-size:9px;padding:2px 8px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--txt2);border-radius:4px;cursor:pointer;font-family:var(--fui);white-space:nowrap}
+.vl-test{font-size:9px;padding:2px 8px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--txt2);border-radius:6px;cursor:pointer;font-family:var(--fui);white-space:nowrap}
 .vl-test:hover{border-color:var(--txt);color:var(--txt)}
 .vl-fav{font-size:13px;cursor:pointer;opacity:.3;transition:opacity .15s;flex-shrink:0;background:none;border:none;padding:0}
 .vl-fav.on{opacity:1}
-.vl-section{font-size:8px;font-weight:700;letter-spacing:2px;color:var(--txt3);text-transform:uppercase;padding:8px 0 4px;font-family:var(--fui)}
+.vl-section{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--txt3);text-transform:uppercase;padding:8px 0 4px;font-family:var(--fui)}
 .vl-pool-row{display:flex;align-items:center;gap:6px;margin:3px 0}
 .vl-pool-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);flex-shrink:0}
 .vl-pool-lbl{font-size:9px;font-family:var(--fmono);color:var(--txt2)}
-.vl-empty{font-size:10px;color:var(--txt3);font-style:italic;padding:8px 0;text-align:center}
+.vl-empty{font-size:9px;color:var(--txt3);font-style:italic;padding:8px 0;text-align:center}
 
 /* ══════════════════════════════════════════════
    LAYOUT C — SPLIT TERMINAL
@@ -550,7 +550,7 @@ body.layout-c .lc-tabs{
 }
 .lc-tabs{display:none}
 body.layout-c .lc-tab{
-  padding:0 16px;font-family:var(--fmono);font-size:10px;letter-spacing:.08em;
+  padding:0 16px;font-family:var(--fmono);font-size:9px;letter-spacing:.08em;
   color:rgba(255,255,255,.25);cursor:pointer;display:flex;align-items:center;
   border-right:1px solid var(--lc-border);border-bottom:2px solid transparent;
   transition:all .15s;user-select:none;
@@ -580,7 +580,7 @@ body.layout-c .cp{background:var(--lc-bg0)}
 /* ── C: Left panel sections ── */
 body.layout-c .psec{padding:8px 10px;border-bottom:1px solid var(--lc-border)}
 body.layout-c .plbl{
-  font-size:7px;font-weight:600;letter-spacing:1.8px;color:rgba(255,255,255,.2);
+  font-size:9px;font-weight:600;letter-spacing:1.8px;color:rgba(255,255,255,.2);
   text-transform:uppercase;margin-bottom:6px;
 }
 body.layout-c .plbl::after{background:var(--lc-border)}
@@ -589,7 +589,7 @@ body.layout-c .plbl::after{background:var(--lc-border)}
 body.layout-c .diff-preset-grid{display:flex;flex-direction:column;gap:3px}
 body.layout-c .diff-preset-card{
   display:flex;align-items:center;gap:7px;
-  padding:5px 7px;border-radius:5px;border-width:1px;
+  padding:5px 7px;border-radius:6px;border-width:1px;
   text-align:left;
 }
 body.layout-c .diff-preset-card:hover{transform:none}
@@ -599,10 +599,10 @@ body.layout-c .diff-preset-card .dpc-name{
   letter-spacing:.04em;flex:1;
 }
 body.layout-c .diff-preset-card .dpc-sub{
-  font-size:7px;line-height:1.3;
+  font-size:9px;line-height:1.3;
 }
 body.layout-c .diff-preset-card .dpc-badge{
-  position:static;font-size:7px;padding:1px 4px;border-radius:3px;
+  position:static;font-size:9px;padding:1px 4px;border-radius:6px;
 }
 /* easy */
 body.layout-c .diff-preset-card.easy{border-color:rgba(111,163,132,.2);background:rgba(111,163,132,.04)}
@@ -624,7 +624,7 @@ body.layout-c .diff-preset-card.ck.active .dpc-name{color:var(--lc-ck)}
 body.layout-c .aa-btn{
   border-color:rgba(74,123,168,.25);background:rgba(74,123,168,.04);
   color:rgba(255,255,255,.3);font-size:9px;letter-spacing:.06em;
-  padding:5px 7px;border-radius:5px;
+  padding:5px 7px;border-radius:6px;
 }
 body.layout-c .aa-btn.on{
   border-color:rgba(74,123,168,.5);background:rgba(74,123,168,.09);color:var(--txt);
@@ -643,7 +643,7 @@ body.layout-c .sbar{
 /* ── C: RX window ── */
 body.layout-c .rxw{
   background:var(--lc-bg3);border-bottom:1px solid var(--lc-border);
-  font-family:var(--fmono);font-size:10px;
+  font-family:var(--fmono);font-size:9px;
 }
 body.layout-c .rl{border-bottom:1px solid rgba(255,255,255,.04)}
 body.layout-c .rl.cq{color:var(--txt)}
@@ -673,7 +673,7 @@ body.layout-c .bbar{display:none}
 }
 body.layout-c .lc-dotbar{display:flex}
 .lc-dotbar-label{
-  font-family:var(--fmono);font-size:8px;letter-spacing:.1em;
+  font-family:var(--fmono);font-size:9px;letter-spacing:.1em;
   color:rgba(255,255,255,.2);margin-right:10px;white-space:nowrap;
 }
 .lc-dots-wrap{display:flex;gap:5px;align-items:center}
@@ -698,7 +698,7 @@ body.layout-c .lc-dotbar{display:flex}
 .lc-aa-led{width:6px;height:6px;border-radius:50%;background:var(--acc);flex-shrink:0;
   animation:aa-pulse 1.2s ease-in-out infinite;display:none}
 .lc-aa-led.on{display:inline-block}
-.lc-aa-cd-bar{font-family:var(--fmono);font-size:8px;color:rgba(74,123,168,.5);letter-spacing:.04em}
+.lc-aa-cd-bar{font-family:var(--fmono);font-size:9px;color:rgba(74,123,168,.5);letter-spacing:.04em}
 
 /* ── C: Tab content panels ── */
 .lc-panel{display:none}
@@ -707,7 +707,7 @@ body.layout-c .cp{display:flex;flex-direction:column;flex:1;overflow-y:auto;over
 
 /* ── C: Score row in right panel ── */
 body.layout-c .big-score{
-  background:var(--lc-bg3);border:1px solid var(--lc-border);border-radius:4px;
+  background:var(--lc-bg3);border:1px solid var(--lc-border);border-radius:6px;
 }
 body.layout-c .sc-card{background:var(--lc-bg3);border-color:var(--lc-border)}
 
@@ -719,8 +719,42 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-</head>
-<body>
+<style>.ic{width:1em;height:1em;display:inline-block;vertical-align:-.13em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.ic-satz{position:absolute;width:0;height:0;overflow:hidden}</style><style>
+/* ── Hausstil: der Panelkopf ──────────────────────────────────
+   Regel 3 — jedes Panel traegt denselben Kopf: 3 px Akzentbalken
+   links, Titel versal mit weiter Laufweite. Im Programm ist das
+   das Erkennungszeichen; hier fehlte es. */
+.ovt, .zmap-title, .hdr {
+  position: relative;
+  padding-left: 12px !important;
+  font-family: var(--fui);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--txt2);
+}
+.ovt::before, .zmap-title::before, .hdr::before {
+  content: ""; position: absolute; left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 3px; height: 1.15em;
+  background: linear-gradient(to bottom, #a87a3c, #8a6a30);
+  border-radius: 1px;
+}
+/* Versalzeilen: 9 px, Laufweite .18em, Skalengrau — Regel 1 */
+.dpc-badge, .diff-name {
+  font-family: var(--fui);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+/* Zustaende als umrandete Kapsel, nicht als gefaerbter Text — Regel 5 */
+.lb-tab {
+  border-radius: 6px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+</style></head>
+<body><svg class="ic-satz" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="ic-radio" viewBox="0 0 24 24"><rect x="2.5" y="9" width="19" height="11" rx="1.5"/><path d="M7 9 17 3.5"/><circle cx="16.5" cy="14.5" r="3"/><path d="M5.5 12.5h4M5.5 16.5h4"/></symbol><symbol id="ic-bolt" viewBox="0 0 24 24"><path d="M13.5 2 5 13.5h5.5L9.5 22 19 10h-6z"/></symbol><symbol id="ic-mic" viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21.5M8.5 21.5h7"/></symbol><symbol id="ic-warn" viewBox="0 0 24 24"><path d="M12 3 22 20H2z"/><path d="M12 9.5v5"/><circle cx="12" cy="17.4" r=".9" fill="currentColor" stroke="none"/></symbol><symbol id="ic-chartdn" viewBox="0 0 24 24"><path d="M3 6l7 7 3.5-3.5L21 17"/><path d="M21 12v5h-5"/></symbol><symbol id="ic-chartup" viewBox="0 0 24 24"><path d="M3 18l7-7 3.5 3.5L21 7"/><path d="M21 12V7h-5"/></symbol><symbol id="ic-bars" viewBox="0 0 24 24"><path d="M4 20V12M9.3 20V5M14.7 20V15M20 20V9"/></symbol><symbol id="ic-dish" viewBox="0 0 24 24"><path d="M4 20 14.5 9.5"/><path d="M3.5 12.5a9 9 0 0 1 8-8"/><path d="M6.5 15.5a5 5 0 0 1 5-5"/><circle cx="17.5" cy="6.5" r="2.6"/></symbol><symbol id="ic-trophy" viewBox="0 0 24 24"><path d="M7 3h10v6a5 5 0 0 1-10 0z"/><path d="M7 4.5H4v2a3.5 3.5 0 0 0 3.5 3.5M17 4.5h3v2A3.5 3.5 0 0 1 16.5 10"/><path d="M12 14v4M8.5 21h7M9.5 18h5v3h-5z"/></symbol><symbol id="ic-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol><symbol id="ic-arrdn" viewBox="0 0 24 24"><path d="M12 3.5v14M6.5 12.5 12 18l5.5-5.5M4 21h16"/></symbol><symbol id="ic-flame" viewBox="0 0 24 24"><path d="M12 21c3.9 0 6.5-2.5 6.5-6 0-4.5-4.5-6-4.5-11-3 2-5 5-5 8 0 1.4-.8 2-1.6 1.2C6 12 5.5 10.8 5.5 9.5 4.2 11 3.5 13 3.5 15c0 3.5 2.6 6 6 6z" transform="translate(1.2)"/></symbol><symbol id="ic-storm" viewBox="0 0 24 24"><path d="M6.5 15a4 4 0 0 1 .6-8 5.5 5.5 0 0 1 10.4 1.4A3.6 3.6 0 0 1 17 15z"/><path d="M12.5 16 10 19.5h3L10.5 23"/></symbol><symbol id="ic-eye" viewBox="0 0 24 24"><path d="M1.8 12S5.5 5.5 12 5.5 22.2 12 22.2 12 18.5 18.5 12 18.5 1.8 12 1.8 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="ic-eyeoff" viewBox="0 0 24 24"><path d="M4 4l16 16"/><path d="M9.5 6.1A9.6 9.6 0 0 1 12 5.8c6.5 0 10.2 6.5 10.2 6.5a17 17 0 0 1-3.5 4.2M6.4 8.1A17.2 17.2 0 0 0 1.8 12.3S5.5 18.8 12 18.8a9.6 9.6 0 0 0 3.3-.6"/></symbol><symbol id="ic-crown" viewBox="0 0 24 24"><path d="M3 8l3.5 4L12 4l5.5 8L21 8l-2 10H5z"/><path d="M5 20.5h14"/></symbol><symbol id="ic-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5" fill="currentColor" stroke="none"/></symbol><symbol id="ic-horn" viewBox="0 0 24 24"><path d="M3.5 10v4a1.5 1.5 0 0 0 1.5 1.5h2L14 20V4L7 8.5H5A1.5 1.5 0 0 0 3.5 10z"/><path d="M17.5 8.5a5 5 0 0 1 0 7"/><path d="M6.5 16v4.5h3V16"/></symbol><symbol id="ic-repeat" viewBox="0 0 24 24"><path d="M4 9.5A4 4 0 0 1 8 5.5h12"/><path d="M17 2.5 20.5 5.5 17 8.5"/><path d="M20 14.5a4 4 0 0 1-4 4H4"/><path d="M7 21.5 3.5 18.5 7 15.5"/></symbol><symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></symbol><symbol id="ic-map" viewBox="0 0 24 24"><path d="M2.5 6 9 3.5l6 2.5 6.5-2.5v15L15 21l-6-2.5L2.5 21z"/><path d="M9 3.5v15M15 6v15"/></symbol><symbol id="ic-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol><symbol id="ic-chip" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 2.5v4M14.5 2.5v4M9.5 17.5v4M14.5 17.5v4M2.5 9.5h4M2.5 14.5h4M17.5 9.5h4M17.5 14.5h4"/></symbol><symbol id="ic-spark" viewBox="0 0 24 24"><path d="M12 2.5 14 9l6.5 2-6.5 2-2 6.5-2-6.5L3.5 11 10 9z"/><path d="M19 3.5v3M17.5 5h3"/></symbol><symbol id="ic-snow" viewBox="0 0 24 24"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2 3.8 16.8"/><path d="M9 4.5 12 6.5l3-2M9 19.5 12 17.5l3 2"/></symbol></svg>
 
 <!-- LOGIN -->
 <div id="login-screen">
@@ -751,8 +785,8 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
   </div>
   <div class="htitle">HF CONTEST <span>TRAINER</span></div>
   <div class="hdr-mid">
-    <div class="mode-tab active-ssb" id="tab-ssb" onclick="setAppMode('ssb')">📻 SSB</div>
-    <div class="mode-tab" id="tab-cw" onclick="setAppMode('cw')">⚡ CW</div>
+    <div class="mode-tab active-ssb" id="tab-ssb" onclick="setAppMode('ssb')"><svg class="ic"><use href="#ic-radio"/></svg> SSB</div>
+    <div class="mode-tab" id="tab-cw" onclick="setAppMode('cw')"><svg class="ic"><use href="#ic-bolt"/></svg> CW</div>
   </div>
   <div class="hdr-right">
     <!-- THEME SWITCHER -->
@@ -762,10 +796,10 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
     </div>
     <span class="led" id="rx-led"></span>
     <div class="hclock" id="clk">--:--:--z</div>
-    <button class="sp-toggle" id="vad-btn" onclick="toggleVoiceInput()" title="Spracheingabe (VAD) — kein PTT nötig" style="border-color:rgba(74,123,168,.3);color:var(--txt3)">🎤 VOICE</button>
-    <button class="sp-toggle" onclick="showVoiceLab()" title="Voice Lab — Stimmen auswählen &amp; testen" style="border-color:rgba(160,127,168,.35);color:var(--txt2);font-size:12px;padding:4px 11px">🎙</button>
-    <button class="sp-toggle" onclick="showManual()" title="Open Manual" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.5);font-size:12px;padding:4px 11px">?</button>
-    <button class="sp-toggle" id="blind-toggle-btn" onclick="toggleBlindMode()" title="Rufzeichen ausblenden — nur nach Gehör arbeiten">👁 BLIND</button>
+    <button class="sp-toggle" id="vad-btn" onclick="toggleVoiceInput()" title="Spracheingabe (VAD) — kein PTT nötig" style="border-color:rgba(74,123,168,.3);color:var(--txt3)"><svg class="ic"><use href="#ic-mic"/></svg> VOICE</button>
+    <button class="sp-toggle" onclick="showVoiceLab()" title="Voice Lab — Stimmen auswählen &amp; testen" style="border-color:rgba(160,127,168,.35);color:var(--txt2);font-size:11px;padding:4px 11px"><svg class="ic"><use href="#ic-mic"/></svg></button>
+    <button class="sp-toggle" onclick="showManual()" title="Open Manual" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.5);font-size:11px;padding:4px 11px">?</button>
+    <button class="sp-toggle" id="blind-toggle-btn" onclick="toggleBlindMode()" title="Rufzeichen ausblenden — nur nach Gehör arbeiten"><svg class="ic"><use href="#ic-eye"/></svg> BLIND</button>
     <div class="mycall-badge" id="mycall-badge" onclick="showLeaderboard()">—</div>
   </div>
 </div>
@@ -792,10 +826,10 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <div class="vfo-mode" id="vfo-mode">SSB · USB · 100W</div>
     </div>
     <!-- Band condition indicator -->
-    <div id="band-cond-row" style="display:none;margin-top:7px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:5px 9px">
+    <div id="band-cond-row" style="display:none;margin-top:7px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 9px">
       <div style="display:flex;align-items:center;justify-content:space-between">
-        <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);font-family:var(--fui)">Propagation</div>
-        <div id="band-cond-next" style="font-size:8px;color:var(--txt3);font-family:var(--fmono)"></div>
+        <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);font-family:var(--fui)">Propagation</div>
+        <div id="band-cond-next" style="font-size:9px;color:var(--txt3);font-family:var(--fmono)"></div>
       </div>
       <div style="display:flex;align-items:center;gap:6px;margin-top:3px">
         <div id="band-cond-dot" style="width:7px;height:7px;border-radius:50%;background:var(--acc2);flex-shrink:0"></div>
@@ -803,8 +837,8 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       </div>
       <div id="band-cond-desc" style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-top:2px;line-height:1.4"></div>
       <!-- Transition progress bar -->
-      <div style="height:2px;background:rgba(255,255,255,.06);border-radius:2px;margin-top:5px;overflow:hidden">
-        <div id="band-cond-bar" style="height:100%;width:100%;background:var(--acc2);transition:width 1s linear;border-radius:2px"></div>
+      <div style="height:2px;background:rgba(255,255,255,.06);border-radius:6px;margin-top:5px;overflow:hidden">
+        <div id="band-cond-bar" style="height:100%;width:100%;background:var(--acc2);transition:width 1s linear;border-radius:6px"></div>
       </div>
     </div>
   </div>
@@ -818,7 +852,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <!-- EASY -->
       <div class="diff-preset-card easy active" id="dpc-easy" onclick="selectDiffPreset('easy')" title="Kein Pile-Up — eine Station, starkes Signal, langsam">
         <div class="dpc-badge">LVL 1</div>
-        <div class="dpc-icon">🟢</div>
+        <div class="dpc-icon"><svg class="ic"><use href="#ic-dot"/></svg></div>
         <div class="dpc-name">EASY</div>
         <div class="dpc-sub">kein<br>Pile-Up</div>
       </div>
@@ -826,7 +860,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <!-- ADVANCED -->
       <div class="diff-preset-card advanced" id="dpc-advanced" onclick="selectDiffPreset('advanced')" title="Kleines Pile-Up — 2 bis 3 Stationen, typischer Contest">
         <div class="dpc-badge">LVL 3</div>
-        <div class="dpc-icon">📻</div>
+        <div class="dpc-icon"><svg class="ic"><use href="#ic-radio"/></svg></div>
         <div class="dpc-name">ADVANCED</div>
         <div class="dpc-sub">wenig<br>Pile-Up</div>
       </div>
@@ -834,13 +868,13 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <!-- CONTEST KING -->
       <div class="diff-preset-card ck" id="dpc-ck" onclick="selectDiffPreset('ck')" title="Volles Pile-Up — hohe QRM, starke Konkurrenz, Pro-Niveau">
         <div class="dpc-badge">LVL 8</div>
-        <div class="dpc-icon">👑</div>
+        <div class="dpc-icon"><svg class="ic"><use href="#ic-crown"/></svg></div>
         <div class="dpc-name">CONTEST<br>KING</div>
         <div class="dpc-sub">lösbares<br>Pile-Up</div>
       </div>
 
     </div>
-    <div id="diff-preset-desc" style="font-size:8px;color:var(--txt3);font-family:var(--fui);margin-top:5px;letter-spacing:.4px;line-height:1.5">
+    <div id="diff-preset-desc" style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-top:5px;letter-spacing:.4px;line-height:1.5">
       Eine Station · starkes Signal · kein QRM
     </div>
   </div>
@@ -855,7 +889,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <option value="iaru">IARU HF World Championship</option>
       <option value="vhf">VHF/UHF Contest</option>
     </select>
-    <div style="font-size:8px;color:var(--txt3);font-family:var(--fui);margin-top:5px;letter-spacing:.5px" id="exinfo">Callsign only — no exchange</div>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-top:5px;letter-spacing:.5px" id="exinfo">Callsign only — no exchange</div>
   </div>
 
 
@@ -903,14 +937,14 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
     <div class="plbl" id="mod-panel-lbl">Training Modifiers</div>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="diff-btn" id="mod-weak" onclick="toggleWeakSignal()" title="Reduces signal volume and adds QRM — practice real DX conditions">
-        <span class="diff-name" style="font-size:10px" id="mod-weak-name">📉 WEAK SIGNAL</span>
-        <span style="font-size:8px;color:var(--txt3)" id="mod-weak-lbl">off</span>
+        <span class="diff-name" style="font-size:9px" id="mod-weak-name"><svg class="ic"><use href="#ic-chartdn"/></svg> WEAK SIGNAL</span>
+        <span style="font-size:9px;color:var(--txt3)" id="mod-weak-lbl">off</span>
       </div>
 
       <!-- v19.2: Partial-Call-Modus reaktiviert -->
       <div class="diff-btn" id="mod-partial" onclick="togglePartialCall()" title="Teile des Rufzeichens werden von einem QRM-Burst überlagert — vollständiges Call kopieren">
-        <span class="diff-name" style="font-size:10px" id="mod-partial-name">📻 PARTIAL CALL</span>
-        <span style="font-size:8px;color:var(--txt3)" id="mod-partial-lbl">off</span>
+        <span class="diff-name" style="font-size:9px" id="mod-partial-name"><svg class="ic"><use href="#ic-radio"/></svg> PARTIAL CALL</span>
+        <span style="font-size:9px;color:var(--txt3)" id="mod-partial-lbl">off</span>
       </div>
 
     </div>
@@ -933,15 +967,15 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <input type="range" min="0" max="10" value="5" id="s-rfilt" oninput="setRFilt(this.value)">
       <span class="sr-val" id="v-rfilt">5</span>
     </div>
-    <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 4px 46px">
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 4px 46px">
       <span>clean</span><span>DX radio</span>
     </div>
-    <div style="font-size:8px;color:var(--acc3);font-family:var(--fui);letter-spacing:.8px;min-height:12px" id="rfilt-lbl">● SSB filter active</div>
+    <div style="font-size:9px;color:var(--acc3);font-family:var(--fui);letter-spacing:.8px;min-height:12px" id="rfilt-lbl">● SSB filter active</div>
   </div>
 
   <!-- NOISE / BAND ATMOSPHERE -->
   <div class="psec">
-    <div class="plbl">Band Noise <span style="font-size:7px;color:var(--txt3)">(MULTI)</span></div>
+    <div class="plbl">Band Noise <span style="font-size:9px;color:var(--txt3)">(MULTI)</span></div>
     <div class="noise-grid">
       <button class="noise-btn on" id="nb-band" onclick="toggleNoise('band')">Band</button>
       <button class="noise-btn" id="nb-contest" onclick="toggleNoise('contest')">Contest QRM</button>
@@ -949,18 +983,18 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <button class="noise-btn" id="nb-aurora" onclick="toggleNoise('aurora')">Aurora</button>
       <button class="noise-btn" id="nb-fading" onclick="toggleNoise('fading')">Fading</button>
     </div>
-    <div style="font-size:8px;color:var(--acc3);margin-top:4px;font-family:var(--fui);min-height:13px" id="noise-lbl">● Band active</div>
+    <div style="font-size:9px;color:var(--acc3);margin-top:4px;font-family:var(--fui);min-height:13px" id="noise-lbl">● Band active</div>
     <div class="sr-row" style="margin-top:5px">
       <span class="sr-lbl">QRN</span>
       <input type="range" min="0" max="100" value="20" id="s-qrn" oninput="setQRN(this.value)">
       <span class="sr-val" id="v-qrn">20</span>
     </div>
     <div class="sr-row" style="margin-top:3px">
-      <span class="sr-lbl" style="font-size:8px;color:var(--acc3)">CONT</span>
+      <span class="sr-lbl" style="font-size:9px;color:var(--acc3)">CONT</span>
       <input type="range" min="0" max="100" value="35" id="s-contestvol" oninput="setContestVol(this.value)">
       <span class="sr-val" id="v-contestvol">35</span>
     </div>
-    <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 2px 46px">
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 2px 46px">
       <span>off</span><span>loud</span>
     </div>
   </div>
@@ -969,10 +1003,10 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
   <!-- RESIDUAL PILE-UP -->
   <div class="psec" id="rpile-sec">
     <div class="plbl" style="display:flex;align-items:center;justify-content:space-between">
-      <span>📢 Pile-Up</span>
-      <button id="rpile-toggle" onclick="toggleRpile()" style="font-family:var(--fui);font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--txt3);cursor:pointer">OFF</button>
+      <span><svg class="ic"><use href="#ic-horn"/></svg> Pile-Up</span>
+      <button id="rpile-toggle" onclick="toggleRpile()" style="font-family:var(--fui);font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--txt3);cursor:pointer">OFF</button>
     </div>
-    <div style="font-size:8px;color:var(--txt3);font-family:var(--fui);margin-bottom:7px;letter-spacing:.5px">Callers bleiben nach QSO aktiv</div>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-bottom:7px;letter-spacing:.5px">Callers bleiben nach QSO aktiv</div>
 
     <!-- v19.2: MEDIUM CALLERS — Anzahl gleichzeitiger Rufer bei MEDIUM -->
     <div class="sr-row">
@@ -980,7 +1014,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <input type="range" min="1" max="4" value="2" id="s-medium-callers" oninput="setMediumCallers(this.value)">
       <span class="sr-val" id="v-medium-callers">2</span>
     </div>
-    <div style="font-size:7px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 6px 46px" id="medium-callers-hint">2 Stationen rufen gleichzeitig</div>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 6px 46px" id="medium-callers-hint">2 Stationen rufen gleichzeitig</div>
 
     <!-- PILE DENSITY: how simultaneous callers sound -->
     <div class="sr-row">
@@ -988,7 +1022,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <input type="range" min="1" max="10" value="5" id="s-pile-density" oninput="setPileDensity(this.value)">
       <span class="sr-val" id="v-pile-density">5</span>
     </div>
-    <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 6px 46px">
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 6px 46px">
       <span>nacheinander</span><span>gleichzeitig</span>
     </div>
 
@@ -998,7 +1032,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <input type="range" min="0" max="100" value="65" id="s-rpile" oninput="setRpileVol(this.value)">
       <span class="sr-val" id="v-rpile">65</span>
     </div>
-    <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 4px 46px">
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 4px 46px">
       <span>leise</span><span>laut</span>
     </div>
 
@@ -1008,10 +1042,10 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <input type="range" min="1" max="10" value="3" id="s-rpile-dur" oninput="setRpileDur(this.value)">
       <span class="sr-val" id="v-rpile-dur">3</span>
     </div>
-    <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 4px 46px">
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 4px 46px">
       <span>kurz</span><span>lang</span>
     </div>
-    <div style="font-size:8px;color:var(--txt3);font-family:var(--fui);letter-spacing:.8px;min-height:12px" id="rpile-status">● Inaktiv</div>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);letter-spacing:.8px;min-height:12px" id="rpile-status">● Inaktiv</div>
   </div>
 
 </div>
@@ -1026,7 +1060,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
     <div class="wf-labels" id="wf-labels"></div>
     <div class="wf-tooltip" id="wf-tooltip"></div>
     <!-- VFO / band-event label — shown bottom-right as subtle badge, only during events -->
-    <div id="wf-lbl" style="position:absolute;bottom:3px;right:8px;font-family:var(--fmono);font-size:8px;color:rgba(255,255,255,.35);letter-spacing:.5px;pointer-events:none;z-index:5;transition:opacity .4s"></div>
+    <div id="wf-lbl" style="position:absolute;bottom:3px;right:8px;font-family:var(--fmono);font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.5px;pointer-events:none;z-index:5;transition:opacity .4s"></div>
     <!-- Frequency scale at bottom -->
     <div class="wf-freq-scale" id="wf-freq-scale"></div>
   </div>
@@ -1038,7 +1072,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <span style="font-family:var(--fmono);font-size:9px;color:var(--txt2);width:20px;font-variant-numeric:tabular-nums" id="smval">S0</span>
     </div>
     <div style="display:flex;gap:3px;align-items:flex-end">
-      <span style="font-size:8px;color:var(--txt3);margin-right:2px;font-family:var(--fmono)">PILE</span>
+      <span style="font-size:9px;color:var(--txt3);margin-right:2px;font-family:var(--fmono)">PILE</span>
       <div class="pb" style="height:5px" id="pb1"></div>
       <div class="pb" style="height:8px" id="pb2"></div>
       <div class="pb" style="height:12px" id="pb3"></div>
@@ -1079,12 +1113,12 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
     <div id="ex-panel" style="display:none;margin-top:8px">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">
         <div class="clbl" id="ex-panel-label" style="margin-bottom:0">EXCHANGE INPUT</div>
-        <button onclick="replay()" style="font-size:9px;padding:2px 8px;border:1px solid rgba(168,133,63,.35);color:var(--acc3);background:rgba(168,133,63,.07);border-radius:6px;cursor:pointer;font-family:var(--fui);font-weight:600;letter-spacing:.5px" title="Exchange wiederholen (F3)">🔁 REP EX</button>
+        <button onclick="replay()" style="font-size:9px;padding:2px 8px;border:1px solid rgba(168,133,63,.35);color:var(--acc3);background:rgba(168,133,63,.07);border-radius:8px;cursor:pointer;font-family:var(--fui);font-weight:600;letter-spacing:.5px" title="Exchange wiederholen (F3)"><svg class="ic"><use href="#ic-repeat"/></svg> REP EX</button>
       </div>
       <div style="display:flex;gap:6px;margin-top:5px" id="ex-fields-wrap">
         <!-- Fields injected dynamically by showExchangePanel() -->
       </div>
-      <div style="font-size:8px;color:var(--acc3);font-family:var(--fui);margin-top:4px;min-height:12px;letter-spacing:.8px" id="ex-hint"></div>
+      <div style="font-size:9px;color:var(--acc3);font-family:var(--fui);margin-top:4px;min-height:12px;letter-spacing:.8px" id="ex-hint"></div>
       <div id="loc-fmt-hint" style="display:none;font-family:var(--fmono);font-size:16px;letter-spacing:6px;margin-top:5px;text-align:center;padding:4px 0"></div>
     </div>
 
@@ -1132,8 +1166,8 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
         <div class="aa-countdown-num" id="aa-num">45</div>
       </div>
     </div>
-    <div id="adapt-status-bar" style="font-size:10px;color:var(--txt);font-family:var(--fui);font-weight:700;letter-spacing:.5px;margin-top:6px">⟳ Startet mit Session...</div>
-    <div id="adapt-status-detail" style="font-size:8px;color:var(--txt3);font-family:var(--fui);margin-top:3px;letter-spacing:.3px;line-height:1.5"></div>
+    <div id="adapt-status-bar" style="font-size:9px;color:var(--txt);font-family:var(--fui);font-weight:700;letter-spacing:.5px;margin-top:6px">⟳ Startet mit Session...</div>
+    <div id="adapt-status-detail" style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-top:3px;letter-spacing:.3px;line-height:1.5"></div>
   </div>
 </div>
 
@@ -1147,7 +1181,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
         <div class="adapt-level" id="adapt-level">Beginner</div>
         <div class="adapt-xp" id="adapt-xp">XP: 0 / 100</div>
       </div>
-      <div style="font-size:18px" id="adapt-icon">📡</div>
+      <div style="font-size:16px" id="adapt-icon"><svg class="ic"><use href="#ic-dish"/></svg></div>
     </div>
     <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
   </div>
@@ -1191,9 +1225,9 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 
   <div class="psec">
     <button class="btn" onclick="showReview()" style="text-align:center;margin-bottom:4px">REVIEW SESSION</button>
-    <button class="btn gold" onclick="showLeaderboard()" style="text-align:center;margin-bottom:4px">🏆 LEADERBOARD</button>
-    <button class="btn" onclick="showAnalytics()" style="text-align:center;margin-bottom:4px;border-color:var(--txt2);color:var(--txt2)">📊 ANALYTICS</button>
-    <button class="btn" onclick="exportSessionsCSV()" style="text-align:center;margin-bottom:4px;border-color:rgba(111,163,132,.4);color:rgba(111,163,132,.85)" title="Session-Daten als CSV herunterladen">⬇ EXPORT CSV</button>
+    <button class="btn gold" onclick="showLeaderboard()" style="text-align:center;margin-bottom:4px"><svg class="ic"><use href="#ic-trophy"/></svg> LEADERBOARD</button>
+    <button class="btn" onclick="showAnalytics()" style="text-align:center;margin-bottom:4px;border-color:var(--txt2);color:var(--txt2)"><svg class="ic"><use href="#ic-bars"/></svg> ANALYTICS</button>
+    <button class="btn" onclick="exportSessionsCSV()" style="text-align:center;margin-bottom:4px;border-color:rgba(111,163,132,.4);color:rgba(111,163,132,.85)" title="Session-Daten als CSV herunterladen"><svg class="ic"><use href="#ic-arrdn"/></svg> EXPORT CSV</button>
     <button class="btn danger" onclick="clearSess()" style="text-align:center">CLEAR LOG</button>
   </div>
 
@@ -1203,7 +1237,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 <div class="bbar">
   <span>Operator: <strong id="bbar-call">—</strong></span>
   <span id="bbar-diff" style="color:var(--txt2)">● LVL 2 · EASY</span>
-  <span id="bbar-mode" style="color:var(--txt)">📻 SSB</span>
+  <span id="bbar-mode" style="color:var(--txt)"><svg class="ic"><use href="#ic-radio"/></svg> SSB</span>
   <span id="bbar-rate" style="color:var(--acc3)">0 QSO/h</span>
   <span id="bbar-status" style="color:var(--txt3)">Ready</span>
 </div>
@@ -1238,15 +1272,15 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 <!-- LEADERBOARD -->
 <div class="ov" id="lb-ov" style="display:none">
   <div class="ovbox">
-    <div class="ovt">🏆 LEADERBOARD</div>
+    <div class="ovt"><svg class="ic"><use href="#ic-trophy"/></svg> LEADERBOARD</div>
     <div class="lb-tabs">
-      <div class="lb-tab on" id="lbt-ssb" onclick="setLBTab('ssb')">📻 SSB</div>
-      <div class="lb-tab" id="lbt-cw" onclick="setLBTab('cw')">⚡ CW</div>
+      <div class="lb-tab on" id="lbt-ssb" onclick="setLBTab('ssb')"><svg class="ic"><use href="#ic-radio"/></svg> SSB</div>
+      <div class="lb-tab" id="lbt-cw" onclick="setLBTab('cw')"><svg class="ic"><use href="#ic-bolt"/></svg> CW</div>
       <div class="lb-tab" id="lbt-all" onclick="setLBTab('all')">ALL</div>
     </div>
     <input class="lb-search" id="lb-search" type="text" placeholder="Search callsign..." oninput="renderLB()">
     <table class="lb-tbl" id="lb-tbl"></table>
-    <div style="margin-top:12px;padding:9px;background:var(--bg0);border:1px solid var(--acc);border-radius:4px;text-align:center;font-family:var(--fui);font-size:11px;color:var(--txt)" id="lb-myrank">—</div>
+    <div style="margin-top:12px;padding:9px;background:var(--bg0);border:1px solid var(--acc);border-radius:6px;text-align:center;font-family:var(--fui);font-size:11px;color:var(--txt)" id="lb-myrank">—</div>
     <button class="btn" onclick="document.getElementById('lb-ov').style.display='none'" style="width:100%;text-align:center;margin-top:10px">CLOSE</button>
   </div>
 </div>
@@ -1256,8 +1290,8 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
   <div class="ovbox">
     <div class="ovt">SESSION REVIEW</div>
     <div class="rev-grid" id="rev-grid"></div>
-    <div id="rev-busted" style="font-size:10px;color:var(--txt3);margin-bottom:10px;font-family:var(--fmono)"></div>
-    <div id="rev-adapt" style="font-size:11px;color:var(--txt2);text-align:center;padding:8px;background:var(--bg0);border-radius:3px;margin-bottom:10px"></div>
+    <div id="rev-busted" style="font-size:9px;color:var(--txt3);margin-bottom:10px;font-family:var(--fmono)"></div>
+    <div id="rev-adapt" style="font-size:11px;color:var(--txt2);text-align:center;padding:8px;background:var(--bg0);border-radius:6px;margin-bottom:10px"></div>
     <button class="btn" onclick="document.getElementById('rev-ov').style.display='none'" style="width:100%;text-align:center;margin-bottom:5px">CLOSE</button>
     <button class="btn danger" onclick="if(confirm('Reset all Elo ratings?')){localStorage.removeItem('hfct_elo_v2');eloLoad();document.getElementById('rev-ov').style.display='none';}" style="width:100%;text-align:center;font-size:9px">RESET ELO DATA</button>
   </div>
@@ -1266,12 +1300,12 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 <!-- ANALYTICS DASHBOARD -->
 <div class="ov" id="an-ov" style="display:none">
   <div class="ovbox" style="max-width:700px;width:98%">
-    <div class="ovt" style="color:var(--txt2)">📊 ANALYTICS DASHBOARD</div>
+    <div class="ovt" style="color:var(--txt2)"><svg class="ic"><use href="#ic-bars"/></svg> ANALYTICS DASHBOARD</div>
     <div style="display:flex;gap:4px;margin-bottom:14px">
-      <div class="lb-tab on" id="ant-progress" onclick="anTab('progress')" style="border-color:var(--txt2);color:var(--txt2);background:rgba(160,127,168,.1)">📈 Progress</div>
+      <div class="lb-tab on" id="ant-progress" onclick="anTab('progress')" style="border-color:var(--txt2);color:var(--txt2);background:rgba(160,127,168,.1)"><svg class="ic"><use href="#ic-chartup"/></svg> Progress</div>
       <div class="lb-tab" id="ant-time" onclick="anTab('time')">⏱ Training</div>
-      <div class="lb-tab" id="ant-errors" onclick="anTab('errors')">⚠ Errors</div>
-      <div class="lb-tab" id="ant-elo" onclick="anTab('elo')">🎯 Elo</div>
+      <div class="lb-tab" id="ant-errors" onclick="anTab('errors')"><svg class="ic"><use href="#ic-warn"/></svg> Errors</div>
+      <div class="lb-tab" id="ant-elo" onclick="anTab('elo')"><svg class="ic"><use href="#ic-target"/></svg> Elo</div>
     </div>
     <div id="an-body" style="min-height:340px"></div>
     <div style="display:flex;gap:6px;margin-top:12px">
@@ -1284,8 +1318,8 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 <!-- CQ ZONE MAP OVERLAY -->
 <div id="zone-map-ov" style="display:none" onclick="if(event.target===this)hideZoneMap()">
   <div class="zmap-box">
-    <div class="zmap-title">🗺 CQ-ZONENKARTE — 40 Zonen weltweit</div>
-    <div style="font-size:8px;color:var(--txt3);text-align:center;margin-bottom:10px;font-family:var(--fui)">
+    <div class="zmap-title"><svg class="ic"><use href="#ic-map"/></svg> CQ-ZONENKARTE — 40 Zonen weltweit</div>
+    <div style="font-size:9px;color:var(--txt3);text-align:center;margin-bottom:10px;font-family:var(--fui)">
       Orange = current zone · Green = already worked · Click to close
     </div>
     <div id="zmap-content"></div>
@@ -1296,28 +1330,28 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 <!-- VOICE LAB OVERLAY -->
 <div class="ov" id="vl-ov" style="display:none">
   <div class="ovbox" style="max-width:640px;width:98%">
-    <div class="ovt" style="color:var(--txt2)">🎙 VOICE LAB</div>
+    <div class="ovt" style="color:var(--txt2)"><svg class="ic"><use href="#ic-mic"/></svg> VOICE LAB</div>
 
     <!-- Tabs -->
     <div class="lb-tabs" style="margin-bottom:12px">
-      <div class="lb-tab on" id="vlt-el"  onclick="vlTab('el')"  style="border-color:rgba(160,127,168,.4);color:var(--txt2);background:rgba(160,127,168,.08)">🤖 ElevenLabs</div>
-      <div class="lb-tab"    id="vlt-sys" onclick="vlTab('sys')">💻 System-Stimmen</div>
+      <div class="lb-tab on" id="vlt-el"  onclick="vlTab('el')"  style="border-color:rgba(160,127,168,.4);color:var(--txt2);background:rgba(160,127,168,.08)"><svg class="ic"><use href="#ic-chip"/></svg> ElevenLabs</div>
+      <div class="lb-tab"    id="vlt-sys" onclick="vlTab('sys')"><svg class="ic"><use href="#ic-laptop"/></svg> System-Stimmen</div>
     </div>
 
     <!-- ══ TAB: ELEVENLABS ══ -->
     <div id="vl-tab-el">
       <!-- API Key row -->
       <div style="background:var(--bg0);border:1px solid rgba(160,127,168,.2);border-radius:8px;padding:12px;margin-bottom:10px">
-        <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:var(--txt2);font-family:var(--fui);margin-bottom:8px">API-KEY · elevenlabs.io → Profile → API Keys</div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:var(--txt2);font-family:var(--fui);margin-bottom:8px">API-KEY · elevenlabs.io → Profile → API Keys</div>
         <div style="display:flex;gap:6px;margin-bottom:8px">
-          <input id="el-key-input" type="password" placeholder="xi_…" style="flex:1;font-family:var(--fmono);font-size:11px;background:var(--bg1);border:1px solid rgba(255,255,255,.12);color:var(--txt);padding:6px 10px;border-radius:6px;outline:none">
-          <button onclick="elConnect()" style="padding:6px 14px;font-size:10px;font-weight:700;border:1px solid rgba(160,127,168,.5);color:var(--txt2);background:rgba(160,127,168,.08);border-radius:6px;cursor:pointer;font-family:var(--fui);white-space:nowrap">VERBINDEN</button>
-          <button onclick="elDisconnect()" style="padding:6px 10px;font-size:10px;border:1px solid rgba(194,90,92,.3);color:var(--red);background:transparent;border-radius:6px;cursor:pointer;font-family:var(--fui)" title="Trennen & API-Key löschen">✕</button>
+          <input id="el-key-input" type="password" placeholder="xi_…" style="flex:1;font-family:var(--fmono);font-size:11px;background:var(--bg1);border:1px solid rgba(255,255,255,.12);color:var(--txt);padding:6px 10px;border-radius:8px;outline:none">
+          <button onclick="elConnect()" style="padding:6px 14px;font-size:9px;font-weight:700;border:1px solid rgba(160,127,168,.5);color:var(--txt2);background:rgba(160,127,168,.08);border-radius:8px;cursor:pointer;font-family:var(--fui);white-space:nowrap">VERBINDEN</button>
+          <button onclick="elDisconnect()" style="padding:6px 10px;font-size:9px;border:1px solid rgba(194,90,92,.3);color:var(--red);background:transparent;border-radius:8px;cursor:pointer;font-family:var(--fui)" title="Trennen & API-Key löschen">✕</button>
         </div>
         <div id="el-status" style="font-size:9px;color:var(--txt3);font-family:var(--fmono);min-height:14px">Nicht verbunden</div>
         <!-- Model selector -->
         <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
-          <span style="font-size:8px;color:var(--txt3);font-family:var(--fui);letter-spacing:1px;flex-shrink:0">MODELL</span>
+          <span style="font-size:9px;color:var(--txt3);font-family:var(--fui);letter-spacing:1px;flex-shrink:0">MODELL</span>
           <select id="el-model" onchange="elSetModel(this.value)" style="font-size:9px;flex:1;padding:4px 8px">
             <option value="eleven_flash_v2_5">Flash v2.5 — schnellste Latenz</option>
             <option value="eleven_turbo_v2_5" selected>Turbo v2.5 — Qualität &amp; Speed ✓ (empfohlen)</option>
@@ -1327,8 +1361,8 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       </div>
 
       <!-- Voice mapping by accent -->
-      <div style="font-size:8px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);font-family:var(--fui);margin-bottom:6px">STIMMEN NACH AKZENT ZUWEISEN</div>
-      <div style="font-size:8px;color:var(--txt3);font-family:var(--fui);margin-bottom:8px">Jeder Rufzeichen-Präfix bekommt automatisch den passenden Akzent.</div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);font-family:var(--fui);margin-bottom:6px">STIMMEN NACH AKZENT ZUWEISEN</div>
+      <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-bottom:8px">Jeder Rufzeichen-Präfix bekommt automatisch den passenden Akzent.</div>
       <div id="el-voice-map" style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px"></div>
 
       <!-- Test phrase -->
@@ -1342,16 +1376,16 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
         </select>
       </div>
 
-      <div style="font-size:8px;color:var(--txt3);font-family:var(--fui);padding:8px;background:rgba(160,127,168,.04);border:1px solid rgba(160,127,168,.12);border-radius:6px;line-height:1.6">
+      <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);padding:8px;background:rgba(160,127,168,.04);border:1px solid rgba(160,127,168,.12);border-radius:8px;line-height:1.6">
         ℹ Free-Tier: 10.000 Zeichen/Monat · Audio wird gecacht — jedes Rufzeichen nur 1× abgerufen · Kostenloser Account auf elevenlabs.io reicht für hunderte Trainings-Sessions.
       </div>
     </div>
 
     <!-- ══ TAB: SYSTEM VOICES ══ -->
     <div id="vl-tab-sys" style="display:none">
-      <div id="vl-pool-info" style="background:var(--bg0);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 12px;margin-bottom:10px;font-size:9px"></div>
+      <div id="vl-pool-info" style="background:var(--bg0);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:9px"></div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:10px;color:var(--txt2);font-family:var(--fui)">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:9px;color:var(--txt2);font-family:var(--fui)">
           <input type="checkbox" id="vl-favonly" onchange="vlFavOnlyChanged()" style="accent-color:var(--txt2)">
           Nur Favoriten verwenden
         </label>
@@ -2172,7 +2206,7 @@ function buildVoicePool(){
       other: fb(usVoices, gbVoices),
     };
 
-    console.log('✅ Voices — US:'+usVoices.length+' GB:'+gbVoices.length+' AU:'+auVoices.length+' IE:'+ieVoices.length+' IN:'+inVoices.length+' ZA:'+zaVoices.length+' AS:'+asVoices.length+' AF:'+afVoices.length+' Pool:'+pool.length);
+    console.log('✓ Voices — US:'+usVoices.length+' GB:'+gbVoices.length+' AU:'+auVoices.length+' IE:'+ieVoices.length+' IN:'+inVoices.length+' ZA:'+zaVoices.length+' AS:'+asVoices.length+' AF:'+afVoices.length+' Pool:'+pool.length);
     pickAdjVoice();
   }catch(e){}
 }
@@ -2258,7 +2292,7 @@ function vlAccentLabel(v){
   if(lang.startsWith('en-nz'))  return '🇳🇿 NZ';
   if(lang.startsWith('en-in'))  return '🇮🇳 IN';
   if(lang.startsWith('en-za'))  return '🇿🇦 ZA';
-  return '🌐 Other';
+  return '<svg class="ic"><use href="#ic-globe"/></svg> Other';
 }
 
 function showVoiceLab(){
@@ -2278,9 +2312,9 @@ function showVoiceLab(){
     {lbl:'🇮🇳 IN', n: en.filter(v=>v.lang==='en-IN'&&QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q))).length},
     {lbl:'🇿🇦 ZA', n: en.filter(v=>v.lang==='en-ZA'&&QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q))).length},
     {lbl:'🇮🇪 IE', n: en.filter(v=>v.lang==='en-IE'&&QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q))).length},
-    {lbl:'🌐 All',  n: voicePool.length},
+    {lbl:'<svg class="ic"><use href="#ic-globe"/></svg> All',  n: voicePool.length},
   ];
-  poolInfo.innerHTML = '<div style="font-size:8px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);font-family:var(--fui);margin-bottom:5px">GEFUNDENE QUALITÄTSSTIMMEN</div>'
+  poolInfo.innerHTML = '<div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);font-family:var(--fui);margin-bottom:5px">GEFUNDENE QUALITÄTSSTIMMEN</div>'
     + '<div style="display:flex;flex-wrap:wrap;gap:6px">'
     + cats.map(c=>`<span style="font-family:var(--fmono);font-size:9px;color:${c.n>0?'var(--acc)':'var(--txt3)'};">${c.lbl} <strong>${c.n}</strong></span>`).join('')
     + '</div>';
@@ -2323,7 +2357,7 @@ function showVoiceLab(){
       <div class="vl-name" title="${v.name}">${v.name}</div>
       <div class="vl-lang">${(v.lang||'?').slice(0,5)}</div>
       <span class="vl-badge ${q}">${q}</span>
-      ${blk ? '<span style="font-size:7px;color:var(--red)">BLOCKED</span>' : `<button class="vl-test" onclick="vlTestVoice('${v.name.replace(/'/g,"\\'")}')" title="Test">▶ Test</button>`}
+      ${blk ? '<span style="font-size:9px;color:var(--red)">BLOCKED</span>' : `<button class="vl-test" onclick="vlTestVoice('${v.name.replace(/'/g,"\\'")}')" title="Test">▶ Test</button>`}
     `;
     return row;
   }
@@ -2365,7 +2399,7 @@ function pickAdjVoice(){
     const candidates = en.filter(v=>!mainNames.has(v.name) && QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q)));
     let pick = candidates[0] || voicePool[voicePool.length-1] || en[0] || null;
     adjFixedVoice = pick;
-    console.log('✅ ADJ voice:', pick ? pick.name : 'fallback');
+    console.log('✓ ADJ voice:', pick ? pick.name : 'fallback');
   }catch(e){}
 }
 
@@ -3095,13 +3129,13 @@ let bandOpenActive = false;
 let bandOpenStrength = 1.0;   // multiplier on signal strength (1.0 = normal)
 
 const BAND_EVENTS = [
-  { name:'🌍 Europe Opening',  nameKey:'be_eu_name',  strength:1.6, pile:+1, duration:18000, msgKey:'be_eu_msg' },
-  { name:'🌎 NA Opening',       nameKey:'be_na_name',  strength:1.5, pile:+1, duration:15000, msgKey:'be_na_msg' },
-  { name:'🌏 JA Opening',       nameKey:'be_ja_name',  strength:1.7, pile:+2, duration:20000, msgKey:'be_ja_msg' },
-  { name:'📡 Aurora QRN',       nameKey:'be_au_name',  strength:0.6, pile: 0, duration:25000, msgKey:'be_au_msg' },
-  { name:'⛈ QRN Storm',        nameKey:'be_st_name',  strength:0.7, pile: 0, duration:12000, msgKey:'be_st_msg' },
+  { name:'<svg class="ic"><use href="#ic-globe"/></svg> Europe Opening',  nameKey:'be_eu_name',  strength:1.6, pile:+1, duration:18000, msgKey:'be_eu_msg' },
+  { name:'<svg class="ic"><use href="#ic-globe"/></svg> NA Opening',       nameKey:'be_na_name',  strength:1.5, pile:+1, duration:15000, msgKey:'be_na_msg' },
+  { name:'<svg class="ic"><use href="#ic-globe"/></svg> JA Opening',       nameKey:'be_ja_name',  strength:1.7, pile:+2, duration:20000, msgKey:'be_ja_msg' },
+  { name:'<svg class="ic"><use href="#ic-dish"/></svg> Aurora QRN',       nameKey:'be_au_name',  strength:0.6, pile: 0, duration:25000, msgKey:'be_au_msg' },
+  { name:'<svg class="ic"><use href="#ic-storm"/></svg> QRN Storm',        nameKey:'be_st_name',  strength:0.7, pile: 0, duration:12000, msgKey:'be_st_msg' },
   { name:'〰 Deep Fade',        nameKey:'be_fd_name',  strength:0.4, pile:-1, duration:10000, msgKey:'be_fd_msg' },
-  { name:'🏆 Contest Peak',     nameKey:'be_pk_name',  strength:1.9, pile:+2, duration:22000, msgKey:'be_pk_msg' },
+  { name:'<svg class="ic"><use href="#ic-trophy"/></svg> Contest Peak',     nameKey:'be_pk_name',  strength:1.9, pile:+2, duration:22000, msgKey:'be_pk_msg' },
 ];
 
 function startBandEvents() {
@@ -3153,7 +3187,7 @@ function fireBandEvent() {
   }
 
   addLine('═══ '+evName+' ═══','pu');
-  addLine('📻 '+evMsg,'sys');
+  addLine('<svg class="ic"><use href="#ic-radio"/></svg> '+evMsg,'sys');
   // Beep signature
   if(ev.strength >= 1.0){
     beep(880,.06,.18); setTimeout(()=>beep(1100,.06,.14),80); setTimeout(()=>beep(1320,.08,.12),160);
@@ -3218,9 +3252,9 @@ const EL_ACCENTS = [
   {key:'eu',  flag:'🇪🇺', label:'EU   (DL/OE/F/I…)'},
   {key:'in',  flag:'🇮🇳', label:'IND  (VU/AT…)'},
   {key:'za',  flag:'🇿🇦', label:'ZAF  (ZS…)'},
-  {key:'as',  flag:'🌏', label:'ASIA (JA/HL/BY/9V…)'},
-  {key:'af',  flag:'🌍', label:'AFR  (5N/5Z/9J…)'},
-  {key:'other',flag:'🌐', label:'Rest'},
+  {key:'as',  flag:'<svg class="ic"><use href="#ic-globe"/></svg>', label:'ASIA (JA/HL/BY/9V…)'},
+  {key:'af',  flag:'<svg class="ic"><use href="#ic-globe"/></svg>', label:'AFR  (5N/5Z/9J…)'},
+  {key:'other',flag:'<svg class="ic"><use href="#ic-globe"/></svg>', label:'Rest'},
 ];
 
 let elCfg = {enabled:false, key:'', model:'eleven_turbo_v2_5', voiceMap:{}};
@@ -3244,7 +3278,7 @@ function elLoad(){
     if(ms) ms.value = elCfg.model;
     if(elCfg.enabled){
       const st = document.getElementById('el-status');
-      if(st) st.textContent = '✅ Verbunden (gecachte Stimmen: '+elVoices.length+')';
+      if(st) st.textContent = '✓ Verbunden (gecachte Stimmen: '+elVoices.length+')';
     }
   }catch(e){}
 }
@@ -3273,7 +3307,7 @@ async function elConnect(){
   const statusEl = document.getElementById('el-status');
   if(!keyInput||!statusEl) return;
   const key = keyInput.value.trim();
-  if(!key){ statusEl.textContent='⚠ Bitte API-Key eingeben'; return; }
+  if(!key){ statusEl.textContent='<svg class="ic"><use href="#ic-warn"/></svg> Bitte API-Key eingeben'; return; }
   statusEl.textContent = '⏳ Verbinde…';
   try{
     const r = await fetch(`${EL_API}/user`, {
@@ -3287,11 +3321,11 @@ async function elConnect(){
     const used  = user.subscription?.character_count || 0;
     const limit = user.subscription?.character_limit  || 10000;
     const tier  = user.subscription?.tier || 'free';
-    statusEl.innerHTML = `✅ Verbunden (${tier}) · <strong>${(limit-used).toLocaleString()}</strong> Zeichen verbleibend`;
+    statusEl.innerHTML = `✓ Verbunden (${tier}) · <strong>${(limit-used).toLocaleString()}</strong> Zeichen verbleibend`;
     elSave();
     vlRefreshELVoices();
   }catch(e){
-    statusEl.textContent = '❌ '+e.message;
+    statusEl.textContent = '✕ '+e.message;
     elCfg.enabled = false;
   }
 }
@@ -3387,7 +3421,7 @@ async function elSpeak(text, call, cb){
   if(!voiceId){ speakNative(text, call, cb); return; }
   lastAudio = text;
   const vObj = elVoices.find(v=>v.voice_id===voiceId);
-  document.getElementById('voice-tag').textContent = '🤖 '+(vObj ? vObj.name.split(' ')[0] : 'EL');
+  document.getElementById('voice-tag').textContent = '<svg class="ic"><use href="#ic-chip"/></svg> '+(vObj ? vObj.name.split(' ')[0] : 'EL');
   if(difficulty==='ck') Object.values(noiseNodes).forEach(n=>{
     try{ n.g.gain.setTargetAtTime(n.cfg.bvol*(qrnLevel/50)*0.45, audioCtx.currentTime, 0.3); }catch(e){}
   });
@@ -3433,10 +3467,10 @@ function vlRefreshELVoices(){
     row.style.cssText = 'display:flex;align-items:center;gap:8px';
     const assigned = elCfg.voiceMap[key]||'';
     row.innerHTML = `
-      <span style="font-size:14px;flex-shrink:0">${flag}</span>
+      <span style="font-size:13px;flex-shrink:0">${flag}</span>
       <span style="font-size:9px;color:var(--txt2);font-family:var(--fmono);width:130px;flex-shrink:0">${label}</span>
       <select style="flex:1;font-size:9px;padding:3px 6px" onchange="elSetVoiceMap('${key}',this.value)">${opts}</select>
-      <button onclick="elTestVoice('${key}')" style="font-size:9px;padding:3px 8px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--txt2);border-radius:4px;cursor:pointer;white-space:nowrap;font-family:var(--fui)" title="Test">▶</button>
+      <button onclick="elTestVoice('${key}')" style="font-size:9px;padding:3px 8px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--txt2);border-radius:6px;cursor:pointer;white-space:nowrap;font-family:var(--fui)" title="Test">▶</button>
     `;
     // Set current selection
     const sel = row.querySelector('select');
@@ -3453,7 +3487,7 @@ function elSetVoiceMap(accent, voiceId){
 
 function elTestVoice(accent){
   const voiceId = elCfg.voiceMap[accent];
-  if(!voiceId || !elCfg.key){ addLine('⚠ Keine Stimme für diesen Akzent zugewiesen.','sys'); return; }
+  if(!voiceId || !elCfg.key){ addLine('<svg class="ic"><use href="#ic-warn"/></svg> Keine Stimme für diesen Akzent zugewiesen.','sys'); return; }
   const phrases = {
     dl3ab:'Delta Lima Three Alpha Bravo, five nine, Contest',
     oe5:'Oscar Echo Five X-ray Lima Mike, five nine fourteen',
@@ -3465,7 +3499,7 @@ function elTestVoice(accent){
   if(!audioCtx) initAudio();
   elFetchAudioBuffer(voiceId, txt)
     .then(buf=>{ elCancelCurrent(); elPlayBuffer(buf, null, ()=>{}); })
-    .catch(e=>{ addLine('❌ EL Test: '+e.message,'sys'); });
+    .catch(e=>{ addLine('✕ EL Test: '+e.message,'sys'); });
 }
 
 function vlRefreshSysVoices(){
@@ -3481,9 +3515,9 @@ function vlRefreshSysVoices(){
       {lbl:'🇨🇦',n:en.filter(v=>v.lang==='en-CA'&&QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q))).length},
       {lbl:'🇮🇳',n:en.filter(v=>v.lang==='en-IN'&&QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q))).length},
       {lbl:'🇿🇦',n:en.filter(v=>v.lang==='en-ZA'&&QUALITY_NAMES.some(q=>v.name.toLowerCase().includes(q))).length},
-      {lbl:'🌐 Pool',n:voicePool.length},
+      {lbl:'<svg class="ic"><use href="#ic-globe"/></svg> Pool',n:voicePool.length},
     ];
-    poolInfo.innerHTML='<div style="font-size:8px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);font-family:var(--fui);margin-bottom:5px">GEFUNDENE QUALITÄTSSTIMMEN</div>'
+    poolInfo.innerHTML='<div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);font-family:var(--fui);margin-bottom:5px">GEFUNDENE QUALITÄTSSTIMMEN</div>'
       +'<div style="display:flex;flex-wrap:wrap;gap:8px">'
       +cats.map(c=>`<span style="font-family:var(--fmono);font-size:9px;color:${c.n>0?'var(--acc)':'var(--txt3)'};">${c.lbl} <strong>${c.n}</strong></span>`).join('')+'</div>';
   }
@@ -3510,7 +3544,7 @@ function vlRefreshSysVoices(){
       <div class="vl-name" title="${v.name}">${v.name}</div>
       <div class="vl-lang">${(v.lang||'?').slice(0,5)}</div>
       <span class="vl-badge ${q}">${q}</span>
-      ${blk?'<span style="font-size:7px;color:var(--red)">BLOCKED</span>':`<button class="vl-test" onclick="vlTestSysVoice('${v.name.replace(/'/g,"\\'")}')" title="Test">▶ Test</button>`}`;
+      ${blk?'<span style="font-size:9px;color:var(--red)">BLOCKED</span>':`<button class="vl-test" onclick="vlTestSysVoice('${v.name.replace(/'/g,"\\'")}')" title="Test">▶ Test</button>`}`;
     return row;
   }
   const favs=sorted.filter(v=>vlFavSet.has(v.name)), others=sorted.filter(v=>!vlFavSet.has(v.name));
@@ -3719,17 +3753,17 @@ function requestAgain(){
   sc.agains = (sc.agains||0) + 1;
   try{
     const st=document.getElementById('bbar-status');
-    if(st) st.textContent = uiLang==='de' ? '❓ AGAIN? — Station wiederholt…' : '❓ AGAIN? — station repeating…';
+    if(st) st.textContent = uiLang==='de' ? '? AGAIN? — Station wiederholt…' : '? AGAIN? — station repeating…';
   }catch(e){}
   if(exPhase===2){
     // Exchange-Phase: Exchange normal wiederholen
-    addLine(uiLang==='de' ? '❓ AGAIN? — Exchange wird wiederholt' : '❓ AGAIN? — repeating exchange','sys');
+    addLine(uiLang==='de' ? '? AGAIN? — Exchange wird wiederholt' : '? AGAIN? — repeating exchange','sys');
     const cfg=getExConfig(contest);
     setTimeout(()=>cfg.speak(curQSO, ()=>{}), 120);
     return;
   }
   // Phase 1: Call zweimal, langsam, volle Phonetik, KEINE Partial-Maskierung
-  addLine(uiLang==='de' ? '❓ AGAIN? — Station buchstabiert langsam ('+(sc.agains)+'×)' : '❓ AGAIN? — station spelling slowly ('+(sc.agains)+'×)','sys');
+  addLine(uiLang==='de' ? '? AGAIN? — Station buchstabiert langsam ('+(sc.agains)+'×)' : '? AGAIN? — station spelling slowly ('+(sc.agains)+'×)','sys');
   const phrase = callToSpeech(curQSO.call);   // v22: nur 1x wiederholen
   againRateOverride = 0.80;                    // v22: etwas schneller, bleibt deutlich
   setTimeout(()=>{ speakNative(phrase, curQSO.call, ()=>{ againRateOverride=null; }); }, 120);
@@ -4179,7 +4213,7 @@ const STRINGS = {
     band_end:       '─── Band event ended ───',
     diff_easy:      'ℹ️ Easy: simple EU calls, slow speech, no time pressure',
     diff_medium:    'ℹ️ Medium: mixed calls, normal pace, light QRM',
-    diff_ck:        '⚡ Contest King: DX calls, time pressure (5s), ADJ QRM, partials!',
+    diff_ck:        '<svg class="ic"><use href="#ic-bolt"/></svg> Contest King: DX calls, time pressure (5s), ADJ QRM, partials!',
     bust_expected:  (c) => 'BUST — expected: '+c,
     bust_logged:    (e,c) => 'BUST! Logged: '+e+' — Correct: '+c,
     bust_repeat:    (c) => '↺ Repeat: '+c+' — enter again to confirm',
@@ -4193,7 +4227,7 @@ const STRINGS = {
     pileup_loud:    (c) => '↑ Loudest: '+c,
     exch_coming:    'Listen carefully…',
     log_cleared:    '--- Log cleared ---',
-    rf_filter:      (l,r) => '📻 RF Filter: '+l+' — QSB: '+r,
+    rf_filter:      (l,r) => '<svg class="ic"><use href="#ic-radio"/></svg> RF Filter: '+l+' — QSB: '+r,
     ssb_fallback:   'ℹ️ SSB filter: browser limitation — using direct audio (Safari/iOS)',
     // Status bar
     ready:          'Ready',
@@ -4226,7 +4260,7 @@ const STRINGS = {
     serial_only:    'Serial number wrong',
     loc_only:       'Locator wrong',
     // Review
-    no_busts:       'No busts! 🎉',
+    no_busts:       'No busts! <svg class="ic"><use href="#ic-spark"/></svg>',
     busts_label:    (b) => 'Busts: '+b,
     rev_excellent:  (n,i,x) => 'Excellent! '+n+' '+i+' · XP: '+x,
     rev_good:       'Good work! Practice more for higher accuracy.',
@@ -4236,21 +4270,21 @@ const STRINGS = {
     lb_no_entry:    'No entry yet — complete a session (min. 3 QSOs)',
     lb_rank:        (r,t,b) => 'Your rank: #'+r+' of '+t+' · Best: '+b,
     // Band events
-    be_eu_name:'🌍 Europe Opening', be_eu_msg:'Band opening to EU — S9+ signals!',
-    be_na_name:'🌎 NA Opening',     be_na_msg:'NA opening — pile-up building!',
-    be_ja_name:'🌏 JA Opening',     be_ja_msg:'JA long-path opening — rare DX!',
-    be_au_name:'📡 Aurora QRN',     be_au_msg:'Aurora — signals flutter, copies harder!',
-    be_st_name:'⛈ QRN Storm',      be_st_msg:'Static storm — strong QRN!',
+    be_eu_name:'<svg class="ic"><use href="#ic-globe"/></svg> Europe Opening', be_eu_msg:'Band opening to EU — S9+ signals!',
+    be_na_name:'<svg class="ic"><use href="#ic-globe"/></svg> NA Opening',     be_na_msg:'NA opening — pile-up building!',
+    be_ja_name:'<svg class="ic"><use href="#ic-globe"/></svg> JA Opening',     be_ja_msg:'JA long-path opening — rare DX!',
+    be_au_name:'<svg class="ic"><use href="#ic-dish"/></svg> Aurora QRN',     be_au_msg:'Aurora — signals flutter, copies harder!',
+    be_st_name:'<svg class="ic"><use href="#ic-storm"/></svg> QRN Storm',      be_st_msg:'Static storm — strong QRN!',
     be_fd_name:'〰 Deep Fade',      be_fd_msg:'Deep QSB fade — signals dropping!',
-    be_pk_name:'🏆 Contest Peak',   be_pk_msg:'Contest peak rate — all bands open!',
+    be_pk_name:'<svg class="ic"><use href="#ic-trophy"/></svg> Contest Peak',   be_pk_msg:'Contest peak rate — all bands open!',
     // Training modifiers
-    mod_weak_on:    '📉 Weak Signal mode ON — VOL 22%, heavy QRM+QSB',
-    mod_weak_off:   '📉 Weak Signal mode OFF',
-    mod_partial_on: '📻 Partial Call mode ON — some calls will be masked by QRM',
-    mod_partial_off:'📻 Partial Call mode OFF',
+    mod_weak_on:    '<svg class="ic"><use href="#ic-chartdn"/></svg> Weak Signal mode ON — VOL 22%, heavy QRM+QSB',
+    mod_weak_off:   '<svg class="ic"><use href="#ic-chartdn"/></svg> Weak Signal mode OFF',
+    mod_partial_on: '<svg class="ic"><use href="#ic-radio"/></svg> Partial Call mode ON — some calls will be masked by QRM',
+    mod_partial_off:'<svg class="ic"><use href="#ic-radio"/></svg> Partial Call mode OFF',
     mod_partial_log:(d) => '[PARTIAL] '+d+' — copy the full call',
-    mod_weak_btn:   '📉 WEAK SIGNAL',
-    mod_partial_btn:'📻 PARTIAL CALL',
+    mod_weak_btn:   '<svg class="ic"><use href="#ic-chartdn"/></svg> WEAK SIGNAL',
+    mod_partial_btn:'<svg class="ic"><use href="#ic-radio"/></svg> PARTIAL CALL',
     mod_panel_lbl:  'Training Modifiers',
     // Analytics
     an_no_sessions: 'No sessions yet.\nComplete at least one session (min. 3 QSOs).',
@@ -4280,7 +4314,7 @@ const STRINGS = {
     an_elo_legend:  'Rating · Acc · React · Streak',
     an_elo_by_cat:  'ELO BY CATEGORY',
     an_strongest:   (l,r) => '✓ Strongest: '+l+' ('+r+')',
-    an_practice:    (l,r) => '⚠ Practice: '+l+' ('+r+')',
+    an_practice:    (l,r) => '<svg class="ic"><use href="#ic-warn"/></svg> Practice: '+l+' ('+r+')',
     an_cat_header:  'Category',
     // Exchange field labels (shown above input fields)
     fl_serial:    'SERIAL NR',
@@ -4304,7 +4338,7 @@ const STRINGS = {
     band_end:       '─── Band-Event beendet ───',
     diff_easy:      'ℹ️ Einfach: kurze EU-Calls, langsame Sprache, kein Zeitdruck',
     diff_medium:    'ℹ️ Mittel: gemischte Calls, normales Tempo, leichtes QRM',
-    diff_ck:        '⚡ Contest King: DX-Calls, Zeitdruck (5s), ADJ-QRM, Partials!',
+    diff_ck:        '<svg class="ic"><use href="#ic-bolt"/></svg> Contest King: DX-Calls, Zeitdruck (5s), ADJ-QRM, Partials!',
     bust_expected:  (c) => 'BUST — expected: '+c,
     bust_logged:    (e,c) => 'BUST! Geloggt: '+e+' — Richtig: '+c,
     bust_repeat:    (c) => '↺ Wiederholen: '+c+' — nochmals eingeben',
@@ -4318,7 +4352,7 @@ const STRINGS = {
     pileup_loud:    (c) => '↑ Lauteste: '+c,
     exch_coming:    'Aufmerksam zuhören…',
     log_cleared:    '--- Log gelöscht ---',
-    rf_filter:      (l,r) => '📻 HF-Filter: '+l+' — QSB: '+r,
+    rf_filter:      (l,r) => '<svg class="ic"><use href="#ic-radio"/></svg> HF-Filter: '+l+' — QSB: '+r,
     ssb_fallback:   'ℹ️ SSB-Filter: Browser-Einschränkung — Direktton (Safari/iOS)',
     ready:          'Bereit',
     replaying:      '↺ Wiederholen…',
@@ -4346,7 +4380,7 @@ const STRINGS = {
     serial_loc_wrong:'Seriennummer und Locator falsch — nochmals zuhören',
     serial_only:    'Seriennummer falsch',
     loc_only:       'Locator falsch',
-    no_busts:       'Kein einziger Bust! 🎉',
+    no_busts:       'Kein einziger Bust! <svg class="ic"><use href="#ic-spark"/></svg>',
     busts_label:    (b) => 'Busts: '+b,
     rev_excellent:  (n,i,x) => 'Ausgezeichnet! '+n+' '+i+' · XP: '+x,
     rev_good:       'Gut gemacht! Mehr üben für höhere Genauigkeit.',
@@ -4355,21 +4389,21 @@ const STRINGS = {
     lb_no_entry:    'Noch kein Eintrag — Session abschließen (mind. 3 QSOs)',
     lb_rank:        (r,t,b) => 'Dein Rang: #'+r+' von '+t+' · Bestes: '+b,
     // Band events
-    be_eu_name:'🌍 Europa-Öffnung',  be_eu_msg:'Bandöffnung nach EU — S9+ Signale!',
-    be_na_name:'🌎 NA-Öffnung',      be_na_msg:'NA-Öffnung — Pileup baut sich auf!',
-    be_ja_name:'🌏 JA-Öffnung',      be_ja_msg:'JA Langstrecke — seltenes DX!',
-    be_au_name:'📡 Aurora QRN',      be_au_msg:'Aurora — Signale flattern, schwer zu kopieren!',
-    be_st_name:'⛈ QRN-Gewitter',    be_st_msg:'Statik-Sturm — starkes QRN!',
+    be_eu_name:'<svg class="ic"><use href="#ic-globe"/></svg> Europa-Öffnung',  be_eu_msg:'Bandöffnung nach EU — S9+ Signale!',
+    be_na_name:'<svg class="ic"><use href="#ic-globe"/></svg> NA-Öffnung',      be_na_msg:'NA-Öffnung — Pileup baut sich auf!',
+    be_ja_name:'<svg class="ic"><use href="#ic-globe"/></svg> JA-Öffnung',      be_ja_msg:'JA Langstrecke — seltenes DX!',
+    be_au_name:'<svg class="ic"><use href="#ic-dish"/></svg> Aurora QRN',      be_au_msg:'Aurora — Signale flattern, schwer zu kopieren!',
+    be_st_name:'<svg class="ic"><use href="#ic-storm"/></svg> QRN-Gewitter',    be_st_msg:'Statik-Sturm — starkes QRN!',
     be_fd_name:'〰 Tiefes QSB',      be_fd_msg:'Tiefes QSB — Signale fallen weg!',
-    be_pk_name:'🏆 Contest-Spitze',  be_pk_msg:'Contest-Spitzenstunde — alle Bänder offen!',
+    be_pk_name:'<svg class="ic"><use href="#ic-trophy"/></svg> Contest-Spitze',  be_pk_msg:'Contest-Spitzenstunde — alle Bänder offen!',
     // Training modifiers
-    mod_weak_on:    '📉 Weak Signal mode ON — VOL 22%, heavy QRM+QSB',
-    mod_weak_off:   '📉 Weak Signal mode OFF',
-    mod_partial_on: '📻 Partial-Call-Modus AN — Rufzeichen wird teils von QRM überlagert',
-    mod_partial_off:'📻 Partial-Call-Modus AUS',
+    mod_weak_on:    '<svg class="ic"><use href="#ic-chartdn"/></svg> Weak Signal mode ON — VOL 22%, heavy QRM+QSB',
+    mod_weak_off:   '<svg class="ic"><use href="#ic-chartdn"/></svg> Weak Signal mode OFF',
+    mod_partial_on: '<svg class="ic"><use href="#ic-radio"/></svg> Partial-Call-Modus AN — Rufzeichen wird teils von QRM überlagert',
+    mod_partial_off:'<svg class="ic"><use href="#ic-radio"/></svg> Partial-Call-Modus AUS',
     mod_partial_log:(d) => '[PARTIAL] '+d+' — vollständiges Rufzeichen kopieren',
-    mod_weak_btn:   '📉 WEAK SIGNAL',
-    mod_partial_btn:'📻 PARTIAL CALL',
+    mod_weak_btn:   '<svg class="ic"><use href="#ic-chartdn"/></svg> WEAK SIGNAL',
+    mod_partial_btn:'<svg class="ic"><use href="#ic-radio"/></svg> PARTIAL CALL',
     mod_panel_lbl:  'Training Modifiers',
     an_no_sessions: 'Noch keine Sessions.\nMindestens eine Session absolvieren (mind. 3 QSOs).',
     an_proj_avail:  (m) => 'in '+m+' Min verfügbar',
@@ -4398,7 +4432,7 @@ const STRINGS = {
     an_elo_legend:  'Rating · Genauigkeit · Reaktion · Serie',
     an_elo_by_cat:  'ELO NACH KATEGORIE',
     an_strongest:   (l,r) => '✓ Stärkste: '+l+' ('+r+')',
-    an_practice:    (l,r) => '⚠ Üben: '+l+' ('+r+')',
+    an_practice:    (l,r) => '<svg class="ic"><use href="#ic-warn"/></svg> Üben: '+l+' ('+r+')',
     an_cat_header:  'Kategorie',
     // Exchange field labels
     fl_serial:    'SERIEN-NR',
@@ -4816,12 +4850,12 @@ function genCallAdaptive() {
 // ── XP / Level system (unchanged interface, enhanced internals) ──
 let adapt = { xp: 0, total: 0, busts: 0, lastTime: null };
 const LEVELS = [
-  { name:'Beginner',    icon:'📡', min:0    },
-  { name:'Licensed',    icon:'🎙️', min:100  },
-  { name:'Active OP',   icon:'📻', min:300  },
-  { name:'Contest OP',  icon:'🏅', min:700  },
-  { name:'DX Hunter',   icon:'🌍', min:1500 },
-  { name:'Contest King',icon:'👑', min:3000 },
+  { name:'Beginner',    icon:'<svg class="ic"><use href="#ic-dish"/></svg>', min:0    },
+  { name:'Licensed',    icon:'<svg class="ic"><use href="#ic-mic"/></svg>', min:100  },
+  { name:'Active OP',   icon:'<svg class="ic"><use href="#ic-radio"/></svg>', min:300  },
+  { name:'Contest OP',  icon:'<svg class="ic"><use href="#ic-trophy"/></svg>', min:700  },
+  { name:'DX Hunter',   icon:'<svg class="ic"><use href="#ic-globe"/></svg>', min:1500 },
+  { name:'Contest King',icon:'<svg class="ic"><use href="#ic-crown"/></svg>', min:3000 },
 ];
 function getLv(xp)    { let l=LEVELS[0]; for(const lv of LEVELS) if(xp>=lv.min) l=lv; return l; }
 function getNextLv(xp){ for(const lv of LEVELS) if(xp<lv.min) return lv; return null; }
@@ -5113,7 +5147,7 @@ function applyBandCond(cond, announce){
   }
 
   if(announce){
-    addLine('📡 ' + cond.name.toUpperCase() + ' — ' + cond.desc, 'sys');
+    addLine('<svg class="ic"><use href="#ic-dish"/></svg> ' + cond.name.toUpperCase() + ' — ' + cond.desc, 'sys');
   }
 }
 
@@ -5174,7 +5208,7 @@ function startBandSim(){
   applyBandCond(startCond, false);
   // Show time-of-day hint in RX log
   const utcStr = String(utcHour).padStart(2,'0')+'00z';
-  addLine('📡 Band: '+startCond.name+' ('+utcStr+' UTC) — '+startCond.desc,'sys');
+  addLine('<svg class="ic"><use href="#ic-dish"/></svg> Band: '+startCond.name+' ('+utcStr+' UTC) — '+startCond.desc,'sys');
   scheduleBandCond();
 }
 
@@ -5223,7 +5257,7 @@ function setAppMode(mode){
   const inp=document.getElementById('callinput');
   inp.className='cinput'+(mode==='cw'?' cw-mode':'');
   inp.placeholder=mode==='ssb'?T('call_ph'):T('cw_ph');
-  document.getElementById('bbar-mode').textContent=mode==='ssb'?'📻 SSB':'⚡ CW';
+  document.getElementById('bbar-mode').textContent=mode==='ssb'?'<svg class="ic"><use href="#ic-radio"/></svg> SSB':'<svg class="ic"><use href="#ic-bolt"/></svg> CW';
   if(mode==='cw') buildMorseVis();
   // Restart contest noise with correct mode (SSB vs CW sound)
   if(activeNoiseModes.has('contest') && audioCtx){ startContestNoise(); }
@@ -5240,10 +5274,10 @@ function toggleBlindMode(){
   const btn = document.getElementById('blind-toggle-btn');
   if(blindMode){
     btn.classList.add('blind-on');
-    btn.textContent = '🙈 BLIND';
+    btn.textContent = '<svg class="ic"><use href="#ic-eyeoff"/></svg> BLIND';
   } else {
     btn.classList.remove('blind-on');
-    btn.textContent = '👁 BLIND';
+    btn.textContent = '<svg class="ic"><use href="#ic-eye"/></svg> BLIND';
   }
   // Update waterfall overlay
   if(typeof wfUpdateOverlay === 'function') wfUpdateOverlay();
@@ -5704,10 +5738,10 @@ function buildZoneMapContent(){
     html += '</div>';
   });
   // Legend
-  html += `<div style="display:flex;gap:12px;margin-top:10px;font-size:8px;color:var(--txt3);font-family:var(--fui);justify-content:center">
-    <span><span style="display:inline-block;width:10px;height:10px;background:rgba(168,133,63,.25);border:1px solid rgba(168,133,63,.8);border-radius:2px;margin-right:3px;vertical-align:middle"></span>Aktiv</span>
-    <span><span style="display:inline-block;width:10px;height:10px;background:rgba(47,92,134,.12);border:1px solid rgba(47,92,134,.4);border-radius:2px;margin-right:3px;vertical-align:middle"></span>Gearbeitet</span>
-    <span><span style="display:inline-block;width:10px;height:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:2px;margin-right:3px;vertical-align:middle"></span>Noch nicht</span>
+  html += `<div style="display:flex;gap:12px;margin-top:10px;font-size:9px;color:var(--txt3);font-family:var(--fui);justify-content:center">
+    <span><span style="display:inline-block;width:10px;height:10px;background:rgba(168,133,63,.25);border:1px solid rgba(168,133,63,.8);border-radius:6px;margin-right:3px;vertical-align:middle"></span>Aktiv</span>
+    <span><span style="display:inline-block;width:10px;height:10px;background:rgba(47,92,134,.12);border:1px solid rgba(47,92,134,.4);border-radius:6px;margin-right:3px;vertical-align:middle"></span>Gearbeitet</span>
+    <span><span style="display:inline-block;width:10px;height:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:6px;margin-right:3px;vertical-align:middle"></span>Noch nicht</span>
   </div>`;
   container.innerHTML = html;
 }
@@ -5863,10 +5897,10 @@ function showExPanel(show, focusExchange){
     const isLast = i === cfg.fields.length-1;
     return `
     <div style="flex:1">
-      <div style="font-size:8px;color:var(--txt3);font-family:var(--fui);letter-spacing:2px;margin-bottom:3px">${f.label}</div>
+      <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);letter-spacing:2px;margin-bottom:3px">${f.label}</div>
       <input class="cinput" id="${f.id}" type="text" maxlength="${f.maxlen}"
         autocomplete="off" spellcheck="false" placeholder="${f.placeholder}"
-        style="font-size:18px;padding:6px 10px;${f.upper?'text-transform:uppercase':''}"
+        style="font-size:16px;padding:6px 10px;${f.upper?'text-transform:uppercase':''}"
         oninput="onExInput(event,${i})"
         onkeydown="hkeyExchange(event,${i})">
     </div>`;
@@ -6316,7 +6350,7 @@ function submitQSO(){
       // Show hint: list all recently heard calls if any, else standard bust
       if(heardCallsHistory.size > 0) {
         const recentList = [...heardCallsHistory.keys()].join(' · ');
-        addLine('❓ Nicht gehört — Zuletzt aktiv: '+recentList,'er');
+        addLine('? Nicht gehört — Zuletzt aktiv: '+recentList,'er');
       } else {
         addLine(T('bust_expected', blindMode?'???':curQSO.call),'er');
         speak(callToSpeech(curQSO.call,false),curQSO.call,()=>{});
@@ -6648,11 +6682,11 @@ function adaptMinuteTick(){
 
   let delta = 0;
   let reason = '';
-  if(avgQ >= 12){      delta = +2; reason = '🔥 Sehr gut! Schwieriger →'; }
+  if(avgQ >= 12){      delta = +2; reason = '<svg class="ic"><use href="#ic-flame"/></svg> Sehr gut! Schwieriger →'; }
   else if(avgQ >= 10){ delta = +1; reason = '↑ Gut! Level erhöht'; }
   else if(avgQ >= 7){  delta =  0; reason = '= Level gehalten ('+avgQ.toFixed(1)+' QSOs/min)'; }
   else if(avgQ >= 4){  delta = -1; reason = '↓ Level reduziert'; }
-  else {               delta = -2; reason = '⬇ Weniger Druck →'; }
+  else {               delta = -2; reason = '<svg class="ic"><use href="#ic-arrdn"/></svg> Weniger Druck →'; }
 
   const newLvl = adaptCurrentLevel + delta;
   adaptApplyLevel(newLvl, reason);
@@ -6742,11 +6776,11 @@ function autoAdaptTick45(){
   const qPerMin = (qIn45 / AA_INTERVAL) * 60;
 
   let delta = 0, reason = '';
-  if     (qPerMin >= 12){ delta = +2; reason = '🔥 Top-Rate! Schwieriger →'; }
+  if     (qPerMin >= 12){ delta = +2; reason = '<svg class="ic"><use href="#ic-flame"/></svg> Top-Rate! Schwieriger →'; }
   else if(qPerMin >= 10){ delta = +1; reason = '↑ Gut! Speed erhöht ('+qIn45+' QSOs/45s)'; }
   else if(qPerMin >=  7){ delta =  0; reason = '= Speed gehalten ('+qIn45+' QSOs/45s)'; }
   else if(qPerMin >=  4){ delta = -1; reason = '↓ Speed reduziert ('+qIn45+' QSOs/45s)'; }
-  else                  { delta = -2; reason = '⬇ Viel langsamer → ('+qIn45+' QSOs/45s)'; }
+  else                  { delta = -2; reason = '<svg class="ic"><use href="#ic-arrdn"/></svg> Viel langsamer → ('+qIn45+' QSOs/45s)'; }
 
   adaptApplyLevel(adaptCurrentLevel + delta, reason);
 
@@ -7062,7 +7096,7 @@ function exportSessionsCSV(){
     a.href=url; a.download='hfct_sessions_'+dateStr+'.csv';
     document.body.appendChild(a); a.click();
     setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},1000);
-    addLine('⬇ '+leaderboard.length+' Sessions exportiert → hfct_sessions_'+dateStr+'.csv','sys');
+    addLine('<svg class="ic"><use href="#ic-arrdn"/></svg> '+leaderboard.length+' Sessions exportiert → hfct_sessions_'+dateStr+'.csv','sys');
   }catch(e){console.warn('exportCSV:',e);}
 }
 function setLBTab(t){
@@ -7094,7 +7128,7 @@ function renderLB(){
         <td style="color:var(--txt2)">${e.acc||0}%</td>
         <td style="color:var(--acc3)">${e.rate||0}</td>
         <td style="color:${e.mode==='CW'?'var(--purple)':'var(--acc)'};font-size:9px">${e.mode||''}</td>
-        <td style="font-size:8px;color:var(--txt3)">${dc} ${e.level||''}</td>
+        <td style="font-size:9px;color:var(--txt3)">${dc} ${e.level||''}</td>
       </tr>`;
     }).join('');
     document.getElementById('lb-tbl').innerHTML=`<tr><th>#</th><th>Callsign</th><th>Score</th><th>Acc%</th><th>QSO/h</th><th>Mode</th><th>Level</th></tr>`+
@@ -7129,8 +7163,8 @@ function showReview(){
     const deltaSign = (v,ref) => v===ref?'':'<span style="color:'+(v>ref?'var(--acc)':'var(--red)')+'"> ('+(v>ref?'+':'')+(v-ref)+')</span>';
     const vsHtml = prevS.fs != null ? `
       <div class="rev-card" style="grid-column:1/-1;text-align:left;padding:8px 10px">
-        <div style="font-size:8px;letter-spacing:1px;color:var(--txt3);font-family:var(--fui);text-transform:uppercase;margin-bottom:5px">Vergleich</div>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:10px;font-family:var(--fmono)">
+        <div style="font-size:9px;letter-spacing:1px;color:var(--txt3);font-family:var(--fui);text-transform:uppercase;margin-bottom:5px">Vergleich</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:9px;font-family:var(--fmono)">
           <span><span style="color:var(--txt3)">Letzte:</span> <span style="color:var(--txt2)">${(prevS.fs||0).toLocaleString()} pts · ${prevS.qso||0} QSO · ${prevS.acc||0}%</span></span>
           ${bestS.fs ? '<span><span style="color:var(--txt3)">Best:</span> <span style="color:var(--acc4)">'+(bestS.fs||0).toLocaleString()+' pts · '+(bestS.qso||0)+' QSO</span></span>' : ''}
         </div>
@@ -7164,7 +7198,7 @@ function showReview(){
       <div class="rev-card"><div class="rev-val" style="color:var(--red)">${sc.busts}</div><div class="rev-lbl">Busts</div></div>
       <div class="rev-card"><div class="rev-val" style="color:var(--red)">${erph}</div><div class="rev-lbl">Errors/Hour</div></div>
       <div class="rev-card"><div class="rev-val" style="color:var(--acc4)">${pq}</div><div class="rev-lbl">Proj. QSO/h</div></div>
-      <div class="rev-card"><div class="rev-val" style="color:var(--acc4);font-size:14px">${ps}</div><div class="rev-lbl">Proj. Score/h</div></div>
+      <div class="rev-card"><div class="rev-val" style="color:var(--acc4);font-size:13px">${ps}</div><div class="rev-lbl">Proj. Score/h</div></div>
       <div class="rev-card"><div class="rev-val" style="color:var(--txt2)">${avgRTstr}</div><div class="rev-lbl">Avg React Time</div></div>
       <div class="rev-card"><div class="rev-val" style="color:var(--txt2)">${skips}</div><div class="rev-lbl">Skipped</div></div>
       ${vsHtml}
@@ -7184,15 +7218,15 @@ function showReview(){
       const r = Math.round(255 * (1 - norm));
       const g = Math.round(200 * norm);
       const barW = Math.round(norm * 100);
-      const streakStr = e.streak > 1 ? '🔥'+e.streak : e.streak < -1 ? '❄'+Math.abs(e.streak) : '';
+      const streakStr = e.streak > 1 ? '<svg class="ic"><use href="#ic-flame"/></svg>'+e.streak : e.streak < -1 ? '<svg class="ic"><use href="#ic-snow"/></svg>'+Math.abs(e.streak) : '';
       return `<tr>
-        <td style="color:${CALL_CATS[c].color};font-size:10px;font-family:var(--fui);font-weight:600;white-space:nowrap">${CALL_CATS[c].label}</td>
+        <td style="color:${CALL_CATS[c].color};font-size:9px;font-family:var(--fui);font-weight:600;white-space:nowrap">${CALL_CATS[c].label}</td>
         <td style="padding:2px 6px">
-          <div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:2px;height:7px;width:80px;overflow:hidden">
+          <div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;height:7px;width:80px;overflow:hidden">
             <div style="height:100%;width:${barW}%;background:rgb(${r},${g},40);transition:width .4s"></div>
           </div>
         </td>
-        <td style="font-family:var(--fui);font-size:10px;color:rgb(${r},${g},80);text-align:right">${e.rating}</td>
+        <td style="font-family:var(--fui);font-size:9px;color:rgb(${r},${g},80);text-align:right">${e.rating}</td>
         <td style="font-size:9px;color:var(--txt2);text-align:right">${catAcc !== null ? catAcc+'%' : '—'}</td>
         <td style="font-size:9px;color:var(--txt3);text-align:right">${rtStr}</td>
         <td style="font-size:9px;color:var(--acc4);padding-left:4px">${streakStr}</td>
@@ -7229,7 +7263,7 @@ function showReview(){
       <div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px;display:flex;align-items:center;gap:8px">
         ${T('an_elo_by_cat')}
         <span style="flex:1;height:1px;background:rgba(255,255,255,.08);display:inline-block"></span>
-        <span style="font-size:8px;color:var(--txt3)">${T('an_elo_legend')}</span>
+        <span style="font-size:9px;color:var(--txt3)">${T('an_elo_legend')}</span>
       </div>
       <table style="width:100%;border-collapse:collapse;margin-bottom:10px">${heatRows}</table>
       ${best&&worst ? `<div style="font-size:9px;font-family:var(--fui);margin-bottom:10px;display:flex;gap:8px">
@@ -7601,23 +7635,23 @@ function anDrawTime(body, sessions){
   html+='</div>';
 
   // Weekday bars
-  html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_weekday')+'</div>';
-  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:10px;margin-bottom:10px">';
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_weekday')+'</div>';
+  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px;margin-bottom:10px">';
   for(var d=0;d<7;d++){
     var pct=byDay[d]/Math.max.apply(null,byDay)||0;
     var barW=Math.round(pct*100);
     html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">';
     html+='<span style="font-family:var(--fui);font-size:9px;color:var(--txt2);width:20px">'+dayNames[d]+'</span>';
-    html+='<div style="flex:1;background:rgba(255,255,255,.03);border-radius:2px;height:11px;overflow:hidden">';
+    html+='<div style="flex:1;background:rgba(255,255,255,.03);border-radius:6px;height:11px;overflow:hidden">';
     html+='<div style="height:100%;width:'+barW+'%;background:linear-gradient(90deg,var(--purple),rgba(160,127,168,.4))"></div></div>';
     html+='<span style="font-family:var(--fui);font-size:9px;color:var(--txt2);width:34px;text-align:right">'+byDay[d].toFixed(1)+'h</span>';
-    html+='<span style="font-size:8px;color:var(--txt3);width:18px">'+byCnt[d]+'x</span>';
+    html+='<span style="font-size:9px;color:var(--txt3);width:18px">'+byCnt[d]+'x</span>';
     html+='</div>';
   }
   html+='</div>';
 
-  html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_weekly')+'</div>';
-  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:10px">';
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_weekly')+'</div>';
+  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px">';
   html+='<canvas id="an-c-weekly" height="70" style="width:100%;height:70px"></canvas></div>';
 
   body.innerHTML=html;
@@ -7669,8 +7703,8 @@ function anDrawErrors(body, sessions){
   html+=anChartBox('Busts/Session','an-c-busts','','var(--red)','Total '+totalBusts,'Avg '+anAvg(bustArr)+'/sess','Last '+bustArr[bustArr.length-1]);
   html+=anChartBox('Skips/Session','an-c-skips','','var(--txt2)','Total '+totalSkips,'Avg '+anAvg(skipArr)+'/sess','Last '+skipArr[skipArr.length-1]);
   html+='</div>';
-  html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:8px">'+T('an_char_heatmap')+' <span style="font-size:7px">'+T('an_char_sub')+'</span></div>';
-  html+='<div style="display:flex;flex-wrap:wrap;gap:3px;background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:10px;margin-bottom:12px">';
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:8px">'+T('an_char_heatmap')+' <span style="font-size:9px">'+T('an_char_sub')+'</span></div>';
+  html+='<div style="display:flex;flex-wrap:wrap;gap:3px;background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px;margin-bottom:12px">';
   for(var ci=0;ci<allChars.length;ci++){
     var ch=allChars[ci];
     var n=charMap[ch]||0;
@@ -7678,11 +7712,11 @@ function anDrawErrors(body, sessions){
     var r=Math.round(255*pct), g2=Math.round(160*(1-pct)), bl=40;
     var bg=n>0?'rgb('+r+','+g2+','+bl+')':'rgba(255,255,255,.03)';
     var tc=n>0&&pct>0.5?'#000':'var(--txt2)';
-    html+='<div title="'+ch+': '+n+' Busts" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:3px;background:'+bg+';color:'+tc+';font-family:var(--fui);font-size:11px;font-weight:600;cursor:default;border:1px solid rgba(0,0,0,.15)">'+ch+'</div>';
+    html+='<div title="'+ch+': '+n+' Busts" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px;background:'+bg+';color:'+tc+';font-family:var(--fui);font-size:11px;font-weight:600;cursor:default;border:1px solid rgba(0,0,0,.15)">'+ch+'</div>';
   }
   html+='</div>';
-  html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:8px">'+T('an_acc_by_cat')+'</div>';
-  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:10px;margin-bottom:8px">';
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:8px">'+T('an_acc_by_cat')+'</div>';
+  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px;margin-bottom:8px">';
   var catKeys=Object.keys(CALL_CATS);
   for(var ki=0;ki<catKeys.length;ki++){
     var cat=catKeys[ki];
@@ -7692,18 +7726,18 @@ function anDrawErrors(body, sessions){
     var barPct=acc2||0;
     var barCol=barPct>=85?'var(--acc2)':barPct>=65?'var(--acc4)':'var(--red)';
     html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">';
-    html+='<span style="font-family:var(--fui);font-weight:600;font-size:10px;color:'+CALL_CATS[cat].color+';width:82px;flex-shrink:0">'+CALL_CATS[cat].label+'</span>';
-    html+='<div style="flex:1;background:rgba(255,255,255,.03);border-radius:2px;height:10px;overflow:hidden">';
+    html+='<span style="font-family:var(--fui);font-weight:600;font-size:9px;color:'+CALL_CATS[cat].color+';width:82px;flex-shrink:0">'+CALL_CATS[cat].label+'</span>';
+    html+='<div style="flex:1;background:rgba(255,255,255,.03);border-radius:6px;height:10px;overflow:hidden">';
     html+='<div style="height:100%;width:'+barPct+'%;background:'+barCol+'"></div></div>';
     html+='<span style="font-family:var(--fui);font-size:9px;color:'+barCol+';width:36px;text-align:right">'+(acc2!==null?acc2+'%':'—')+'</span>';
-    html+='<span style="font-size:8px;color:var(--txt3);width:44px">'+(tot>0?tot+' QSOs':'')+'</span>';
+    html+='<span style="font-size:9px;color:var(--txt3);width:44px">'+(tot>0?tot+' QSOs':'')+'</span>';
     html+='</div>';
   }
   html+='</div>';
   var cKeys=Object.keys(contestMap);
   if(cKeys.length>1){
-    html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">CONTEST BREAKDOWN</div>';
-    html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:10px;margin-bottom:8px">';
+    html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">CONTEST BREAKDOWN</div>';
+    html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px;margin-bottom:8px">';
     cKeys.sort(function(a,b){return contestMap[b].qso-contestMap[a].qso;}).forEach(function(k){
       var cm=contestMap[k];
       html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">';
@@ -7733,12 +7767,12 @@ function anDrawElo(body, sessions){
   var snapSessions=sessions.filter(function(s){return s.eloSnap;});
 
   var html='';
-  html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:8px">'+T('an_elo_current')+'</div>';
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:8px">'+T('an_elo_current')+'</div>';
   html+='<table style="width:100%;border-collapse:collapse;margin-bottom:12px">';
   html+='<tr>';
   var headers=[T('an_cat_header'),'','Rating','Acc','React','Streak','QSOs'];
   for(var hi=0;hi<headers.length;hi++){
-    html+='<th style="font-family:var(--fui);font-size:7px;letter-spacing:1.5px;color:var(--txt3);padding:3px 5px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left">'+headers[hi]+'</th>';
+    html+='<th style="font-family:var(--fui);font-size:9px;letter-spacing:1.5px;color:var(--txt3);padding:3px 5px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left">'+headers[hi]+'</th>';
   }
   html+='</tr>';
 
@@ -7753,26 +7787,26 @@ function anDrawElo(body, sessions){
     var er=Math.round(255*(1-norm)), eg2=Math.round(200*norm);
     var barW2=Math.round(norm*100);
     var streak=e.streak||0;
-    var strIcon=streak>2?'🔥'+streak:streak<-2?'❄'+Math.abs(streak):'';
+    var strIcon=streak>2?'<svg class="ic"><use href="#ic-flame"/></svg>'+streak:streak<-2?'<svg class="ic"><use href="#ic-snow"/></svg>'+Math.abs(streak):'';
     html+='<tr>';
-    html+='<td style="color:'+CALL_CATS[cat].color+';font-family:var(--fui);font-weight:600;font-size:10px;padding:4px 5px;white-space:nowrap">'+CALL_CATS[cat].label+'</td>';
-    html+='<td style="padding:4px 6px"><div style="background:rgba(255,255,255,.03);border-radius:2px;height:7px;width:80px"><div style="height:100%;width:'+barW2+'%;background:rgb('+er+','+eg2+',40)"></div></div></td>';
+    html+='<td style="color:'+CALL_CATS[cat].color+';font-family:var(--fui);font-weight:600;font-size:9px;padding:4px 5px;white-space:nowrap">'+CALL_CATS[cat].label+'</td>';
+    html+='<td style="padding:4px 6px"><div style="background:rgba(255,255,255,.03);border-radius:6px;height:7px;width:80px"><div style="height:100%;width:'+barW2+'%;background:rgb('+er+','+eg2+',40)"></div></div></td>';
     html+='<td style="font-family:var(--fui);font-size:11px;color:rgb('+er+','+eg2+',80);text-align:right;padding:4px 5px">'+e.rating+'</td>';
     html+='<td style="font-size:9px;color:var(--txt2);text-align:right;padding:4px 5px">'+(eacc!==null?eacc+'%':'—')+'</td>';
     html+='<td style="font-size:9px;color:var(--txt3);text-align:right;padding:4px 5px">'+rtStr+'</td>';
     html+='<td style="font-size:9px;color:var(--acc4);padding:4px 5px">'+strIcon+'</td>';
-    html+='<td style="font-size:8px;color:var(--txt3);padding:4px 5px">'+tot+'</td>';
+    html+='<td style="font-size:9px;color:var(--txt3);padding:4px 5px">'+tot+'</td>';
     html+='</tr>';
   }
   html+='</table>';
 
   if(snapSessions.length>=2){
-    html+='<div style="font-family:var(--fui);font-size:8px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_elo_history')+'</div>';
-    html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:10px;margin-bottom:8px">';
+    html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_elo_history')+'</div>';
+    html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px;margin-bottom:8px">';
     html+='<canvas id="an-c-elocat" height="110" style="width:100%;height:110px"></canvas>';
     html+='<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">';
     for(var ci2=0;ci2<cats.length;ci2++){
-      html+='<span style="font-size:8px;font-family:var(--fui);color:'+CALL_CATS[cats[ci2]].color+'">● '+CALL_CATS[cats[ci2]].label+'</span>';
+      html+='<span style="font-size:9px;font-family:var(--fui);color:'+CALL_CATS[cats[ci2]].color+'">● '+CALL_CATS[cats[ci2]].label+'</span>';
     }
     html+='</div></div>';
   }
@@ -7804,13 +7838,13 @@ function anCard(val, lbl, color){
   return '<div class="rev-card"><div class="rev-val" style="color:'+color+';font-size:16px">'+val+'</div><div class="rev-lbl">'+lbl+'</div></div>';
 }
 function anChartBox(title, canvasId, trendLbl, trendCol, foot1, foot2, foot3){
-  var h='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:8px">';
+  var h='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:8px">';
   h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">';
-  h+='<span style="font-family:var(--fui);font-size:10px;color:var(--txt2)">'+title+'</span>';
-  if(trendLbl) h+='<span style="font-size:8px;color:'+trendCol+'">'+trendLbl+'</span>';
+  h+='<span style="font-family:var(--fui);font-size:9px;color:var(--txt2)">'+title+'</span>';
+  if(trendLbl) h+='<span style="font-size:9px;color:'+trendCol+'">'+trendLbl+'</span>';
   h+='</div>';
   h+='<canvas id="'+canvasId+'" height="58" style="width:100%;height:58px"></canvas>';
-  h+='<div style="display:flex;justify-content:space-between;font-size:8px;color:var(--txt3);margin-top:3px;font-family:var(--fui)">';
+  h+='<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--txt3);margin-top:3px;font-family:var(--fui)">';
   h+='<span>'+foot1+'</span><span>'+foot2+'</span><span>'+foot3+'</span></div></div>';
   return h;
 }
@@ -7988,7 +8022,7 @@ function vadBtnUpdate(){
     btn.style.borderColor = 'rgba(74,123,168,.3)';
     btn.style.color       = 'var(--txt3)';
     btn.style.background  = 'rgba(255,255,255,.03)';
-    btn.textContent       = '🎤 VOICE';
+    btn.textContent       = '<svg class="ic"><use href="#ic-mic"/></svg> VOICE';
     if(statusEl) statusEl.style.display = 'none';
   } else if(vadListening){
     btn.style.borderColor = 'rgba(194,90,92,.6)';
@@ -8000,7 +8034,7 @@ function vadBtnUpdate(){
     btn.style.borderColor = 'rgba(74,123,168,.5)';
     btn.style.color       = 'var(--acc)';
     btn.style.background  = 'rgba(74,123,168,.1)';
-    btn.textContent       = '🎤 VOICE';
+    btn.textContent       = '<svg class="ic"><use href="#ic-mic"/></svg> VOICE';
     if(statusEl) statusEl.style.display = '';
   }
 }
@@ -8009,13 +8043,13 @@ function toggleVoiceInput(){
   initAudio();
   if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
     const el = document.getElementById('vad-status');
-    if(el){ el.style.display=''; el.textContent='⚠ Speech API nicht verfügbar (Chrome/Edge nötig)'; el.style.color='var(--acc3)'; }
+    if(el){ el.style.display=''; el.textContent='<svg class="ic"><use href="#ic-warn"/></svg> Speech API nicht verfügbar (Chrome/Edge nötig)'; el.style.color='var(--acc3)'; }
     setTimeout(()=>{ if(el) el.style.display='none'; }, 4000);
     return;
   }
   vadActive = !vadActive;
   if(vadActive){
-    setVadStatus('🎤 bereit…', 'var(--acc)');
+    setVadStatus('<svg class="ic"><use href="#ic-mic"/></svg> bereit…', 'var(--acc)');
     vadInitRecognition();  // create persistent instance (one-time permission)
   } else {
     vadDestroy();
@@ -8052,7 +8086,7 @@ function vadInitRecognition(){
 
       // Debug: log every final result to RX window so we can see what Chrome hears
       if(isFinal){
-        addLine('🎤 [' + raw + ']', 'sys');
+        addLine('<svg class="ic"><use href="#ic-mic"/></svg> [' + raw + ']', 'sys');
       }
 
       // ── Commands: check on every result (interim + final), always ──
@@ -8062,7 +8096,7 @@ function vadInitRecognition(){
           vadCmdCooldown = true;
           setTimeout(()=>{ vadCmdCooldown = false; }, 3000);
           clearTimeout(vadConfirmTimer);
-          addLine('🎤 CMD: ' + cmd, 'sys');
+          addLine('<svg class="ic"><use href="#ic-mic"/></svg> CMD: ' + cmd, 'sys');
           vadHandleCommand(cmd);
           continue;
         }
@@ -8104,13 +8138,13 @@ function vadInitRecognition(){
       vadActive = false;
       vadListening = false;
       vadBtnUpdate();
-      setVadStatus('⚠ Mikrofon-Zugriff verweigert', 'var(--acc3)');
+      setVadStatus('<svg class="ic"><use href="#ic-warn"/></svg> Mikrofon-Zugriff verweigert', 'var(--acc3)');
     } else if(ev.error === 'no-speech'){
       // Ignore — continuous mode handles this silently
     } else if(ev.error === 'aborted'){
       // Intentional stop
     } else {
-      setVadStatus('⚠ ' + ev.error, 'var(--txt3)');
+      setVadStatus('<svg class="ic"><use href="#ic-warn"/></svg> ' + ev.error, 'var(--txt3)');
     }
   };
 
@@ -8142,17 +8176,17 @@ function vadDestroy(){
 // ── Voice command handlers ──
 function vadHandleCommand(cmd){
   if(cmd === 'repeat_call'){
-    if(!curQSO){ addLine('🎤 kein aktives QSO', 'sys'); return; }
+    if(!curQSO){ addLine('<svg class="ic"><use href="#ic-mic"/></svg> kein aktives QSO', 'sys'); return; }
     setVadStatus('↩ wiederhole Rufzeichen…', 'var(--acc4)');
-    addLine('🎤 wiederhole: ' + curQSO.call, 'sys');
+    addLine('<svg class="ic"><use href="#ic-mic"/></svg> wiederhole: ' + curQSO.call, 'sys');
     vadRepeatCallNoPile();
   } else if(cmd === 'repeat_locator'){
-    if(!curQSO){ addLine('🎤 kein aktives QSO', 'sys'); return; }
+    if(!curQSO){ addLine('<svg class="ic"><use href="#ic-mic"/></svg> kein aktives QSO', 'sys'); return; }
     const ex  = curQSO.exchange || {};
     const loc = ex.loc;
-    if(!loc){ addLine('🎤 kein Locator in diesem Contest', 'sys'); return; }
+    if(!loc){ addLine('<svg class="ic"><use href="#ic-mic"/></svg> kein Locator in diesem Contest', 'sys'); return; }
     setVadStatus('↩ wiederhole Locator…', 'var(--acc4)');
-    addLine('🎤 wiederhole Locator: ' + loc, 'sys');
+    addLine('<svg class="ic"><use href="#ic-mic"/></svg> wiederhole Locator: ' + loc, 'sys');
     vadRepeatLocator(loc);
   }
 }
@@ -8225,7 +8259,7 @@ setInterval(function(){
   if(!vadActive || !vadListening) return;
   const waiting = sessActive && !paused && exPhase > 0;
   if(!waiting && !vadCmdCooldown){
-    setVadStatus('🎤 bereit — wartet auf Spielzug…', 'var(--acc)');
+    setVadStatus('<svg class="ic"><use href="#ic-mic"/></svg> bereit — wartet auf Spielzug…', 'var(--acc)');
   }
 }, 2000);
 
@@ -8346,7 +8380,7 @@ var MANUAL_CONTENT={
       ['Enter','QSO loggen'],['Leertaste','PTT halten → sprechen → loslassen (nur Voice-Modus)'],['?','Dieses Handbuch öffnen / schließen']
     ],
     s3note:'Mac: F-Tasten funktionieren direkt wenn „Standard-Funktionstasten" in Systemeinstellungen → Tastatur aktiviert ist. Sonst Fn+F1 usw.',
-    s4h:'🎙 Voice Readback',
+    s4h:'<svg class="ic"><use href="#ic-mic"/></svg> Voice Readback',
     s4pre:'Nur bei <strong style="color:#fff">ONLY CALL</strong> verfügbar. Im linken Panel „Mit Voice" aktivieren. Ablauf:',
     s4steps:['Call hören → ins Eingabefeld tippen → Enter','PTT-Overlay erscheint → <strong style="color:#a86b6d">Leertaste halten</strong>','Call phonetisch sprechen (z.B. „Kilo Lima Five Alpha Bravo Charlie")','Leertaste loslassen → automatische Auswertung'],
     s4post:'„<strong style="color:#a8853f">Correction</strong>" sprechen → alles löschen, try again. Benötigt <strong style="color:#fff">Chrome</strong> und Mikrofon-Berechtigung.',
@@ -8412,7 +8446,7 @@ var MANUAL_CONTENT={
       ['Enter','Registrar QSO'],['Barra espaciadora','PTT mantener → hablar → soltar (solo modo Voice)'],['?','Abrir / cerrar este manual']
     ],
     s3note:'Mac: las teclas de función funcionan directamente si «Usar teclas F1, F2, etc. como teclas de función estándar» está activado en Preferencias del Sistema → Teclado. Si no, usa Fn+F1, etc.',
-    s4h:'🎙 Voice Readback',
+    s4h:'<svg class="ic"><use href="#ic-mic"/></svg> Voice Readback',
     s4pre:'Solo disponible en <strong style="color:#fff">ONLY CALL</strong>. Activa «Con Voice» en el panel izquierdo. Proceso:',
     s4steps:['Escuchar indicativo → escribirlo en el campo → Enter','Aparece el overlay PTT → <strong style="color:#a86b6d">mantener barra espaciadora</strong>','Deletrear el indicativo fonéticamente (p.ej. «Kilo Lima Five Alpha Bravo Charlie»)','Soltar la barra espaciadora → evaluación automática'],
     s4post:'Decir «<strong style="color:#a8853f">Correction</strong>» borra todo para repetir. Requiere <strong style="color:#fff">Chrome</strong> y permiso de micrófono.',
@@ -8478,7 +8512,7 @@ var MANUAL_CONTENT={
       ['Enter','Log QSO'],['Space','Hold PTT → speak → release (Voice mode only)'],['?','Open / close this manual']
     ],
     s3note:'Mac: function keys work directly if "Use F1, F2, etc. keys as standard function keys" is enabled in System Settings → Keyboard. Otherwise use Fn+F1 etc.',
-    s4h:'🎙 Voice Readback',
+    s4h:'<svg class="ic"><use href="#ic-mic"/></svg> Voice Readback',
     s4pre:'Available in <strong style="color:#fff">ONLY CALL</strong> only. Enable "With Voice" in the left panel. Workflow:',
     s4steps:['Hear callsign → type it into the field → Enter','PTT overlay appears → <strong style="color:#a86b6d">hold Space</strong>','Spell the callsign phonetically (e.g. "Kilo Lima Five Alpha Bravo Charlie")','Release Space → automatic scoring'],
     s4post:'Say "<strong style="color:#a8853f">Correction</strong>" to erase and try again. Requires <strong style="color:#fff">Chrome</strong> and microphone permission.',
@@ -8556,7 +8590,7 @@ function renderManual(){
   // s3
   var kbRows='<table style="border-collapse:collapse;font-family:"Barlow","Helvetica Neue",Arial,sans-serif;width:100%">';
   c.s3.forEach(function(row,i){kbRows+='<tr style="'+(i%2===0?'background:rgba(255,255,255,.03)':'')+'"><td style="padding:5px 10px 5px 0"><kbd class="mk">'+row[0]+'</kbd></td><td style="font-size:11px;color:rgba(255,255,255,.75);padding:5px 0">'+row[1]+'</td></tr>';});
-  kbRows+='</table><p style="font-size:10px;color:rgba(255,255,255,.4);font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin:8px 0 0 0">'+c.s3note+'</p>';
+  kbRows+='</table><p style="font-size:9px;color:rgba(255,255,255,.4);font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin:8px 0 0 0">'+c.s3note+'</p>';
   h+=sec(c.s3h,kbRows);
   // s4
   var v4='<p style="'+PB+'">'+c.s4pre+'</p><ol style="font-size:11px;line-height:1.8;color:rgba(255,255,255,.7);font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin:0 0 8px 0;padding-left:18px">';
@@ -8578,7 +8612,7 @@ function renderManual(){
   // s9 audio
   h+=sec(c.s9h,tbl(c.s9));
   // s10 accents
-  var s10body='<p style="'+PB+'">'+c.s10pre+'</p>'+tbl(c.s10)+'<p style="font-size:10px;color:rgba(255,255,255,.4);font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin:8px 0 0 0">'+c.s10note+'</p>';
+  var s10body='<p style="'+PB+'">'+c.s10pre+'</p>'+tbl(c.s10)+'<p style="font-size:9px;color:rgba(255,255,255,.4);font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin:8px 0 0 0">'+c.s10note+'</p>';
   h+=sec(c.s10h,s10body);
   // s11 score
   h+=sec(c.s11h,'<p style="'+P+'">'+c.s11+'</p>');
@@ -8589,7 +8623,7 @@ function renderManual(){
 }
 </script>
 <style>
-.mk{background:rgba(255,255,255,.1);padding:2px 8px;border-radius:4px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;color:#fff}
+.mk{background:rgba(255,255,255,.1);padding:2px 8px;border-radius:6px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9px;color:#fff}
 </style>
 
 <div id="manual-ov" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:900;overflow-y:auto;backdrop-filter:blur(6px)" onclick="if(event.target===this)hideManual()">
@@ -8601,7 +8635,7 @@ function renderManual(){
       <button id="mbl-de" onclick="switchManLang('de')" style="background:rgba(74,123,168,.25);border:1px solid rgba(74,123,168,.35);color:var(--txt);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;cursor:pointer;font-family:"Barlow","Helvetica Neue",Arial,sans-serif;letter-spacing:.5px">DE</button>
       <button id="mbl-es" onclick="switchManLang('es')" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;cursor:pointer;font-family:"Barlow","Helvetica Neue",Arial,sans-serif;letter-spacing:.5px">ES</button>
       <button id="mbl-en" onclick="switchManLang('en')" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;cursor:pointer;font-family:"Barlow","Helvetica Neue",Arial,sans-serif;letter-spacing:.5px">EN</button>
-      <div id="manual-title" style="font-size:20px;font-weight:300;color:var(--txt);letter-spacing:1px;font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin-left:8px">Handbuch</div>
+      <div id="manual-title" style="font-size:22px;font-weight:300;color:var(--txt);letter-spacing:1px;font-family:"Barlow","Helvetica Neue",Arial,sans-serif;margin-left:8px">Handbuch</div>
     </div>
     <!-- Dynamic content -->
     <div id="manual-body"></div>
@@ -8710,8 +8744,8 @@ body.layout-d .cc-deck{display:flex}
 .cc-globe-ov{position:absolute;top:8px;left:10px;z-index:5;font-family:var(--fmono);font-size:9px;letter-spacing:1.5px;color:rgba(140,170,200,.55);pointer-events:none;line-height:1.9}
 .cc-globe-ov b{color:rgba(160,200,255,.9);font-weight:600}
 .cc-globe-utc{position:absolute;bottom:6px;left:10px;z-index:5;font-family:var(--fmono);font-size:9px;letter-spacing:1px;color:rgba(140,170,200,.4);pointer-events:none}
-.cc-globe-hint{position:absolute;bottom:6px;right:10px;z-index:5;font-family:var(--fmono);font-size:8px;letter-spacing:1px;color:rgba(140,170,200,.28);pointer-events:none}
-.cc-arc-toast{position:absolute;top:8px;right:10px;z-index:6;font-family:var(--fmono);font-size:10px;letter-spacing:1px;color:#c2924f;text-shadow:0 0 12px rgba(194,146,79,.6);opacity:0;transition:opacity .3s;pointer-events:none}
+.cc-globe-hint{position:absolute;bottom:6px;right:10px;z-index:5;font-family:var(--fmono);font-size:9px;letter-spacing:1px;color:rgba(140,170,200,.28);pointer-events:none}
+.cc-arc-toast{position:absolute;top:8px;right:10px;z-index:6;font-family:var(--fmono);font-size:9px;letter-spacing:1px;color:#c2924f;text-shadow:0 0 12px rgba(194,146,79,.6);opacity:0;transition:opacity .3s;pointer-events:none}
 /* ── Rig panel: brushed metal ── */
 .cc-rig{width:318px;flex-shrink:0;position:relative;padding:10px 14px 8px;display:flex;flex-direction:column;gap:7px;border-left:2px solid #000;
   background:linear-gradient(180deg,#3a3f4a 0%,#2b303a 4%,#232833 30%,#1d222c 70%,#171b24 96%,#0d1018 100%);
@@ -8721,21 +8755,21 @@ body.layout-d .cc-deck{display:flex}
 .cc-screw{position:absolute;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6a7180,#2a2e38 70%);box-shadow:inset 0 0 2px #000,0 1px 1px rgba(255,255,255,.1);z-index:2}
 .cc-screw::after{content:'';position:absolute;left:1px;right:1px;top:3.5px;height:1.4px;background:#0c0e14;transform:rotate(38deg)}
 .cc-screw.tl{top:5px;left:6px}.cc-screw.tr{top:5px;right:6px}.cc-screw.bl{bottom:5px;left:6px}.cc-screw.br{bottom:5px;right:6px}
-.cc-brand{display:flex;align-items:baseline;justify-content:space-between;font-family:var(--fui);letter-spacing:2.5px;font-size:10px;font-weight:700;color:#9aa4b5;text-shadow:0 1px 1px #000;padding:0 4px}
-.cc-brand span{font-size:8px;font-weight:400;letter-spacing:1.5px;color:#5c6575}
+.cc-brand{display:flex;align-items:baseline;justify-content:space-between;font-family:var(--fui);letter-spacing:2.5px;font-size:9px;font-weight:700;color:#9aa4b5;text-shadow:0 1px 1px #000;padding:0 4px}
+.cc-brand span{font-size:9px;font-weight:400;letter-spacing:1.5px;color:#5c6575}
 /* LCD */
-.cc-lcd{background:linear-gradient(180deg,#0b2415,#071a0f 60%,#051208);border:1px solid #000;border-radius:5px;padding:6px 10px 7px;
+.cc-lcd{background:linear-gradient(180deg,#0b2415,#071a0f 60%,#051208);border:1px solid #000;border-radius:6px;padding:6px 10px 7px;
   box-shadow:inset 0 2px 8px rgba(0,0,0,.85),inset 0 0 30px rgba(60,255,140,.05),0 1px 0 rgba(255,255,255,.08);position:relative}
 .cc-lcd-top{display:flex;justify-content:space-between;font-family:var(--fmono);font-size:9px;letter-spacing:1px;color:#3fa065;margin-bottom:1px}
-.cc-freq{font-family:var(--fmono);font-size:31px;font-weight:400;letter-spacing:2px;color:#7fae91;text-shadow:0 0 10px rgba(93,255,138,.55),0 0 26px rgba(93,255,138,.2);text-align:center;font-variant-numeric:tabular-nums;line-height:1.12}
-.cc-freq small{font-size:15px;color:#6fa384;letter-spacing:1px}
+.cc-freq{font-family:var(--fmono);font-size:38px;font-weight:400;letter-spacing:2px;color:#7fae91;text-shadow:0 0 10px rgba(93,255,138,.55),0 0 26px rgba(93,255,138,.2);text-align:center;font-variant-numeric:tabular-nums;line-height:1.12}
+.cc-freq small{font-size:16px;color:#6fa384;letter-spacing:1px}
 .cc-rit{text-align:center;font-family:var(--fmono);font-size:9px;letter-spacing:1.5px;color:#2f8a52;min-height:11px}
 .cc-rit b{color:#c2924f;font-weight:400;text-shadow:0 0 8px rgba(194,146,79,.4)}
 .cc-lcd-row{display:flex;justify-content:space-between;font-family:var(--fmono);font-size:9.5px;letter-spacing:1px;color:#3fa065;margin-top:3px}
 .cc-lcd-row b{color:#7fae91;font-weight:400;text-shadow:0 0 7px rgba(93,255,138,.4)}
 /* S-Meter */
-.cc-sm-wrap{background:linear-gradient(180deg,#241f14,#1a1710);border:1px solid #000;border-radius:5px;padding:2px;box-shadow:inset 0 2px 6px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.07)}
-.cc-sm-wrap canvas{display:block;width:100%;border-radius:3px}
+.cc-sm-wrap{background:linear-gradient(180deg,#241f14,#1a1710);border:1px solid #000;border-radius:6px;padding:2px;box-shadow:inset 0 2px 6px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.07)}
+.cc-sm-wrap canvas{display:block;width:100%;border-radius:6px}
 /* Controls */
 .cc-ctl{display:flex;gap:12px;align-items:stretch;flex:1;min-height:0}
 .cc-knob-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;justify-content:center}
@@ -8748,10 +8782,10 @@ body.layout-d .cc-deck{display:flex}
   box-shadow:inset 0 2px 5px rgba(0,0,0,.6)}
 .cc-knob-dot{position:absolute;left:50%;top:13px;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;
   background:radial-gradient(circle at 38% 30%,#8b93a5,#3c424f 75%);box-shadow:inset 0 1px 2px rgba(0,0,0,.7),0 0 3px rgba(0,0,0,.6)}
-.cc-knob-lbl,.cc-ksm-lbl{font-family:var(--fui);font-size:8px;letter-spacing:2px;color:#7c8698;text-shadow:0 1px 1px #000}
+.cc-knob-lbl,.cc-ksm-lbl{font-family:var(--fui);font-size:9px;letter-spacing:2px;color:#7c8698;text-shadow:0 1px 1px #000}
 .cc-right{flex:1;display:flex;flex-direction:column;gap:6px;justify-content:center;min-width:0}
 .cc-lamps{display:flex;gap:10px;justify-content:center}
-.cc-lamp{display:flex;align-items:center;gap:4px;font-family:var(--fui);font-size:8px;letter-spacing:1.5px;color:#6c7688}
+.cc-lamp{display:flex;align-items:center;gap:4px;font-family:var(--fui);font-size:9px;letter-spacing:1.5px;color:#6c7688}
 .cc-lamp i{width:8px;height:8px;border-radius:50%;background:#232833;box-shadow:inset 0 1px 2px #000;transition:all .15s;font-style:normal}
 .cc-lamp.on-pwr i{background:#6fa384;box-shadow:0 0 8px rgba(57,211,83,.8),inset 0 0 2px rgba(255,255,255,.5)}
 .cc-lamp.on-rx i{background:#4a7ba8;box-shadow:0 0 8px rgba(74,123,168,.8),inset 0 0 2px rgba(255,255,255,.5)}
@@ -8760,10 +8794,10 @@ body.layout-d .cc-deck{display:flex}
 .cc-ksm{width:44px;height:44px;border-radius:50%;position:relative;cursor:grab;touch-action:none;
   background:radial-gradient(circle at 34% 28%,#454b58,#353b47 42%,#232833 78%,#141821 100%);
   box-shadow:0 3px 7px rgba(0,0,0,.65),inset 0 1px 1px rgba(255,255,255,.2),inset 0 -2px 4px rgba(0,0,0,.5),0 0 0 2px #10131b}
-.cc-ksm i{position:absolute;left:50%;top:5px;width:4px;height:9px;margin-left:-2px;border-radius:2px;background:#aeb6c6;box-shadow:0 0 2px #000}
+.cc-ksm i{position:absolute;left:50%;top:5px;width:4px;height:9px;margin-left:-2px;border-radius:6px;background:#aeb6c6;box-shadow:0 0 2px #000}
 .cc-btns{display:flex;gap:5px;justify-content:center}
 .cc-btn{flex:1;max-width:74px;font-family:var(--fui);font-size:9px;font-weight:700;letter-spacing:1.5px;color:#c3cad8;text-shadow:0 1px 1px #000;
-  background:linear-gradient(180deg,#3c424f,#262b36 45%,#1b1f29);border:1px solid #000;border-radius:5px;padding:7px 0;cursor:pointer;
+  background:linear-gradient(180deg,#3c424f,#262b36 45%,#1b1f29);border:1px solid #000;border-radius:6px;padding:7px 0;cursor:pointer;
   box-shadow:0 2px 4px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.16)}
 .cc-btn:hover{color:#fff}
 .cc-btn:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,.5),inset 0 2px 5px rgba(0,0,0,.5);background:linear-gradient(180deg,#20242e,#181c25)}
@@ -8771,7 +8805,7 @@ body.layout-d .cc-deck{display:flex}
 /* header toggle */
 #cc-layout-btn.on{background:rgba(74,123,168,.15);border-color:rgba(74,123,168,.6);color:var(--txt);box-shadow:0 0 10px rgba(74,123,168,.25)}
 body.layout-d .wf-wrap{height:74px}
-@media(max-width:1150px){.cc-rig{width:272px}.cc-freq{font-size:26px}.cc-knob{width:80px;height:80px}}
+@media(max-width:1150px){.cc-rig{width:272px}.cc-freq{font-size:22px}.cc-knob{width:80px;height:80px}}
 </style>
 <script>
 /* ══════════════════════════════════════════════
@@ -8812,7 +8846,7 @@ function sunDirNow(){
 function addHeaderBtn(){
   var hr=document.querySelector('.hdr-right'); if(!hr) return;
   var b=document.createElement('button');
-  b.className='sp-toggle'; b.id='cc-layout-btn'; b.textContent='🌐 3D';
+  b.className='sp-toggle'; b.id='cc-layout-btn'; b.textContent='<svg class="ic"><use href="#ic-globe"/></svg> 3D';
   b.title='Command Center — 3D-Globus & Transceiver-Frontplatte';
   b.style.cssText='border-color:rgba(74,123,168,.3);color:var(--txt3)';
   b.onclick=function(){ setLayoutD(!CC.on); };
