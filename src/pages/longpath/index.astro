@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Wordmark from "../../components/Wordmark.astro";
 import Screens from "../../components/Screens.astro";
+import Vorfuehrung from "../../components/Vorfuehrung.astro";
 import Spektrum from "../../components/Spektrum.astro";
 
 /* Inhalte aus ../NereusSDR/README.md. Wenn dort eine Version steigt,
@@ -194,6 +195,17 @@ const pakete = [
     </section>
 
     <Screens />
+
+    <Vorfuehrung
+      quelle="/video/longpath-vorfuehrung.mp4"
+      standbild="/video/longpath-vorfuehrung.jpg"
+      breite={1470}
+      hoehe={956}
+      dauer="3:54"
+      auge="Aufgenommen am laufenden Gerät"
+      titel="Die Oberfläche in Bewegung."
+      vorspann="Bildschirmfotos zeigen, wie es aussieht. Wie es sich anfühlt, zeigt erst das laufende Bild: der Wasserfall, die Rufzeichen, die über das Bandbild wandern, die Anzeigen, die mitgehen. Aufgenommen an einer ANAN-7000DLE auf 20 Metern."
+    />
 
     <section class="section wrap" id="sunsdr">
       <div class="section__head">

@@ -8,3 +8,6 @@ dist/
 src/assets/photos/*.jpg
 src/assets/photos/*.jpeg
 src/assets/photos/*.png
+
+# Video-Rohdateien: gross und nicht noetig, das fertige MP4 liegt in public/video/
+videos/raw/

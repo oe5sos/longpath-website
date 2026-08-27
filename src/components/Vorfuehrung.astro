@@ -1,0 +1,75 @@
+---
+/**
+ * Eine Bildschirmaufnahme der Oberflaeche.
+ *
+ * Kein Autostart, kein Ton beim Laden, preload="none" — das Video wird
+ * erst geholt, wenn jemand es sehen will. Bis dahin steht das Standbild
+ * da, das aus dem Video selbst gezogen wurde.
+ *
+ * Der Abschnitt verschwindet vollstaendig, solange keine Aufnahme unter
+ * public/video/ liegt. Die Datei muss unter 25 MB bleiben — mehr nimmt
+ * Cloudflare Pages je Einzeldatei nicht an.
+ */
+interface Props {
+  quelle: string;
+  standbild: string;
+  breite: number;
+  hoehe: number;
+  dauer: string;
+  vorspann: string;
+  titel: string;
+  auge: string;
+}
+
+const { quelle, standbild, breite, hoehe, dauer, vorspann, titel, auge } =
+  Astro.props;
+---
+
+<section class="section wrap" id="vorfuehrung">
+  <div class="section__head">
+    <p class="caps">{auge}</p>
+    <h2>{titel}</h2>
+  </div>
+
+  <p class="vor__text">{vorspann}</p>
+
+  <figure class="vor">
+    <video
+      controls
+      preload="none"
+      playsinline
+      poster={standbild}
+      width={breite}
+      height={hoehe}
+    >
+      <source src={quelle} type="video/mp4" />
+      Dein Browser kann dieses Video nicht abspielen.
+      <a href={quelle}>Direkt herunterladen</a>.
+    </video>
+    <figcaption class="caps num">{dauer} · mit Ton</figcaption>
+  </figure>
+</section>
+
+<style>
+  .vor__text {
+    max-width: 60ch;
+    margin: 0 0 clamp(1.6rem, 4vh, 2.4rem);
+    color: var(--t3);
+  }
+  .vor { margin: 0; }
+  .vor video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1470 / 956;
+    background: var(--panel);
+    border: 1px solid var(--border-fine);
+    border-radius: var(--radius);
+  }
+  .vor figcaption {
+    margin-top: .7rem;
+    font-size: 9px;
+    letter-spacing: .18em;
+    color: var(--t5);
+  }
+</style>
