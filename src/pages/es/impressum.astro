@@ -1,0 +1,39 @@
+---
+import Base from "../../layouts/Base.astro";
+import { useTranslations } from "../../i18n/utils";
+import { DEFAULT_LOCALE, type Locale } from "../../i18n/ui";
+
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
+---
+<Base titel={t.impressum.titel} beschreibung={t.impressum.beschreibung} raum="app">
+  <main class="wrap seite">
+    <p class="caps">{t.impressum.kicker}</p>
+    <h1>{t.impressum.h1}</h1>
+    <div class="text">
+      <p>
+        {t.impressum.adresse.map((zeile, i) => (
+          <>{i > 0 && <br />}{zeile}</>
+        ))}
+      </p>
+      <p class="klein">{t.impressum.hinweis}</p>
+      <h2>{t.impressum.softwareH2}</h2>
+      <p>
+        {t.impressum.softwareText}{" "}
+        <code>docs/attribution/</code>.
+      </p>
+      <h2>{t.impressum.haftungH2}</h2>
+      <p>{t.impressum.haftungText}</p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .seite { padding-block: clamp(3rem, 9vh, 6rem); }
+  .seite h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: .6rem 0 1.5rem; }
+  .text { max-width: var(--measure); }
+  .text p { margin: 0 0 1.25em; }
+  .text h2 { font-size: 1.4rem; font-weight: 500; margin: 2em 0 .6em; }
+  .text .klein { font-size: .92rem; color: var(--t5); }
+  .text code { font-family: var(--ff-mono); font-size: .85em; color: var(--t2); }
+</style>

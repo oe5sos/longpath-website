@@ -1,0 +1,44 @@
+---
+/**
+ * Die drei Sprachlinks. Zeigt auf dieselbe Seite in der Zielsprache,
+ * wenn es sie dort schon gibt — sonst auf deren Startseite, statt auf
+ * eine Adresse zu verweisen, die noch nicht existiert. UEBERSETZTE_PFADE
+ * waechst mit jeder weiteren gespiegelten Seite (siehe src/pages/en/,
+ * src/pages/es/).
+ */
+import { LOCALES, LOCALE_LABEL, DEFAULT_LOCALE, type Locale } from "../i18n/ui";
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+
+const UEBERSETZTE_PFADE = ["/", "/impressum/"];
+
+const praefixSprachen = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
+const treffer = Astro.url.pathname.match(
+  new RegExp(`^/(${praefixSprachen.join("|")})(/.*)?$`)
+);
+const ohnePraefix = treffer ? (treffer[2] || "/") : Astro.url.pathname;
+const basis = UEBERSETZTE_PFADE.includes(ohnePraefix) ? ohnePraefix : "/";
+
+function href(ziel: Locale): string {
+  return ziel === DEFAULT_LOCALE ? basis : `/${ziel}${basis}`;
+}
+---
+<div class="lang">
+  {LOCALES.map((l) => (
+    <a href={href(l)} aria-current={l === lang ? "page" : undefined} title={LOCALE_LABEL[l]}>
+      {l.toUpperCase()}
+    </a>
+  ))}
+</div>
+
+<style>
+  .lang {
+    display: flex; gap: .55rem;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .16em; text-transform: uppercase;
+  }
+  .lang a { color: var(--t5); transition: color var(--ease); }
+  .lang a:hover { color: var(--t2); }
+  .lang a[aria-current] { color: var(--t2); border-bottom: 1px solid var(--measured); }
+</style>

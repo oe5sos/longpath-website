@@ -1,6 +1,7 @@
 ---
 import { useTranslations } from "../i18n/utils";
 import type { Locale } from "../i18n/ui";
+import LangSwitch from "./LangSwitch.astro";
 
 interface Props { raum: "app" | "blog"; lang: Locale; }
 const { raum, lang } = Astro.props;
@@ -12,6 +13,7 @@ const t = useTranslations(lang);
     <p class="caps num" style="margin:.4rem 0 0">
       {t.footer.ort} · JN67{raum === "blog" ? ` · ${t.footer.portabel}` : ""}
     </p>
+    <div style="margin-top: .9rem"><LangSwitch lang={lang} /></div>
   </div>
   <div class="foot__cols">
     <div class="foot__col">
