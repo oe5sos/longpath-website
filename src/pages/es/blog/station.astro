@@ -1,9 +1,9 @@
 ---
-import Base from "../../layouts/Base.astro";
-import Readout from "../../components/Readout.astro";
-import { alleBeitraege, nurAktivierungen, jahresbilanz } from "../../lib/sota";
-import { useTranslations } from "../../i18n/utils";
-import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../../i18n/ui";
+import Base from "../../../layouts/Base.astro";
+import Readout from "../../../components/Readout.astro";
+import { alleBeitraege, nurAktivierungen, jahresbilanz } from "../../../lib/sota";
+import { useTranslations } from "../../../i18n/utils";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../../../i18n/ui";
 
 const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
 const t = useTranslations(lang);

@@ -1,11 +1,31 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
 
 export type Beitrag = CollectionEntry<"beitraege">;
 
-/** Alle veroeffentlichten Beitraege, neueste zuerst. */
-export async function alleBeitraege(): Promise<Beitrag[]> {
-  const alle = await getCollection("beitraege", ({ data }) => !data.entwurf);
+/**
+ * Alle veroeffentlichten Beitraege einer Sprache, neueste zuerst.
+ *
+ * Deutsch liegt direkt unter src/content/posts/*.md (kein Praefix, wie
+ * bei den Seiten-Adressen selbst); Englisch und Spanisch je in einem
+ * Unterordner (en/, es/), den derselbe Glob-Lader automatisch mitnimmt
+ * — id traegt dann den Ordner mit ("en/hoellengebirge-ueberquerung").
+ * Ein Beitrag, den es in einer Sprache noch nicht gibt, fehlt dort
+ * einfach, statt als kaputter Link zu erscheinen.
+ */
+export async function alleBeitraege(lang: Locale = DEFAULT_LOCALE): Promise<Beitrag[]> {
+  const alle = await getCollection("beitraege", ({ data, id }) => {
+    if (data.entwurf) return false;
+    const hatPraefix = id.includes("/");
+    return lang === DEFAULT_LOCALE ? !hatPraefix : id.startsWith(`${lang}/`);
+  });
   return alle.sort((a, b) => b.data.datum.valueOf() - a.data.datum.valueOf());
+}
+
+/** Die reine Kennung ohne Sprachordner, fuer Links auf denselben Beitrag. */
+export function blossId(b: Beitrag): string {
+  const i = b.id.indexOf("/");
+  return i === -1 ? b.id : b.id.slice(i + 1);
 }
 
 /** Nur die Gipfelaktivierungen — Ausruestungsbeitraege fallen raus. */
@@ -93,18 +113,18 @@ export function alsAdresse(text: string): string {
 
 /** Regel 7 — Unbekannt ist ein Strich, keine Null. */
 export const STRICH = "——";
-export function wert(v: number | string | undefined | null, einheit = ""): string {
+export function wert(v: number | string | undefined | null, einheit = "", lang: Locale = DEFAULT_LOCALE): string {
   if (v === undefined || v === null || v === "") return STRICH;
   return typeof v === "number"
-    ? v.toLocaleString("de-AT") + (einheit ? " " + einheit : "")
+    ? v.toLocaleString(LOCALE_TAG[lang]) + (einheit ? " " + einheit : "")
     : v;
 }
 
-export function datumLang(d: Date): string {
-  return d.toLocaleDateString("de-AT", { day: "2-digit", month: "long", year: "numeric" });
+export function datumLang(d: Date, lang: Locale = DEFAULT_LOCALE): string {
+  return d.toLocaleDateString(LOCALE_TAG[lang], { day: "2-digit", month: "long", year: "numeric" });
 }
-export function datumKurz(d: Date): string {
-  return d.toLocaleDateString("de-AT", { day: "2-digit", month: "short" });
+export function datumKurz(d: Date, lang: Locale = DEFAULT_LOCALE): string {
+  return d.toLocaleDateString(LOCALE_TAG[lang], { day: "2-digit", month: "short" });
 }
 export function datumIso(d: Date): string {
   return d.toISOString().slice(0, 10);

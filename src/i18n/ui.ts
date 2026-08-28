@@ -120,6 +120,14 @@ interface UiStrings {
     neuer: string;
     ausruestungH2: string;
     signatur: string;
+    readoutTitel: string;
+    fReferenz: string;
+    fGipfel: string;
+    fPunkte: string;
+    fQso: string;
+    fAufstieg: string;
+    fWeiteste: string;
+    fBaender: string;
   };
 }
 
@@ -209,6 +217,9 @@ export const ui: Record<Locale, UiStrings> = {
       neuer: "Neuer →",
       ausruestungH2: "Was mitgegangen ist",
       signatur: "73 · OE5SOS",
+      readoutTitel: "Die Aktivierung in Zahlen",
+      fReferenz: "Referenz", fGipfel: "Gipfel", fPunkte: "Punkte",
+      fQso: "QSO", fAufstieg: "Aufstieg", fWeiteste: "Weiteste", fBaender: "Bänder",
     },
   },
   en: {
@@ -296,6 +307,9 @@ export const ui: Record<Locale, UiStrings> = {
       neuer: "Newer →",
       ausruestungH2: "What came along",
       signatur: "73 · OE5SOS",
+      readoutTitel: "The activation in numbers",
+      fReferenz: "Reference", fGipfel: "Summits", fPunkte: "Points",
+      fQso: "QSOs", fAufstieg: "Ascent", fWeiteste: "Furthest", fBaender: "Bands",
     },
   },
   es: {
@@ -383,6 +397,9 @@ export const ui: Record<Locale, UiStrings> = {
       neuer: "Siguiente →",
       ausruestungH2: "Lo que llevé",
       signatur: "73 · OE5SOS",
+      readoutTitel: "La activación en cifras",
+      fReferenz: "Referencia", fGipfel: "Cumbres", fPunkte: "Puntos",
+      fQso: "QSO", fAufstieg: "Ascenso", fWeiteste: "Más lejos", fBaender: "Bandas",
     },
   },
 };

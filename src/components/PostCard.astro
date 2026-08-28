@@ -1,6 +1,6 @@
 ---
 import Photo from "./Photo.astro";
-import { datumKurz, type Beitrag } from "../lib/sota";
+import { datumKurz, blossId, type Beitrag } from "../lib/sota";
 import { useTranslations } from "../i18n/utils";
 import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
 
@@ -8,7 +8,9 @@ interface Props { beitrag: Beitrag; gross?: boolean; lang?: Locale; }
 const { beitrag, gross = false, lang = DEFAULT_LOCALE } = Astro.props;
 const t = useTranslations(lang);
 const d = beitrag.data;
-const href = `/blog/${beitrag.id}/`;
+const href = lang === DEFAULT_LOCALE
+  ? `/blog/${blossId(beitrag)}/`
+  : `/${lang}/blog/${blossId(beitrag)}/`;
 const ref = d.sota
   ? [d.sota.referenz, d.sota.hoehe ? `${d.sota.hoehe.toLocaleString(LOCALE_TAG[lang])} m` : null]
       .filter(Boolean).join(" · ")
@@ -20,7 +22,7 @@ const ref = d.sota
            sizes="(max-width: 800px) 100vw, 700px" />}
     <div class="lead__text">
       <div class="meta">
-        <span>{datumKurz(d.datum)} {d.datum.getFullYear()}</span>
+        <span>{datumKurz(d.datum, lang)} {d.datum.getFullYear()}</span>
         {d.funk?.baender?.length && <><span class="sep">·</span><span>{d.funk.baender.join(" / ")}</span></>}
       </div>
       <h2>{d.titel}</h2>
@@ -33,7 +35,7 @@ const ref = d.sota
     {d.aufmacher && <Photo bild={d.aufmacher} alt={d.aufmacherAlt ?? d.titel} ref={ref}
            sizes="(max-width: 700px) 100vw, 380px" />}
     <div class="meta">
-      <span>{datumKurz(d.datum)} {d.datum.getFullYear()}</span>
+      <span>{datumKurz(d.datum, lang)} {d.datum.getFullYear()}</span>
     </div>
     <h3>{d.titel}</h3>
     <p>{d.vorspann}</p>

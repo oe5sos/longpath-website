@@ -1,19 +1,20 @@
 ---
 import { render } from "astro:content";
-import Base from "../../layouts/Base.astro";
-import Photo from "../../components/Photo.astro";
-import Readout from "../../components/Readout.astro";
-import { alleBeitraege, gipfelVon, datumLang, wert, blossId, type Beitrag } from "../../lib/sota";
-import { useTranslations } from "../../i18n/utils";
-import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../../i18n/ui";
+import Base from "../../../layouts/Base.astro";
+import Photo from "../../../components/Photo.astro";
+import Readout from "../../../components/Readout.astro";
+import { alleBeitraege, gipfelVon, datumLang, wert, blossId, type Beitrag } from "../../../lib/sota";
+import { useTranslations } from "../../../i18n/utils";
+import { LOCALE_TAG, type Locale } from "../../../i18n/ui";
+
+const lang: Locale = "en";
 
 export async function getStaticPaths() {
-  const beitraege = await alleBeitraege();
+  const beitraege = await alleBeitraege("en");
   return beitraege.map((beitrag, i) => ({
-    params: { slug: beitrag.id },
+    params: { slug: blossId(beitrag) },
     props: {
       beitrag,
-      // Neuere zuerst sortiert: [i-1] ist der neuere, [i+1] der aeltere.
       neuer: beitraege[i - 1],
       aelter: beitraege[i + 1],
     },
@@ -22,14 +23,11 @@ export async function getStaticPaths() {
 
 interface Props { beitrag: Beitrag; neuer?: Beitrag; aelter?: Beitrag; }
 const { beitrag, neuer, aelter } = Astro.props;
-const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
 const t = useTranslations(lang);
 const d = beitrag.data;
 const { Content } = await render(beitrag);
 const gipfel = gipfelVon(beitrag);
 
-/* Das Ablesegitter. Regel 7 — was nicht gemessen wurde, bleibt leer
-   und wird als Strich gezeigt, nicht als Null. */
 const felder = [
   { k: t.post.fReferenz, v: gipfel.map((g) => g.referenz).join(", ") || undefined },
   { k: t.post.fGipfel,   v: gipfel.length > 1 ? gipfel.length : undefined },
@@ -39,8 +37,6 @@ const felder = [
   { k: t.post.fWeiteste, v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString(LOCALE_TAG[lang])} km` : undefined },
   { k: t.post.fBaender,  v: d.funk?.baender?.join(" / ") },
 ];
-// Nur echte Aktivierungen bekommen das Gitter. Ein Besuch bei einer anderen
-// Station ist keine Aktivierung - dort waere die Ueberschrift schlicht falsch.
 const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined && f.v !== null);
 ---
 
@@ -92,13 +88,13 @@ const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined &&
     {(neuer || aelter) && (
       <nav class="pager">
         {aelter ? (
-          <a href={`/blog/${blossId(aelter)}/`}>
+          <a href={`/en/blog/${blossId(aelter)}/`}>
             <span class="caps">{t.post.aelter}</span>
             <strong>{aelter.data.titel}</strong>
           </a>
         ) : <span></span>}
         {neuer ? (
-          <a href={`/blog/${blossId(neuer)}/`} class="rechts">
+          <a href={`/en/blog/${blossId(neuer)}/`} class="rechts">
             <span class="caps">{t.post.neuer}</span>
             <strong>{neuer.data.titel}</strong>
           </a>
