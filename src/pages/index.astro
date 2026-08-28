@@ -12,6 +12,11 @@ import Base from "../layouts/Base.astro";
 import Wordmark from "../components/Wordmark.astro";
 import Spektrum from "../components/Spektrum.astro";
 import { alleBeitraege } from "../lib/sota";
+import { useTranslations } from "../i18n/utils";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
+
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 
 const beitraege = await alleBeitraege();
 
@@ -25,8 +30,8 @@ const neuester = beitraege.find((b) => b.data.sota && b.data.aufmacher)
 ---
 
 <Base
-  titel="Longpath — Stationskonsole und Blog"
-  beschreibung="Longpath: eine native OpenHPSDR-Stationskonsole für macOS, Linux und Windows. Dazu ein Blog von den Gipfeln über dem Traunsee."
+  titel={t.home.titel}
+  beschreibung={t.home.beschreibung}
   raum="app"
   nackt
 >
@@ -35,20 +40,20 @@ const neuester = beitraege.find((b) => b.data.sota && b.data.aufmacher)
     <a class="half half--app" href="/longpath/" data-f="a">
       <Spektrum art="band" grundlinie={0.62} />
       <div class="half__in">
-        <p class="caps">OpenHPSDR · Protokoll 1 + 2</p>
+        <p class="caps">{t.home.appKicker}</p>
         <div class="big"><Wordmark /></div>
-        <p class="lede">Die Stationskonsole. Nativ für macOS, Linux und Windows.</p>
-        <span class="go">Zur App <span aria-hidden="true">→</span></span>
+        <p class="lede">{t.home.appLede}</p>
+        <span class="go">{t.home.appGo} <span aria-hidden="true">→</span></span>
       </div>
     </a>
 
     <a class="half half--trainer" href="/trainer/" data-f="t">
       <Spektrum art="kurve" grundlinie={0.7} staerke={0.75} />
       <div class="half__in">
-        <p class="caps">Im Browser, ohne Anmeldung</p>
+        <p class="caps">{t.home.trainerKicker}</p>
         <div class="big">TRAINER</div>
-        <p class="lede">Contest üben — Pile-Up, QSB und QRM, in SSB und CW.</p>
-        <span class="go">Zum Üben <span aria-hidden="true">→</span></span>
+        <p class="lede">{t.home.trainerLede}</p>
+        <span class="go">{t.home.trainerGo} <span aria-hidden="true">→</span></span>
       </div>
     </a>
 
@@ -65,10 +70,10 @@ const neuester = beitraege.find((b) => b.data.sota && b.data.aufmacher)
         />
       )}
       <div class="half__in">
-        <p class="caps">Summits on the Air · OE/OO</p>
+        <p class="caps">{t.home.blogKicker}</p>
         <div class="big">BLOG</div>
-        <p class="lede">Fotos und Notizen von den Gipfeln.</p>
-        <span class="go">Zum Blog <span aria-hidden="true">→</span></span>
+        <p class="lede">{t.home.blogLede}</p>
+        <span class="go">{t.home.blogGo} <span aria-hidden="true">→</span></span>
       </div>
     </a>
 
@@ -77,14 +82,14 @@ const neuester = beitraege.find((b) => b.data.sota && b.data.aufmacher)
 
     <div class="corner corner--t">
       <span class="caps">OE5SOS · Martin Fischer</span>
-      <span class="caps num">JN67 · Gmunden</span>
+      <span class="caps num">{t.home.cornerTop2}</span>
     </div>
     <div class="corner corner--b">
-      <span class="caps">Drei Wege, eine Station</span>
+      <span class="caps">{t.home.cornerBottom1}</span>
       {neuester?.data.aufmacher && (
         <span class="caps num">
-          Zuletzt {neuester.data.sota?.referenz ?? ""} ·
-          {" "}{neuester.data.datum.toLocaleDateString("de-AT")}
+          {t.home.cornerBottomZuletzt} {neuester.data.sota?.referenz ?? ""} ·
+          {" "}{neuester.data.datum.toLocaleDateString(LOCALE_TAG[lang])}
         </span>
       )}
     </div>

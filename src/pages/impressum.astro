@@ -1,35 +1,29 @@
 ---
 import Base from "../layouts/Base.astro";
+import { useTranslations } from "../i18n/utils";
+import { DEFAULT_LOCALE, type Locale } from "../i18n/ui";
+
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 ---
-<Base titel="Impressum — Longpath" beschreibung="Angaben nach § 5 ECG." raum="app">
+<Base titel={t.impressum.titel} beschreibung={t.impressum.beschreibung} raum="app">
   <main class="wrap seite">
-    <p class="caps">Angaben nach § 5 ECG</p>
-    <h1>Impressum</h1>
+    <p class="caps">{t.impressum.kicker}</p>
+    <h1>{t.impressum.h1}</h1>
     <div class="text">
       <p>
-        Ralph Martin Fischer<br />
-        Altmühlweg 9<br />
-        4810 Gmunden<br />
-        Österreich
+        {t.impressum.adresse.map((zeile, i) => (
+          <>{i > 0 && <br />}{zeile}</>
+        ))}
       </p>
-      <p class="klein">
-        Rufzeichen OE5SOS. Kein Unternehmen, keine Gewinnabsicht —
-        diese Seite begleitet ein privates Amateurfunkprojekt.
-      </p>
-      <h2>Zur Software</h2>
+      <p class="klein">{t.impressum.hinweis}</p>
+      <h2>{t.impressum.softwareH2}</h2>
       <p>
-        Longpath ist freie Software unter der GNU General Public License v3.
-        Es ist ein Fork von NereusSDR (J. J. Boyd, KG4VCF), selbst eine
-        C++20/Qt6-Portierung von Thetis. Das DSP ist WDSP von Warren Pratt (NR0V).
-        Die vollständige Herkunft steht im Quellbaum unter
+        {t.impressum.softwareText}{" "}
         <code>docs/attribution/</code>.
       </p>
-      <h2>Haftung</h2>
-      <p>
-        Die Software wird ohne jede Gewährleistung bereitgestellt. Der Betrieb
-        eines Senders erfolgt in eigener Verantwortung des lizenzierten
-        Funkamateurs.
-      </p>
+      <h2>{t.impressum.haftungH2}</h2>
+      <p>{t.impressum.haftungText}</p>
     </div>
   </main>
 </Base>

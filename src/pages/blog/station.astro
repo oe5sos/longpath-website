@@ -2,6 +2,11 @@
 import Base from "../../layouts/Base.astro";
 import Readout from "../../components/Readout.astro";
 import { alleBeitraege, nurAktivierungen, jahresbilanz } from "../../lib/sota";
+import { useTranslations } from "../../i18n/utils";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../../i18n/ui";
+
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 
 const beitraege = await alleBeitraege();
 const akt = nurAktivierungen(beitraege);
@@ -17,29 +22,23 @@ const weiteste = akt.reduce<number | undefined>(
   undefined,
 );
 ---
-<Base titel="Station — Longpath Blog"
-      beschreibung="Die portable Station von OE5SOS und was sie bisher gemacht hat."
+<Base titel={t.station.titel}
+      beschreibung={t.station.beschreibung}
       raum="blog">
   <main class="wrap seite">
     <p class="caps">OE5SOS · JN67</p>
-    <h1>Die Station</h1>
+    <h1>{t.station.h1}</h1>
 
-    <Readout titel="Bisher" felder={[
-      { k: "Beiträge", v: b.beitraege },
-      { k: "Gipfel",   v: b.gipfel },
-      { k: "Punkte",   v: b.punkte },
-      { k: "Höchster", v: hoechster ? `${hoechster.data.sota!.hoehe!.toLocaleString("de-AT")} m` : undefined },
-      { k: "Weiteste", v: weiteste ? `${weiteste.toLocaleString("de-AT")} km` : undefined },
+    <Readout titel={t.station.bisher} felder={[
+      { k: t.station.beitraege, v: b.beitraege },
+      { k: t.station.gipfel,   v: b.gipfel },
+      { k: t.station.punkte,   v: b.punkte },
+      { k: t.station.hoechster, v: hoechster ? `${hoechster.data.sota!.hoehe!.toLocaleString(LOCALE_TAG[lang])} m` : undefined },
+      { k: t.station.weiteste, v: weiteste ? `${weiteste.toLocaleString(LOCALE_TAG[lang])} km` : undefined },
     ]} />
 
     <div class="text">
-      <p>
-        Portabel: fünf Watt, eine endgespeiste Antenne am Wanderstock, drei
-        Amperestunden LiFePO₄. Zu Hause läuft die Gegenstelle unter
-        <a href="/longpath/">Longpath</a>, der Konsole, die ich für
-        OpenHPSDR-Geräte schreibe — was auf dem Berg auffällt, landet
-        früher oder später als Änderung im Programm.
-      </p>
+      <p>{t.station.text}</p>
     </div>
   </main>
 </Base>

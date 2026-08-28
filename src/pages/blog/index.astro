@@ -5,6 +5,11 @@ import {
   alleBeitraege, alleGipfel, schlagworte,
   alsAdresse, datumIso, wert,
 } from "../../lib/sota";
+import { useTranslations } from "../../i18n/utils";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../../i18n/ui";
+
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 
 const beitraege = await alleBeitraege();
 const [aufmacher, ...rest] = beitraege;
@@ -13,45 +18,45 @@ const gipfel = alleGipfel(beitraege);
 ---
 
 <Base
-  titel="Blog — Longpath"
-  beschreibung="Fotos und Notizen von den Gipfeln über dem Traunsee. Summits on the Air, OE5SOS."
+  titel={t.blogIndex.titel}
+  beschreibung={t.blogIndex.beschreibung}
   raum="blog"
 >
   <main class="wrap">
     <header class="hero">
-      <p class="caps">Summits on the Air · OE/OO · seit 2023</p>
+      <p class="caps">{t.blogIndex.kicker}</p>
       <h1>BLOG</h1>
-      <p>Fotos und Notizen von den Gipfeln über dem Traunsee — was fünf Watt wirklich schaffen, wenn man die Station selbst hinaufträgt.</p>
+      <p>{t.blogIndex.lede}</p>
     </header>
 
     {marken.length > 0 && (
       <div class="filters">
-        <a class="filter" href="/blog/" aria-current="page">Alle</a>
+        <a class="filter" href="/blog/" aria-current="page">{t.blogIndex.alle}</a>
         {marken.map((m) => (
           <a class="filter" href={`/blog/schlagwort/${alsAdresse(m)}/`}>{m}</a>
         ))}
       </div>
     )}
 
-    {aufmacher && <PostCard beitrag={aufmacher} gross />}
+    {aufmacher && <PostCard beitrag={aufmacher} gross lang={lang} />}
 
     <section class="posts">
-      {rest.map((b) => <PostCard beitrag={b} />)}
+      {rest.map((b) => <PostCard beitrag={b} lang={lang} />)}
     </section>
 
     {gipfel.length > 0 && (
       <section class="section">
         <div class="section__head">
-          <p class="caps">Aktivierungen</p>
-          <h2>Jeder Gipfel, direkt aus den Beiträgen gezogen.</h2>
-          <p>Diese Tabelle wird nicht gepflegt. Sie entsteht beim Bauen aus den Kopfdaten der Beiträge — wer einen Beitrag schreibt, hat sie schon geschrieben.</p>
+          <p class="caps">{t.blogIndex.aktivierungenKicker}</p>
+          <h2>{t.blogIndex.aktivierungenTitel}</h2>
+          <p>{t.blogIndex.aktivierungenLede}</p>
         </div>
         <div class="log-scroll">
           <table class="log">
             <thead>
               <tr>
-                <th>Datum</th><th>Referenz</th><th>Gipfel</th><th>Höhe</th>
-                <th>Pkt</th>
+                <th>{t.blogIndex.thDatum}</th><th>{t.blogIndex.thReferenz}</th><th>{t.blogIndex.thGipfel}</th><th>{t.blogIndex.thHoehe}</th>
+                <th>{t.blogIndex.thPunkte}</th>
               </tr>
             </thead>
             <tbody>
@@ -60,7 +65,7 @@ const gipfel = alleGipfel(beitraege);
                   <td>{datumIso(g.datum)}</td>
                   <td>{g.referenz}</td>
                   <td class="name"><a href={`/blog/${g.beitrag.id}/`}>{g.gipfel}</a></td>
-                  <td>{g.hoehe ? `${g.hoehe.toLocaleString("de-AT")} m` : "——"}</td>
+                  <td>{g.hoehe ? `${g.hoehe.toLocaleString(LOCALE_TAG[lang])} m` : "——"}</td>
                   <td class="pts">{g.punkte}</td>
                 </tr>
               ))}

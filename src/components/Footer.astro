@@ -1,34 +1,38 @@
 ---
-interface Props { raum: "app" | "blog"; }
-const { raum } = Astro.props;
+import { useTranslations } from "../i18n/utils";
+import type { Locale } from "../i18n/ui";
+
+interface Props { raum: "app" | "blog"; lang: Locale; }
+const { raum, lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 <footer class="foot">
   <div>
     <p class="caps">OE5SOS · Martin Fischer</p>
     <p class="caps num" style="margin:.4rem 0 0">
-      Gmunden, Österreich · JN67{raum === "blog" ? " · 5 W portabel" : ""}
+      {t.footer.ort} · JN67{raum === "blog" ? ` · ${t.footer.portabel}` : ""}
     </p>
   </div>
   <div class="foot__cols">
     <div class="foot__col">
       {raum === "app" ? (
         <>
-          <a href="/longpath/#download">Versionen</a>
-          <a href="/longpath/#hardware">Hardware</a>
-          <a href="/longpath/#signalkette">Signalkette</a>
+          <a href="/longpath/#download">{t.footer.appCol.versionen}</a>
+          <a href="/longpath/#hardware">{t.footer.appCol.hardware}</a>
+          <a href="/longpath/#signalkette">{t.footer.appCol.signalkette}</a>
         </>
       ) : (
         <>
-          <a href="/blog/">Beiträge</a>
-          <a href="/blog/archiv/">Archiv</a>
-          <a href="/blog/rss.xml">RSS</a>
+          <a href="/blog/">{t.footer.blogCol.beitraege}</a>
+          <a href="/blog/archiv/">{t.footer.blogCol.archiv}</a>
+          <a href="/blog/rss.xml">{t.footer.blogCol.rss}</a>
         </>
       )}
     </div>
     <div class="foot__col">
-      <a href={raum === "app" ? "/blog/" : "/longpath/"}>{raum === "app" ? "Blog" : "App"}</a>
-      <a href="/">Start</a>
-      <a href="/impressum/">Impressum</a>
+      <a href={raum === "app" ? "/blog/" : "/longpath/"}>{raum === "app" ? t.footer.zumBlog : t.footer.zurApp}</a>
+      <a href="/">{t.footer.start}</a>
+      <a href="/impressum/">{t.footer.impressum}</a>
     </div>
   </div>
 </footer>

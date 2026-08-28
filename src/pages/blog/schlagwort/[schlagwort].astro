@@ -2,6 +2,8 @@
 import Base from "../../../layouts/Base.astro";
 import PostCard from "../../../components/PostCard.astro";
 import { alleBeitraege, schlagworte, alsAdresse, type Beitrag } from "../../../lib/sota";
+import { useTranslations } from "../../../i18n/utils";
+import { DEFAULT_LOCALE, type Locale } from "../../../i18n/ui";
 
 export async function getStaticPaths() {
   const beitraege = await alleBeitraege();
@@ -13,22 +15,24 @@ export async function getStaticPaths() {
 
 interface Props { schlagwort: string; treffer: Beitrag[]; }
 const { schlagwort, treffer } = Astro.props;
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 const alle = await alleBeitraege();
 const marken = schlagworte(alle).slice(0, 6);
 ---
 
 <Base titel={`${schlagwort} — Longpath Blog`}
-      beschreibung={`Beiträge zum Thema ${schlagwort}.`}
+      beschreibung={`${t.schlagwort.kicker}: ${schlagwort}`}
       raum="blog">
   <main class="wrap">
     <header class="hero">
-      <p class="caps">Schlagwort</p>
+      <p class="caps">{t.schlagwort.kicker}</p>
       <h1>{schlagwort.toUpperCase()}</h1>
-      <p>{treffer.length} {treffer.length === 1 ? "Beitrag" : "Beiträge"}</p>
+      <p>{treffer.length} {t.schlagwort.beitragWort(treffer.length)}</p>
     </header>
 
     <div class="filters">
-      <a class="filter" href="/blog/">Alle</a>
+      <a class="filter" href="/blog/">{t.blogIndex.alle}</a>
       {marken.map((m) => (
         <a class="filter" href={`/blog/schlagwort/${alsAdresse(m)}/`}
            aria-current={m === schlagwort ? "page" : undefined}>{m}</a>
@@ -36,7 +40,7 @@ const marken = schlagworte(alle).slice(0, 6);
     </div>
 
     <section class="posts">
-      {treffer.map((b) => <PostCard beitrag={b} />)}
+      {treffer.map((b) => <PostCard beitrag={b} lang={lang} />)}
     </section>
   </main>
 </Base>

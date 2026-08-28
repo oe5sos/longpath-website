@@ -1,18 +1,23 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { alleBeitraege, nachJahr, jahresbilanz, datumKurz, wert } from "../../lib/sota";
+import { useTranslations } from "../../i18n/utils";
+import { DEFAULT_LOCALE, type Locale } from "../../i18n/ui";
+
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 
 const jahre = nachJahr(await alleBeitraege());
 ---
 
-<Base titel="Archiv — Longpath Blog"
-      beschreibung="Alle Beiträge chronologisch."
+<Base titel={t.archiv.titel}
+      beschreibung={t.archiv.beschreibung}
       raum="blog">
   <main class="wrap">
     <header class="hero">
-      <p class="caps">Alle Beiträge</p>
+      <p class="caps">{t.archiv.kicker}</p>
       <h1>ARCHIV</h1>
-      <p>Chronologisch, ohne Bilder — zum Suchen, nicht zum Blättern.</p>
+      <p>{t.archiv.lede}</p>
     </header>
 
     {jahre.map(([jahr, beitraege]) => {
@@ -22,8 +27,8 @@ const jahre = nachJahr(await alleBeitraege());
           <div class="year">
             <h2>{jahr}</h2>
             <span class="caps num">
-              {b.beitraege} Beiträge · {b.gipfel} Gipfel
-               · {b.punkte} Punkte
+              {b.beitraege} {t.archiv.beitraegeWort(b.beitraege)} · {b.gipfel} {t.archiv.gipfelWort(b.gipfel)}
+               · {b.punkte} {t.archiv.punkteWort(b.punkte)}
             </span>
           </div>
           <div class="rows">

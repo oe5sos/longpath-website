@@ -19,6 +19,18 @@ export default defineConfig({
       filter: (seite) => !seite.includes("/entwurf/"),
     }),
   ],
+  // Deutsch bleibt auf den bestehenden, seit Start verlinkten Adressen
+  // (prefixDefaultLocale: false) — Englisch und Spanisch kommen NEU unter
+  // /en/ bzw. /es/ dazu. Astro.currentLocale erkennt das automatisch aus
+  // dem Pfad; darauf setzen <html lang>, der Sprachumschalter und die
+  // RSS-Sprachangabe auf.
+  i18n: {
+    defaultLocale: "de",
+    locales: ["de", "en", "es"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   build: { inlineStylesheets: "auto" },
   image: {
     // Fotos sind beim Bauen schon gradiert (scripts/grade-photos.mjs).

@@ -5,37 +5,41 @@
  * wo man ist; der Knopf rechts fuehrt in den jeweils anderen Raum.
  */
 import Wordmark from "./Wordmark.astro";
+import { useTranslations } from "../i18n/utils";
+import type { Locale } from "../i18n/ui";
 
 interface Props {
   raum: "app" | "blog";
   /** Aktueller Pfad, damit der laufende Punkt markiert werden kann. */
   pfad?: string;
+  lang: Locale;
 }
-const { raum, pfad = "" } = Astro.props;
+const { raum, pfad = "", lang } = Astro.props;
+const t = useTranslations(lang);
 
 const punkte = raum === "app"
   ? [
-      { text: "Signalkette", href: "/longpath/#signalkette", klein: true },
-      { text: "Funktionen",  href: "/longpath/#werkzeuge",   klein: true },
-      { text: "Oberfläche",  href: "/longpath/#oberflaeche", klein: true },
-      { text: "Hardware",    href: "/longpath/#hardware",    klein: true },
-      { text: "Download",    href: "/longpath/#download",    klein: false },
+      { text: t.nav.appMenu.signalkette, href: "/longpath/#signalkette", klein: true },
+      { text: t.nav.appMenu.funktionen,  href: "/longpath/#werkzeuge",   klein: true },
+      { text: t.nav.appMenu.oberflaeche, href: "/longpath/#oberflaeche", klein: true },
+      { text: t.nav.appMenu.hardware,    href: "/longpath/#hardware",    klein: true },
+      { text: t.nav.appMenu.download,    href: "/longpath/#download",    klein: false },
     ]
   : [
-      { text: "Beiträge", href: "/blog/",        klein: false },
-      { text: "Archiv",   href: "/blog/archiv/", klein: false },
-      { text: "Station",  href: "/blog/station/", klein: true },
+      { text: t.nav.blogMenu.beitraege, href: "/blog/",        klein: false },
+      { text: t.nav.blogMenu.archiv,   href: "/blog/archiv/", klein: false },
+      { text: t.nav.blogMenu.station,  href: "/blog/station/", klein: true },
     ];
 
 const wechsel = raum === "app"
-  ? { text: "Blog", href: "/blog/" }
-  : { text: "App",  href: "/longpath/" };
+  ? { text: t.nav.switchToBlog, href: "/blog/" }
+  : { text: t.nav.switchToApp,  href: "/longpath/" };
 ---
 
 <nav class="bar">
   <a class="bar__home" href="/">
     <Wordmark />
-    <span class="bar__sub">{raum === "app" ? "Stationskonsole" : "Blog"}</span>
+    <span class="bar__sub">{raum === "app" ? t.nav.subApp : t.nav.subBlog}</span>
   </a>
   <div class="bar__nav">
     {punkte.map((p) => (

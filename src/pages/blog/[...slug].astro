@@ -4,6 +4,8 @@ import Base from "../../layouts/Base.astro";
 import Photo from "../../components/Photo.astro";
 import Readout from "../../components/Readout.astro";
 import { alleBeitraege, gipfelVon, datumLang, wert, type Beitrag } from "../../lib/sota";
+import { useTranslations } from "../../i18n/utils";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../../i18n/ui";
 
 export async function getStaticPaths() {
   const beitraege = await alleBeitraege();
@@ -20,6 +22,8 @@ export async function getStaticPaths() {
 
 interface Props { beitrag: Beitrag; neuer?: Beitrag; aelter?: Beitrag; }
 const { beitrag, neuer, aelter } = Astro.props;
+const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
+const t = useTranslations(lang);
 const d = beitrag.data;
 const { Content } = await render(beitrag);
 const gipfel = gipfelVon(beitrag);
@@ -32,7 +36,7 @@ const felder = [
   { k: "Punkte",     v: gipfel.length ? gipfel.reduce((s, g) => s + g.punkte, 0) : undefined },
   { k: "QSO",        v: d.funk?.qso },
   { k: "Aufstieg",   v: d.funk?.aufstieg },
-  { k: "Weiteste",   v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString("de-AT")} km` : undefined },
+  { k: "Weiteste",   v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString(LOCALE_TAG[lang])} km` : undefined },
   { k: "Bänder",     v: d.funk?.baender?.join(" / ") },
 ];
 // Nur echte Aktivierungen bekommen das Gitter. Ein Besuch bei einer anderen
@@ -73,7 +77,7 @@ const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined &&
 
       {d.ausruestung && d.ausruestung.length > 0 && (
         <>
-          <h2>Was mitgegangen ist</h2>
+          <h2>{t.post.ausruestungH2}</h2>
           <ul class="kit">
             {d.ausruestung.map((z) => (
               <li><span>{z.was}</span><span>{wert(z.womit)}</span></li>
@@ -82,20 +86,20 @@ const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined &&
         </>
       )}
 
-      <p class="caps signatur">73 · OE5SOS</p>
+      <p class="caps signatur">{t.post.signatur}</p>
     </div>
 
     {(neuer || aelter) && (
       <nav class="pager">
         {aelter ? (
           <a href={`/blog/${aelter.id}/`}>
-            <span class="caps">← Älter</span>
+            <span class="caps">{t.post.aelter}</span>
             <strong>{aelter.data.titel}</strong>
           </a>
         ) : <span></span>}
         {neuer ? (
           <a href={`/blog/${neuer.id}/`} class="rechts">
-            <span class="caps">Neuer →</span>
+            <span class="caps">{t.post.neuer}</span>
             <strong>{neuer.data.titel}</strong>
           </a>
         ) : <span></span>}
