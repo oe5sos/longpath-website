@@ -1,11 +1,15 @@
 ---
 import { useTranslations } from "../i18n/utils";
-import type { Locale } from "../i18n/ui";
+import { DEFAULT_LOCALE, type Locale } from "../i18n/ui";
 import LangSwitch from "./LangSwitch.astro";
 
 interface Props { raum: "app" | "blog"; lang: Locale; }
 const { raum, lang } = Astro.props;
 const t = useTranslations(lang);
+
+// Dieselbe Regel wie in Nav.astro: /longpath/ gibt es je Sprache, der
+// Blog noch nicht.
+const appHref = (pfad: string) => (lang === DEFAULT_LOCALE ? pfad : `/${lang}${pfad}`);
 ---
 <footer class="foot">
   <div>
@@ -19,9 +23,9 @@ const t = useTranslations(lang);
     <div class="foot__col">
       {raum === "app" ? (
         <>
-          <a href="/longpath/#download">{t.footer.appCol.versionen}</a>
-          <a href="/longpath/#hardware">{t.footer.appCol.hardware}</a>
-          <a href="/longpath/#signalkette">{t.footer.appCol.signalkette}</a>
+          <a href={appHref("/longpath/#download")}>{t.footer.appCol.versionen}</a>
+          <a href={appHref("/longpath/#hardware")}>{t.footer.appCol.hardware}</a>
+          <a href={appHref("/longpath/#signalkette")}>{t.footer.appCol.signalkette}</a>
         </>
       ) : (
         <>
@@ -32,7 +36,7 @@ const t = useTranslations(lang);
       )}
     </div>
     <div class="foot__col">
-      <a href={raum === "app" ? "/blog/" : "/longpath/"}>{raum === "app" ? t.footer.zumBlog : t.footer.zurApp}</a>
+      <a href={raum === "app" ? "/blog/" : appHref("/longpath/")}>{raum === "app" ? t.footer.zumBlog : t.footer.zurApp}</a>
       <a href="/">{t.footer.start}</a>
       <a href="/impressum/">{t.footer.impressum}</a>
     </div>

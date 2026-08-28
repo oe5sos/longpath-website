@@ -6,7 +6,7 @@
  */
 import Wordmark from "./Wordmark.astro";
 import { useTranslations } from "../i18n/utils";
-import type { Locale } from "../i18n/ui";
+import { DEFAULT_LOCALE, type Locale } from "../i18n/ui";
 
 interface Props {
   raum: "app" | "blog";
@@ -17,13 +17,19 @@ interface Props {
 const { raum, pfad = "", lang } = Astro.props;
 const t = useTranslations(lang);
 
+// Die App-Seite (/longpath/) gibt es inzwischen auch unter /en/ und /es/
+// — ihre Anker duerfen also der Sprache folgen. Der Blog dagegen ist noch
+// nicht gespiegelt; dorthin bleibt jeder Link auf der deutschen Adresse,
+// sonst fuehrte er auf eine Seite, die es dort noch nicht gibt.
+const appHref = (pfad: string) => (lang === DEFAULT_LOCALE ? pfad : `/${lang}${pfad}`);
+
 const punkte = raum === "app"
   ? [
-      { text: t.nav.appMenu.signalkette, href: "/longpath/#signalkette", klein: true },
-      { text: t.nav.appMenu.funktionen,  href: "/longpath/#werkzeuge",   klein: true },
-      { text: t.nav.appMenu.oberflaeche, href: "/longpath/#oberflaeche", klein: true },
-      { text: t.nav.appMenu.hardware,    href: "/longpath/#hardware",    klein: true },
-      { text: t.nav.appMenu.download,    href: "/longpath/#download",    klein: false },
+      { text: t.nav.appMenu.signalkette, href: appHref("/longpath/#signalkette"), klein: true },
+      { text: t.nav.appMenu.funktionen,  href: appHref("/longpath/#werkzeuge"),   klein: true },
+      { text: t.nav.appMenu.oberflaeche, href: appHref("/longpath/#oberflaeche"), klein: true },
+      { text: t.nav.appMenu.hardware,    href: appHref("/longpath/#hardware"),    klein: true },
+      { text: t.nav.appMenu.download,    href: appHref("/longpath/#download"),    klein: false },
     ]
   : [
       { text: t.nav.blogMenu.beitraege, href: "/blog/",        klein: false },
@@ -33,7 +39,7 @@ const punkte = raum === "app"
 
 const wechsel = raum === "app"
   ? { text: t.nav.switchToBlog, href: "/blog/" }
-  : { text: t.nav.switchToApp,  href: "/longpath/" };
+  : { text: t.nav.switchToApp,  href: appHref("/longpath/") };
 ---
 
 <nav class="bar">

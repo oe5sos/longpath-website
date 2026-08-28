@@ -25,8 +25,16 @@ const beitraege = await alleBeitraege();
    Der allerneueste kann ein Geraetevergleich sein; ein Funkgeraet
    unter der Ueberschrift "Fotos von den Gipfeln" verspricht das
    Falsche. Faellt auf den neuesten ueberhaupt zurueck, falls es noch
-   keinen Gipfelbeitrag gibt. */
-const neuester = beitraege.find((b) => b.data.sota && b.data.aufmacher)
+   keinen Gipfelbeitrag gibt.
+
+   Betreiber, 2026-08-28: das Gitterkreuz-Foto (Hoellengebirge-Beitrag)
+   soll vorlaeufig stehen bleiben, auch wenn ein neuerer Gipfelbeitrag
+   erscheint -- ein bewusst angehaltener Stand, kein Automatismus.
+   Faellt auf die alte, dynamische Regel zurueck, falls dieser Beitrag
+   einmal nicht mehr existiert. */
+const gehalten = beitraege.find((b) => b.id === "hoellengebirge-ueberquerung");
+const neuester = gehalten
+  ?? beitraege.find((b) => b.data.sota && b.data.aufmacher)
   ?? beitraege.find((b) => b.data.aufmacher);
 ---
 
