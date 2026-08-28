@@ -1,9 +1,9 @@
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import { alleBeitraege, blossId } from "../../lib/sota";
-import { ui, LOCALE_TAG } from "../../i18n/ui";
+import { alleBeitraege, blossId } from "../../../lib/sota";
+import { ui, LOCALE_TAG } from "../../../i18n/ui";
 
-const lang = "de" as const;
+const lang = "en" as const;
 
 export async function GET(context: APIContext) {
   const beitraege = await alleBeitraege(lang);
@@ -15,7 +15,7 @@ export async function GET(context: APIContext) {
       title: b.data.titel,
       description: b.data.vorspann,
       pubDate: b.data.datum,
-      link: `/blog/${blossId(b)}/`,
+      link: `/en/blog/${blossId(b)}/`,
       categories: b.data.schlagworte,
     })),
     customData: `<language>${LOCALE_TAG[lang].toLowerCase()}</language>`,

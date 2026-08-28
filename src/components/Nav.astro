@@ -17,10 +17,8 @@ interface Props {
 const { raum, pfad = "", lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Die App-Seite (/longpath/) gibt es inzwischen auch unter /en/ und /es/
-// — ihre Anker duerfen also der Sprache folgen. Der Blog dagegen ist noch
-// nicht gespiegelt; dorthin bleibt jeder Link auf der deutschen Adresse,
-// sonst fuehrte er auf eine Seite, die es dort noch nicht gibt.
+// /longpath/ und der Blog gibt es inzwischen beide unter /en/ und /es/
+// — jeder Anker darf also der Sprache folgen.
 const appHref = (pfad: string) => (lang === DEFAULT_LOCALE ? pfad : `/${lang}${pfad}`);
 
 const punkte = raum === "app"
@@ -32,13 +30,13 @@ const punkte = raum === "app"
       { text: t.nav.appMenu.download,    href: appHref("/longpath/#download"),    klein: false },
     ]
   : [
-      { text: t.nav.blogMenu.beitraege, href: "/blog/",        klein: false },
-      { text: t.nav.blogMenu.archiv,   href: "/blog/archiv/", klein: false },
-      { text: t.nav.blogMenu.station,  href: "/blog/station/", klein: true },
+      { text: t.nav.blogMenu.beitraege, href: appHref("/blog/"),        klein: false },
+      { text: t.nav.blogMenu.archiv,   href: appHref("/blog/archiv/"), klein: false },
+      { text: t.nav.blogMenu.station,  href: appHref("/blog/station/"), klein: true },
     ];
 
 const wechsel = raum === "app"
-  ? { text: t.nav.switchToBlog, href: "/blog/" }
+  ? { text: t.nav.switchToBlog, href: appHref("/blog/") }
   : { text: t.nav.switchToApp,  href: appHref("/longpath/") };
 ---
 

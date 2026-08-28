@@ -5,6 +5,15 @@
  * eine Adresse zu verweisen, die noch nicht existiert. UEBERSETZTE_PFADE
  * waechst mit jeder weiteren gespiegelten Seite (siehe src/pages/en/,
  * src/pages/es/).
+ *
+ * Der Blog ist als Ganzes gespiegelt (gleicher Schlagname je Beitrag in
+ * allen drei Sprachen), darum reicht dort ein Muster statt einer Liste:
+ * /blog/, /blog/archiv/, /blog/station/ und /blog/<beitrag>/ existieren
+ * unter derselben Adresse in jeder Sprache. Die Schlagwort-Filterseiten
+ * (/blog/schlagwort/<wort>/) NICHT — das Schlagwort selbst ist übersetzt
+ * und hat je Sprache eine andere Adresse — dort geht es auf die
+ * Blog-Startseite der Zielsprache statt auf eine Adresse, die es dort
+ * so nicht gibt.
  */
 import { LOCALES, LOCALE_LABEL, DEFAULT_LOCALE, type Locale } from "../i18n/ui";
 
@@ -12,13 +21,18 @@ interface Props { lang: Locale; }
 const { lang } = Astro.props;
 
 const UEBERSETZTE_PFADE = ["/", "/impressum/", "/longpath/"];
+const UEBERSETZTE_BLOGSEITE = /^\/blog\/([^/]+\/)?$/;
 
 const praefixSprachen = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
 const treffer = Astro.url.pathname.match(
   new RegExp(`^/(${praefixSprachen.join("|")})(/.*)?$`)
 );
 const ohnePraefix = treffer ? (treffer[2] || "/") : Astro.url.pathname;
-const basis = UEBERSETZTE_PFADE.includes(ohnePraefix) ? ohnePraefix : "/";
+const basis = UEBERSETZTE_PFADE.includes(ohnePraefix) || UEBERSETZTE_BLOGSEITE.test(ohnePraefix)
+  ? ohnePraefix
+  : ohnePraefix.startsWith("/blog/")
+    ? "/blog/"
+    : "/";
 
 function href(ziel: Locale): string {
   return ziel === DEFAULT_LOCALE ? basis : `/${ziel}${basis}`;
