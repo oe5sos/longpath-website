@@ -59,7 +59,7 @@ export interface LongpathContent {
   download: {
     kicker: string; h2: string; introHtml: string;
     kanalKopf: string;
-    fuerDieses: string; nochNicht: string; alleAlternativ: string;
+    fuerDieses: string; stand: string; herunterladen: string; alleAlternativ: string;
     herkunftHtml: string;
   };
 }
@@ -163,11 +163,12 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     },
     download: {
       kicker: "Aktueller Stand",
-      h2: "Noch nichts zum Laden — und das mit Absicht.",
-      introHtml: "Die Pakete für alle drei Plattformen werden gemeinsam gebaut und gemeinsam signiert. Online gestellt werden sie erst, wenn sie <em>am Gerät geprüft</em> sind. Ein Paket, das niemand an echter Hardware freigefahren hat, gehört nicht auf eine Seite, auf der jemand einen Sender damit betreibt.",
-      kanalKopf: "Kanal · in Prüfung",
+      h2: "Geprüft an echter Hardware — jetzt zum Laden.",
+      introHtml: "Die Pakete für alle drei Plattformen werden gemeinsam gebaut und gemeinsam signiert — und erst dann online gestellt, wenn sie <em>am Gerät geprüft</em> sind. Diese Version wurde freigefahren.",
+      kanalKopf: "Kanal · freigegeben",
       fuerDieses: "Für dieses Gerät",
-      nochNicht: "Noch nicht freigegeben",
+      stand: "Geprüft & signiert",
+      herunterladen: "Herunterladen",
       alleAlternativ: "Alle Pakete",
       herkunftHtml: "<strong>Herkunft.</strong> Longpath ist ein Fork von NereusSDR (J. J. Boyd, KG4VCF), selbst eine C++20/Qt6-Portierung von Thetis — FlexRadio Systems, Doug Wigley (W5WC), Richard Samphire (MW0LGE) und die OpenHPSDR-Beitragenden. Das DSP ist WDSP von Warren Pratt (NR0V). Architektur und wesentlicher Code stammen aus AetherSDR (Jeremy, KK7GWY). Jeder Urhebervermerk steht unverändert im Quellbaum. GPLv3, wie es die Vorlagen verlangen.",
     },
@@ -270,11 +271,12 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     },
     download: {
       kicker: "Current status",
-      h2: "Nothing to download yet — on purpose.",
-      introHtml: "The packages for all three platforms are built together and signed together. They go online only once they're <em>verified on hardware</em>. A package nobody has cleared on real hardware doesn't belong on a page where someone might run a transmitter with it.",
-      kanalKopf: "Channel · under review",
+      h2: "Verified on real hardware — ready to download.",
+      introHtml: "The packages for all three platforms are built together and signed together — and only go online once they're <em>verified on hardware</em>. This version has been run on real hardware.",
+      kanalKopf: "Channel · released",
       fuerDieses: "For this device",
-      nochNicht: "Not released yet",
+      stand: "Verified & signed",
+      herunterladen: "Download",
       alleAlternativ: "All packages",
       herkunftHtml: "<strong>Provenance.</strong> Longpath is a fork of NereusSDR (J. J. Boyd, KG4VCF), itself a C++20/Qt6 port of Thetis — FlexRadio Systems, Doug Wigley (W5WC), Richard Samphire (MW0LGE) and the OpenHPSDR contributors. The DSP is WDSP by Warren Pratt (NR0V). Architecture and much of the code come from AetherSDR (Jeremy, KK7GWY). Every attribution notice stands unchanged in the source tree. GPLv3, as the upstream licenses require.",
     },
@@ -377,11 +379,12 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     },
     download: {
       kicker: "Estado actual",
-      h2: "Todavía nada para descargar — y es a propósito.",
-      introHtml: "Los paquetes para las tres plataformas se construyen juntos y se firman juntos. Se publican solo cuando están <em>verificados en el equipo</em>. Un paquete que nadie ha probado en hardware real no pertenece a una página desde la que alguien podría operar un transmisor con él.",
-      kanalKopf: "Canal · en revisión",
+      h2: "Verificado en hardware real — listo para descargar.",
+      introHtml: "Los paquetes para las tres plataformas se construyen juntos y se firman juntos — y se publican solo cuando están <em>verificados en el equipo</em>. Esta versión se ha probado en hardware real.",
+      kanalKopf: "Canal · publicado",
       fuerDieses: "Para este equipo",
-      nochNicht: "Aún no publicado",
+      stand: "Verificado y firmado",
+      herunterladen: "Descargar",
       alleAlternativ: "Todos los paquetes",
       herkunftHtml: "<strong>Procedencia.</strong> Longpath es un fork de NereusSDR (J. J. Boyd, KG4VCF), a su vez un port a C++20/Qt6 de Thetis — FlexRadio Systems, Doug Wigley (W5WC), Richard Samphire (MW0LGE) y los colaboradores de OpenHPSDR. El DSP es WDSP de Warren Pratt (NR0V). La arquitectura y buena parte del código proceden de AetherSDR (Jeremy, KK7GWY). Cada aviso de autoría permanece sin cambios en el árbol de fuentes. GPLv3, como exigen las licencias de origen.",
     },

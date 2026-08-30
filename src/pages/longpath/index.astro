@@ -24,11 +24,42 @@ const hardware = c.hardware.map((h, i) => ({ ...h, ok: i < 3 }));
    unter [Unreleased]. */
 const werkzeuge = c.werkzeuge.map((w) => ({ ...w, neu: true }));
 
+const REL = `https://github.com/oe5sos/Longpath/releases/download/v${VERSION}`;
+const RELTAG = `https://github.com/oe5sos/Longpath/releases/tag/v${VERSION}`;
+
 const pakete = [
-  { os: "macOS · Apple Silicon", datei: `Longpath-${VERSION}-arm64.dmg · signiert & notarisiert`, empfohlen: true },
-  { os: "Linux", datei: "AppImage · x86_64 + aarch64", empfohlen: false },
-  { os: "Windows", datei: "NSIS-Installer · portables ZIP · x64", empfohlen: false },
-  { os: c.download.alleAlternativ, datei: "SHA256SUMS.txt.asc · GPG-signiert", empfohlen: false },
+  {
+    os: "macOS · Apple Silicon", datei: "DMG · PKG · GPG-signiert", empfohlen: true,
+    links: [
+      { label: "DMG", href: `${REL}/Longpath-${VERSION}-macOS-apple-silicon.dmg` },
+      { label: "PKG", href: `${REL}/Longpath-${VERSION}-macOS-apple-silicon.pkg` },
+    ],
+  },
+  {
+    os: "macOS · Intel", datei: "DMG · PKG · GPG-signiert", empfohlen: false,
+    links: [
+      { label: "DMG", href: `${REL}/Longpath-${VERSION}-macOS-intel.dmg` },
+      { label: "PKG", href: `${REL}/Longpath-${VERSION}-macOS-intel.pkg` },
+    ],
+  },
+  {
+    os: "Linux", datei: "AppImage · x86_64 + aarch64", empfohlen: false,
+    links: [
+      { label: "x86_64", href: `${REL}/Longpath-${VERSION}-x86_64.AppImage` },
+      { label: "aarch64", href: `${REL}/Longpath-${VERSION}-aarch64.AppImage` },
+    ],
+  },
+  {
+    os: "Windows", datei: "NSIS-Installer · portables ZIP · x64", empfohlen: false,
+    links: [
+      { label: "Installer", href: `${REL}/Longpath-${VERSION}-Windows-x64-setup.exe` },
+      { label: "ZIP", href: `${REL}/Longpath-${VERSION}-Windows-x64-portable.zip` },
+    ],
+  },
+  {
+    os: c.download.alleAlternativ, datei: "SHA256SUMS.txt · GPG-signiert", empfohlen: false,
+    links: [{ label: c.download.alleAlternativ, href: RELTAG }],
+  },
 ];
 ---
 
@@ -194,7 +225,15 @@ const pakete = [
               <span class="dl__os">{p.os}</span>
               <span class="dl__datei">{p.datei}</span>
               <span class="dl__stand caps">
-                <span class="punkt"></span>{c.download.nochNicht}
+                <span class="punkt"></span>{c.download.stand}
+              </span>
+              <span class="dl__links">
+                {p.links.map((l, i) => (
+                  <>
+                    {i > 0 && <span class="dl__sep">·</span>}
+                    <a class="dl__link" href={l.href}>{c.download.herunterladen}{p.links.length > 1 ? ` (${l.label})` : ""}</a>
+                  </>
+                ))}
               </span>
             </div>
           ))}
@@ -313,13 +352,16 @@ const pakete = [
   }
   .dl__stand .punkt { background: var(--t6); }
 
+  .dl__links {
+    margin-top: .5rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem;
+  }
   .dl__link {
-    margin-top: .5rem; align-self: flex-start;
     font-family: var(--ff-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
     color: var(--t3); border-bottom: 1px solid var(--border); padding-bottom: .25rem;
     transition: color var(--ease), border-color var(--ease);
   }
   .dl__link:hover { color: var(--t1); border-color: var(--border-2); }
+  .dl__sep { color: var(--t6); font-size: 9px; }
   @media (max-width: 700px) {
     .dl__item { border-left: 0; border-top: 1px solid var(--border-fine); }
     .dl__item:first-child { border-top: 0; }

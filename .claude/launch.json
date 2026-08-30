@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "trainer-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4327", "--directory", "/Users/ralphmartinfischer/Longpath/website/public/trainer"],
+      "port": 4327
+    },
+    {
+      "name": "website-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 4321
+    }
+  ]
+}
