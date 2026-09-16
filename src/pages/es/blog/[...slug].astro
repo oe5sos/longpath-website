@@ -36,7 +36,10 @@ const felder = [
   { k: t.post.fWeiteste, v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString(LOCALE_TAG[lang])} km` : undefined },
   { k: t.post.fBaender,  v: d.funk?.baender?.join(" / ") },
 ];
-const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined && f.v !== null);
+// Nur gefuellte Felder — ein leeres Feld bleibt weg, statt als Strich
+// eine Spalte zu belegen (Betreiber, 16.09.2026).
+const gefuellt = felder.filter((f) => f.v !== undefined && f.v !== null && f.v !== "");
+const zeigeGitter = gipfel.length > 0 && gefuellt.length > 0;
 ---
 
 <Base titel={`${d.titel} — Longpath Blog`} beschreibung={d.vorspann} raum="blog">
@@ -68,7 +71,7 @@ const zeigeGitter = gipfel.length > 0 && felder.some((f) => f.v !== undefined &&
     <div class="body">
       <Content />
 
-      {zeigeGitter && <Readout titel={t.post.readoutTitel} felder={felder} />}
+      {zeigeGitter && <Readout titel={t.post.readoutTitel} felder={gefuellt} />}
 
       {d.ausruestung && d.ausruestung.length > 0 && (
         <>
