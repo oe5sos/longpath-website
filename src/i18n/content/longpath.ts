@@ -18,6 +18,8 @@ export interface LongpathWerkzeug {
   bereich: string;
   titel: string;
   text: string;
+  /** true = laeuft schon, steckt aber noch nicht in der freigegebenen Version. */
+  neu?: boolean;
   marken: string[];
 }
 
@@ -43,7 +45,7 @@ export interface LongpathContent {
   werkzeugeKopf: { kicker: string; h2: string; introHtml: string; imBau: string };
   werkzeuge: [
     LongpathWerkzeug, LongpathWerkzeug, LongpathWerkzeug, LongpathWerkzeug,
-    LongpathWerkzeug, LongpathWerkzeug, LongpathWerkzeug,
+    LongpathWerkzeug, LongpathWerkzeug, LongpathWerkzeug, LongpathWerkzeug,
   ];
   hardwareKopf: { kicker: string; h2: string };
   hardware: [LongpathHardware, LongpathHardware, LongpathHardware, LongpathHardware];
@@ -124,6 +126,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Fremde Geräte", titel: "Auch was kein OpenHPSDR spricht",
         text: "Der SunSDR2 QRP über TCI und öffentliche KiwiSDR-Empfänger aus dem Verzeichnis. Beide hängen an derselben Sicherheitsschranke: ein Empfänger, der an einem echten Sender hängt, wird von dort niemals angefasst.",
         marken: ["SunSDR2 QRP", "KiwiSDR"] },
+      { bereich: "Digital", titel: "RTTY direkt aus dem Empfangston", neu: true,
+        text: "Ein eigener Decoder für Baudot, ohne WSJT-X oder fldigi dazwischen. Mark- und Space-Pegel, Lock und Rauschabstand sichtbar, Baudrate, Polarität und Empfindlichkeit einstellbar; Mark und Shift folgen dem Regler am VFO. FT8 und PSK31 bleiben bewusst bei den Programmen, die sie können.",
+        marken: ["Baudot", "Nur in DIGL", "Mark / Shift"] },
     ],
     hardwareKopf: { kicker: "Am Gerät geprüft", h2: "Auf echter Hardware freigefahren, nicht angenommen." },
     hardware: [
@@ -232,6 +237,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Foreign radios", titel: "Even what doesn't speak OpenHPSDR",
         text: "The SunSDR2 QRP over TCI, and public KiwiSDR receivers from the directory. Both sit behind the same safety lockout: a receiver attached to a real transmitter is never touched from there.",
         marken: ["SunSDR2 QRP", "KiwiSDR"] },
+      { bereich: "Digital", titel: "RTTY straight from the receive audio", neu: true,
+        text: "A decoder of its own for Baudot, no WSJT-X or fldigi in between. Mark and space levels, lock and SNR visible; baud rate, polarity and sensitivity adjustable; mark and shift follow the control on the VFO. FT8 and PSK31 deliberately stay with the programs that do them.",
+        marken: ["Baudot", "DIGL only", "Mark / shift"] },
     ],
     hardwareKopf: { kicker: "Verified on hardware", h2: "Cleared on real hardware, not assumed." },
     hardware: [
@@ -340,6 +348,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Equipos ajenos", titel: "Incluso lo que no habla OpenHPSDR",
         text: "El SunSDR2 QRP a través de TCI, y receptores KiwiSDR públicos del directorio. Ambos están detrás del mismo bloqueo de seguridad: un receptor unido a un transmisor real nunca se toca desde ahí.",
         marken: ["SunSDR2 QRP", "KiwiSDR"] },
+      { bereich: "Digital", titel: "RTTY directamente del audio de recepción", neu: true,
+        text: "Un decodificador propio para Baudot, sin WSJT-X ni fldigi de por medio. Niveles de mark y space, lock y relación señal/ruido visibles; velocidad, polaridad y sensibilidad ajustables; mark y shift siguen el control del VFO. FT8 y PSK31 se quedan a propósito en los programas que los dominan.",
+        marken: ["Baudot", "Solo en DIGL", "Mark / shift"] },
     ],
     hardwareKopf: { kicker: "Verificado en el equipo", h2: "Probado en hardware real, no supuesto." },
     hardware: [

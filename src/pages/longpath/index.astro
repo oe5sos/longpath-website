@@ -22,7 +22,7 @@ const hardware = c.hardware.map((h, i) => ({ ...h, ok: i < 3 }));
    docs/architecture/ im Longpath-Baum. `neu: true` heisst: gebaut,
    aber noch nicht in einer Veroeffentlichung — steht im CHANGELOG
    unter [Unreleased]. */
-const werkzeuge = c.werkzeuge.map((w) => ({ ...w, neu: true }));
+const werkzeuge = c.werkzeuge.map((w) => ({ ...w, neu: w.neu === true }));
 
 const REL = `https://github.com/oe5sos/Longpath/releases/download/v${VERSION}`;
 const RELTAG = `https://github.com/oe5sos/Longpath/releases/tag/v${VERSION}`;
