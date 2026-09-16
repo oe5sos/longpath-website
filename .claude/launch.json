@@ -8,6 +8,12 @@
       "port": 4327
     },
     {
+      "name": "website-dist",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4329", "--directory", "/Users/ralphmartinfischer/Longpath/website/dist"],
+      "port": 4329
+    },
+    {
       "name": "website-dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],

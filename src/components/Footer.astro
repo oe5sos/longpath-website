@@ -3,7 +3,7 @@ import { useTranslations } from "../i18n/utils";
 import { DEFAULT_LOCALE, type Locale } from "../i18n/ui";
 import LangSwitch from "./LangSwitch.astro";
 
-interface Props { raum: "app" | "blog"; lang: Locale; }
+interface Props { raum: "app" | "blog" | "contest"; lang: Locale; }
 const { raum, lang } = Astro.props;
 const t = useTranslations(lang);
 
@@ -20,7 +20,13 @@ const appHref = (pfad: string) => (lang === DEFAULT_LOCALE ? pfad : `/${lang}${p
   </div>
   <div class="foot__cols">
     <div class="foot__col">
-      {raum === "app" ? (
+      {raum === "contest" ? (
+        <>
+          <a href="/contest/#log">{t.nav.contestMenu.log}</a>
+          <a href="/contest/#karte">{t.nav.contestMenu.karte}</a>
+          <a href="/contest/#rotoren">{t.nav.contestMenu.rotoren}</a>
+        </>
+      ) : raum === "app" ? (
         <>
           <a href={appHref("/longpath/#download")}>{t.footer.appCol.versionen}</a>
           <a href={appHref("/longpath/#hardware")}>{t.footer.appCol.hardware}</a>
@@ -36,6 +42,7 @@ const appHref = (pfad: string) => (lang === DEFAULT_LOCALE ? pfad : `/${lang}${p
     </div>
     <div class="foot__col">
       <a href={raum === "app" ? appHref("/blog/") : appHref("/longpath/")}>{raum === "app" ? t.footer.zumBlog : t.footer.zurApp}</a>
+      {raum === "contest" && <a href={appHref("/blog/")}>{t.footer.zumBlog}</a>}
       <a href={appHref("/")}>{t.footer.start}</a>
       <a href={appHref("/impressum/")}>{t.footer.impressum}</a>
     </div>

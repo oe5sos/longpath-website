@@ -1,0 +1,354 @@
+---
+/**
+ * Die Seite des Contestprogramms.
+ *
+ * Ein Geschwister von Longpath, kein Teil davon: ein eigenes Programm
+ * fuer den 24-Stunden-Contest auf 2 m und 70 cm. Was hier steht,
+ * stuetzt sich auf den Quellbaum unter ../Contestprogramm/ — jede
+ * Aussage hat dort eine Klasse. Kein Download: das Programm ist im
+ * Bau und laeuft bisher nur am Tisch des Betreibers.
+ */
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import arbeitsplatz from "../../assets/contest/01-arbeitsplatz.png";
+import karte from "../../assets/contest/02-karte.png";
+import rotoren from "../../assets/contest/03-rotoren.png";
+
+const STAND = "16. September 2026";
+
+/* Was das Programm kann — je Karte eine Gruppe von Klassen im Quellbaum. */
+const werke = [
+  {
+    bereich: "Log",
+    titel: "Ein Log, das beim Tippen schon prüft.",
+    text: "SQLite unter dem Tisch, Dupe-Prüfung bei jedem Tastendruck — Rufzeichen, Band und Betriebsart, so wie es die Contest-Definition vorgibt. Die Austauschfelder (RST, laufende Nummer, Locator) kommen aus derselben Definition. Ein Locator, den man schon einmal gehört hat, steht von selbst da; geloggte Zeilen lassen sich nachträglich berichtigen.",
+    marken: ["SQLite", "Dupe-Check", "Locator-Autofill"],
+  },
+  {
+    bereich: "ON4KST · DX-Cluster",
+    titel: "Zwei Feeds, beide gefiltert.",
+    text: "Der ON4KST-Chat und ein klassischer DX-Cluster laufen als zwei getrennte Listen. Was außer Reichweite ist oder schon gearbeitet wurde, verschwindet; ein Schalter zeigt bei Bedarf die Rohdaten. Wie streng gefiltert wird, hängt von der eigenen Rate ab — im Pile-Up bleibt nur das Wichtigste stehen, in der Flaute fast alles.",
+    marken: ["Telnet", "Geo-Filter", "Adaptive Schwelle"],
+  },
+  {
+    bereich: "Betriebsassistent",
+    titel: "Ein Vorschlag, nie ein Automat.",
+    text: "Aus allen sichtbaren Kandidaten wird der eine mit der besten Aussicht gewählt — Erreichbarkeit, Neuheit, Multiplikatorwert, Aktualität, dazu ein kleiner Bonus für Richtungen, in denen gerade ein QSO gelang. Die Chat-Nachricht dazu ist vorformuliert. Gesendet wird sie erst nach einem Klick; der Assistent selbst hat keinen Weg zum Netz.",
+    marken: ["Nächstes Ziel", "Nachricht auf Klick"],
+  },
+  {
+    bereich: "Karte · Verbindungen",
+    titel: "Die Karte dreht sich um den eigenen Standort.",
+    text: "Azimutal, mit Locator-Raster, Entfernungsringen, Staatsgrenzen und den großen Städten ab 150 km — alles echte Natural-Earth-Daten, nichts nachgezeichnet. Gearbeitete Verbindungen, offene Spots und die Richtung beider Rotoren liegen als Ebenen darüber, jede einzeln schaltbar.",
+    marken: ["Locator-Raster", "Grenzen", "Städte", "Rotorrichtung"],
+  },
+  {
+    bereich: "Rotoren",
+    titel: "Zwei Kompasse, ein rotctld.",
+    text: "Zwei Rotoren nebeneinander, jeder mit eigener Beschriftung, Ist- und Sollwert, kurzer und langer Weg. Angesteuert über Hamlibs rotctld, das das Programm selbst startet; fehlt Hamlib, wird die Installation angeboten. Sektoren, in denen das Gelände im Nahfeld verdeckt, liegen als Waschung auf dem Ring.",
+    marken: ["rotctld", "GS-232", "Gelände am Ring"],
+  },
+  {
+    bereich: "Gelände",
+    titel: "Sichtlinie mit echtem Höhenmodell.",
+    text: "SRTM1-Kacheln mit 30 m Auflösung werden bei Bedarf geladen und bleiben auf der Platte. Jeder Pfad wird gegen das Gelände gerechnet — mit 4/3-Erdradius und der 60-Prozent-Fresnel-Regel: frei, grenzwertig oder verdeckt. Für die Standortsuche vor dem Contest gibt es den Rundum-Horizont: 360 Grad um einen Kandidatenstandort, zum Vergleichen.",
+    marken: ["SRTM1", "Fresnel-Zone", "Standortvergleich"],
+  },
+  {
+    bereich: "Multiplikatoren · Rate",
+    titel: "Was fehlt, je Band.",
+    text: "Gearbeitete und noch offene Großfelder je Band in einer sortierbaren Tabelle; dieselben Daten heben im Feed die Kandidaten an, die einen neuen Multiplikator bringen. Die Rate steht daneben: zehn Minuten, Stunde, gesamt, mit Trend und aufgeschlüsselt nach Band und Betriebsart.",
+    marken: ["Worked / Needed", "10 min · 1 h · gesamt"],
+  },
+  {
+    bereich: "CAT · CW",
+    titel: "Frequenz vom Gerät, Makros ans Gerät.",
+    text: "Der klassische Transceiver hängt über Hamlibs rigctld am Programm: Frequenz und Betriebsart laufen ins Log, das Band ergibt sich daraus. CW-Makros auf F-Tasten setzen Rufzeichen und Austausch ein und gehen denselben Weg zurück ans Gerät.",
+    marken: ["rigctld", "F-Tasten-Makros"],
+  },
+  {
+    bereich: "Contest · Export",
+    titel: "Regeln als Datei, Log als Cabrillo.",
+    text: "ÖVSV OE VHF/UHF und IARU Region 1 VHF/UHF sind als Definitionen dabei; die Austauschfelder lassen sich im Programm nachbearbeiten, wenn die Ausschreibung anders will. Am Ende: Cabrillo 3.0 für die Einreichung, ADIF mit echter Frequenz für das Stationslog. UDP-Meldungen im N1MM-Format für Werkzeuge, die darauf hören.",
+    marken: ["Cabrillo 3.0", "ADIF", "N1MM-UDP"],
+  },
+  {
+    bereich: "Arbeitsplatz",
+    titel: "Panels, die man verschieben und sperren kann.",
+    text: "Jedes Panel lässt sich ziehen, in der Größe ändern und mit dem Schloss festhalten; Layouts liegen als Profile in der Schiene links, eines je Aufgabe. Oben die UTC-Uhr mit dem Countdown bis zum Contest-Ende, unten Wetter vom Standort. Fünf Farbthemen, Bernstein ist die Voreinstellung.",
+    marken: ["Layout-Profile", "UTC-Countdown", "Wetter"],
+  },
+];
+
+/* Was aus Longpath uebernommen wurde — die Herkunftszeile unten. */
+const uebernommen = [
+  "Locator-Geometrie (Maidenhead, Entfernung, Peilung)",
+  "DX-Cluster-Client und rotctld-Anbindung",
+  "Panel-Chrom, Layout-Profile und Profilschiene",
+  "Kurz- und Langweg-Rechnung für den Rotor",
+];
+---
+
+<Base
+  titel="Contestprogramm — Longpath"
+  beschreibung="Contestprogramm: ein Logger für den 24-Stunden-Contest auf 2 m und 70 cm. Log, ON4KST-Chat, DX-Cluster, Karte, zwei Rotoren und echtes Gelände — im Bau, kein Download."
+  raum="contest"
+>
+  <header class="hero">
+    <div class="hero__in">
+      <p class="caps">VHF/UHF · 144 + 432 MHz · 24 Stunden</p>
+      <div class="hero__wm">CONTEST<span class="hero__wm2">PROGRAMM</span></div>
+      <h1>Ein Logger für den Contest am Berg.</h1>
+      <p class="hero__sub">
+        Log, ON4KST-Chat, DX-Cluster, Karte und zwei Rotoren auf einem Bildschirm —
+        gebaut für einen Bergstandort wie den Feuerkogel, mit <em>echtem Gelände</em>
+        in jeder Entscheidung. Qt 6, ein eigenes Programm neben Longpath.
+      </p>
+      <div class="cta">
+        <span class="kapsel kapsel--bau"><span class="punkt"></span>Im Bau · kein Download</span>
+        <a class="btn btn--quiet" href="#log">Was es kann</a>
+      </div>
+    </div>
+    <div class="readout">
+      <div class="readout__grid wrap">
+        <div class="readout__cell"><span class="caps">Bänder</span><span class="readout__v">2 m + 70 cm</span></div>
+        <div class="readout__cell"><span class="caps">Contests</span><span class="readout__v">OE · IARU R1</span></div>
+        <div class="readout__cell"><span class="caps">CAT · Rotor</span><span class="readout__v">Hamlib</span></div>
+        <div class="readout__cell"><span class="caps">Gelände</span><span class="readout__v">SRTM1 · 30 m</span></div>
+        <div class="readout__cell"><span class="caps">Export</span><span class="readout__v">Cabrillo · ADIF</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section wrap" id="log">
+      <div class="section__head">
+        <p class="caps">Der Arbeitsplatz</p>
+        <h2>Alles, was im Contest zählt, auf einem Bildschirm.</h2>
+        <p class="intro">
+          Links das Log mit der Eingabezeile und dem Chat an ON4KST, darunter der
+          Vorschlag für das nächste Ziel und die Rate. Rechts die Karte um den
+          eigenen Standort und die beiden Rotoren. Jedes Panel lässt sich verschieben,
+          jedes Layout als Profil ablegen.
+        </p>
+      </div>
+      <figure class="schirm">
+        <div class="schirm__rahmen">
+          <Image src={arbeitsplatz} alt="Contestprogramm: Log, Karte, Rotoren, Nächstes Ziel und Rate in einem Fenster"
+            widths={[720, 1200, 1800]} sizes="(max-width: 900px) 100vw, 1100px" loading="eager" format="webp" quality={92} />
+        </div>
+        <figcaption>
+          <span class="caps num">01 — Profil 1</span>
+          <h3>Log, Karte, Rotoren, nächstes Ziel, Rate.</h3>
+          <p>IARU Region 1 VHF/UHF, sieben QSOs im Testlog. Unten die Statusleiste: CAT, ON4KST, Cluster, Locator, Radius und das Wetter vom Standort.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap" id="werke">
+      <div class="section__head">
+        <p class="caps">Was es kann</p>
+        <h2>Zehn Dinge, die im Contest einen Unterschied machen.</h2>
+      </div>
+      <div class="werk">
+        {werke.map((w) => (
+          <article class="panel werk__karte">
+            <div class="panel__head"><span class="caps num">{w.bereich}</span></div>
+            <div class="werk__body">
+              <h3>{w.titel}</h3>
+              <p>{w.text}</p>
+              <div class="marken">{w.marken.map((m) => <span class="marke">{m}</span>)}</div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section wrap" id="karte">
+      <div class="section__head">
+        <p class="caps">Die Karte</p>
+        <h2>Fünfhundert Kilometer um den eigenen Locator.</h2>
+        <p class="intro">
+          Grenzen und Städte aus Natural Earth, das Locator-Raster darüber. Grün die
+          gearbeiteten Verbindungen, gestrichelt die offenen Spots, in Bernstein der
+          eigene Standort. Die Linien nach Nordosten sind die beiden Rotoren — 2 m und
+          70 cm, jeder auf seinem Ziel.
+        </p>
+      </div>
+      <figure class="schirm">
+        <div class="schirm__rahmen">
+          <Image src={karte} alt="Karte um JN67: Staatsgrenzen, Locator-Raster, gearbeitete Verbindungen und Rotorrichtungen"
+            widths={[720, 1200, 1800]} sizes="(max-width: 900px) 100vw, 1100px" loading="lazy" format="webp" quality={92} />
+        </div>
+        <figcaption>
+          <span class="caps num">02 — Profil 2</span>
+          <h3>Die Karte allein, bildschirmfüllend.</h3>
+          <p>Ein zweites Layout-Profil aus der Schiene links: nur die Karte. Jede Ebene — Grid, Ringe, Grenzen, Städte, Gearbeitet, Rotor 1, Rotor 2 — ist oben einzeln schaltbar.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap" id="rotoren">
+      <div class="section__head">
+        <p class="caps">Die Rotoren</p>
+        <h2>Zwei Antennen, zwei Richtungen, ein Blick.</h2>
+        <p class="intro">
+          Jeder Kompass zeigt Ist und Soll, den kurzen und den langen Weg. Die Zahlen
+          darunter sind gemessen, nicht gerechnet — Bernstein für den Istwert, Blau
+          für das Ziel. Die Ansteuerung geht über rotctld; das Programm startet es selbst.
+        </p>
+      </div>
+      <figure class="schirm">
+        <div class="schirm__rahmen">
+          <Image src={rotoren} alt="Zwei Rotor-Kompasse mit Ist- und Sollwert neben dem Log"
+            widths={[720, 1200, 1800]} sizes="(max-width: 900px) 100vw, 1100px" loading="lazy" format="webp" quality={92} />
+        </div>
+        <figcaption>
+          <span class="caps num">03 — Profil 3</span>
+          <h3>Log und Rotoren, sonst nichts.</h3>
+          <p>Rotor 1 auf 054°, Rotor 2 auf 037°, beide ausgerichtet. Die blaue Marke am Ring ist das Ziel, die zweite Nadel die Gegenrichtung.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap" id="herkunft">
+      <div class="section__head">
+        <p class="caps">Herkunft</p>
+        <h2>Ein Geschwister von Longpath, kein Teil davon.</h2>
+      </div>
+      <div class="sun">
+        <div class="sun__text">
+          <p>
+            Das Contestprogramm ist am 9. September 2026 aus einer beiläufigen Frage
+            zu ON4KST entstanden und in einer Woche zu dem geworden, was hier steht.
+            Es ist ein <strong>eigenes Programm</strong> mit eigenem Quellbaum — nicht
+            in Longpath eingebaut und nicht davon abhängig. Am Funkgerät hängt es über
+            Hamlib, nicht über einen SDR.
+          </p>
+          <p>
+            Was sich in Longpath bewährt hat, wurde übernommen, mit Quellenangabe in
+            jeder Datei. Was ein Contest anders braucht, wurde neu gebaut: der
+            ON4KST-Anmeldeautomat, die Dupe-Prüfung pro Tastendruck, der Assistent,
+            die Karte, das Gelände.
+          </p>
+          <p>
+            <strong>Stand {STAND}:</strong> das Programm läuft am Tisch des Betreibers
+            und wird gegen den echten ON4KST-Server, Transceiver und Rotor getestet.
+            Es gibt <em>keinen Download</em>. Wenn es einen gibt, steht er hier.
+          </p>
+        </div>
+        <div class="panel sun__panel">
+          <div class="panel__head"><span class="caps">Aus Longpath übernommen</span></div>
+          <ol class="schritte">
+            {uebernommen.map((u, i) => (
+              <li><span class="caps num">{String(i + 1).padStart(2, "0")}</span><span>{u}</span></li>
+            ))}
+          </ol>
+          <div class="sun__stand">
+            <span class="kapsel kapsel--bau"><span class="punkt"></span>Im Bau</span>
+            <span class="caps num">{STAND} · OE5SOS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--border-fine); background: var(--bg); }
+  .hero__in {
+    position: relative; z-index: 2;
+    max-width: var(--maxw); margin: 0 auto;
+    padding: clamp(4rem, 13vh, 8rem) var(--pad) clamp(2.5rem, 7vh, 4.5rem);
+    display: flex; flex-direction: column; gap: 1.2rem; align-items: flex-start;
+  }
+  .hero__wm {
+    font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em; line-height: 1;
+    color: var(--t1); font-size: clamp(2.6rem, 8vw, 6rem);
+  }
+  .hero__wm2 { color: var(--t4); font-weight: 400; }
+  .hero h1 {
+    font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 500;
+    color: var(--t2); max-width: 24ch; margin-top: .3rem;
+  }
+  .hero__sub { max-width: 52ch; margin: 0; font-size: clamp(1rem, 1.8vw, 1.18rem); color: var(--t4); }
+  .hero__sub em { color: var(--t2); font-style: normal; }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: .5rem; }
+
+  .readout { border-top: 1px solid var(--border-fine); background: rgba(12,12,14,.72); }
+  .readout__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); }
+  .readout__cell {
+    padding: .95rem 0 .95rem 1.1rem; display: flex; flex-direction: column; gap: .3rem;
+    border-left: 1px solid var(--border-fine);
+  }
+  .readout__cell:first-child { border-left: 0; padding-left: 0; }
+  .readout__v { font-family: var(--ff-mono); font-size: .98rem; color: var(--measured-hi); font-variant-numeric: tabular-nums; }
+  @media (max-width: 640px) { .readout__cell { border-left: 0; padding-left: 0; } }
+
+  .section { padding-block: clamp(3.5rem, 10vh, 7rem); }
+  .section__head { display: flex; flex-direction: column; gap: .8rem; margin-bottom: clamp(2rem, 5vh, 3.2rem); }
+  .section__head h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); max-width: 22ch; }
+  .section__head .intro { margin: 0; color: var(--t4); max-width: 60ch; }
+
+  /* Bildschirmfotos — derselbe Rahmen wie auf der App-Seite. */
+  .schirm { margin: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .schirm__rahmen {
+    border: 1px solid var(--border-fine);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--panel);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    line-height: 0;
+  }
+  .schirm__rahmen :global(img) { width: 100%; height: auto; display: block; }
+  figcaption { display: flex; flex-direction: column; gap: .4rem; max-width: 62ch; }
+  figcaption h3 {
+    font-family: var(--ff-cond); font-weight: 500;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem); color: var(--t1); margin: 0;
+  }
+  figcaption p { margin: 0; color: var(--t4); }
+
+  .werk { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .werk__karte { display: flex; flex-direction: column; }
+  .werk__body { padding: 1.1rem .9rem 1rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+  .werk__body h3 { font-size: 1.12rem; font-weight: 500; }
+  .werk__body p { margin: 0; font-size: .95rem; color: var(--t4); }
+  .werk__body .marken { margin-top: auto; padding-top: .6rem; }
+  .marken { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .3rem; }
+  .marke {
+    font-family: var(--ff-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--t5); background: var(--btn); border: 1px solid var(--border-fine);
+    border-radius: var(--radius-s); padding: .3rem .55rem;
+  }
+
+  .kapsel {
+    display: inline-flex; align-items: center; gap: .45rem;
+    font-family: var(--ff-mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+    border-radius: var(--radius-s); padding: .32rem .6rem; border: 1px solid;
+  }
+  .kapsel--bau {
+    color: var(--measured); border-color: var(--measured-border, #6b5426);
+    background: var(--measured-bg, #33280f);
+  }
+  .punkt { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  .sun { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+  .sun__text p { margin: 0 0 1.2em; color: var(--t4); max-width: 62ch; }
+  .sun__text strong { color: var(--t2); font-weight: 500; }
+  .sun__text em { color: var(--t2); font-style: normal; }
+  .sun__panel { position: sticky; top: 4.5rem; }
+  .schritte { list-style: none; margin: 0; padding: 0; }
+  .schritte li {
+    display: flex; align-items: baseline; gap: .9rem;
+    padding: .8rem .9rem; border-bottom: 1px solid var(--border-fine); color: var(--t3);
+  }
+  .schritte li:last-child { border-bottom: 0; }
+  .sun__stand {
+    display: flex; flex-wrap: wrap; align-items: center; gap: .7rem;
+    padding: .8rem .9rem; border-top: 1px solid var(--border-fine); background: var(--panel-2);
+  }
+  @media (max-width: 820px) {
+    .sun { grid-template-columns: 1fr; }
+    .sun__panel { position: static; }
+  }
+</style>

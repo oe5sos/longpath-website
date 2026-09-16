@@ -6,12 +6,16 @@
  * Links die Konsole (ein Spektrum, live gezeichnet), rechts der Blog
  * (das Aufmacherfoto des neuesten Beitrags). Zeigt man auf eine
  * Haelfte, wandert die Naht dorthin.
+ *
+ * Seit 2026-09-16 vier Streifen: zwischen Trainer und Blog liegt das
+ * Contestprogramm, mit seiner Karte als Grund.
  */
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Wordmark from "../components/Wordmark.astro";
 import Spektrum from "../components/Spektrum.astro";
 import LangSwitch from "../components/LangSwitch.astro";
+import contestKarte from "../assets/contest/streifen-karte.png";
 import { alleBeitraege } from "../lib/sota";
 import { useTranslations } from "../i18n/utils";
 import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
@@ -66,6 +70,24 @@ const neuester = gehalten
       </div>
     </a>
 
+    <a class="half half--contest" href="/contest/" data-f="c">
+      <Image
+        class="foto"
+        src={contestKarte}
+        alt=""
+        widths={[720, 1200, 1800]}
+        sizes="(max-width: 900px) 100vw, 40vw"
+        loading="eager"
+        format="avif"
+      />
+      <div class="half__in">
+        <p class="caps">{t.home.contestKicker}</p>
+        <div class="big">CONTEST</div>
+        <p class="lede">{t.home.contestLede}</p>
+        <span class="go">{t.home.contestGo} <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+
     <a class="half half--blog" href="/blog/" data-f="b">
       {neuester?.data.aufmacher && (
         <Image
@@ -88,6 +110,7 @@ const neuester = gehalten
 
     <div class="seam seam--1" aria-hidden="true"></div>
     <div class="seam seam--2" aria-hidden="true"></div>
+    <div class="seam seam--3" aria-hidden="true"></div>
 
     <div class="corner corner--t">
       <span class="caps">OE5SOS · Martin Fischer</span>
@@ -144,59 +167,71 @@ const neuester = gehalten
   /* Der Zuschnitt schneidet alles weg, was ausserhalb des Keils liegt.
      Also muss jeder Textblock IN seinem Keil sitzen, nicht am linken
      Rand der Seite. */
-  .half--trainer .half__in { margin-left: 34%; }
+  .half--trainer .half__in { margin-left: 22%; }
+  .half--contest .half__in { margin-left: 47%; }
   .half--blog    .half__in { margin-left: auto; align-items: flex-end; }
 
-  /* Drei Streifen statt zwei Haelften.
-     Die Zuschnitte teilen bei 34 % und 67 %, mit derselben Neigung wie
-     zuvor — die Naht ist der lange Weg aus der Bildmarke, und die
-     bleibt schraeg. */
-  .half--app     { background: var(--bg);      clip-path: polygon(0 0, 40% 0, 28% 100%, 0 100%); }
-  .half--trainer { background: var(--panel);   clip-path: polygon(40% 0, 72% 0, 60% 100%, 28% 100%); }
-  .half--blog    { background: var(--panel-2); clip-path: polygon(72% 0, 100% 0, 100% 100%, 60% 100%);
+  /* Vier Streifen.
+     Die Zuschnitte teilen bei 25 %, 50 % und 75 %, jeweils sechs
+     Prozent schraeg — die Naht ist der lange Weg aus der Bildmarke,
+     und die bleibt schraeg. */
+  .half--app     { background: var(--bg);      clip-path: polygon(0 0, 31% 0, 19% 100%, 0 100%); }
+  .half--trainer { background: var(--panel);   clip-path: polygon(31% 0, 56% 0, 44% 100%, 19% 100%); }
+  .half--contest { background: var(--panel);   clip-path: polygon(56% 0, 81% 0, 69% 100%, 44% 100%); }
+  .half--blog    { background: var(--panel-2); clip-path: polygon(81% 0, 100% 0, 100% 100%, 69% 100%);
                    align-items: flex-end; text-align: right; }
   .half--blog .half__in { margin-left: auto; align-items: flex-end; }
 
   /* Ueber der Zeichnung darf es dunkel sein, ueber dem Foto nur so
-     viel, wie die Schrift zum Lesen braucht. */
+     viel, wie die Schrift zum Lesen braucht. Die Contest-Karte ist
+     selbst schon dunkel; sie bekommt den Foto-Schleier. */
   .half--app::after,
   .half--trainer::after {
     background: linear-gradient(to bottom, rgba(8,8,10,.3) 0%, rgba(8,8,10,.9) 100%);
   }
+  .half--contest::after,
   .half--blog::after {
     background: linear-gradient(to bottom,
       rgba(8,8,10,.22) 0%, rgba(8,8,10,.16) 30%, rgba(8,8,10,.62) 62%, rgba(8,8,10,.95) 100%);
   }
 
-  /* Der Streifen unter dem Zeiger waechst, die beiden anderen weichen.
-     Drei Zustaende, je zwei Zuschnitte und zwei Naehte. */
-  .landing[data-f="a"] .half--app     { clip-path: polygon(0 0, 56% 0, 44% 100%, 0 100%); }
-  .landing[data-f="a"] .half--trainer { clip-path: polygon(56% 0, 80% 0, 68% 100%, 44% 100%); }
-  .landing[data-f="a"] .half--blog    { clip-path: polygon(80% 0, 100% 0, 100% 100%, 68% 100%); }
+  /* Der Streifen unter dem Zeiger waechst, die drei anderen weichen.
+     Vier Zustaende, je drei Zuschnitte und drei Naehte. */
+  .landing[data-f="a"] .half--app     { clip-path: polygon(0 0, 52% 0, 40% 100%, 0 100%); }
+  .landing[data-f="a"] .half--trainer { clip-path: polygon(52% 0, 70% 0, 58% 100%, 40% 100%); }
+  .landing[data-f="a"] .half--contest { clip-path: polygon(70% 0, 88% 0, 76% 100%, 58% 100%); }
+  .landing[data-f="a"] .half--blog    { clip-path: polygon(88% 0, 100% 0, 100% 100%, 76% 100%); }
 
-  .landing[data-f="t"] .half--app     { clip-path: polygon(0 0, 28% 0, 16% 100%, 0 100%); }
-  .landing[data-f="t"] .half--trainer { clip-path: polygon(28% 0, 80% 0, 68% 100%, 16% 100%); }
-  .landing[data-f="t"] .half--blog    { clip-path: polygon(80% 0, 100% 0, 100% 100%, 68% 100%); }
+  .landing[data-f="t"] .half--app     { clip-path: polygon(0 0, 24% 0, 12% 100%, 0 100%); }
+  .landing[data-f="t"] .half--trainer { clip-path: polygon(24% 0, 70% 0, 58% 100%, 12% 100%); }
+  .landing[data-f="t"] .half--contest { clip-path: polygon(70% 0, 88% 0, 76% 100%, 58% 100%); }
+  .landing[data-f="t"] .half--blog    { clip-path: polygon(88% 0, 100% 0, 100% 100%, 76% 100%); }
 
-  .landing[data-f="b"] .half--app     { clip-path: polygon(0 0, 28% 0, 16% 100%, 0 100%); }
-  .landing[data-f="b"] .half--trainer { clip-path: polygon(28% 0, 52% 0, 40% 100%, 16% 100%); }
-  .landing[data-f="b"] .half--blog    { clip-path: polygon(52% 0, 100% 0, 100% 100%, 40% 100%); }
+  .landing[data-f="c"] .half--app     { clip-path: polygon(0 0, 24% 0, 12% 100%, 0 100%); }
+  .landing[data-f="c"] .half--trainer { clip-path: polygon(24% 0, 42% 0, 30% 100%, 12% 100%); }
+  .landing[data-f="c"] .half--contest { clip-path: polygon(42% 0, 88% 0, 76% 100%, 30% 100%); }
+  .landing[data-f="c"] .half--blog    { clip-path: polygon(88% 0, 100% 0, 100% 100%, 76% 100%); }
+
+  .landing[data-f="b"] .half--app     { clip-path: polygon(0 0, 24% 0, 12% 100%, 0 100%); }
+  .landing[data-f="b"] .half--trainer { clip-path: polygon(24% 0, 42% 0, 30% 100%, 12% 100%); }
+  .landing[data-f="b"] .half--contest { clip-path: polygon(42% 0, 60% 0, 48% 100%, 30% 100%); }
+  .landing[data-f="b"] .half--blog    { clip-path: polygon(60% 0, 100% 0, 100% 100%, 48% 100%); }
 
   /* Wer weicht, tritt zurueck.
      Der Zuschnitt schneidet den Text der schrumpfenden Streifen mitten
      im Wort ab. Nimmt man ihnen gleichzeitig etwas Helligkeit, liest
      sich das als Zuruecktreten statt als abgeschnitten. */
   .half__in { transition: opacity .4s ease; }
-  .landing[data-f="a"] .half--trainer .half__in,
-  .landing[data-f="a"] .half--blog    .half__in,
-  .landing[data-f="t"] .half--app     .half__in,
-  .landing[data-f="t"] .half--blog    .half__in,
-  .landing[data-f="b"] .half--app     .half__in,
-  .landing[data-f="b"] .half--trainer .half__in { opacity: .38; }
+  .landing[data-f] .half__in { opacity: .38; }
+  .landing[data-f="a"] .half--app     .half__in,
+  .landing[data-f="t"] .half--trainer .half__in,
+  .landing[data-f="c"] .half--contest .half__in,
+  .landing[data-f="b"] .half--blog    .half__in { opacity: 1; }
 
-  /* Die zwei Naehte. Sie wandern mit den Zuschnitten. */
+  /* Die drei Naehte. Sie wandern mit den Zuschnitten: `left` steht
+     jeweils dort, wo der Zuschnitt auf halber Hoehe durchgeht. */
   /* Der lange Weg als Naht — 1 px, dezent. Die Farbe traegt die Marke,
-     nicht der Grund. Die Lage kommt aus .seam--1 / .seam--2. */
+     nicht der Grund. Die Lage kommt aus .seam--1 / .seam--2 / .seam--3. */
   .seam {
     position: absolute; z-index: 3;
     top: -20%; width: 1px; height: 140%;
@@ -205,17 +240,24 @@ const neuester = gehalten
       rgba(194,146,79,.16) 22%, var(--measured) 50%, rgba(194,146,79,.16) 78%, transparent);
     box-shadow: 0 0 0 1px rgba(8,8,10,.55), 0 0 14px 2px rgba(194,146,79,.2);
     pointer-events: none;
-    transition: transform .55s cubic-bezier(.22,.7,.3,1);
+    transition: left .55s cubic-bezier(.22,.7,.3,1);
   }
 
-  .seam--1 { left: 34%; }
-  .seam--2 { left: 66%; }
-  .landing[data-f="a"] .seam--1 { transform: translateX(-50%) rotate(14.5deg) translateX(184px); }
-  .landing[data-f="a"] .seam--2 { transform: translateX(-50%) rotate(14.5deg) translateX(128px); }
-  .landing[data-f="t"] .seam--1 { transform: translateX(-50%) rotate(14.5deg) translateX(-72px); }
-  .landing[data-f="t"] .seam--2 { transform: translateX(-50%) rotate(14.5deg) translateX(128px); }
-  .landing[data-f="b"] .seam--1 { transform: translateX(-50%) rotate(14.5deg) translateX(-72px); }
-  .landing[data-f="b"] .seam--2 { transform: translateX(-50%) rotate(14.5deg) translateX(-128px); }
+  .seam--1 { left: 25%; }
+  .seam--2 { left: 50%; }
+  .seam--3 { left: 75%; }
+  .landing[data-f="a"] .seam--1 { left: 46%; }
+  .landing[data-f="a"] .seam--2 { left: 64%; }
+  .landing[data-f="a"] .seam--3 { left: 82%; }
+  .landing[data-f="t"] .seam--1 { left: 18%; }
+  .landing[data-f="t"] .seam--2 { left: 64%; }
+  .landing[data-f="t"] .seam--3 { left: 82%; }
+  .landing[data-f="c"] .seam--1 { left: 18%; }
+  .landing[data-f="c"] .seam--2 { left: 36%; }
+  .landing[data-f="c"] .seam--3 { left: 82%; }
+  .landing[data-f="b"] .seam--1 { left: 18%; }
+  .landing[data-f="b"] .seam--2 { left: 36%; }
+  .landing[data-f="b"] .seam--3 { left: 54%; }
 
   .big {
     font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em;
@@ -250,9 +292,10 @@ const neuester = gehalten
     }
     .half--blog { text-align: left; align-items: flex-start; }
     .half--blog .half__in { margin-left: 0; align-items: flex-start; }
+    .half--trainer .half__in, .half--contest .half__in { margin-left: 0; }
     /* Die Naht haengt an der Kante des jeweils naechsten Feldes. */
     .seam { display: none; }
-    .half--trainer, .half--blog {
+    .half--trainer, .half--contest, .half--blog {
       border-top: 1px solid transparent;
       border-image: linear-gradient(to right, transparent, var(--measured) 50%, transparent) 1;
     }

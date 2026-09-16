@@ -31,8 +31,10 @@ interface UiStrings {
   nav: {
     subApp: string;
     subBlog: string;
+    subContest: string;
     appMenu: { signalkette: string; funktionen: string; oberflaeche: string; hardware: string; download: string };
     blogMenu: { beitraege: string; archiv: string; station: string };
+    contestMenu: { log: string; karte: string; rotoren: string; herkunft: string };
     switchToBlog: string;
     switchToApp: string;
   };
@@ -56,6 +58,9 @@ interface UiStrings {
     trainerKicker: string;
     trainerLede: string;
     trainerGo: string;
+    contestKicker: string;
+    contestLede: string;
+    contestGo: string;
     blogKicker: string;
     blogLede: string;
     blogGo: string;
@@ -136,8 +141,10 @@ export const ui: Record<Locale, UiStrings> = {
     nav: {
       subApp: "Stationskonsole",
       subBlog: "Blog",
+      subContest: "Contestprogramm",
       appMenu: { signalkette: "Signalkette", funktionen: "Funktionen", oberflaeche: "Oberfläche", hardware: "Hardware", download: "Download" },
       blogMenu: { beitraege: "Beiträge", archiv: "Archiv", station: "Station" },
+      contestMenu: { log: "Log", karte: "Karte", rotoren: "Rotoren", herkunft: "Herkunft" },
       switchToBlog: "Blog",
       switchToApp: "App",
     },
@@ -161,11 +168,14 @@ export const ui: Record<Locale, UiStrings> = {
       trainerKicker: "Im Browser, ohne Anmeldung",
       trainerLede: "Contest üben — Pile-Up, QSB und QRM, in SSB und CW.",
       trainerGo: "Zum Üben",
+      contestKicker: "VHF/UHF · 2 m + 70 cm · 24 h",
+      contestLede: "Log, ON4KST, Karte und zwei Rotoren für den Contest am Berg.",
+      contestGo: "Zum Programm",
       blogKicker: "Summits on the Air · OE/OO",
       blogLede: "Fotos und Notizen von den Gipfeln.",
       blogGo: "Zum Blog",
       cornerTop2: "JN67 · Gmunden",
-      cornerBottom1: "Drei Wege, eine Station",
+      cornerBottom1: "Vier Wege, eine Station",
       cornerBottomZuletzt: "Zuletzt",
     },
     blogIndex: {
@@ -226,8 +236,10 @@ export const ui: Record<Locale, UiStrings> = {
     nav: {
       subApp: "Station console",
       subBlog: "Blog",
+      subContest: "Contest logger",
       appMenu: { signalkette: "Signal path", funktionen: "Features", oberflaeche: "Interface", hardware: "Hardware", download: "Download" },
       blogMenu: { beitraege: "Posts", archiv: "Archive", station: "Station" },
+      contestMenu: { log: "Log", karte: "Map", rotoren: "Rotators", herkunft: "Origins" },
       switchToBlog: "Blog",
       switchToApp: "App",
     },
@@ -251,11 +263,14 @@ export const ui: Record<Locale, UiStrings> = {
       trainerKicker: "In the browser, no sign-up",
       trainerLede: "Practise contests — pile-up, QSB and QRM, in SSB and CW.",
       trainerGo: "Start practising",
+      contestKicker: "VHF/UHF · 2 m + 70 cm · 24 h",
+      contestLede: "Log, ON4KST, map and two rotators for the contest on the mountain.",
+      contestGo: "To the program",
       blogKicker: "Summits on the Air · OE/OO",
       blogLede: "Photos and notes from the summits.",
       blogGo: "To the blog",
       cornerTop2: "JN67 · Gmunden",
-      cornerBottom1: "Three paths, one station",
+      cornerBottom1: "Four paths, one station",
       cornerBottomZuletzt: "Latest",
     },
     blogIndex: {
@@ -316,8 +331,10 @@ export const ui: Record<Locale, UiStrings> = {
     nav: {
       subApp: "Consola de estación",
       subBlog: "Blog",
+      subContest: "Programa de concursos",
       appMenu: { signalkette: "Cadena de señal", funktionen: "Funciones", oberflaeche: "Interfaz", hardware: "Hardware", download: "Descarga" },
       blogMenu: { beitraege: "Entradas", archiv: "Archivo", station: "Estación" },
+      contestMenu: { log: "Log", karte: "Mapa", rotoren: "Rotores", herkunft: "Origen" },
       switchToBlog: "Blog",
       switchToApp: "App",
     },
@@ -341,11 +358,14 @@ export const ui: Record<Locale, UiStrings> = {
       trainerKicker: "En el navegador, sin registro",
       trainerLede: "Practica concursos — pile-up, QSB y QRM, en SSB y CW.",
       trainerGo: "Empezar a practicar",
+      contestKicker: "VHF/UHF · 2 m + 70 cm · 24 h",
+      contestLede: "Log, ON4KST, mapa y dos rotores para el concurso en la montaña.",
+      contestGo: "Ir al programa",
       blogKicker: "Summits on the Air · OE/OO",
       blogLede: "Fotos y notas desde las cumbres.",
       blogGo: "Ir al blog",
       cornerTop2: "JN67 · Gmunden",
-      cornerBottom1: "Tres caminos, una estación",
+      cornerBottom1: "Cuatro caminos, una estación",
       cornerBottomZuletzt: "Última",
     },
     blogIndex: {

@@ -9,7 +9,7 @@ import { useTranslations } from "../i18n/utils";
 import { DEFAULT_LOCALE, type Locale } from "../i18n/ui";
 
 interface Props {
-  raum: "app" | "blog";
+  raum: "app" | "blog" | "contest";
   /** Aktueller Pfad, damit der laufende Punkt markiert werden kann. */
   pfad?: string;
   lang: Locale;
@@ -21,7 +21,16 @@ const t = useTranslations(lang);
 // — jeder Anker darf also der Sprache folgen.
 const appHref = (pfad: string) => (lang === DEFAULT_LOCALE ? pfad : `/${lang}${pfad}`);
 
-const punkte = raum === "app"
+// Das Contestprogramm hat bisher nur eine deutsche Seite; seine Anker
+// bleiben darum ohne Sprachpraefix.
+const punkte = raum === "contest"
+  ? [
+      { text: t.nav.contestMenu.log,      href: "/contest/#log",      klein: true },
+      { text: t.nav.contestMenu.karte,    href: "/contest/#karte",    klein: true },
+      { text: t.nav.contestMenu.rotoren,  href: "/contest/#rotoren",  klein: true },
+      { text: t.nav.contestMenu.herkunft, href: "/contest/#herkunft", klein: true },
+    ]
+  : raum === "app"
   ? [
       { text: t.nav.appMenu.signalkette, href: appHref("/longpath/#signalkette"), klein: true },
       { text: t.nav.appMenu.funktionen,  href: appHref("/longpath/#werkzeuge"),   klein: true },
@@ -38,12 +47,14 @@ const punkte = raum === "app"
 const wechsel = raum === "app"
   ? { text: t.nav.switchToBlog, href: appHref("/blog/") }
   : { text: t.nav.switchToApp,  href: appHref("/longpath/") };
+
+const sub = raum === "app" ? t.nav.subApp : raum === "blog" ? t.nav.subBlog : t.nav.subContest;
 ---
 
 <nav class="bar">
   <a class="bar__home" href="/">
     <Wordmark />
-    <span class="bar__sub">{raum === "app" ? t.nav.subApp : t.nav.subBlog}</span>
+    <span class="bar__sub">{sub}</span>
   </a>
   <div class="bar__nav">
     {punkte.map((p) => (
