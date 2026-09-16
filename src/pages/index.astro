@@ -8,14 +8,15 @@
  * Haelfte, wandert die Naht dorthin.
  *
  * Seit 2026-09-16 vier Streifen: zwischen Trainer und Blog liegt das
- * Contestprogramm, mit seiner Karte als Grund.
+ * Contestprogramm. Betreiber, gleicher Tag: kein Bildschirmfoto als
+ * Grund (ueber die volle Hoehe gezogen unscharf), sondern eine
+ * gezeichnete Kurve wie bei Konsole und Trainer.
  */
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Wordmark from "../components/Wordmark.astro";
 import Spektrum from "../components/Spektrum.astro";
 import LangSwitch from "../components/LangSwitch.astro";
-import contestKarte from "../assets/contest/streifen-karte.png";
 import { alleBeitraege } from "../lib/sota";
 import { useTranslations } from "../i18n/utils";
 import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
@@ -71,16 +72,7 @@ const neuester = gehalten
     </a>
 
     <a class="half half--contest" href="/contest/" data-f="c">
-      <Image
-        class="foto"
-        src={contestKarte}
-        alt=""
-        widths={[1400, 2780]}
-        sizes="100vw"
-        loading="eager"
-        format="avif"
-        quality={85}
-      />
+      <Spektrum art="rauschen" grundlinie={0.76} staerke={0.7} />
       <div class="half__in">
         <p class="caps">{t.home.contestKicker}</p>
         <div class="big">CONTEST</div>
@@ -184,13 +176,12 @@ const neuester = gehalten
   .half--blog .half__in { margin-left: auto; align-items: flex-end; }
 
   /* Ueber der Zeichnung darf es dunkel sein, ueber dem Foto nur so
-     viel, wie die Schrift zum Lesen braucht. Die Contest-Karte ist
-     selbst schon dunkel; sie bekommt den Foto-Schleier. */
+     viel, wie die Schrift zum Lesen braucht. */
   .half--app::after,
-  .half--trainer::after {
+  .half--trainer::after,
+  .half--contest::after {
     background: linear-gradient(to bottom, rgba(8,8,10,.3) 0%, rgba(8,8,10,.9) 100%);
   }
-  .half--contest::after,
   .half--blog::after {
     background: linear-gradient(to bottom,
       rgba(8,8,10,.22) 0%, rgba(8,8,10,.16) 30%, rgba(8,8,10,.62) 62%, rgba(8,8,10,.95) 100%);
