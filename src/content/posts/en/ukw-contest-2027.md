@@ -15,6 +15,8 @@ The contest runs every year on the first weekend of September, from Saturday 16:
 
 I'm coming. No longer to watch — as part of the **OE1W** team.
 
-![Two stacked Yagis on the mast against the evening sky, a contrail running across the picture, the mountain ranges below](../../../assets/photos/oe1w-yagis-abendhimmel.jpg)
+![With a headset at the desk, the second operator behind, the laptop with the contest log in front](../../../assets/photos/oe1w-im-shack.jpg)
 
 A year to go.
+
+![Two stacked Yagis on the mast against the evening sky, a contrail running across the picture, the mountain ranges below](../../../assets/photos/oe1w-yagis-abendhimmel.jpg)

@@ -15,6 +15,8 @@ Der Contest läuft jedes Jahr am ersten Septemberwochenende, von Samstag 16:00 b
 
 Ich komme. Nicht mehr zum Zuschauen — als Teil der Mannschaft von **OE1W**.
 
-![Zwei gestockte Yagis am Mast vor dem Abendhimmel, ein Kondensstreifen läuft quer durchs Bild, unten die Bergketten](../../assets/photos/oe1w-yagis-abendhimmel.jpg)
+![Mit Headset am Arbeitsplatz, dahinter der zweite Operator, vorn der Laptop mit dem Contest-Log](../../assets/photos/oe1w-im-shack.jpg)
 
 Bis dahin ist ein Jahr Zeit.
+
+![Zwei gestockte Yagis am Mast vor dem Abendhimmel, ein Kondensstreifen läuft quer durchs Bild, unten die Bergketten](../../assets/photos/oe1w-yagis-abendhimmel.jpg)

@@ -15,6 +15,8 @@ El concurso se celebra cada año el primer fin de semana de septiembre, del sáb
 
 Allí estaré. Ya no para mirar — como parte del equipo de **OE1W**.
 
-![Dos Yagis apiladas en el mástil contra el cielo del atardecer, una estela cruza la imagen, abajo las cadenas montañosas](../../../assets/photos/oe1w-yagis-abendhimmel.jpg)
+![Con auriculares en el puesto, detrás el segundo operador, delante el portátil con el log del concurso](../../../assets/photos/oe1w-im-shack.jpg)
 
 Queda un año.
+
+![Dos Yagis apiladas en el mástil contra el cielo del atardecer, una estela cruza la imagen, abajo las cadenas montañosas](../../../assets/photos/oe1w-yagis-abendhimmel.jpg)
