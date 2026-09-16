@@ -75,7 +75,6 @@ const beitraege = defineCollection({
           baender: z.array(z.string()).optional(),   // ["40 m", "20 m"]
           arten: z.array(z.string()).optional(),     // ["SSB", "FT8"]
           weiteste: z.number().optional(),           // km
-          aufstieg: z.string().optional(),           // "2 h 34"
         })
         .optional(),
 

@@ -33,7 +33,6 @@ const felder = [
   { k: t.post.fGipfel,   v: gipfel.length > 1 ? gipfel.length : undefined },
   { k: t.post.fPunkte,   v: gipfel.length ? gipfel.reduce((s, g) => s + g.punkte, 0) : undefined },
   { k: t.post.fQso,      v: d.funk?.qso },
-  { k: t.post.fAufstieg, v: d.funk?.aufstieg },
   { k: t.post.fWeiteste, v: d.funk?.weiteste ? `${d.funk.weiteste.toLocaleString(LOCALE_TAG[lang])} km` : undefined },
   { k: t.post.fBaender,  v: d.funk?.baender?.join(" / ") },
 ];
