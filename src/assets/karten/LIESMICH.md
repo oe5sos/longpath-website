@@ -8,8 +8,10 @@ angepasst.
 
 Benennung: wie der Beitrag, `<slug>-karte.png`.
 
-Ausnahme (16.09.2026): die drei `feuerkogel-horizont-*-karte.png` sind
-keine SOTA-Ausschnitte, sondern selbst gerechnete Horizontkarten (SRTM1,
-matplotlib) aus dem Beitrag „Was der Feuerkogel sieht". Gleiche Regel:
-pixelgenau, keine Gradation. Die druckbaren PDFs dazu liegen in
-`public/karten/`.
+Ausnahme (16./17.09.2026): die `*-horizont-*.png`, `*-gipfel-rundum-karte.png`
+und `loser-strasse-karte.png` (Feuerkogel, Grünberg, Loser, Hochkar,
+Traisner Hütte) sind keine SOTA-Ausschnitte, sondern selbst gerechnete
+Horizontkarten (SRTM1, matplotlib) aus den Beiträgen „Was … sieht". Gleiche
+Regel: pixelgenau, keine Gradation. Die druckbaren PDFs dazu liegen in
+`public/karten/`, die Zoomstufen der Plus/Minus-Karte als WebP in
+`public/karten/horizont/`.
