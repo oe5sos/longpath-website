@@ -66,7 +66,7 @@ const zeigeGitter = gipfel.length > 0 && gefuellt.length > 0;
     </header>
 
     {d.aufmacher && (
-      <div class="aufmacher">
+      <div class={`aufmacher ${d.aufmacherFormat}`}>
         <Photo bild={d.aufmacher} alt={d.aufmacherAlt ?? d.titel} ref={d.aufmacherRef}
                format={d.aufmacherFormat} vordergrund sizes="100vw" />
       </div>
@@ -122,6 +122,9 @@ const zeigeGitter = gipfel.length > 0 && gefuellt.length > 0;
   .vorspann { margin: .2rem 0 0; font-size: clamp(1.05rem, 2vw, 1.24rem); color: var(--t3); }
 
   .aufmacher { margin: 0 0 clamp(2rem, 5vh, 3rem); }
+  /* Ein Hochformat ueber die volle Breite ist auf jedem Schirm zu gross
+     (Betreiber, 2026-09-17, UKW-Contest 2027): auf Textbreite, mittig. */
+  .aufmacher.hoch { max-width: min(var(--measure), 56vh); margin-left: auto; margin-right: auto; }
 
   .body { max-width: var(--measure); margin: 0 auto; }
   .body :global(p) { margin: 0 0 1.25em; color: var(--t3); }
