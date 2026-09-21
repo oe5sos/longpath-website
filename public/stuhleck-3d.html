@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Der Stuhleck-Gipfel als 3D-Szene: Orthofoto auf dem Laserscan-Gelände mit beiden Antennenmasten, dem Yagi-Stack, dem Auto und der Bergstation der Steinbachalmbahn.">
+<meta name="description" content="Der Stuhleck-Gipfel als 3D-Szene: Orthofoto auf dem Laserscan-Gelände mit zwei Standorten für die Antennenmasten, dem Yagi-Stack, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.longpath.at/stuhleck-3d">
-<title>Stuhleck 3D · longpath.at</title>
+<title>Stuhleck 3D · Standorte A und B · longpath.at</title>
 <style>
 :root{--bg:#0c0c0e;--panel:rgba(20,20,24,.86);--t1:#dcdce1;--t2:#c4c4ca;--t3:#a6a6ac;--t5:#7e7e85;--t6:#58585e;--amb:#d8a55f;--ok:#6fa384;--warn:#a8853f;--border:#2c2c31;--ff:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
 html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:var(--ff);font-size:13px;overflow:hidden}
@@ -23,6 +23,9 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
 #bar button:focus-visible{outline:2px solid var(--amb);outline-offset:1px}
 #bar button[aria-pressed="true"]{border-color:var(--amb);color:var(--amb)}
 #bar .sp{flex:1}
+#bar #siteA,#bar #siteB{border-color:var(--t5)}
+#bar #siteA[aria-pressed="true"],#bar #siteB[aria-pressed="true"]{background:var(--amb);color:#0c0c0e;border-color:var(--amb)}
+#hud .tabu{color:#e06a5a}
 #bar .src{color:var(--t6);font-size:10.5px;line-height:1.4;text-align:right;max-width:46vw}
 #hud button.min{position:absolute;right:10px;top:10px;font:inherit;font-size:11px;color:var(--t5);background:none;border:1px solid var(--border);border-radius:4px;padding:2px 7px;cursor:pointer}
 #hud.min > :not(button){display:none}
@@ -38,15 +41,14 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
 <div id="hud">
   <button class="min" id="mini" aria-label="Erklärung einklappen">−</button>
   <p class="k"><a href="/blog/stuhleck-horizont/" style="color:inherit;text-decoration:none">← Was das Stuhleck sieht</a> · 1 782 m · JN77VN</p>
-  <h1>Zwei Masten auf der Kuppe</h1>
-  <p>Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 1 (13,5 m) mit zwei festen Vierfachquads auf 20° und 216°, Mast 2 (10 m) mit zwei gestockten 12-Element-Yagis auf 6,4 und 9,7 m, die zwischen ihren Stellungen drehen. Die Masten stehen 30 m westlich vom Parkplatz auf der Kuppe, das Auto an der Einfahrt. 120 m weiter im Südwesten die Bergstation der Steinbachalmbahn: ihr Dach liegt fünf bis acht Grad unter dem Horizont der Antennen, kein Hindernis. Ziehen dreht die Ansicht, Rad zoomt.</p>
+  <h1 id="h1">Standort A · Zwei Masten auf der Kuppe</h1>
+  <p id="txt"></p>
   <p class="now">Yagi <b id="hdg">312°</b> <span id="what">Nürnberg, Regensburg, Passau, Linz, Erfurt</span></p>
 </div>
 <div id="bar">
-  <button type="button" data-h="312" aria-pressed="true">312° Franken</button>
-  <button type="button" data-h="72">72° Slowakei</button>
-  <button type="button" data-h="280">280° Bayern</button>
-  <button type="button" data-h="150">150° Kroatien</button>
+  <button type="button" id="siteA" aria-pressed="true">Standort A</button>
+  <button type="button" id="siteB" aria-pressed="false">Standort B</button>
+  <span id="hdgs"></span>
   <button type="button" id="auto" aria-pressed="true">Rundflug</button>
   <button type="button" id="view" aria-pressed="false">Bergstation</button>
   <span class="sp"></span>
@@ -68,14 +70,10 @@ function hAt(x,y){ // Höhe über Bezug 1770 m, bilinear
 const scene=new THREE.Scene(); scene.background=new THREE.Color(0x0c0c0e); scene.fog=new THREE.Fog(0x0c0c0e,300,700);
 const canvas=document.getElementById('c'); const renderer=new THREE.WebGLRenderer({canvas,antialias:true}); renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.outputColorSpace=THREE.SRGBColorSpace;
 const camera=new THREE.PerspectiveCamera(48,1,0.5,1500);
-const M1={x:-36,y:-18}, M2={x:-42,y:-8}, CAR={x:-2,y:12};
-const g1=hAt(M1.x,M1.y), g2=hAt(M2.x,M2.y);
-const target=new THREE.Vector3(-39,g1+7,13);
-camera.position.set(-39-30,g1+16,13+34);
-const controls=new OrbitControls(camera,canvas); controls.target.copy(target); controls.enableDamping=true; controls.dampingFactor=0.06; controls.minDistance=10; controls.maxDistance=420; controls.maxPolarAngle=Math.PI*0.49; controls.autoRotate=!reduced; controls.autoRotateSpeed=0.5;
+const controls=new OrbitControls(camera,canvas); controls.enableDamping=true; controls.dampingFactor=0.06; controls.minDistance=10; controls.maxDistance=420; controls.maxPolarAngle=Math.PI*0.49; controls.autoRotate=!reduced; controls.autoRotateSpeed=0.5;
 // Licht: Sonne aus Südwest, Nachmittag
 const hemi=new THREE.HemisphereLight(0xcfe0ff,0x3a3a30,0.85); scene.add(hemi);
-const sun=new THREE.DirectionalLight(0xfff1d6,1.25); sun.position.set(-120,140,90); sun.castShadow=true; sun.shadow.mapSize.set(2048,2048); sun.shadow.camera.left=-190; sun.shadow.camera.right=150; sun.shadow.camera.top=170; sun.shadow.camera.bottom=-170; sun.shadow.camera.near=10; sun.shadow.camera.far=500; sun.shadow.bias=-0.0008; scene.add(sun); sun.target.position.copy(target); scene.add(sun.target);
+const sun=new THREE.DirectionalLight(0xfff1d6,1.25); sun.position.set(-120,140,90); sun.castShadow=true; sun.shadow.mapSize.set(2048,2048); sun.shadow.camera.left=-190; sun.shadow.camera.right=150; sun.shadow.camera.top=170; sun.shadow.camera.bottom=-170; sun.shadow.camera.near=10; sun.shadow.camera.far=500; sun.shadow.bias=-0.0008; scene.add(sun); scene.add(sun.target);
 // Geländemesh
 { const pos=[],uv=[],idx=[];
   for(let j=0;j<D.ny;j++)for(let i=0;i<D.nx;i++){const x=D.x0+i*D.st,y=D.y0+j*D.st; pos.push(x,D.z[j][i],-y); uv.push(i/(D.nx-1),j/(D.ny-1));}
@@ -96,14 +94,13 @@ building(D.haus,D.haus_boden,7.4,0x6b5f52,0xd8d4cc);
 // Mast
 const matAlu=new THREE.MeshStandardMaterial({color:0xc8c9cc,metalness:0.7,roughness:0.35});
 const matDark=new THREE.MeshStandardMaterial({color:0x2a2a2e,metalness:0.4,roughness:0.6});
-function mast(x,y,h){ const g=hAt(x,y); const m=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.09,h,10),matAlu); m.position.set(x,g+h/2,-y); m.castShadow=true; scene.add(m);
-  const foot=new THREE.Mesh(new THREE.CylinderGeometry(0.35,0.4,0.25,12),matDark); foot.position.set(x,g+0.12,-y); scene.add(foot);
+function mast(x,y,h,grp){ const g=hAt(x,y); const m=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.09,h,10),matAlu); m.position.set(x,g+h/2,-y); m.castShadow=true; grp.add(m);
+  const foot=new THREE.Mesh(new THREE.CylinderGeometry(0.35,0.4,0.25,12),matDark); foot.position.set(x,g+0.12,-y); grp.add(foot);
   const wire=new THREE.LineBasicMaterial({color:0x9a9a9a,transparent:true,opacity:0.55});
   for(let k=0;k<3;k++){ const a=Math.PI*2*k/3+0.4; const r=0.6*h; const ex=x+r*Math.sin(a), ey=y+r*Math.cos(a);
-    const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,g+h*0.72,-y),new THREE.Vector3(ex,hAt(ex,ey)+0.05,-ey)]); scene.add(new THREE.Line(geo,wire));
-    const peg=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,0.3,6),matDark); peg.position.set(ex,hAt(ex,ey)+0.1,-ey); scene.add(peg); }
+    const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,g+h*0.72,-y),new THREE.Vector3(ex,hAt(ex,ey)+0.05,-ey)]); grp.add(new THREE.Line(geo,wire));
+    const peg=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,0.3,6),matDark); peg.position.set(ex,hAt(ex,ey)+0.1,-ey); grp.add(peg); }
   return g; }
-mast(M1.x,M1.y,13.5); mast(M2.x,M2.y,5.9);
 function tube(a,b,r,mat){ const d=new THREE.Vector3().subVectors(b,a); const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),6),mat); m.position.copy(a).add(d.clone().multiplyScalar(0.5)); m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize()); m.castShadow=true; return m; }
 // Vierfachquad: vier Schleifen übereinander, Reflektorschleifen dahinter; Gruppe schaut nach -z
 function quad(){ const grp=new THREE.Group(); const side=0.52, sp=0.77;
@@ -112,22 +109,15 @@ function quad(){ const grp=new THREE.Group(); const side=0.52, sp=0.77;
       for(let e=0;e<4;e++){ const p=pts[e],q=pts[(e+1)%4]; grp.add(tube(new THREE.Vector3(p[0],p[1],z),new THREE.Vector3(q[0],q[1],z),0.02,mat)); } } }
   grp.add(tube(new THREE.Vector3(0,-1.6,0.17),new THREE.Vector3(0,1.6,0.17),0.025,matAlu));
   return grp; }
-function placeQuad(mx,my,hc,heading){ const q=quad(); const g=hAt(mx,my); q.rotation.y=-heading*Math.PI/180; q.position.set(mx,g+hc,-my); scene.add(q); return q; }
-placeQuad(M1.x,M1.y,8.0,20); placeQuad(M1.x,M1.y,11.8,216);
-// Yagi 12JXX2: Boom 5,6 m nach -z, Elemente quer
+function placeQuad(mx,my,hc,heading){ const q=quad(); const g=hAt(mx,my); q.rotation.y=-heading*Math.PI/180; q.position.set(mx,g+hc,-my); return q; }
 function yagi(){ const grp=new THREE.Group(); const pos=[0,0.42,0.62,0.92,1.36,1.86,2.4,2.98,3.6,4.25,4.9,5.6], len=[1.03,0.99,0.94,0.92,0.91,0.9,0.89,0.88,0.87,0.87,0.86,0.85];
   grp.add(tube(new THREE.Vector3(0,0,2.8),new THREE.Vector3(0,0,-2.8),0.03,matAlu));
   pos.forEach((p,k)=>{ const z=2.8-p; grp.add(tube(new THREE.Vector3(-len[k]/2,0.03,z),new THREE.Vector3(len[k]/2,0.03,z),0.014,matAlu)); });
   return grp; }
-const Y=new THREE.Group(); const y1=yagi(), y2=yagi(); y1.position.y=9.7; y2.position.y=6.4; Y.add(y1); Y.add(y2);
-Y.add(tube(new THREE.Vector3(0,6.0,0),new THREE.Vector3(0,10.0,0),0.045,matAlu)); // Drehrohr
-Y.position.set(M2.x,g2,-M2.y); scene.add(Y);
-const rotor=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rotor.position.set(M2.x,g2+5.7,-M2.y); scene.add(rotor);
-// Auto
-{ const grp=new THREE.Group(); const body=new THREE.Mesh(new THREE.BoxGeometry(4.5,1.05,1.9),new THREE.MeshStandardMaterial({color:0x2f4f7a,metalness:0.5,roughness:0.5})); body.position.y=0.55; body.castShadow=true; grp.add(body);
+function car(cx,cy,rot){ const grp=new THREE.Group(); const body=new THREE.Mesh(new THREE.BoxGeometry(4.5,1.05,1.9),new THREE.MeshStandardMaterial({color:0x2f4f7a,metalness:0.5,roughness:0.5})); body.position.y=0.55; body.castShadow=true; grp.add(body);
   const cab=new THREE.Mesh(new THREE.BoxGeometry(2.4,0.7,1.7),new THREE.MeshStandardMaterial({color:0x1b2a3f,metalness:0.6,roughness:0.3})); cab.position.set(-0.3,1.4,0); cab.castShadow=true; grp.add(cab);
   for(const [wx,wz] of [[1.5,0.95],[1.5,-0.95],[-1.5,0.95],[-1.5,-0.95]]){ const wh=new THREE.Mesh(new THREE.CylinderGeometry(0.33,0.33,0.22,14),matDark); wh.rotation.x=Math.PI/2; wh.position.set(wx,0.33,wz); grp.add(wh); }
-  grp.rotation.y=Math.PI/4; grp.position.set(CAR.x,hAt(CAR.x,CAR.y),-CAR.y); scene.add(grp); }
+  grp.rotation.y=rot; grp.position.set(cx,hAt(cx,cy),-cy); return grp; }
 // Gipfelkreuz
 { const gk=D.gipfel; const g=hAt(gk[0],gk[1]); const wood=new THREE.MeshLambertMaterial({color:0x8a6a3c});
   scene.add(tube(new THREE.Vector3(gk[0],g,-gk[1]),new THREE.Vector3(gk[0],g+4,-gk[1]),0.08,wood)); scene.add(tube(new THREE.Vector3(gk[0]-0.9,g+3.1,-gk[1]),new THREE.Vector3(gk[0]+0.9,g+3.1,-gk[1]),0.07,wood)); }
@@ -160,42 +150,70 @@ for(const sx of [-1,1]){ const pts=[stGrp.localToWorld(new THREE.Vector3(sx*GAUG
   pyl.forEach(({grp,h})=>pts.push(grp.localToWorld(new THREE.Vector3(sx*GAUGE/2,h+0.32,0))));
   const p3=D.pylon3; const last=pyl[pyl.length-1].grp; const far=new THREE.Vector3(p3[0],p3[2]+p3[3]+0.3,-p3[1]); pts.push(new THREE.Vector3().lerpVectors(pts[pts.length-1],far,0.9));
   for(let k=0;k<pts.length-1;k++) cableSpan(pts[k],pts[k+1],k===pts.length-2); }
-{ const s=label('Bergstation Steinbachalmbahn · 120 m','#dcdce1',34); s.position.set(S.center[0],S.ground+S.roof+7,-S.center[1]); scene.add(s); }
-// Sektoren am Boden
-function fan(mx,my,hp,r,color,opacity){ const geo=new THREE.BufferGeometry(); const mesh=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide})); scene.add(mesh);
+{ const s=label('Bergstation Steinbachalmbahn','#dcdce1',30); s.position.set(S.center[0],S.ground+S.roof+7,-S.center[1]); scene.add(s); }
+function fan(mx,my,hp,r,color,opacity,grp){ const geo=new THREE.BufferGeometry(); const mesh=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide})); grp.add(mesh);
   mesh.userData={mx,my,hp,r}; mesh.setHeading=function(h){ const pts=[]; const n=24; const g0=hAt(mx,my);
     for(let k=0;k<=n;k++){ const a=(h-hp/2+hp*k/n)*Math.PI/180; for(let s=1;s<=6;s++){ const rr=r*s/6; const x=mx+rr*Math.sin(a), y=my+rr*Math.cos(a); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); pts.push(new THREE.Vector3(x,hAt(xx,yy)+0.35,-y)); } }
     const pos=[]; const idx=[]; pos.push(mx,g0+0.35,-my); pts.forEach(p=>pos.push(p.x,p.y,p.z));
     for(let k=0;k<n;k++){ const c0=1+k*6, c1=1+(k+1)*6; idx.push(0,c0,c1); for(let s=0;s<5;s++){ idx.push(c0+s,c0+s+1,c1+s, c0+s+1,c1+s+1,c1+s); } }
     geo.setIndex(idx); geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3)); geo.computeVertexNormals(); };
   return mesh; }
-fan(M1.x,M1.y,69,75,0xd8a55f,0.10).setHeading(20); fan(M1.x,M1.y,69,75,0xc4c4ca,0.10).setHeading(216);
-const beam=fan(M2.x,M2.y,33.8,90,0x6fa384,0.16);
-// Richtungsmarken am Horizont
-const targets=[[31,'Wien 31°'],[57,'Bratislava 57°'],[91,'Budapest 91°'],[129,'Belgrad 129°'],[176,'Zagreb 176°'],[205,'Graz 205°'],[229,'Venedig 229°'],[283,'München 283°'],[303,'Nürnberg 303°'],[342,'Prag 341° · Berlin 344°'],[46,'Kraków 46°'],[15,'Breslau 12° · Brünn 18°'],[211,'Ljubljana 211°'],[72,'Košice 71°']];
-targets.forEach(([b,t])=>{ const r=118; const x=M1.x+r*Math.sin(b*Math.PI/180), y=M1.y+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#dcdce1',26); s.position.set(x,hAt(xx,yy)+9,-y); scene.add(s); });
-[[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const r=100; const x=M1.x+r*Math.sin(b*Math.PI/180), y=M1.y+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#d8a55f',14); s.position.set(x,hAt(xx,yy)+4,-y); scene.add(s); });
-// ---- Yagi-Stellungen ----
-const WHAT={312:'Nürnberg, Regensburg, Passau, Linz, Erfurt — 225 Stationen',72:'Bratislava, Košice, Lwiw, Debrecen — 132 Stationen',280:'München, Innsbruck, Schweiz — 136 Stationen',150:'Sarajevo, Split, Nordbosnien — 95 Stationen'};
-const seq=[312,72,280,150]; let targetH=312, curH=312, autoOn=!reduced, lastSwitch=performance.now(), seqI=0;
-const hdgEl=document.getElementById('hdg'), whatEl=document.getElementById('what');
-function setTarget(h,manual){ targetH=h; document.querySelectorAll('#bar button[data-h]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.h===h))); hdgEl.textContent=h+'°'; whatEl.textContent=WHAT[h]||''; lastSwitch=performance.now()+(manual?14000:0); }
-document.querySelectorAll('#bar button[data-h]').forEach(b=>b.addEventListener('click',()=>{ seqI=seq.indexOf(+b.dataset.h); setTarget(+b.dataset.h,true); }));
-const VIEW_M={p:new THREE.Vector3(-39-30,g1+16,13+34),t:new THREE.Vector3(-39,g1+7,13)};
-const VIEW_S={p:new THREE.Vector3(-3,g2+17,-22),t:new THREE.Vector3(-74,g2+5,32)};
-let fly=null, stView=false; const viewBtn=document.getElementById('view');
+const CX=-12, CY=-45; const targets=[[31,'Wien 31°'],[57,'Bratislava 57°'],[91,'Budapest 91°'],[129,'Belgrad 129°'],[176,'Zagreb 176°'],[205,'Graz 205°'],[229,'Venedig 229°'],[283,'München 283°'],[303,'Nürnberg 303°'],[342,'Prag 341° · Berlin 344°'],[46,'Kraków 46°'],[15,'Breslau 12° · Brünn 18°'],[211,'Ljubljana 211°'],[72,'Košice 71°']];
+targets.forEach(([b,t])=>{ const r=118; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#dcdce1',26); s.position.set(x,hAt(xx,yy)+9,-y); scene.add(s); });
+[[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const r=100; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#d8a55f',14); s.position.set(x,hAt(xx,yy)+4,-y); scene.add(s); });
+const SITES={"A": {"M1": [-36.0, -18.0], "M2": [-42.0, -8.0], "CAR": [-2.0, 12.0], "carRot": 0.785, "q1": 20, "q2": 294, "yagi": [138, 172, 212], "what": {"138": "Pécs, Belgrad, Novi Sad, Sarajevo, Skopje — 101 Stationen", "172": "Zagreb, Split, Banja Luka — 105 Stationen", "212": "Rijeka, Ljubljana, Graz, Triest, Bologna — 229 Stationen"}, "tabu": [214.7, 262.3], "core": [231.6, 245.4], "total": 1342, "quads": 907, "q1c": "Breslau, Brünn, Ostrava, Kraków, Wien", "q2c": "Nürnberg, Regensburg, Passau, München, Linz", "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 1 (13,5 m) mit zwei festen Vierfachquads, Mast 2 (10 m) mit zwei gestockten 12-Element-Yagis auf 6,4 und 9,7 m. Standort A liegt auf der Kuppe zwischen Parkplatz und Gipfelkreuz, 42 m vom Haus, 120 m von der Bergstation. Plan unter der Tabu-Regel: Quad 1 (8 m) 20° — Breslau, Brünn, Ostrava, Kraków, Wien; Quad 2 (11,8 m) 294° — Nürnberg, Regensburg, Passau, München, Linz; Yagi 138° / 172° / 212°. Zusammen 1 342 Stationen unter 3 dB. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 215°–262° und 180° gedreht 35°–82°.</span> Ziehen dreht die Ansicht, Rad zoomt.", "title": "Standort A · Zwei Masten auf der Kuppe"}, "B": {"M1": [13.4, -70.4], "M2": [10.0, -82.0], "CAR": [2.0, -26.0], "carRot": 0.785, "q1": 216, "q2": 42, "yagi": [118, 164, 294], "what": {"118": "Szeged, Timișoara, Pécs, Belgrad, Novi Sad — 88 Stationen", "164": "Sarajevo, Zagreb, Split, Banja Luka — 113 Stationen", "294": "Nürnberg, Regensburg, Passau, München, Linz — 231 Stationen"}, "tabu": [244.4, 288.4], "core": [261.3, 271.5], "total": 1325, "quads": 893, "q1c": "Rijeka, Ljubljana, Graz, Triest, Venedig", "q2c": "Breslau, Brünn, Ostrava, Kraków, Wien", "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Gleiche Masten und Antennen wie A, aber auf der Wiese südlich des Hauses: 34 m von der Hausecke, 153 m von der Bergstation. Das Haus steht dort genau im Norden, sein First neun Meter über dem Boden — die untere Quad und die untere Yagi sehen ihn, 342°–18° kosten bis 9 dB. Plan unter der Tabu-Regel: Quad 1 (8 m) 216° — Rijeka, Ljubljana, Graz, Triest, Venedig; Quad 2 (11,8 m) 42° — Breslau, Brünn, Ostrava, Kraków, Wien; Yagi 118° / 164° / 294°. Zusammen 1 325 Stationen unter 3 dB. <span class=\"tabu\">Rot: Tabu Richtung Seilbahn 244°–288°, 180° gedreht 64°–108°.</span> Ziehen dreht die Ansicht, Rad zoomt.", "title": "Standort B · Auf der Wiese südlich des Hauses"}};
+
+// ---- Standort aufbauen: Masten, Quads, Yagi-Stack, Auto, Sektoren, Tabu
+const matRed=0xd9463a;
+function buildSite(key){ const S=SITES[key]; const grp=new THREE.Group(); scene.add(grp);
+  const M1={x:S.M1[0],y:S.M1[1]}, M2={x:S.M2[0],y:S.M2[1]}; const g1=hAt(M1.x,M1.y), g2=hAt(M2.x,M2.y);
+  mast(M1.x,M1.y,13.5,grp); mast(M2.x,M2.y,5.9,grp);
+  grp.add(placeQuad(M1.x,M1.y,8.0,S.q1)); grp.add(placeQuad(M1.x,M1.y,11.8,S.q2));
+  const Y=new THREE.Group(); const y1=yagi(), y2=yagi(); y1.position.y=9.7; y2.position.y=6.4; Y.add(y1); Y.add(y2);
+  Y.add(tube(new THREE.Vector3(0,6.0,0),new THREE.Vector3(0,10.0,0),0.045,matAlu)); Y.position.set(M2.x,g2,-M2.y); grp.add(Y);
+  const rotor=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rotor.position.set(M2.x,g2+5.7,-M2.y); grp.add(rotor);
+  grp.add(car(S.CAR[0],S.CAR[1],S.carRot));
+  fan(M1.x,M1.y,69,75,0xd8a55f,0.10,grp).setHeading(S.q1); fan(M1.x,M1.y,69,75,0xc4c4ca,0.10,grp).setHeading(S.q2);
+  const beam=fan(M2.x,M2.y,33.8,90,0x6fa384,0.16,grp);
+  // Tabu: vorwärts (voll) und 180° gedreht (blasser), Gradzahlen an den Rändern
+  const lo=S.tabu[0], hi=S.tabu[1], w=((hi-lo)%360+360)%360, mid=lo+w/2;
+  fan(M2.x,M2.y,w,150,matRed,0.30,grp).setHeading(mid); fan(M2.x,M2.y,w,150,matRed,0.13,grp).setHeading(mid+180);
+  fan(M2.x,M2.y,((S.core[1]-S.core[0])%360+360)%360,150,matRed,0.22,grp).setHeading(S.core[0]+(((S.core[1]-S.core[0])%360+360)%360)/2);
+  const edge=(b,txt,size,col,r)=>{ const x=M2.x+r*Math.sin(b*Math.PI/180), y=M2.y+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const sp=label(txt,col,size); sp.position.set(x,hAt(xx,yy)+3,-y); grp.add(sp); };
+  edge(lo,Math.round(lo)+'°',14,'#f0a090',152); edge(hi,Math.round(hi)+'°',14,'#f0a090',152); edge(mid,'TABU · Seilbahn',20,'#f0a090',105);
+  edge(lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152); edge(hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152); edge(mid+180,'180° gedreht',18,'#f0a090',105);
+  for(const [h,col] of [[S.q1,'#d8a55f'],[S.q2,'#c4c4ca']]){ edge(h,'Quad '+h+'°',16,col,80); }
+  const mid2={x:(M1.x+M2.x)/2,y:(M1.y+M2.y)/2}; const g=Math.max(g1,g2);
+  const viewM={p:new THREE.Vector3(mid2.x-30,g+16,-(mid2.y-34)),t:new THREE.Vector3(mid2.x,g+7,-mid2.y)};
+  const st=D.station.center; const bs=Math.atan2(st[0]-M2.x,st[1]-M2.y); const back=bs+Math.PI;
+  const viewS={p:new THREE.Vector3(M2.x+48*Math.sin(back),g2+17,-(M2.y+48*Math.cos(back))),t:new THREE.Vector3(M2.x+40*Math.sin(bs),g2+5,-(M2.y+40*Math.cos(bs)))};
+  grp.visible=false; return {grp,Y,beam,viewM,viewS,S}; }
+const SITE={A:buildSite('A'),B:buildSite('B')}; let cur='A';
+const hdgEl=document.getElementById('hdg'), whatEl=document.getElementById('what'), hdgsEl=document.getElementById('hdgs');
+let seq=[], targetH=0, curH=0, autoOn=!reduced, lastSwitch=performance.now(), seqI=0;
+function setTarget(h,manual){ targetH=h; hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.h===h))); hdgEl.textContent=h+'°'; whatEl.textContent=SITE[cur].S.what[h]||''; lastSwitch=performance.now()+(manual?14000:0); }
+function showSite(key,first){ cur=key; for(const k in SITE) SITE[k].grp.visible=(k===key); const S=SITE[key].S;
+  document.getElementById('h1').textContent=S.title; document.getElementById('txt').innerHTML=S.txt;
+  document.getElementById('siteA').setAttribute('aria-pressed',String(key==='A')); document.getElementById('siteB').setAttribute('aria-pressed',String(key==='B'));
+  seq=S.yagi.slice(); seqI=0; hdgsEl.innerHTML=seq.map(h=>`<button type="button" data-h="${h}">${h}°</button>`).join(' ');
+  hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.addEventListener('click',()=>{ seqI=seq.indexOf(+b.dataset.h); setTarget(+b.dataset.h,true); }));
+  curH=targetH=seq[0]; setTarget(seq[0],false); SITE[key].Y.rotation.y=-curH*Math.PI/180; SITE[key].beam.setHeading(curH); lastBeam=curH;
+  const v=stView?SITE[key].viewS:SITE[key].viewM; if(first){ camera.position.copy(v.p); controls.target.copy(v.t); } else flyTo(v); }
+let fly=null, stView=false, lastBeam=null; const viewBtn=document.getElementById('view');
 function flyTo(v){ if(reduced){ camera.position.copy(v.p); controls.target.copy(v.t); return; } fly={p0:camera.position.clone(),t0:controls.target.clone(),p1:v.p,t1:v.t,s:performance.now()}; }
 const hudEl=document.getElementById('hud'), miniBtn=document.getElementById('mini'); let hudWasOpen=true;
-viewBtn.addEventListener('click',()=>{ stView=!stView; viewBtn.setAttribute('aria-pressed',String(stView)); flyTo(stView?VIEW_S:VIEW_M);
+viewBtn.addEventListener('click',()=>{ stView=!stView; viewBtn.setAttribute('aria-pressed',String(stView)); flyTo(stView?SITE[cur].viewS:SITE[cur].viewM);
   if(stView){ hudWasOpen=!hudEl.classList.contains('min'); if(innerWidth<900){ hudEl.classList.add('min'); miniBtn.textContent='+'; } } else if(hudWasOpen){ hudEl.classList.remove('min'); miniBtn.textContent='−'; } });
+document.getElementById('siteA').addEventListener('click',()=>showSite('A')); document.getElementById('siteB').addEventListener('click',()=>showSite('B'));
 const autoBtn=document.getElementById('auto'); autoBtn.setAttribute('aria-pressed',String(autoOn)); autoBtn.addEventListener('click',()=>{ autoOn=!autoOn; controls.autoRotate=autoOn; autoBtn.setAttribute('aria-pressed',String(autoOn)); });
 document.getElementById('mini').addEventListener('click',e=>{ const h=document.getElementById('hud'); h.classList.toggle('min'); e.target.textContent=h.classList.contains('min')?'+':'−'; });
 function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); } addEventListener('resize',resize); resize();
-let lastBeam=null;
+sun.target.position.set(-12,hAt(-12,-45),45);
+showSite('A',true);
 function frame(now){ requestAnimationFrame(frame);
   if(autoOn && now-lastSwitch>8000){ seqI=(seqI+1)%seq.length; setTarget(seq[seqI],false); }
   let d=((targetH-curH+540)%360)-180; curH+= d*(reduced?1:0.035); if(Math.abs(d)<0.05)curH=targetH;
-  Y.rotation.y=-curH*Math.PI/180; if(lastBeam===null||Math.abs(curH-lastBeam)>0.4){ beam.setHeading(curH); lastBeam=curH; }
+  const site=SITE[cur]; site.Y.rotation.y=-curH*Math.PI/180; if(lastBeam===null||Math.abs(curH-lastBeam)>0.4){ site.beam.setHeading(curH); lastBeam=curH; }
   if(fly){ const k=Math.min(1,(now-fly.s)/2200); const e=k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2; camera.position.lerpVectors(fly.p0,fly.p1,e); controls.target.lerpVectors(fly.t0,fly.t1,e); if(k>=1)fly=null; }
   controls.update(); renderer.render(scene,camera); }
 requestAnimationFrame(frame);

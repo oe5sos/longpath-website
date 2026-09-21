@@ -64,8 +64,8 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit beiden Masten, den Antennen, dem Auto und der Bergstation der Steinbachalmbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt, die Knöpfe stellen die Yagi, „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit zwei umschaltbaren Antennenstandorten, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt, „Standort A / B“ wechselt den Platz, die Gradknöpfe stellen die Yagi, „Bergstation“ schwenkt zur Seilbahn. Rot: der Tabu-Sektor. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,25 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg.
+Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene kennt inzwischen zwei Plätze und einen roten Sektor — warum, steht im nächsten Abschnitt.
+
+## Zwei Plätze, ein Tabu
+
+Nach dem ersten Blatt kam eine zweite Markierung: nicht die Kuppe, sondern die Wiese südlich des Hauses, 34 Meter von seiner Südecke, 153 von der Bergstation — **Standort B**. Und eine Bedingung dazu, die vorher nicht in der Rechnung war: **Richtung Seilbahn wird nicht gesendet**, und auch nicht 180 Grad gedreht, weil die Rückkeule einer Yagi nicht auf die Bahn zeigen soll. Also noch einmal beides gerechnet, mit demselben Laserscan und derselben Regel.
+
+Die Regel, in Grad: Bergstation und Trasse, wie sie vom Yagi-Mast aus erscheinen, plus 17 Grad — die halbe Keule der 12JXX2 — zu beiden Seiten. Von der Kuppe (A) sind das **215° bis 262°**, gedreht **35° bis 82°**. Von der Wiese (B), von der aus die Bahn genau im Westen liegt, **244° bis 288°** und **64° bis 108°**. Kein Hauptstrahl darf hinein, auch keiner der Quads; die haben mit 69 Grad ihren eigenen, breiteren Rand.
+
+Was in den roten Sektoren liegt, ist an beiden Plätzen etwas anderes. Von A aus ist es vorwärts Italien: Triest, Venedig, Bologna, Verona, Mailand, 281 italienische Logs, dazu Slowenien — 298 Stationen, die die Yagi sonst erreicht. Rückwärts sind es Polen, die Slowakei, die Ukraine und Tschechien: Ostrava, Kraków, Žilina, Bratislava, Košice, Lwiw, 267. Von B aus liegt vorwärts der Westen: München, Innsbruck, Salzburg, Zürich, Mailand, 157 Stationen, darunter 49 deutsche; rückwärts Ungarn, die Ostslowakei, Rumänien, die Ukraine — Košice, Budapest, Debrecen, Cluj, 119.
+
+![Vergleichsblatt mit zwei dunklen Stationskarten, 700 Kilometer um das Stuhleck: links Standort A auf der Kuppe, rechts Standort B auf der Wiese, in beiden ein roter Tabu-Sektor Richtung Seilbahn und ein blasserer 180 Grad gedreht, dazu die Quad-Keile und die drei Yagi-Stellungen; darunter die Zahlen: ohne Tabu 1 473 gegen 1 331, mit Tabu 1 342 gegen 1 325 Stationen unter drei Dezibel](../../assets/karten/stuhleck-standortvergleich.png)
+
+Unter der Regel neu gerechnet, sieht der Plan anders aus. Auf der Kuppe geht Quad 2 von 216° auf **294°** — Nürnberg, Regensburg, Passau, München, Linz: das deutsche Fenster bekommt damit die feste Antenne oben auf 11,8 Metern —, Quad 1 bleibt auf 20°, und der Stack hat seine drei Stellungen im Süden, **138°, 172°, 212°**: Belgrad, Zagreb, Split, Rijeka, Ljubljana, Triest. 1 342 Stationen unter drei Dezibel, 131 weniger als ohne die Regel. Auf der Wiese steht das Haus genau im Norden, sein First neun Meter über dem Boden: die untere Quad auf acht Metern sieht von 343° bis 18° nichts mehr, die obere verliert dort vier Dezibel, die obere Yagi neun, und die untere Yagi ist von 259° bis 45° blind — dreizehn Dezibel. Der beste Plan dreht die Quads um: **216°** unten für Italien, **42°** oben über das Haus hinweg nach Brünn und Kraków, der Stack auf **118°, 164°, 294°**. 1 325 Stationen.
+
+Ohne Tabu ist die Kuppe klar der bessere Platz, 1 473 gegen 1 331. Mit Tabu rücken beide fast gleich — A verliert seine Italien-Richtung, B verliert stattdessen den Westen und den Norden ans Haus. Was die Zahl nicht zeigt: Auf der Wiese ist die untere Yagi des Stacks nach Norden und Westen blind, dort bleibt eine Einzel-Yagi mit zweieinhalb Dezibel weniger, und alles Deutsche muss über die obere Quad gehen. Die Kuppe bleibt der Platz, an dem alle vier Antennen arbeiten.
+
+Dann die Frage, die beim Rechnen aufkam: Deutschland ist das Land mit den meisten Stationen — wäre für Deutschland eine feste 12JXX2 besser als die Quad? Gerechnet mit 920 deutschen Stationen, IARU-Logs und DARC-Liste, von der Kuppe aus: Ein Quad-Paar fest nach Deutschland, 286° und 318°, hat 599 davon im Hauptstrahl, mit zwölf Dezibel. Zwei 12JXX2 fest in zwei Richtungen, 294° und 334°, haben 583 — fast dieselben, mit drei Dezibel mehr. Der Preis steht woanders: Die 69 Grad der Quads nehmen Polen, Tschechien und Italien mit, und im ganzen Plan sind zwei feste Yagis 250 Stationen weniger. Der Mittelweg: unten die Quad auf 20°, oben die 12JXX2 fest auf **296°** — Franken, Oberpfalz, Bayern mit fünfzehn Dezibel für 411 deutsche Stationen, Sachsen und Berlin holt der Stack über 330°. Hundert Stationen weniger als zwei Quads, drei Dezibel mehr für die, die zählen.
+
+Der [Lageplan mit beiden Standorten](/karten/stuhleck-lageplan-standorte-a-b.pdf) hat die Entfernungen zu Haus, Bergstation und Stützen für Mast 1, Mast 2 und den Punkt auf der Wiese.
 
 ## Die Daten
 
@@ -84,9 +102,12 @@ Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwa
 | Mast 2 | 47,574368 N / 15,789992 O · 10 m · 2 × 12JXX2 auf 6,4 und 9,7 m, Rotor · 312° / 72° / 280° |
 | Boden | 1 780 m (Laserscan), Gipfelkreuz 1 782 m, First des Hauses 1 786,9 m |
 | Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 120 / 121 m · Auto 45 m |
+| Standort B | 47,573805 N / 15,790728 O · Wiese südlich des Hauses, Boden 1 778 m · Haus 34 m · Bergstation 153 m · Gipfelkreuz 72 m |
+| Tabu Richtung Seilbahn | A 215°–262° und 35°–82° · B 244°–288° und 64°–108° (Bergstation und Trasse ± 17°, vorwärts und 180° gedreht) |
 | Horizont | frei 11°–226°, 291°–305°, 352°–1°; knapp 227°–273°, 281°–284°, 306°–327°; über der Waagrechten 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, höchstens +0,8° |
 | Stationen ≤ 700 km | 1 741 frei von 2 127, 386 im Beugungsschatten, 18 Länder, Σ 754 000 km |
 | Plan | Quads 980, drei Yagi-Stellungen 493, zusammen 1 473 (85 %), Σ 663 000 km |
+| Plan mit Tabu | A: Quads 20° / 294°, Yagi 138° / 172° / 212°, 1 342 (Σ 574 000 km) · B: Quads 216° / 42°, Yagi 118° / 164° / 294°, 1 325 (Σ 561 000 km) |
 
 Der [Lageplan als PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) hat alles auf einem Blatt, Übersicht und Detail, mit Koordinaten, Entfernungen und Quellen — so, wie man ihn vorlegen kann.
 

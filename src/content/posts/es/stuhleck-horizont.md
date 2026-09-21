@@ -64,8 +64,8 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con los dos mástiles, las antenas, el coche y la estación superior del Steinbachalmbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca, los botones orientan la Yagi, «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con dos emplazamientos conmutables para las antenas, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca, «Standort A / B» cambia de emplazamiento, los botones de grados orientan la Yagi, «Bergstation» gira hacia el telesilla. Rojo: el sector prohibido. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,25 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba.
+La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena conoce ahora dos emplazamientos y un sector rojo — el porqué está en la sección siguiente.
+
+## Dos sitios, una prohibición
+
+Tras la primera hoja llegó una segunda marca: no la loma, sino el prado al sur del refugio, a 34 metros de su esquina sur y 153 de la estación superior — el **emplazamiento B**. Y una condición que antes no estaba en el cálculo: **hacia el telesilla no se transmite**, ni tampoco girado 180 grados, porque el lóbulo trasero de una Yagi no debe apuntar al remonte. Así que se calcularon los dos de nuevo, con el mismo escaneo láser y la misma regla.
+
+La regla, en grados: estación superior y línea tal como se ven desde el mástil de la Yagi, más 17 grados — medio haz de la 12JXX2 — a cada lado. Desde la loma (A) son **de 215° a 262°**, girado **de 35° a 82°**. Desde el prado (B), desde donde el remonte queda justo al oeste, **de 244° a 288°** y **de 64° a 108°**. Ningún haz principal puede entrar, tampoco el de los cuadros; con sus 69 grados tienen su propio margen, más ancho.
+
+Lo que hay en los sectores rojos es distinto en cada sitio. Desde A, hacia delante es Italia: Trieste, Venecia, Bolonia, Verona, Milán, 281 logs italianos, más Eslovenia — 298 estaciones que la Yagi alcanza de otro modo. Hacia atrás son Polonia, Eslovaquia, Ucrania y Chequia: Ostrava, Cracovia, Žilina, Bratislava, Košice, Leópolis, 267. Desde B, hacia delante queda el oeste: Múnich, Innsbruck, Salzburgo, Zúrich, Milán, 157 estaciones, 49 de ellas alemanas; hacia atrás Hungría, la Eslovaquia oriental, Rumanía, Ucrania — Košice, Budapest, Debrecen, Cluj, 119.
+
+![Hoja comparativa con dos mapas oscuros de estaciones, 700 kilómetros alrededor del Stuhleck: a la izquierda el emplazamiento A en la loma, a la derecha el B en el prado, en ambos un sector rojo prohibido hacia el telesilla y otro más pálido girado 180 grados, además de las cuñas de los cuadros y las tres posiciones de la Yagi; debajo, las cifras: sin prohibición 1473 frente a 1331, con ella 1342 frente a 1325 estaciones por debajo de tres decibelios](../../assets/karten/stuhleck-standortvergleich.png)
+
+Recalculado bajo la regla, el plan cambia. En la loma, el cuadro 2 pasa de 216° a **294°** — Núremberg, Ratisbona, Passau, Múnich, Linz: la ventana alemana recibe así la antena fija de arriba, a 11,8 metros —, el cuadro 1 se queda en 20°, y el stack tiene sus tres posiciones en el sur, **138°, 172°, 212°**: Belgrado, Zagreb, Split, Rijeka, Liubliana, Trieste. 1342 estaciones por debajo de tres decibelios, 131 menos que sin la regla. En el prado, el refugio queda justo al norte, con la cumbrera nueve metros por encima del suelo: el cuadro inferior, a ocho metros, ya no ve nada de 343° a 18°, el superior pierde allí cuatro decibelios, la Yagi superior nueve, y la Yagi inferior está ciega de 259° a 45° — trece decibelios. El mejor plan invierte los cuadros: **216°** abajo para Italia, **42°** arriba por encima del refugio hacia Brno y Cracovia, el stack en **118°, 164°, 294°**. 1325 estaciones.
+
+Sin la prohibición, la loma es claramente el mejor sitio, 1473 frente a 1331. Con ella los dos quedan casi igualados — A pierde su dirección italiana, B pierde en cambio el oeste, y el norte al refugio. Lo que la cifra no muestra: en el prado, la Yagi inferior del stack está ciega hacia el norte y el oeste, allí queda una Yagi sola con dos decibelios y medio menos, y todo lo alemán tiene que pasar por el cuadro superior. La loma sigue siendo el sitio donde trabajan las cuatro antenas.
+
+Luego la pregunta que surgió al calcular: Alemania es el país con más estaciones — ¿sería mejor para Alemania una 12JXX2 fija que el cuadro? Calculado con 920 estaciones alemanas, logs de la IARU y lista del DARC, desde la loma: un par de cuadros fijos hacia Alemania, 286° y 318°, tiene 599 de ellas en el haz principal, con doce decibelios. Dos 12JXX2 fijas en dos direcciones, 294° y 334°, tienen 583 — casi las mismas, con tres decibelios más. El precio está en otra parte: los 69 grados de los cuadros se llevan Polonia, Chequia e Italia, y en el plan completo dos Yagis fijas son 250 estaciones menos. El término medio: abajo el cuadro en 20°, arriba la 12JXX2 fija en **296°** — Franconia, Alto Palatinado, Baviera con quince decibelios para 411 estaciones alemanas, Sajonia y Berlín las recoge el stack por 330°. Cien estaciones menos que dos cuadros, tres decibelios más para las que cuentan.
+
+El [plano de situación con los dos emplazamientos](/karten/stuhleck-lageplan-standorte-a-b.pdf) tiene las distancias al refugio, a la estación superior y a las pilonas para el mástil 1, el mástil 2 y el punto del prado.
 
 ## Los datos
 
@@ -84,9 +102,12 @@ La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un 
 | Mástil 2 | 47,574368 N / 15,789992 E · 10 m · 2 × 12JXX2 a 6,4 y 9,7 m, rotor · 312° / 72° / 280° |
 | Suelo | 1780 m (escaneo láser), cruz de la cumbre 1782 m, cumbrera del refugio 1786,9 m |
 | Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 120 / 121 m · coche 45 m |
+| Emplazamiento B | 47,573805 N / 15,790728 E · prado al sur del refugio, suelo 1778 m · refugio 34 m · estación superior 153 m · cruz 72 m |
+| Prohibición hacia el telesilla | A 215°–262° y 35°–82° · B 244°–288° y 64°–108° (estación superior y línea ± 17°, hacia delante y girado 180°) |
 | Horizonte | libre 11°–226°, 291°–305°, 352°–1°; justo 227°–273°, 281°–284°, 306°–327°; sobre la horizontal 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, como máximo +0,8° |
 | Estaciones ≤ 700 km | 1741 libres de 2127, 386 en la sombra de difracción, 18 países, Σ 754 000 km |
 | Plan | cuadros 980, tres posiciones de la Yagi 493, juntos 1473 (85 %), Σ 663 000 km |
+| Plan con prohibición | A: cuadros 20° / 294°, Yagi 138° / 172° / 212°, 1342 (Σ 574 000 km) · B: cuadros 216° / 42°, Yagi 118° / 164° / 294°, 1325 (Σ 561 000 km) |
 
 El [plano de situación en PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) lo tiene todo en una hoja, vista general y detalle, con coordenadas, distancias y fuentes — tal como se puede presentar.
 
