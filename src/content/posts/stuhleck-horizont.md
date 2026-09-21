@@ -64,8 +64,8 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d/" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit beiden Masten, den Antennen und dem Auto" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt, die Knöpfe stellen die Yagi. <a href="/stuhleck-3d/">Im Vollbild öffnen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit beiden Masten, den Antennen und dem Auto" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt, die Knöpfe stellen die Yagi. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>

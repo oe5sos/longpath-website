@@ -64,8 +64,8 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d/" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con los dos mástiles, las antenas y el coche" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca, los botones orientan la Yagi. <a href="/stuhleck-3d/">Abrir a pantalla completa</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con los dos mástiles, las antenas y el coche" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca, los botones orientan la Yagi. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
 <style>

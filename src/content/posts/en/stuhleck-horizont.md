@@ -64,8 +64,8 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d/" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with both masts, the antennas and the car" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Drag to turn, scroll to zoom, the buttons set the Yagi. <a href="/stuhleck-3d/">Open full screen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with both masts, the antennas and the car" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, scroll to zoom, the buttons set the Yagi. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
