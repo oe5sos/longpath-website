@@ -16,7 +16,7 @@ import karte from "../../assets/contest/02-karte.png";
 import rotoren from "../../assets/contest/03-rotoren.png";
 
 const STAND = "21. September 2026";
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 const GITHUB = "https://github.com/oe5sos/Contestprogramm";
 const REL = `${GITHUB}/releases/download/v${VERSION}`;
 const RELTAG = `${GITHUB}/releases/tag/v${VERSION}`;
@@ -32,8 +32,22 @@ const pakete = [
       { label: "SHA256", href: `${REL}/Contestprogramm-${VERSION}-macOS-apple-silicon.dmg.sha256` },
     ],
   },
-  { os: "Windows · x64", datei: "Installer · portables ZIP", empfohlen: false, da: false, links: [] },
-  { os: "Linux · x86_64", datei: "AppImage", empfohlen: false, da: false, links: [] },
+  {
+    os: "Windows · x64", datei: `Contestprogramm-${VERSION}-Windows-x64-portable.zip · SHA256`, empfohlen: false, da: true,
+    stand: "Gebaut · ungeprüft",
+    links: [
+      { label: "ZIP", href: `${REL}/Contestprogramm-${VERSION}-Windows-x64-portable.zip` },
+      { label: "SHA256", href: `${REL}/Contestprogramm-${VERSION}-Windows-x64-portable.zip.sha256` },
+    ],
+  },
+  {
+    os: "Linux · x86_64", datei: `Contestprogramm-${VERSION}-x86_64.AppImage · SHA256`, empfohlen: false, da: true,
+    stand: "Gebaut · ungeprüft",
+    links: [
+      { label: "AppImage", href: `${REL}/Contestprogramm-${VERSION}-x86_64.AppImage` },
+      { label: "SHA256", href: `${REL}/Contestprogramm-${VERSION}-x86_64.AppImage.sha256` },
+    ],
+  },
   {
     os: "Quelltext", datei: "GitHub · GPL-3.0-or-later", empfohlen: false, da: true,
     links: [{ label: "GitHub", href: GITHUB }, { label: "Release", href: RELTAG }],
@@ -272,11 +286,13 @@ const uebernommen = [
             die Karte, das Gelände.
           </p>
           <p>
-            <strong>Stand {STAND}:</strong> Version {VERSION} ist die erste, die es
-            als Paket gibt — für macOS auf Apple Silicon, dazu der Quelltext unter
-            GPL-3.0-or-later auf GitHub. Gegen den echten ON4KST-Server ist es
-            gelaufen, gegen Transceiver und Rotor am Tisch; der erste Contest damit
-            ist der IARU-Region-1-UHF/Mikrowellen-Contest Anfang Oktober.
+            <strong>Stand {STAND}:</strong> Version {VERSION} gibt es als Paket für
+            macOS (Apple Silicon), Windows und Linux, dazu der Quelltext unter
+            GPL-3.0-or-later auf GitHub; spätere Versionen holt sich das Programm über
+            <em>Hilfe › Auf neueste Version aktualisieren</em> selbst. Gegen den echten
+            ON4KST-Server ist es gelaufen, gegen Transceiver und Rotor am Tisch; der
+            erste Contest damit ist der IARU-Region-1-UHF/Mikrowellen-Contest Anfang
+            Oktober.
           </p>
         </div>
         <div class="panel sun__panel">
@@ -297,12 +313,15 @@ const uebernommen = [
     <section class="section wrap" id="download">
       <div class="section__head">
         <p class="caps">Download</p>
-        <h2>Version {VERSION} — für macOS, der Rest folgt.</h2>
+        <h2>Version {VERSION} — macOS, Windows, Linux.</h2>
         <p class="intro">
-          Das Paket kommt von den GitHub-Releases, mit SHA256 daneben. Es ist nicht
-          bei Apple beglaubigt: beim ersten Start <em>Rechtsklick › Öffnen</em>, danach
-          startet es wie jedes Programm. Windows und Linux sind derselbe Qt-Baum — die
-          Pakete dafür baut die CI als Nächstes.
+          Die Pakete kommen von den GitHub-Releases, jedes mit SHA256 daneben. Das
+          macOS-Paket ist nicht bei Apple beglaubigt: beim ersten Start
+          <em>Rechtsklick › Öffnen</em>, danach startet es wie jedes Programm. Windows
+          (portables ZIP) und Linux (AppImage) baut und prüft dieselbe CI aus demselben
+          Qt-Baum — am Gerät ausprobiert sind sie noch nicht. Ein laufendes Programm
+          holt sich die nächste Version selbst: <em>Hilfe › Auf neueste Version
+          aktualisieren</em>.
         </p>
       </div>
       <div class="panel dl">
@@ -316,7 +335,7 @@ const uebernommen = [
               <p class:list={["caps", p.empfohlen && "caps--m"]}>{p.empfohlen ? "Für dieses Gerät" : " "}</p>
               <span class="dl__os">{p.os}</span>
               <span class="dl__datei">{p.datei}</span>
-              <span class="dl__stand caps"><span class="punkt"></span>{p.da ? "Freigegeben" : "Folgt über die CI"}</span>
+              <span class="dl__stand caps"><span class="punkt"></span>{p.stand ?? (p.da ? "Freigegeben" : "Folgt über die CI")}</span>
               <span class="dl__links">
                 {p.links.map((l, i) => (
                   <>
@@ -331,8 +350,9 @@ const uebernommen = [
       </div>
       <p class="herkunft">
         <strong>Daten.</strong> Log, Einstellungen und Layout liegen in einer SQLite-Datei
-        unter <code>~/Library/Application Support/Contestprogramm/</code>, die Sicherungen
-        daneben. Höhendaten (SRTM1) lädt das Programm bei Bedarf und behält sie.
+        unter <code>~/Library/Application Support/Contestprogramm/</code> (Windows:
+        <code>%AppData%\Contestprogramm</code>, Linux: <code>~/.local/share/Contestprogramm</code>),
+        die Sicherungen daneben. Höhendaten (SRTM1) lädt das Programm bei Bedarf und behält sie.
         Quelltext, Tests und Anleitung: <a href={GITHUB}>github.com/oe5sos/Contestprogramm</a>.
       </p>
     </section>
