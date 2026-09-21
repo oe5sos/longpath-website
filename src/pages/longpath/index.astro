@@ -43,14 +43,14 @@ const pakete = [
     ],
   },
   {
-    os: "Linux", datei: "AppImage · x86_64 + aarch64", empfohlen: false,
+    os: "Linux", datei: "AppImage · x86_64 + aarch64", empfohlen: false, stand: c.download.standUngeprueft,
     links: [
       { label: "x86_64", href: `${REL}/Longpath-${VERSION}-x86_64.AppImage` },
       { label: "aarch64", href: `${REL}/Longpath-${VERSION}-aarch64.AppImage` },
     ],
   },
   {
-    os: "Windows", datei: "NSIS-Installer · portables ZIP · x64", empfohlen: false,
+    os: "Windows", datei: "NSIS-Installer · portables ZIP · x64", empfohlen: false, stand: c.download.standWindows,
     links: [
       { label: "Installer", href: `${REL}/Longpath-${VERSION}-Windows-x64-setup.exe` },
       { label: "ZIP", href: `${REL}/Longpath-${VERSION}-Windows-x64-portable.zip` },
@@ -225,7 +225,7 @@ const pakete = [
               <span class="dl__os">{p.os}</span>
               <span class="dl__datei">{p.datei}</span>
               <span class="dl__stand caps">
-                <span class="punkt"></span>{c.download.stand}
+                <span class="punkt"></span>{p.stand ?? c.download.stand}
               </span>
               <span class="dl__links">
                 {p.links.map((l, i) => (
