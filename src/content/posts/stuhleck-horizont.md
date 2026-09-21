@@ -64,8 +64,8 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit beiden Masten, den Antennen und dem Auto" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt, die Knöpfe stellen die Yagi. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit beiden Masten, den Antennen, dem Auto und der Bergstation der Steinbachalmbahn" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt, die Knöpfe stellen die Yagi, „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundert Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe. Und dass nichts davon im Weg ist.
+Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg.
 
 ## Die Daten
 
@@ -83,7 +83,7 @@ Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwa
 | Mast 1 | 47,574278 N / 15,790072 O · 13,5 m · Quad 1 auf 20° (8 m), Quad 2 auf 216° (11,8 m) |
 | Mast 2 | 47,574368 N / 15,789992 O · 10 m · 2 × 12JXX2 auf 6,4 und 9,7 m, Rotor · 312° / 72° / 280° |
 | Boden | 1 780 m (Laserscan), Gipfelkreuz 1 782 m, First des Hauses 1 786,9 m |
-| Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 129 / 130 m · Auto 45 m |
+| Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 120 / 121 m · Auto 45 m |
 | Horizont | frei 11°–226°, 291°–305°, 352°–1°; knapp 227°–273°, 281°–284°, 306°–327°; über der Waagrechten 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, höchstens +0,8° |
 | Stationen ≤ 700 km | 1 741 frei von 2 127, 386 im Beugungsschatten, 18 Länder, Σ 754 000 km |
 | Plan | Quads 980, drei Yagi-Stellungen 493, zusammen 1 473 (85 %), Σ 663 000 km |
@@ -115,6 +115,6 @@ Beide Karten als PDF: [Zoom 180 km](/karten/stuhleck-horizont-zoom-180km.pdf) mi
 
 ## Vorbehalt
 
-Das Geländemodell hat dreißig Meter Raster; für den Gipfel selbst steht der Laserscan mit einem Meter dagegen, für den Rest die Standardatmosphäre. Die Stationszahlen sind Logs, keine Stationen, und zwei Jahre alt. Ob man mit dem Auto bis zum Haus darf, sagt keine Karte; die Straße ist eine Forststraße, und das Haus gehört dem Alpenverein. Und die Steinbachalmbahn endet 150 Meter westlich vom Gipfel — ob sie im September fährt, ist eine Frage an die Bergbahnen, nicht an das Geländemodell.
+Das Geländemodell hat dreißig Meter Raster; für den Gipfel selbst steht der Laserscan mit einem Meter dagegen, für den Rest die Standardatmosphäre. Die Stationszahlen sind Logs, keine Stationen, und zwei Jahre alt. Ob man mit dem Auto bis zum Haus darf, sagt keine Karte; die Straße ist eine Forststraße, und das Haus gehört dem Alpenverein. Und die Steinbachalmbahn endet 120 Meter südwestlich vom Gipfelkreuz — ob sie im September fährt, ist eine Frage an die Bergbahnen, nicht an das Geländemodell.
 
 Was die Rechnung sagt: Das Stuhleck ist der Berg, von dem man Europa sieht. Deutschland sieht man von anderen.

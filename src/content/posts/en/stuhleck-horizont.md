@@ -64,8 +64,8 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with both masts, the antennas and the car" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Drag to turn, scroll to zoom, the buttons set the Yagi. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with both masts, the antennas, the car and the Steinbachalmbahn top station" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, scroll to zoom, the buttons set the Yagi, “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twenty centimetres, the masts, the quads and the stack are to scale. What the scene shows is not the view — that comes from the terrain model — but what stands in the first hundred metres: the hut, the car park, the summit cross, the dome. And that none of it is in the way.
+The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twenty centimetres, the masts, the quads and the stack are to scale. What the scene shows is not the view — that comes from the terrain model — but what stands in the first hundred and fifty metres: the hut, the car park, the summit cross, the dome — and 120 metres to the south-west the top station of the Steinbachalmbahn, a roofed structure of eighteen by seven metres on columns, eight metres high, with the two rope strands running down the valley over two pylons. Seen from the antennas its roof lies five to eight degrees below the horizontal; it stands in no sector’s way, and the “Bergstation” button shows that from the masts’ point of view. None of it is in the way.
 
 ## The data
 
@@ -83,7 +83,7 @@ The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twen
 | Mast 1 | 47.574278 N / 15.790072 E · 13.5 m · quad 1 at 20° (8 m), quad 2 at 216° (11.8 m) |
 | Mast 2 | 47.574368 N / 15.789992 E · 10 m · 2 × 12JXX2 at 6.4 and 9.7 m, rotator · 312° / 72° / 280° |
 | Ground | 1,780 m (laser scan), summit cross 1,782 m, ridge of the hut 1,786.9 m |
-| Distances | hut 42 / 51 m · summit cross 12 / 19 m · Steinbachalmbahn top station 129 / 130 m · car 45 m |
+| Distances | hut 42 / 51 m · summit cross 12 / 19 m · Steinbachalmbahn top station 120 / 121 m · car 45 m |
 | Horizon | clear 11°–226°, 291°–305°, 352°–1°; marginal 227°–273°, 281°–284°, 306°–327°; above the horizontal 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, at most +0.8° |
 | Stations ≤ 700 km | 1,741 clear of 2,127, 386 in the diffraction shadow, 18 countries, Σ 754,000 km |
 | Plan | quads 980, three Yagi positions 493, together 1,473 (85 %), Σ 663,000 km |
@@ -145,6 +145,6 @@ Both maps as PDF: [zoom 180 km](/karten/stuhleck-horizont-zoom-180km.pdf) with t
 
 ## Caveat
 
-The terrain model has a thirty-metre grid; for the summit itself the laser scan at one metre stands against it, for the rest the standard atmosphere. The station counts are logs, not stations, and two years old. Whether you may drive up to the hut, no map says; the road is a forest road, and the hut belongs to the Alpine Club. And the Steinbachalmbahn ends 150 metres west of the summit — whether it runs in September is a question for the lift company, not for the terrain model.
+The terrain model has a thirty-metre grid; for the summit itself the laser scan at one metre stands against it, for the rest the standard atmosphere. The station counts are logs, not stations, and two years old. Whether you may drive up to the hut, no map says; the road is a forest road, and the hut belongs to the Alpine Club. And the Steinbachalmbahn ends 120 metres south-west of the summit cross — whether it runs in September is a question for the lift company, not for the terrain model.
 
 What the calculation says: the Stuhleck is the mountain from which you see Europe. Germany you see from others.

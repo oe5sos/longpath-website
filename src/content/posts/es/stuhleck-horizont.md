@@ -64,8 +64,8 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con los dos mástiles, las antenas y el coche" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca, los botones orientan la Yagi. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con los dos mástiles, las antenas, el coche y la estación superior del Steinbachalmbahn" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca, los botones orientan la Yagi, «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros cien metros: el refugio, el aparcamiento, la cruz, la loma. Y que nada de eso estorba.
+La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba.
 
 ## Los datos
 
@@ -83,7 +83,7 @@ La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un 
 | Mástil 1 | 47,574278 N / 15,790072 E · 13,5 m · cuadro 1 a 20° (8 m), cuadro 2 a 216° (11,8 m) |
 | Mástil 2 | 47,574368 N / 15,789992 E · 10 m · 2 × 12JXX2 a 6,4 y 9,7 m, rotor · 312° / 72° / 280° |
 | Suelo | 1780 m (escaneo láser), cruz de la cumbre 1782 m, cumbrera del refugio 1786,9 m |
-| Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 129 / 130 m · coche 45 m |
+| Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 120 / 121 m · coche 45 m |
 | Horizonte | libre 11°–226°, 291°–305°, 352°–1°; justo 227°–273°, 281°–284°, 306°–327°; sobre la horizontal 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, como máximo +0,8° |
 | Estaciones ≤ 700 km | 1741 libres de 2127, 386 en la sombra de difracción, 18 países, Σ 754 000 km |
 | Plan | cuadros 980, tres posiciones de la Yagi 493, juntos 1473 (85 %), Σ 663 000 km |
@@ -145,6 +145,6 @@ Los dos mapas en PDF: [zoom 180 km](/karten/stuhleck-horizont-zoom-180km.pdf) co
 
 ## Reserva
 
-El modelo del terreno tiene una malla de treinta metros; para la cumbre misma está el escaneo láser a un metro, para el resto la atmósfera estándar. Las cifras de estaciones son logs, no estaciones, y tienen dos años. Si se puede subir en coche hasta el refugio no lo dice ningún mapa; la carretera es una pista forestal y el refugio pertenece al Club Alpino. Y el Steinbachalmbahn termina 150 metros al oeste de la cumbre — si funciona en septiembre es una pregunta para la empresa del remonte, no para el modelo del terreno.
+El modelo del terreno tiene una malla de treinta metros; para la cumbre misma está el escaneo láser a un metro, para el resto la atmósfera estándar. Las cifras de estaciones son logs, no estaciones, y tienen dos años. Si se puede subir en coche hasta el refugio no lo dice ningún mapa; la carretera es una pista forestal y el refugio pertenece al Club Alpino. Y el Steinbachalmbahn termina 120 metros al suroeste de la cruz de la cumbre — si funciona en septiembre es una pregunta para la empresa del remonte, no para el modelo del terreno.
 
 Lo que dice el cálculo: el Stuhleck es la montaña desde la que se ve Europa. Alemania se ve desde otras.
