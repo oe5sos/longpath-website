@@ -5,8 +5,9 @@
  * Ein Geschwister von Longpath, kein Teil davon: ein eigenes Programm
  * fuer den 24-Stunden-Contest auf 2 m und 70 cm. Was hier steht,
  * stuetzt sich auf den Quellbaum unter ../Contestprogramm/ — jede
- * Aussage hat dort eine Klasse. Kein Download: das Programm ist im
- * Bau und laeuft bisher nur am Tisch des Betreibers.
+ * Aussage hat dort eine Klasse. Seit 0.1.0 (21. September 2026) gibt
+ * es ein Paket fuer macOS und den Quelltext auf GitHub; Windows und
+ * Linux folgen ueber die CI.
  */
 import { Image } from "astro:assets";
 import Base from "../../layouts/Base.astro";
@@ -14,15 +15,38 @@ import arbeitsplatz from "../../assets/contest/01-arbeitsplatz.png";
 import karte from "../../assets/contest/02-karte.png";
 import rotoren from "../../assets/contest/03-rotoren.png";
 
-const STAND = "16. September 2026";
+const STAND = "21. September 2026";
+const VERSION = "0.1.0";
+const GITHUB = "https://github.com/oe5sos/Contestprogramm";
+const REL = `${GITHUB}/releases/download/v${VERSION}`;
+const RELTAG = `${GITHUB}/releases/tag/v${VERSION}`;
+
+/* Die Pakete — dieselbe Tafel wie auf der App-Seite. Windows und Linux
+   sind Qt-Baeume wie macOS auch, nur baut sie noch niemand: die CI dafuer
+   ist die naechste Arbeit, die Zeilen stehen schon. */
+const pakete = [
+  {
+    os: "macOS · Apple Silicon", datei: `Contestprogramm-${VERSION}-macOS-apple-silicon.dmg · SHA256`, empfohlen: true, da: true,
+    links: [
+      { label: "DMG", href: `${REL}/Contestprogramm-${VERSION}-macOS-apple-silicon.dmg` },
+      { label: "SHA256", href: `${REL}/Contestprogramm-${VERSION}-macOS-apple-silicon.dmg.sha256` },
+    ],
+  },
+  { os: "Windows · x64", datei: "Installer · portables ZIP", empfohlen: false, da: false, links: [] },
+  { os: "Linux · x86_64", datei: "AppImage", empfohlen: false, da: false, links: [] },
+  {
+    os: "Quelltext", datei: "GitHub · GPL-3.0-or-later", empfohlen: false, da: true,
+    links: [{ label: "GitHub", href: GITHUB }, { label: "Release", href: RELTAG }],
+  },
+];
 
 /* Was das Programm kann — je Karte eine Gruppe von Klassen im Quellbaum. */
 const werke = [
   {
     bereich: "Log",
     titel: "Ein Log, das beim Tippen schon prüft.",
-    text: "SQLite unter dem Tisch, Dupe-Prüfung bei jedem Tastendruck — Rufzeichen, Band und Betriebsart, so wie es die Contest-Definition vorgibt. Die Austauschfelder (RST, laufende Nummer, Locator) kommen aus derselben Definition. Ein Locator, den man schon einmal gehört hat, steht von selbst da; geloggte Zeilen lassen sich nachträglich berichtigen.",
-    marken: ["SQLite", "Dupe-Check", "Locator-Autofill"],
+    text: "SQLite unter dem Tisch, Dupe-Prüfung bei jedem Tastendruck — und wenn es ein Dupe ist, steht sofort da, als welche Nummer und um wie viel Uhr die Station schon im Log ist. Die Austauschfelder (RST, laufende Nummer je Band ab 001, Locator) kommen aus der Contest-Definition. Ein Locator, den man schon einmal gehört hat, steht von selbst da; geloggte Zeilen lassen sich in der Zeile berichtigen, statt Löschen gibt es „ungültig“.",
+    marken: ["SQLite", "Dupe-Check", "Locator-Autofill", "Korrektur in der Zeile"],
   },
   {
     bereich: "ON4KST · DX-Cluster",
@@ -38,15 +62,15 @@ const werke = [
   },
   {
     bereich: "Karte · Verbindungen",
-    titel: "Die Karte dreht sich um den eigenen Standort.",
-    text: "Azimutal, mit Locator-Raster, Entfernungsringen, Staatsgrenzen und den großen Städten ab 150 km — alles echte Natural-Earth-Daten, nichts nachgezeichnet. Gearbeitete Verbindungen, offene Spots und die Richtung beider Rotoren liegen als Ebenen darüber, jede einzeln schaltbar.",
-    marken: ["Locator-Raster", "Grenzen", "Städte", "Rotorrichtung"],
+    titel: "Ein Radar um den eigenen Standort.",
+    text: "Eine Scheibe mit Entfernungsringen und Peilung, gearbeitete Stationen als Punkte, offene Spots als Ringe, jeder Rotor als Lichtkegel in seiner Richtung, der Horizont aus dem Gelände als dunkler Rand. Staatsgrenzen, Städte und Locator-Raster (Natural Earth) lassen sich dazuschalten. Ein Klick auf eine Station stellt Frequenz und Rotor; ein Klick auf „Offen in Richtung“ funkt die nächste offene Station im Beam an.",
+    marken: ["Radar", "Rotor-Kegel", "Horizont", "Klick = QSY + Rotor"],
   },
   {
     bereich: "Rotoren",
     titel: "Zwei Kompasse, ein rotctld.",
-    text: "Zwei Rotoren nebeneinander, jeder mit eigener Beschriftung, Ist- und Sollwert, kurzer und langer Weg. Angesteuert über Hamlibs rotctld, das das Programm selbst startet; fehlt Hamlib, wird die Installation angeboten. Sektoren, in denen das Gelände im Nahfeld verdeckt, liegen als Waschung auf dem Ring.",
-    marken: ["rotctld", "GS-232", "Gelände am Ring"],
+    text: "Zwei Rotoren nebeneinander, jeder mit Öffnungswinkel als Kegel, Ist- und Sollwert in Glaszellen, kurzer und langer Weg; eine zweite Antenne am selben Rotor hat ihre eigene Nadel. Angesteuert über Hamlibs rotctld, das das Programm selbst startet und überwacht; fehlt Hamlib, wird die Installation angeboten. Sektoren, in denen das Gelände im Nahfeld verdeckt, liegen als Waschung auf dem Ring. Wird das Panel klein, weicht erst die Ablesung, dann der Rand — die Skala bleibt.",
+    marken: ["rotctld", "GS-232", "Kegel", "Gelände am Ring"],
   },
   {
     bereich: "Gelände",
@@ -57,26 +81,38 @@ const werke = [
   {
     bereich: "Multiplikatoren · Rate",
     titel: "Was fehlt, je Band.",
-    text: "Gearbeitete und noch offene Großfelder je Band in einer sortierbaren Tabelle; dieselben Daten heben im Feed die Kandidaten an, die einen neuen Multiplikator bringen. Die Rate steht daneben: zehn Minuten, Stunde, gesamt, mit Trend und aufgeschlüsselt nach Band und Betriebsart.",
-    marken: ["Worked / Needed", "10 min · 1 h · gesamt"],
+    text: "Gearbeitete und noch offene Großfelder je Band in einer sortierbaren Tabelle; dieselben Daten heben im Feed die Kandidaten an, die einen neuen Multiplikator bringen. Die Rate ist ein Instrument, das der Panelgröße folgt: niedrig und breit als Leiste mit Balken je Band und Sparkline der letzten sechs Stunden, sonst als Kacheln — QSOs, Punkte, zehn Minuten, Stunde, ODX, Felder.",
+    marken: ["Worked / Needed", "10 min · 1 h · beste Stunde", "ODX"],
   },
   {
     bereich: "CAT · CW",
     titel: "Frequenz vom Gerät, Makros ans Gerät.",
-    text: "Der klassische Transceiver hängt über Hamlibs rigctld am Programm: Frequenz und Betriebsart laufen ins Log, das Band ergibt sich daraus. CW-Makros auf F-Tasten setzen Rufzeichen und Austausch ein und gehen denselben Weg zurück ans Gerät.",
-    marken: ["rigctld", "F-Tasten-Makros"],
+    text: "Der klassische Transceiver hängt über Hamlibs rigctld am Programm: Frequenz und Betriebsart laufen ins Log, das Band ergibt sich daraus — auch über einen Transverter, dessen Offset das Programm kennt. CW-Makros auf F1–F6 setzen Rufzeichen und Austausch ein; ESM lässt Enter senden, was der QSO-Stand gerade verlangt, und loggt am Ende.",
+    marken: ["rigctld", "Transverter", "F-Tasten", "ESM"],
   },
   {
     bereich: "Contest · Export",
-    titel: "Regeln als Datei, Log als Cabrillo.",
-    text: "Jeder Contest ist eine Definition: Bänder, Austauschfelder, Multiplikator, Dupe-Regel — als Datei, im Programm anleg- und nachbearbeitbar, wenn die Ausschreibung anders will. OE VHF/UHF und IARU Region 1 sind als erste dabei. Am Ende: Cabrillo 3.0 für die Einreichung, ADIF mit echter Frequenz für das Stationslog. UDP-Meldungen im N1MM-Format für Werkzeuge, die darauf hören.",
-    marken: ["Cabrillo 3.0", "ADIF", "N1MM-UDP"],
+    titel: "Regeln als Datei, Log als EDI.",
+    text: "Jeder Contest ist eine Definition: Bänder, Austauschfelder, Wertung in Kilometern, Dupe-Regel, Zeitfenster — als Datei, im Programm nachbearbeitbar. IARU Region 1 (VHF, UHF/Mikrowelle, Marconi) und ÖVSV sind dabei. Am Ende: EDI/REG1TEST je Band für den Roboter, Cabrillo und ADIF dazu; „Log prüfen“ sagt vorher, was der Auswerter beanstanden würde. Online-Scoreboard und N1MM-UDP für Werkzeuge, die zuhören.",
+    marken: ["EDI / REG1TEST", "Cabrillo", "ADIF", "Log prüfen"],
   },
   {
     bereich: "Arbeitsplatz",
     titel: "Panels, die man verschieben und sperren kann.",
-    text: "Jedes Panel lässt sich ziehen, in der Größe ändern und mit dem Schloss festhalten; Layouts liegen als Profile in der Schiene links, eines je Aufgabe. Oben die UTC-Uhr mit dem Countdown bis zum Contest-Ende, unten Wetter vom Standort. Fünf Farbthemen, Bernstein ist die Voreinstellung.",
-    marken: ["Layout-Profile", "UTC-Countdown", "Wetter"],
+    text: "Jedes Panel lässt sich ziehen, in der Größe ändern und mit dem Schloss festhalten; Layouts liegen als Profile in der Schiene links, eines je Aufgabe, dazu eine kompakte Anordnung für ein 13-Zoll-Notebook. Oben die UTC-Uhr mit dem Countdown bis zum Contest-Ende, unten Wetter vom Standort. Zwei Farbthemen: Bernstein und Grün.",
+    marken: ["Layout-Profile", "UTC-Countdown", "Wetter", "Bernstein · Grün"],
+  },
+  {
+    bereich: "Startcheck · Sicherung",
+    titel: "Vor dem ersten CQ alles auf einen Blick.",
+    text: "Der Startcheck prüft Station, Contest, Verbindungen und Daten, bevor es losgeht: Rufzeichen, ob der exakte Standort im Locator liegt, die Uhrzeit gegen das Netz, CAT, beide Rotoren, ON4KST, die Sicherung. Das Log sichert sich jede Minute in eine Kopie, auf Wunsch zusätzlich auf einen Stick — und lässt sich auf jeden Stand zurücksetzen.",
+    marken: ["Startcheck", "Uhrzeit", "Sicherung jede Minute"],
+  },
+  {
+    bereich: "Bandmap · Skeds · Check",
+    titel: "Was auf dem Band los ist, und wer wann wartet.",
+    text: "Spots aus KST und Cluster auf der Frequenzachse, gearbeitete gedimmt, Klick ist QSY. Skeds mit Zeitleiste der nächsten Stunde, aus einer KST-Nachricht mit einem Klick angelegt. Check Partial schlägt beim Tippen Rufzeichen aus Log, Locator-Liste und gehörten Stationen vor.",
+    marken: ["Bandmap", "Skeds", "Check Partial"],
   },
 ];
 
@@ -91,7 +127,7 @@ const uebernommen = [
 
 <Base
   titel="Contestprogramm — Longpath"
-  beschreibung="Contestprogramm: ein Logger für den 24-Stunden-Contest auf 2 m und 70 cm. Log, ON4KST-Chat, DX-Cluster, Karte, zwei Rotoren und echtes Gelände — im Bau, kein Download."
+  beschreibung="Contestprogramm: ein Logger für den 24-Stunden-Contest auf 2 m und 70 cm. Log, ON4KST-Chat, DX-Cluster, Radar, zwei Rotoren und echtes Gelände — Version 0.1.0 für macOS, Quelltext auf GitHub."
   raum="contest"
 >
   <header class="hero">
@@ -105,7 +141,8 @@ const uebernommen = [
         in jeder Entscheidung. Qt 6, ein eigenes Programm neben Longpath.
       </p>
       <div class="cta">
-        <span class="kapsel kapsel--bau"><span class="punkt"></span>Im Bau · kein Download</span>
+        <a class="btn" href="#download">Herunterladen · {VERSION}</a>
+        <a class="btn btn--quiet" href={GITHUB}>Quelltext auf GitHub</a>
         <a class="btn btn--quiet" href="#log">Was es kann</a>
       </div>
     </div>
@@ -115,7 +152,8 @@ const uebernommen = [
         <div class="readout__cell"><span class="caps">Contests</span><span class="readout__v">UKW</span></div>
         <div class="readout__cell"><span class="caps">CAT · Rotor</span><span class="readout__v">Hamlib</span></div>
         <div class="readout__cell"><span class="caps">Gelände</span><span class="readout__v">SRTM1 · 30 m</span></div>
-        <div class="readout__cell"><span class="caps">Export</span><span class="readout__v">Cabrillo · ADIF</span></div>
+        <div class="readout__cell"><span class="caps">Export</span><span class="readout__v">EDI · Cabrillo · ADIF</span></div>
+        <div class="readout__cell"><span class="caps">Version</span><span class="readout__v">{VERSION} · GPLv3</span></div>
       </div>
     </div>
   </header>
@@ -140,7 +178,7 @@ const uebernommen = [
         <figcaption>
           <span class="caps num">01 — Profil 1</span>
           <h3>Log, Karte, Rotoren, nächstes Ziel, Rate.</h3>
-          <p>IARU Region 1 VHF/UHF, sieben QSOs im Testlog. Unten die Statusleiste: CAT, ON4KST, Cluster, Locator, Radius und das Wetter vom Standort.</p>
+          <p>IARU Region 1 VHF/UHF, zwölf QSOs im Testlog, beide Rotoren auf ihrem Ziel. Die kompakte Anordnung, wie sie ein frischer Start auf einem 13-Zoll-Notebook wählt. Unten die Statusleiste: CAT, ON4KST, Cluster, Locator, Radius und das Wetter vom Standort.</p>
         </figcaption>
       </figure>
     </section>
@@ -148,7 +186,7 @@ const uebernommen = [
     <section class="section wrap" id="werke">
       <div class="section__head">
         <p class="caps">Was es kann</p>
-        <h2>Zehn Dinge, die im Contest einen Unterschied machen.</h2>
+        <h2>Zwölf Dinge, die im Contest einen Unterschied machen.</h2>
       </div>
       <div class="werk">
         {werke.map((w) => (
@@ -167,23 +205,24 @@ const uebernommen = [
     <section class="section wrap" id="karte">
       <div class="section__head">
         <p class="caps">Die Karte</p>
-        <h2>Fünfhundert Kilometer um den eigenen Locator.</h2>
+        <h2>Fünfhundert Kilometer um den eigenen Locator, als Radar.</h2>
         <p class="intro">
-          Grenzen und Städte aus Natural Earth, das Locator-Raster darüber. Grün die
-          gearbeiteten Verbindungen, gestrichelt die offenen Spots, in Bernstein der
-          eigene Standort. Die Linien nach Nordosten sind die beiden Rotoren — 2 m und
-          70 cm, jeder auf seinem Ziel.
+          Entfernungsringe und Peilung, grün die gearbeiteten Stationen, in Bernstein
+          der eigene Standort. Die beiden Kegel sind die Rotoren — 2 m auf 328°, 70 cm
+          auf 16°, jeder so breit wie die Antenne öffnet. Grenzen und Städte aus
+          Natural Earth sind hier dazugeschaltet; der Rand aus dem Gelände zeigt, wo
+          die Berge verdecken.
         </p>
       </div>
       <figure class="schirm">
         <div class="schirm__rahmen">
-          <Image src={karte} alt="Karte um JN67: Staatsgrenzen, Locator-Raster, gearbeitete Verbindungen und Rotorrichtungen"
+          <Image src={karte} alt="Radar um JN67: Entfernungsringe, gearbeitete Stationen, beide Rotoren als Kegel, Staatsgrenzen und Städte"
             widths={[720, 1200, 1800]} sizes="(max-width: 900px) 100vw, 1100px" loading="lazy" format="webp" quality={92} />
         </div>
         <figcaption>
           <span class="caps num">02 — Profil 2</span>
-          <h3>Die Karte allein, bildschirmfüllend.</h3>
-          <p>Ein zweites Layout-Profil aus der Schiene links: nur die Karte. Jede Ebene — Grid, Ringe, Grenzen, Städte, Gearbeitet, Rotor 1, Rotor 2 — ist oben einzeln schaltbar.</p>
+          <h3>Das Radar allein, bildschirmfüllend.</h3>
+          <p>Ein zweites Layout-Profil aus der Schiene links: nur das Radar. Jede Ebene — Ringe, Peilung, Horizont, Rotor 1, Rotor 2, Zweitantenne, Grenzen, Städte, Raster, gearbeitete Felder — sitzt im ⚙-Menü rechts oben im Panelkopf und bleibt gespeichert.</p>
         </figcaption>
       </figure>
     </section>
@@ -193,20 +232,21 @@ const uebernommen = [
         <p class="caps">Die Rotoren</p>
         <h2>Zwei Antennen, zwei Richtungen, ein Blick.</h2>
         <p class="intro">
-          Jeder Kompass zeigt Ist und Soll, den kurzen und den langen Weg. Die Zahlen
-          darunter sind gemessen, nicht gerechnet — Bernstein für den Istwert, Blau
-          für das Ziel. Die Ansteuerung geht über rotctld; das Programm startet es selbst.
+          Jeder Kompass zeigt Ist und Soll, den Öffnungswinkel als Kegel, den kurzen
+          und den langen Weg. Die Zahlen darunter sind gemessen, nicht gerechnet —
+          Bernstein für den Istwert, Blau für das Ziel, das sich auch von Hand eintippen
+          lässt. Die Ansteuerung geht über rotctld; das Programm startet es selbst.
         </p>
       </div>
       <figure class="schirm">
         <div class="schirm__rahmen">
-          <Image src={rotoren} alt="Zwei Rotor-Kompasse mit Ist- und Sollwert neben dem Log"
+          <Image src={rotoren} alt="Zwei Rotor-Kompasse mit Kegel, Ist- und Sollwert in Glaszellen"
             widths={[720, 1200, 1800]} sizes="(max-width: 900px) 100vw, 1100px" loading="lazy" format="webp" quality={92} />
         </div>
         <figcaption>
           <span class="caps num">03 — Profil 3</span>
-          <h3>Log und Rotoren, sonst nichts.</h3>
-          <p>Beide Rotoren auf Nord, die Ziffern am Ring markieren Rotor 1 und 2. Die schmale zweite Nadel zeigt die Gegenrichtung; Ist- und Sollwert stehen als Zahl darunter, sobald der Rotor verbunden ist.</p>
+          <h3>Zwei Rotoren, beide auf dem Weg zum Ziel.</h3>
+          <p>Links 2 m auf 328° unterwegs nach 296° zu DL1ABC, rechts 70 cm auf 16° nach 47° zu OK2A — dort mit einer zweiten Antenne 45° daneben, die Ziffern am Ring markieren die beiden. Aktuell, Ziel und Entfernung stehen in Glaszellen darunter, sobald der Rotor verbunden ist.</p>
         </figcaption>
       </figure>
     </section>
@@ -232,9 +272,11 @@ const uebernommen = [
             die Karte, das Gelände.
           </p>
           <p>
-            <strong>Stand {STAND}:</strong> das Programm läuft am Tisch des Betreibers
-            und wird gegen den echten ON4KST-Server, Transceiver und Rotor getestet.
-            Es gibt <em>keinen Download</em>. Wenn es einen gibt, steht er hier.
+            <strong>Stand {STAND}:</strong> Version {VERSION} ist die erste, die es
+            als Paket gibt — für macOS auf Apple Silicon, dazu der Quelltext unter
+            GPL-3.0-or-later auf GitHub. Gegen den echten ON4KST-Server ist es
+            gelaufen, gegen Transceiver und Rotor am Tisch; der erste Contest damit
+            ist der IARU-Region-1-UHF/Mikrowellen-Contest Anfang Oktober.
           </p>
         </div>
         <div class="panel sun__panel">
@@ -245,11 +287,54 @@ const uebernommen = [
             ))}
           </ol>
           <div class="sun__stand">
-            <span class="kapsel kapsel--bau"><span class="punkt"></span>Im Bau</span>
+            <span class="kapsel kapsel--bau"><span class="punkt"></span>Version {VERSION}</span>
             <span class="caps num">{STAND} · OE5SOS</span>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="section wrap" id="download">
+      <div class="section__head">
+        <p class="caps">Download</p>
+        <h2>Version {VERSION} — für macOS, der Rest folgt.</h2>
+        <p class="intro">
+          Das Paket kommt von den GitHub-Releases, mit SHA256 daneben. Es ist nicht
+          bei Apple beglaubigt: beim ersten Start <em>Rechtsklick › Öffnen</em>, danach
+          startet es wie jedes Programm. Windows und Linux sind derselbe Qt-Baum — die
+          Pakete dafür baut die CI als Nächstes.
+        </p>
+      </div>
+      <div class="panel dl">
+        <div class="panel__head dl__head">
+          <span class="caps">Kanal · freigegeben</span>
+          <span class="caps num caps--m">v{VERSION} — {STAND}</span>
+        </div>
+        <div class="dl__body">
+          {pakete.map((p) => (
+            <div class:list={["dl__item", p.empfohlen && "dl__item--rec"]}>
+              <p class:list={["caps", p.empfohlen && "caps--m"]}>{p.empfohlen ? "Für dieses Gerät" : " "}</p>
+              <span class="dl__os">{p.os}</span>
+              <span class="dl__datei">{p.datei}</span>
+              <span class="dl__stand caps"><span class="punkt"></span>{p.da ? "Freigegeben" : "Folgt über die CI"}</span>
+              <span class="dl__links">
+                {p.links.map((l, i) => (
+                  <>
+                    {i > 0 && <span class="dl__sep">·</span>}
+                    <a class="dl__link" href={l.href}>{l.label}</a>
+                  </>
+                ))}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p class="herkunft">
+        <strong>Daten.</strong> Log, Einstellungen und Layout liegen in einer SQLite-Datei
+        unter <code>~/Library/Application Support/Contestprogramm/</code>, die Sicherungen
+        daneben. Höhendaten (SRTM1) lädt das Programm bei Bedarf und behält sie.
+        Quelltext, Tests und Anleitung: <a href={GITHUB}>github.com/oe5sos/Contestprogramm</a>.
+      </p>
     </section>
   </main>
 </Base>
@@ -331,6 +416,40 @@ const uebernommen = [
     background: var(--measured-bg, #33280f);
   }
   .punkt { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  .dl__head { height: auto; min-height: 34px; padding: .5rem 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .8rem; }
+  .dl__body { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
+  .dl__item { padding: 1.2rem 1.1rem; display: flex; flex-direction: column; gap: .35rem; border-left: 1px solid var(--border-fine); }
+  .dl__item:first-child { border-left: 0; }
+  .dl__item--rec { background: var(--panel-2); }
+  .dl__os { font-family: var(--ff-cond); font-weight: 500; font-size: 1.18rem; color: var(--t1); }
+  .dl__datei { font-family: var(--ff-mono); font-size: 10px; letter-spacing: .06em; color: var(--t5); word-break: break-word; }
+  .dl__stand {
+    margin-top: .5rem; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: .45rem;
+    color: var(--t5); background: var(--btn);
+    border: 1px solid var(--border-fine); border-radius: var(--radius-s);
+    padding: .32rem .6rem;
+  }
+  .dl__stand .punkt { background: var(--t6); }
+  .dl__links { margin-top: .5rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; }
+  .dl__link {
+    font-family: var(--ff-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--t3); border-bottom: 1px solid var(--border); padding-bottom: .25rem;
+    transition: color var(--ease), border-color var(--ease);
+  }
+  .dl__link:hover { color: var(--t1); border-color: var(--border-2); }
+  .dl__sep { color: var(--t6); font-size: 9px; }
+  @media (max-width: 700px) {
+    .dl__item { border-left: 0; border-top: 1px solid var(--border-fine); }
+    .dl__item:first-child { border-top: 0; }
+  }
+  .herkunft {
+    margin-top: 2.2rem; font-size: .95rem; color: var(--t5); max-width: 66ch;
+    border-left: 1px solid var(--border); padding-left: 1.1rem;
+  }
+  .herkunft strong { color: var(--t4); font-weight: 400; }
+  .herkunft code { font-family: var(--ff-mono); font-size: .85em; color: var(--t4); }
 
   .sun { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
   .sun__text p { margin: 0 0 1.2em; color: var(--t4); max-width: 62ch; }
