@@ -190,11 +190,11 @@ const QO=quad(), QU=quad(); QO.position.y=9.7; QU.position.y=6.4;
 grp.add(car(SITE.CAR[0],SITE.CAR[1],0.785));
 // Sektoren: Quad oben bernstein, Quad unten hell, Yagi-Stack grün
 const QS=new THREE.Group(); QS.add(QO); QS.add(QU); QS.position.set(QM.x,gQ,-QM.y); grp.add(QS);
-const ANT={qs:{obj:QS,fan:fan(QM.x,QM.y,69,80,0x8a5410,0.30,grp),col:'#d8a55f',name:'Quad-Stack',hp:69,mx:QM.x,my:QM.y,r:84,cnt:CNT.qo},
-           ys:{obj:YF,fan:fan(YM.x,YM.y,33.8,92,0x1f5c3a,0.34,grp),col:'#6fa384',name:'Yagi-Stack',hp:33.8,mx:YM.x,my:YM.y,r:96,cnt:CNT.ys}};
+const ANT={qs:{obj:QS,fan:fan(QM.x,QM.y,69,80,0xb35c06,0.42,grp),col:'#d8a55f',name:'Quad-Stack',hp:69,mx:QM.x,my:QM.y,r:84,cnt:CNT.qo},
+           ys:{obj:YF,fan:fan(YM.x,YM.y,33.8,92,0x1a6b42,0.42,grp),col:'#6fa384',name:'Yagi-Stack',hp:33.8,mx:YM.x,my:YM.y,r:96,cnt:CNT.ys}};
 const lo=SITE.tabu[0], hi=SITE.tabu[1], w=((hi-lo)%360+360)%360, mid=lo+w/2;
-fan(QM.x,QM.y,w,150,matRed,0.30,grp).setHeading(mid); fan(QM.x,QM.y,w,150,matRed,0.13,grp).setHeading(mid+180);
-fan(QM.x,QM.y,((SITE.core[1]-SITE.core[0])%360+360)%360,150,matRed,0.22,grp).setHeading(SITE.core[0]+(((SITE.core[1]-SITE.core[0])%360+360)%360)/2);
+fan(QM.x,QM.y,w,150,matRed,0.44,grp).setHeading(mid); fan(QM.x,QM.y,w,150,matRed,0.24,grp).setHeading(mid+180);
+fan(QM.x,QM.y,((SITE.core[1]-SITE.core[0])%360+360)%360,150,matRed,0.34,grp).setHeading(SITE.core[0]+(((SITE.core[1]-SITE.core[0])%360+360)%360)/2);
 const edge=(mx,my,b,txt,size,col,r)=>{ const x=mx+r*Math.sin(b*Math.PI/180), y=my+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const sp=label(txt,col,size); sp.position.set(x,hAt(xx,yy)+3,-y); grp.add(sp); return sp; };
 edge(QM.x,QM.y,lo,Math.round(lo)+'°',14,'#f0a090',152); edge(QM.x,QM.y,hi,Math.round(hi)+'°',14,'#f0a090',152); edge(QM.x,QM.y,mid,'TABU · Seilbahn',20,'#f0a090',105);
 edge(QM.x,QM.y,lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152); edge(QM.x,QM.y,hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152); edge(QM.x,QM.y,mid+180,'180° gedreht',18,'#f0a090',105);
