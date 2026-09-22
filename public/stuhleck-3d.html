@@ -90,11 +90,11 @@ building(D.haus,D.haus_boden,7.4,0x6b5f52,0xd8d4cc);
 // Mast
 const matAlu=new THREE.MeshStandardMaterial({color:0xc8c9cc,metalness:0.7,roughness:0.35});
 const matDark=new THREE.MeshStandardMaterial({color:0x2a2a2e,metalness:0.4,roughness:0.6});
-function mast(x,y,h,grp){ const g=hAt(x,y); const m=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.09,h,10),matAlu); m.position.set(x,g+h/2,-y); m.castShadow=true; grp.add(m);
+function mast(x,y,h,grp,gh,gr){ const g=hAt(x,y); const m=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.09,h,10),matAlu); m.position.set(x,g+h/2,-y); m.castShadow=true; grp.add(m);
   const foot=new THREE.Mesh(new THREE.CylinderGeometry(0.35,0.4,0.25,12),matDark); foot.position.set(x,g+0.12,-y); grp.add(foot);
   const wire=new THREE.LineBasicMaterial({color:0x9a9a9a,transparent:true,opacity:0.55});
-  for(let k=0;k<3;k++){ const a=Math.PI*2*k/3+0.4; const r=0.6*h; const ex=x+r*Math.sin(a), ey=y+r*Math.cos(a);
-    const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,g+h*0.72,-y),new THREE.Vector3(ex,hAt(ex,ey)+0.05,-ey)]); grp.add(new THREE.Line(geo,wire));
+  for(let k=0;k<3;k++){ const a=Math.PI*2*k/3+0.4; const r=gr||0.6*h; const ex=x+r*Math.sin(a), ey=y+r*Math.cos(a);
+    const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,g+(gh||h*0.72),-y),new THREE.Vector3(ex,hAt(ex,ey)+0.05,-ey)]); grp.add(new THREE.Line(geo,wire));
     const peg=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,0.3,6),matDark); peg.position.set(ex,hAt(ex,ey)+0.1,-ey); grp.add(peg); }
   return g; }
 function tube(a,b,r,mat){ const d=new THREE.Vector3().subVectors(b,a); const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),6),mat); m.position.copy(a).add(d.clone().multiplyScalar(0.5)); m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize()); m.castShadow=true; return m; }
@@ -157,16 +157,16 @@ function fan(mx,my,hp,r,color,opacity,grp){ const geo=new THREE.BufferGeometry()
 const CX=-12, CY=-45; const targets=[[31,'Wien 31°'],[57,'Bratislava 57°'],[91,'Budapest 91°'],[129,'Belgrad 129°'],[176,'Zagreb 176°'],[205,'Graz 205°'],[229,'Venedig 229°'],[283,'München 283°'],[303,'Nürnberg 303°'],[342,'Prag 341° · Berlin 344°'],[46,'Kraków 46°'],[15,'Breslau 12° · Brünn 18°'],[211,'Ljubljana 211°'],[72,'Košice 71°']];
 targets.forEach(([b,t])=>{ const r=118; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#dcdce1',26); s.position.set(x,hAt(xx,yy)+9,-y); scene.add(s); });
 [[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const r=100; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#d8a55f',14); s.position.set(x,hAt(xx,yy)+4,-y); scene.add(s); });
-const SITE={"QM": [-36.0, -18.0], "YM": [-42.0, -8.0], "CAR": [-2.0, 12.0], "yagi": 302, "quads": [20, 108, 200], "what": {"20": "Breslau, Brünn, Ostrava, Kraków, Wien, Žilina — 405 Stationen", "108": "Budapest, Debrecen, Szeged, Pécs, Belgrad, Novi Sad — 104 Stationen", "200": "Zagreb, Rijeka, Ljubljana, Graz, Triest, Venedig, Bologna — 238 Stationen"}, "tabu": [220.2, 264.6], "core": [237.1, 247.7], "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 2 (7,5 m) trägt die beiden 12-Element-Yagis gestockt auf 4,0 und 7,5 m, fest auf 302° — Regensburg, Nürnberg, Passau, Bayreuth, Hof, 17,8 dBi für Deutschland rund um die Uhr. Mast 1 (10 m) trägt die beiden Vierfachquads gestockt auf 6,4 und 9,7 m auf dem Rotor, 69° breit, 14,5 dBi, drei Stellungen: 20° / 108° / 200°. Zusammen 968 Stationen bis 500 km und 1 205 bis 750 km, Deutschland 349 von 1 070, davon 107 kleine. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 220°–265° und 180° gedreht 40°–85°.</span> Ziehen dreht die Ansicht, Rad zoomt."};
+const SITE={"QM": [-36.0, -18.0], "YM": [-42.0, -8.0], "CAR": [-2.0, 12.0], "yagi": 302, "quads": [20, 108, 200], "what": {"20": "Breslau, Brünn, Ostrava, Kraków, Wien, Žilina — 405 Stationen", "108": "Budapest, Debrecen, Szeged, Pécs, Belgrad, Novi Sad — 104 Stationen", "200": "Zagreb, Rijeka, Ljubljana, Graz, Triest, Venedig, Bologna — 238 Stationen"}, "tabu": [220.2, 264.6], "core": [237.1, 247.7], "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 2 (7,5 m) trägt die beiden 12-Element-Yagis gestockt auf 4,0 und 7,5 m, fest auf 302° — Regensburg, Nürnberg, Passau, Bayreuth, Hof, 17,8 dBi für Deutschland rund um die Uhr; die Abspannung sitzt bei 3,5 m unter der unteren Yagi. Mast 1 (10 m) trägt die beiden Vierfachquads gestockt auf 6,4 und 9,7 m auf dem Rotor, 69° breit, 14,5 dBi, drei Stellungen: 20° / 108° / 200°. Zusammen 968 Stationen bis 500 km und 1 205 bis 750 km, Deutschland 349 von 1 070, davon 107 kleine. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 220°–265° und 180° gedreht 40°–85°.</span> Ziehen dreht die Ansicht, Rad zoomt."};
 
 const matRed=0xd9463a;
 const QM={x:SITE.QM[0],y:SITE.QM[1]}, YM={x:SITE.YM[0],y:SITE.YM[1]}; const gQ=hAt(QM.x,QM.y), gY=hAt(YM.x,YM.y);
 const grp=new THREE.Group(); scene.add(grp);
 // Mast 2: 7,5 m, Yagi-Stack fest
-mast(YM.x,YM.y,7.5,grp);
+mast(YM.x,YM.y,7.5,grp,3.5,4.0);   // Abspannung unterhalb der unteren Yagi
 const YF=new THREE.Group(); const ya=yagi(), yb=yagi(); ya.position.y=7.5; yb.position.y=4.0; YF.add(ya); YF.add(yb); YF.rotation.y=-SITE.yagi*Math.PI/180; YF.position.set(YM.x,gY,-YM.y); grp.add(YF);
 // Mast 1: 10 m, Rotor mit Quad-Stack
-mast(QM.x,QM.y,5.6,grp);
+mast(QM.x,QM.y,5.6,grp,4.0,4.5);   // Abspannung unterhalb des Rotors
 const Q=new THREE.Group(); const qa=quad(), qb=quad(); qa.position.y=9.7; qb.position.y=6.4; Q.add(qa); Q.add(qb);
 Q.add(tube(new THREE.Vector3(0,5.7,0),new THREE.Vector3(0,10.4,0),0.045,matAlu)); Q.position.set(QM.x,gQ,-QM.y); grp.add(Q);
 const rotor=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rotor.position.set(QM.x,gQ+5.4,-QM.y); grp.add(rotor);
