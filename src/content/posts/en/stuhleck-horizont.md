@@ -65,7 +65,7 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 
 <figure class="szene">
   <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with the Yagi stack on rotator 1, the quad stack on rotator 2, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Drag to turn, scroll to zoom. The sliders point the upper quad, the lower quad and the Yagi stack at any bearing — with degrees, stations in the main beam and a warning when a direction lies in the no-go sector; “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
+  <figcaption>Drag to turn, scroll to zoom. The buttons set the fixed directions — Yagi stack 302° / 18° / 86°, quad stack 20° / 110° / 116° / 136° / 200° —, the sliders any other; below, per stack, the stations, countries and cities in the main beam and a warning when a direction lies in the no-go sector. “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
