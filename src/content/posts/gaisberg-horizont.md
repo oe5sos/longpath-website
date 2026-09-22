@@ -108,26 +108,28 @@ Das ist die eigentliche Antwort auf die Frage „Gaisberg?": nicht die Geografie
 
 ## Fünf Standorte nebeneinander
 
-Weil die Frage immer wieder auftaucht, hier die fünf gerechneten Plätze mit **derselben Anlage**, die auch am Stuhleck geplant ist: ein Stack aus zwei 12-Element-Yagis (17,8 dBi, 34° Öffnung) und ein Stack aus zwei Vierfachquads (14,5 dBi, 69°), jeder auf drei Rotorstellungen, und 1 000 Watt auf beide zugleich — also **500 Watt je Stack**, so wie es auch am Stuhleck geplant ist. Erreichbar heißt hier nicht nur „Horizont frei", sondern auch: genug Gewinn für die Entfernung — 6 dBi bis 300 Kilometer, danach 3 dB je weitere hundert, bezogen auf ein Kilowatt. Der SRTM-Horizont und die Contestlogs sind für alle fünf dieselben. Nahfeld, Stationsgröße und Tabu-Sektoren bleiben hier außen vor — die Zahlen sind untereinander vergleichbar, aber nicht mit denen aus dem [Stuhleck-Beitrag](/blog/stuhleck-horizont/), der feiner rechnet.
+Weil die Frage immer wieder auftaucht, hier die fünf gerechneten Plätze mit **derselben Anlage**, die auch am Stuhleck geplant ist: ein Stack aus zwei 12-Element-Yagis (17,8 dBi, 34° Öffnung) und ein Stack aus zwei Vierfachquads (14,5 dBi, 69°), jeder auf drei Rotorstellungen, und 1 000 Watt auf beide zugleich — also **500 Watt je Stack**. Erreichbar heißt hier nicht nur „Horizont frei", sondern auch: genug Gewinn für die Entfernung — 6 dBi bis 300 Kilometer, danach 3 dB je weitere hundert, bezogen auf ein Kilowatt. Der SRTM-Horizont und die Contestlogs sind für alle fünf dieselben. In Klammern steht beim Stuhleck, was übrig bleibt, wenn der **Tabu-Sektor Richtung Seilbahn** (237°–248° und 180° gedreht, jeweils mit der halben Öffnung der Antenne als Sicherheitsabstand) eingehalten wird. Nahfeld und Stationsgröße bleiben außen vor — die Zahlen sind untereinander vergleichbar, aber nicht mit denen aus dem [Stuhleck-Beitrag](/blog/stuhleck-horizont/), der feiner rechnet.
 
-![Vergleich von fünf Standorten mit derselben Anlage: waagrechte Balken der erreichbaren Stationen nach Ländern für Stuhleck 1 068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1 015 und Traisner Hütte 1 015, daneben je eine Sektorrose mit den freien Richtungen und der Grundstellung des Yagi-Stacks](../../assets/karten/standorte-vergleich.png)
+![Vergleich von fünf Standorten mit derselben Anlage: waagrechte Balken der erreichbaren Stationen nach Ländern für Stuhleck 1 068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1 015 und Traisner Hütte 1 015, daneben je eine Sektorrose mit den freien Richtungen und der Grundstellung des Yagi-Stacks; beim Stuhleck eine rote Zeile mit den Zahlen unter dem Tabu-Sektor](../../assets/karten/standorte-vergleich.png)
 
-| Standort | erreichbar ≤ 700 km | Deutschland | ≤ 500 km (DL) | Yagi-Stack | Quad-Stack | Zugang |
+| Standort | erreichbar ≤ 700 km | Deutschland | ≤ 500 km | Yagi-Stack | Quad-Stack | Zugang |
 |---|---|---|---|---|---|---|
-| **Stuhleck** · 1 779 m | **1 068** (50 %) | 141 | **946 (120)** | 306° · 34° · 230° | 22° · 66° · 156° | Auto bis oben |
-| **Grünberg** · 989 m | 1 015 (45 %) | 473 | 861 (**388**) | 346° · 292° · 42° | 18° · 62° · 290° | Seilbahn, Gasthaus |
-| **Traisner Hütte** · 1 304 m | 1 015 (47 %) | 305 | 902 (264) | 322° · 20° · 74° | 10° · 114° · 276° | nur zu Fuß |
-| **Feuerkogelhaus** · 1 591 m | 945 (42 %) | 407 | 772 (287) | 346° · 308° · 40° | 8° · 70° · 88° | Seilbahn, Gasthaus |
-| **Gaisberg, Parkplatz** · 1 272 m | 827 (37 %) | **506** | 652 (368) | 312° · 342° · 60° | 88° · 282° · 284° | Auto bis oben |
+| **Stuhleck** · 1 779 m | **1 068** (1 032) | 141 (145) | **946 (925)** | 306° · 34° · 230° | 22° · 66° · 156° | Auto bis oben |
+| **Grünberg** · 989 m | 1 015 | 473 | 861 | 346° · 292° · 42° | 18° · 62° · 290° | Seilbahn, Gasthaus |
+| **Traisner Hütte** · 1 304 m | 1 015 | 305 | 902 | 322° · 20° · 74° | 10° · 114° · 276° | nur zu Fuß |
+| **Feuerkogelhaus** · 1 591 m | 945 | 407 | 772 | 346° · 308° · 40° | 8° · 70° · 88° | Seilbahn, Gasthaus |
+| **Gaisberg, Parkplatz** · 1 272 m | 827 | **506** | 652 | 312° · 342° · 60° | 88° · 282° · 284° | Auto bis oben |
 
 Fünf Plätze, fünf Charaktere — und mit der Leistung verschiebt sich das Bild noch einmal. Fünfhundert Watt je Stack sind drei Dezibel weniger als ein Kilowatt auf einer Antenne; die weiten Verbindungen fallen als Erste heraus, der Nahbereich bleibt.
 
-Das **Stuhleck** erreicht insgesamt die meisten und im Nahbereich mit 946 Stationen unter 500 Kilometern ebenfalls — es sitzt mitten in der dichtesten Ecke Europas, mit Ungarn, Kroatien, Slowenien, der Slowakei und Tschechien in Reichweite. Nach Deutschland bleiben aber nur 141 Stationen übrig: Von dort sind es 400 bis 700 Kilometer bis zu den deutschen Contestplätzen, und dafür reichen 500 Watt an einem Stack selten. Der **Gaisberg** ist das genaue Gegenteil: insgesamt der schwächste, aber **nach Deutschland der stärkste** mit 506 Stationen — sein freier Westsektor ist genau der, der dort zählt, München liegt 145 Kilometer weg statt 500.
+Das **Stuhleck** erreicht insgesamt die meisten und im Nahbereich ebenfalls: 946 Stationen unter 500 Kilometern. Es sitzt mitten in der dichtesten Ecke Europas, mit Ungarn, Kroatien, Slowenien, der Slowakei und Tschechien in Reichweite. Der Tabu-Sektor Richtung Seilbahn kostet davon wenig — 1 032 statt 1 068, also 36 Verbindungen —, weil er nach Südwesten zeigt, wo ohnehin die Alpen stehen; mit den erlaubten Stellungen (Yagi 306°/34°/218°, Quad 106°/156°/354°) bleiben bei Deutschland sogar vier Stationen mehr übrig. Nach Deutschland sind es allerdings nur 141: Von dort sind es 400 bis 700 Kilometer bis zu den deutschen Contestplätzen, und dafür reichen 500 Watt an einem Stack selten.
+
+Der **Gaisberg** ist das genaue Gegenteil: insgesamt der schwächste, aber **nach Deutschland der stärkste** mit 506 Stationen — sein freier Westsektor ist genau der, der dort zählt, München liegt 145 Kilometer weg statt 500.
 
 Dazwischen liegen die drei anderen. Der **Grünberg** ist der ausgewogenste: 473 deutsche Stationen und 388 davon im Nahbereich, mehr als jeder andere, und das aus 989 Metern. Die **Traisner Hütte** lebt vom Osten — Polen, Tschechien, die Slowakei —, nach Deutschland ist sie die zweitschwächste. Das **Feuerkogelhaus** liegt in allem im Mittelfeld und ist der einzige Platz mit Dach, Bahn und Küche.
 
 Auffällig ist, wie wenig die Höhe entscheidet: Der niedrigste Platz der fünf, der Grünberg mit 989 Metern, holt bei Deutschland den zweiten Rang; der höchste, das Feuerkogelhaus mit 1 591, liegt überall im Mittelfeld. Es zählt, wohin der Horizont offen ist und wie weit die Stationen weg sind, nicht wie weit man hinaufgefahren ist.
 
-Die Zahlen oben sind ohne Nahfeld und ohne Tabu-Sektoren gerechnet, also gutmütig. Am Gaisberg sind von den 1 112 Stationen mit freiem Fernhorizont nach dem Laserscan nur **803** wirklich frei — die eigene Kuppe kostet ein Viertel. Am Stuhleck fehlt in dieser Rechnung der Sektor Richtung Seilbahn, in den nicht gesendet wird. Und beim Gaisberg kommen dann noch das Relais, der Sender und OE2M dazu.
+Nicht in den Zahlen stecken das Nahfeld und die Stationsgröße. Am Gaisberg sind von den 1 112 Stationen mit freiem Fernhorizont nach dem Laserscan nur **803** wirklich frei — die eigene Kuppe kostet ein Viertel. Und dazu kommt, was sich nicht rechnen lässt: das Relais 139 Meter daneben, der Sender in 210 und OE2M auf demselben Plateau.
 
 Der Feuerkogel bleibt.

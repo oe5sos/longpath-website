@@ -108,26 +108,28 @@ Esa es la verdadera respuesta a la pregunta «¿Gaisberg?»: no la geografía, s
 
 ## Cinco emplazamientos, uno al lado del otro
 
-Como la pregunta vuelve una y otra vez, aquí están los cinco emplazamientos con **la misma instalación** prevista para el Stuhleck: un stack de dos Yagis de 12 elementos (17,8 dBi, 34° de apertura) y un stack de dos cuadros (14,5 dBi, 69°), cada uno en tres posiciones de rotor, y 1.000 vatios sobre los dos a la vez — es decir, **500 vatios por stack**. Alcanzable no significa aquí solo «horizonte libre», sino también: ganancia suficiente para la distancia — 6 dBi hasta 300 kilómetros y 3 dB más por cada cien, referido a un kilovatio. El horizonte SRTM y los logs de concurso son los mismos para los cinco. El campo cercano, el tamaño de las estaciones y los sectores prohibidos quedan fuera — las cifras se comparan entre sí, pero no con las del [artículo del Stuhleck](/es/blog/stuhleck-horizont/), que calcula con más detalle.
+Como la pregunta vuelve una y otra vez, aquí están los cinco emplazamientos con **la misma instalación** prevista para el Stuhleck: un stack de dos Yagis de 12 elementos (17,8 dBi, 34° de apertura) y un stack de dos cuadros (14,5 dBi, 69°), cada uno en tres posiciones de rotor, y 1.000 vatios sobre los dos a la vez — es decir, **500 vatios por stack**. Alcanzable no significa aquí solo «horizonte libre», sino también: ganancia suficiente para la distancia — 6 dBi hasta 300 kilómetros y 3 dB más por cada cien, referido a un kilovatio. El horizonte SRTM y los logs de concurso son los mismos para los cinco. El paréntesis en el Stuhleck indica lo que queda si se respeta el **sector prohibido hacia el telesilla** (237°–248° y lo mismo girado 180°, cada uno con media apertura de la antena como margen). El campo cercano y el tamaño de las estaciones quedan fuera — las cifras se comparan entre sí, pero no con las del [artículo del Stuhleck](/es/blog/stuhleck-horizont/), que calcula con más detalle.
 
-![Comparación de cinco emplazamientos con la misma instalación: barras horizontales de estaciones alcanzables por países para Stuhleck 1.068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1.015 y Traisner Hütte 1.015, y junto a cada una una rosa de sectores con las direcciones libres y la posición base del stack de Yagis](../../../assets/karten/standorte-vergleich.png)
+![Comparación de cinco emplazamientos con la misma instalación: barras horizontales de estaciones alcanzables por países para Stuhleck 1.068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1.015 y Traisner Hütte 1.015, y junto a cada una una rosa de sectores con las direcciones libres y la posición base del stack de Yagis; en el Stuhleck una línea roja con las cifras bajo el sector prohibido](../../../assets/karten/standorte-vergleich.png)
 
-| Emplazamiento | alcanzables ≤ 700 km | Alemania | ≤ 500 km (DL) | Stack Yagi | Stack cuadros | Acceso |
+| Emplazamiento | alcanzables ≤ 700 km | Alemania | ≤ 500 km | Stack Yagi | Stack cuadros | Acceso |
 |---|---|---|---|---|---|---|
-| **Stuhleck** · 1.779 m | **1.068** (50 %) | 141 | **946 (120)** | 306° · 34° · 230° | 22° · 66° · 156° | en coche hasta arriba |
-| **Grünberg** · 989 m | 1.015 (45 %) | 473 | 861 (**388**) | 346° · 292° · 42° | 18° · 62° · 290° | teleférico, restaurante |
-| **Traisner Hütte** · 1.304 m | 1.015 (47 %) | 305 | 902 (264) | 322° · 20° · 74° | 10° · 114° · 276° | solo a pie |
-| **Feuerkogelhaus** · 1.591 m | 945 (42 %) | 407 | 772 (287) | 346° · 308° · 40° | 8° · 70° · 88° | teleférico, restaurante |
-| **Gaisberg, aparcamiento** · 1.272 m | 827 (37 %) | **506** | 652 (368) | 312° · 342° · 60° | 88° · 282° · 284° | en coche hasta arriba |
+| **Stuhleck** · 1.779 m | **1.068** (1.032) | 141 (145) | **946 (925)** | 306° · 34° · 230° | 22° · 66° · 156° | en coche hasta arriba |
+| **Grünberg** · 989 m | 1.015 | 473 | 861 | 346° · 292° · 42° | 18° · 62° · 290° | teleférico, restaurante |
+| **Traisner Hütte** · 1.304 m | 1.015 | 305 | 902 | 322° · 20° · 74° | 10° · 114° · 276° | solo a pie |
+| **Feuerkogelhaus** · 1.591 m | 945 | 407 | 772 | 346° · 308° · 40° | 8° · 70° · 88° | teleférico, restaurante |
+| **Gaisberg, aparcamiento** · 1.272 m | 827 | **506** | 652 | 312° · 342° · 60° | 88° · 282° · 284° | en coche hasta arriba |
 
 Cinco sitios, cinco caracteres — y con la potencia la imagen cambia otra vez. Quinientos vatios por stack son tres decibelios menos que un kilovatio en una sola antena; los contactos lejanos son los primeros en caer, el corto alcance se mantiene.
 
-El **Stuhleck** es el que más alcanza en total y también en el corto alcance, con 946 estaciones por debajo de 500 kilómetros — está en el rincón más denso de Europa, con Hungría, Croacia, Eslovenia, Eslovaquia y Chequia al alcance. Hacia Alemania, en cambio, solo quedan 141 estaciones: desde allí hay de 400 a 700 kilómetros hasta los emplazamientos alemanes, y 500 vatios en un stack rara vez bastan. El **Gaisberg** es justo lo contrario: el más débil en total, pero **el más fuerte hacia Alemania** con 506 estaciones — su sector oeste libre es precisamente el que cuenta allí, con Múnich a 145 kilómetros en lugar de 500.
+El **Stuhleck** es el que más alcanza en total y también en el corto alcance: 946 estaciones por debajo de 500 kilómetros. Está en el rincón más denso de Europa, con Hungría, Croacia, Eslovenia, Eslovaquia y Chequia al alcance. El sector prohibido hacia el telesilla cuesta poco — 1.032 en lugar de 1.068, es decir 36 contactos — porque apunta al suroeste, donde de todos modos están los Alpes; con las posiciones permitidas (Yagi 306°/34°/218°, cuadros 106°/156°/354°) incluso quedan cuatro estaciones alemanas más. Hacia Alemania, en cambio, solo quedan 141: desde allí hay de 400 a 700 kilómetros hasta los emplazamientos alemanes, y 500 vatios en un stack rara vez bastan.
+
+El **Gaisberg** es justo lo contrario: el más débil en total, pero **el más fuerte hacia Alemania** con 506 estaciones — su sector oeste libre es precisamente el que cuenta allí, con Múnich a 145 kilómetros en lugar de 500.
 
 Los otros tres quedan en medio. El **Grünberg** es el más equilibrado: 473 estaciones alemanas, 388 de ellas en el corto alcance, más que nadie, y eso desde 989 metros. La **Traisner Hütte** vive del este — Polonia, Chequia, Eslovaquia — y hacia Alemania es la penúltima. El **Feuerkogelhaus** está a media tabla en todo y es el único con techo, teleférico y cocina.
 
 Llama la atención lo poco que decide la altura: el más bajo de los cinco, el Grünberg con 989 metros, es segundo para Alemania; el más alto, el Feuerkogelhaus con 1.591, queda a media tabla en todo. Cuenta hacia dónde está abierto el horizonte y a qué distancia están las estaciones, no hasta qué altura se ha subido en coche.
 
-Las cifras de arriba están calculadas sin campo cercano y sin sectores prohibidos, o sea que son generosas. En el Gaisberg, de las 1.112 estaciones con horizonte lejano libre solo **803** lo están de verdad al incluir el escaneo láser — su propia cúpula se lleva una cuarta parte. En el Stuhleck falta en este cálculo el sector hacia el telesilla, hacia el que no se transmite. Y en el Gaisberg se suman además el repetidor, la emisora y OE2M.
+Lo que no está en las cifras es el campo cercano ni el tamaño de las estaciones. En el Gaisberg, de las 1.112 estaciones con horizonte lejano libre solo **803** lo están de verdad al incluir el escaneo láser — su propia cúpula se lleva una cuarta parte. Y a eso se suma lo que no se puede calcular: el repetidor a 139 metros, la emisora a 210 y OE2M en la misma meseta.
 
 El Feuerkogel se queda.

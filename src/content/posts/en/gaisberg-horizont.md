@@ -108,26 +108,28 @@ That is the real answer to the question “Gaisberg?”: not the geography, but 
 
 ## Five sites side by side
 
-Because the question keeps coming up, here are the five calculated sites with **the same setup** that is planned for the Stuhleck: a stack of two 12-element Yagis (17.8 dBi, 34° beamwidth) and a stack of two quad arrays (14.5 dBi, 69°), each on three rotor positions, and 1,000 watts on both at once — that is **500 watts per stack**, exactly as planned for the Stuhleck. Reachable here does not only mean “horizon clear”, but also: enough gain for the distance — 6 dBi out to 300 kilometres, then 3 dB per further hundred, referred to one kilowatt. The SRTM horizon and the contest logs are the same for all five. Near field, station size and no-go sectors are left out here — the figures compare with each other, but not with those in the [Stuhleck article](/en/blog/stuhleck-horizont/), which calculates more finely.
+Because the question keeps coming up, here are the five calculated sites with **the same setup** that is planned for the Stuhleck: a stack of two 12-element Yagis (17.8 dBi, 34° beamwidth) and a stack of two quad arrays (14.5 dBi, 69°), each on three rotor positions, and 1,000 watts on both at once — that is **500 watts per stack**. Reachable here does not only mean “horizon clear”, but also: enough gain for the distance — 6 dBi out to 300 kilometres, then 3 dB per further hundred, referred to one kilowatt. The SRTM horizon and the contest logs are the same for all five. The bracket at the Stuhleck shows what is left once the **no-go sector towards the cable car** is respected (237°–248° and the same turned by 180°, each with half the antenna's beamwidth as a safety margin). Near field and station size are left out — the figures compare with each other, but not with those in the [Stuhleck article](/en/blog/stuhleck-horizont/), which calculates more finely.
 
-![Comparison of five sites with the same setup: horizontal bars of reachable stations by country for Stuhleck 1,068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1,015 and Traisner Hütte 1,015, next to each a sector rose with the clear directions and the home position of the Yagi stack](../../../assets/karten/standorte-vergleich.png)
+![Comparison of five sites with the same setup: horizontal bars of reachable stations by country for Stuhleck 1,068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1,015 and Traisner Hütte 1,015, next to each a sector rose with the clear directions and the home position of the Yagi stack; at the Stuhleck a red line with the figures under the no-go sector](../../../assets/karten/standorte-vergleich.png)
 
-| Site | reachable ≤ 700 km | Germany | ≤ 500 km (DL) | Yagi stack | Quad stack | Access |
+| Site | reachable ≤ 700 km | Germany | ≤ 500 km | Yagi stack | Quad stack | Access |
 |---|---|---|---|---|---|---|
-| **Stuhleck** · 1,779 m | **1,068** (50 %) | 141 | **946 (120)** | 306° · 34° · 230° | 22° · 66° · 156° | drive to the top |
-| **Grünberg** · 989 m | 1,015 (45 %) | 473 | 861 (**388**) | 346° · 292° · 42° | 18° · 62° · 290° | cable car, inn |
-| **Traisner Hütte** · 1,304 m | 1,015 (47 %) | 305 | 902 (264) | 322° · 20° · 74° | 10° · 114° · 276° | on foot only |
-| **Feuerkogelhaus** · 1,591 m | 945 (42 %) | 407 | 772 (287) | 346° · 308° · 40° | 8° · 70° · 88° | cable car, inn |
-| **Gaisberg, car park** · 1,272 m | 827 (37 %) | **506** | 652 (368) | 312° · 342° · 60° | 88° · 282° · 284° | drive to the top |
+| **Stuhleck** · 1,779 m | **1,068** (1,032) | 141 (145) | **946 (925)** | 306° · 34° · 230° | 22° · 66° · 156° | drive to the top |
+| **Grünberg** · 989 m | 1,015 | 473 | 861 | 346° · 292° · 42° | 18° · 62° · 290° | cable car, inn |
+| **Traisner Hütte** · 1,304 m | 1,015 | 305 | 902 | 322° · 20° · 74° | 10° · 114° · 276° | on foot only |
+| **Feuerkogelhaus** · 1,591 m | 945 | 407 | 772 | 346° · 308° · 40° | 8° · 70° · 88° | cable car, inn |
+| **Gaisberg, car park** · 1,272 m | 827 | **506** | 652 | 312° · 342° · 60° | 88° · 282° · 284° | drive to the top |
 
 Five sites, five characters — and the power shifts the picture once more. Five hundred watts per stack is three decibels less than a kilowatt on one antenna; the long contacts drop out first, the close range stays.
 
-The **Stuhleck** reaches the most overall and, with 946 stations inside 500 kilometres, in the close range as well — it sits in the densest corner of Europe, with Hungary, Croatia, Slovenia, Slovakia and Czechia within reach. Towards Germany, though, only 141 stations are left: from there it is 400 to 700 kilometres to the German contest sites, and 500 watts on one stack rarely covers that. The **Gaisberg** is its exact opposite: the weakest overall, but **the strongest towards Germany** with 506 stations — its clear western sector is precisely the one that counts there, with Munich 145 kilometres away instead of 500.
+The **Stuhleck** reaches the most overall and in the close range as well: 946 stations inside 500 kilometres. It sits in the densest corner of Europe, with Hungary, Croatia, Slovenia, Slovakia and Czechia within reach. The no-go sector towards the cable car costs little — 1,032 instead of 1,068, so 36 contacts — because it points south-west, where the Alps stand anyway; with the permitted positions (Yagi 306°/34°/218°, quad 106°/156°/354°) four more German stations are left than without it. Towards Germany, though, there are only 141: from there it is 400 to 700 kilometres to the German contest sites, and 500 watts on one stack rarely covers that.
+
+The **Gaisberg** is its exact opposite: the weakest overall, but **the strongest towards Germany** with 506 stations — its clear western sector is precisely the one that counts there, with Munich 145 kilometres away instead of 500.
 
 The other three sit in between. The **Grünberg** is the most balanced: 473 German stations, 388 of them in the close range, more than anyone else, and that from 989 metres. The **Traisner Hütte** lives off the east — Poland, Czechia, Slovakia — and is the second weakest towards Germany. The **Feuerkogelhaus** is mid-field in everything and the only site with a roof, a cable car and a kitchen.
 
 What stands out is how little the altitude decides: the lowest of the five, the Grünberg at 989 metres, comes second for Germany; the highest, the Feuerkogelhaus at 1,591, is mid-field everywhere. What counts is where the horizon is open and how far away the stations are, not how far up you drove.
 
-The figures above are calculated without the near field and without no-go sectors, so they are generous. At the Gaisberg, of the 1,112 stations with a clear far horizon only **803** are really clear once the laser scan is included — its own dome costs a quarter. At the Stuhleck this calculation leaves out the sector towards the cable car, into which nothing is transmitted. And at the Gaisberg the repeater, the transmitter and OE2M come on top.
+What the figures do not contain is the near field and the station size. At the Gaisberg, of the 1,112 stations with a clear far horizon only **803** are really clear once the laser scan is included — its own dome costs a quarter. And on top comes what cannot be calculated: the repeater 139 metres away, the transmitter at 210 and OE2M on the same plateau.
 
 The Feuerkogel stays.
