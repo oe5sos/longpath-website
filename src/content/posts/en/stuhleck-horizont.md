@@ -65,7 +65,7 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 
 <figure class="szene">
   <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with the fixed Yagi stack towards Germany, the rotatable quad stack, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Drag to turn, scroll to zoom, the degree buttons set the quad stack, “Bergstation” swings to the chairlift. Red: the no-go sector. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
+  <figcaption>Drag to turn, scroll to zoom. The sliders point the upper quad, the lower quad and the Yagi stack at any bearing — with degrees, stations in the main beam and a warning when a direction lies in the no-go sector; “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twenty centimetres, the masts, the quads and the stack are to scale. What the scene shows is not the view — that comes from the terrain model — but what stands in the first hundred and fifty metres: the hut, the car park, the summit cross, the dome — and 120 metres to the south-west the top station of the Steinbachalmbahn, a roofed structure of eighteen by seven metres on columns, eight metres high, with the two rope strands running down the valley over two pylons. Seen from the antennas its roof lies five to eight degrees below the horizontal; it stands in no sector’s way, and the “Bergstation” button shows that from the masts’ point of view. None of it is in the way. The scene shows the installation as it is finally planned — the Yagi stack fixed on Germany, the quads on the rotator, plus the red sector; how that came about, the next two sections tell.
+The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twenty centimetres, the masts, the quads and the stack are to scale. What the scene shows is not the view — that comes from the terrain model — but what stands in the first hundred and fifty metres: the hut, the car park, the summit cross, the dome — and 120 metres to the south-west the top station of the Steinbachalmbahn, a roofed structure of eighteen by seven metres on columns, eight metres high, with the two rope strands running down the valley over two pylons. Seen from the antennas its roof lies five to eight degrees below the horizontal; it stands in no sector’s way, and the “Bergstation” button shows that from the masts’ point of view. None of it is in the way. The scene shows the installation as it is finally planned — the Yagi stack fixed on Germany, the quads on the rotator, each steerable on its own, plus the red sector; how that came about, the next two sections tell.
 
 ## Two sites, one no-go
 

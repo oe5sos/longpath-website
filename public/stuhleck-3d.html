@@ -24,6 +24,16 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
 #bar button[aria-pressed="true"]{border-color:var(--amb);color:var(--amb)}
 #bar .sp{flex:1}
 #hud .tabu{color:#e06a5a}
+#bar .ctl{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 12px;backdrop-filter:blur(6px)}
+#bar .ctl label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--t2)}
+#bar .ctl .n{width:74px;color:var(--t3)}
+#bar .ctl label.qo .n{color:#d8a55f}#bar .ctl label.qu .n{color:#c4c4ca}#bar .ctl label.ys .n{color:#6fa384}
+#bar .ctl input[type=range]{width:120px;accent-color:var(--amb)}
+#bar .ctl input[type=number]{width:52px;font:inherit;font-size:12.5px;color:var(--t1);background:#0c0c0e;border:1px solid var(--border);border-radius:4px;padding:3px 4px;text-align:right;font-variant-numeric:tabular-nums}
+#bar .ctl .u{color:var(--t5)}
+#bar .ctl .presets{display:flex;gap:6px;flex-wrap:wrap}
+#bar .ctl .presets button{padding:5px 8px;font-size:11.5px}
+@media (max-width:640px){#bar .ctl input[type=range]{width:90px}#bar .ctl .n{width:64px}}
 #bar .src{color:var(--t6);font-size:10.5px;line-height:1.4;text-align:right;max-width:46vw}
 #hud button.min{position:absolute;right:10px;top:10px;font:inherit;font-size:11px;color:var(--t5);background:none;border:1px solid var(--border);border-radius:4px;padding:2px 7px;cursor:pointer}
 #hud.min > :not(button){display:none}
@@ -41,10 +51,15 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
   <p class="k"><a href="/blog/stuhleck-horizont/" style="color:inherit;text-decoration:none">← Was das Stuhleck sieht</a> · 1 782 m · JN77VN</p>
   <h1 id="h1">Yagi-Stack fest, die Quads drehen</h1>
   <p id="txt"></p>
-  <p class="now">Quad-Stack <b id="hdg">20°</b> <span id="what">Nürnberg, Regensburg, Passau, Linz, Erfurt</span></p>
+  <p class="now" id="now"></p>
 </div>
 <div id="bar">
-  <span id="hdgs"></span>
+  <div class="ctl" id="ctl">
+    <label class="qo"><span class="n">Quad oben</span><input type="range" min="0" max="359" step="1" value="20" data-a="qo"><input type="number" min="0" max="359" value="20" data-a="qo"><span class="u">°</span></label>
+    <label class="qu"><span class="n">Quad unten</span><input type="range" min="0" max="359" step="1" value="200" data-a="qu"><input type="number" min="0" max="359" value="200" data-a="qu"><span class="u">°</span></label>
+    <label class="ys"><span class="n">Yagi-Stack</span><input type="range" min="0" max="359" step="1" value="302" data-a="ys"><input type="number" min="0" max="359" value="302" data-a="ys"><span class="u">°</span></label>
+    <span class="presets"><button type="button" data-preset="20,20,302">Stack 20°</button><button type="button" data-preset="108,108,302">Stack 108°</button><button type="button" data-preset="200,200,302">Stack 200°</button><button type="button" data-preset="20,200,302">getrennt 20° / 200°</button></span>
+  </div>
   <button type="button" id="auto" aria-pressed="true">Rundflug</button>
   <button type="button" id="view" aria-pressed="false">Bergstation</button>
   <span class="sp"></span>
@@ -157,42 +172,54 @@ function fan(mx,my,hp,r,color,opacity,grp){ const geo=new THREE.BufferGeometry()
 const CX=-12, CY=-45; const targets=[[31,'Wien 31°'],[57,'Bratislava 57°'],[91,'Budapest 91°'],[129,'Belgrad 129°'],[176,'Zagreb 176°'],[205,'Graz 205°'],[229,'Venedig 229°'],[283,'München 283°'],[303,'Nürnberg 303°'],[342,'Prag 341° · Berlin 344°'],[46,'Kraków 46°'],[15,'Breslau 12° · Brünn 18°'],[211,'Ljubljana 211°'],[72,'Košice 71°']];
 targets.forEach(([b,t])=>{ const r=118; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#dcdce1',26); s.position.set(x,hAt(xx,yy)+9,-y); scene.add(s); });
 [[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const r=100; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#d8a55f',14); s.position.set(x,hAt(xx,yy)+4,-y); scene.add(s); });
-const SITE={"QM": [-36.0, -18.0], "YM": [-42.0, -8.0], "CAR": [-2.0, 12.0], "yagi": 302, "quads": [20, 108, 200], "what": {"20": "Breslau, Brünn, Ostrava, Kraków, Wien, Žilina — 405 Stationen", "108": "Budapest, Debrecen, Szeged, Pécs, Belgrad, Novi Sad — 104 Stationen", "200": "Zagreb, Rijeka, Ljubljana, Graz, Triest, Venedig, Bologna — 238 Stationen"}, "tabu": [220.2, 264.6], "core": [237.1, 247.7], "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 2 (7,5 m) trägt die beiden 12-Element-Yagis gestockt auf 4,0 und 7,5 m, fest auf 302° — Regensburg, Nürnberg, Passau, Bayreuth, Hof, 17,8 dBi für Deutschland rund um die Uhr; die Abspannung sitzt bei 3,5 m unter der unteren Yagi. Mast 1 (10 m) trägt die beiden Vierfachquads gestockt auf 6,4 und 9,7 m auf dem Rotor, 69° breit, 14,5 dBi, drei Stellungen: 20° / 108° / 200°. Zusammen 968 Stationen bis 500 km und 1 205 bis 750 km, Deutschland 349 von 1 070, davon 107 kleine. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 220°–265° und 180° gedreht 40°–85°.</span> Ziehen dreht die Ansicht, Rad zoomt."};
+const SITE={"QM": [-36.0, -18.0], "YM": [-42.0, -8.0], "CAR": [-2.0, 12.0], "tabu": [220.2, 264.6], "core": [237.1, 247.7], "start": {"qo": 20, "qu": 200, "ys": 302}, "tabuQ": [202.6, 282.2], "tabuY": [214.7, 262.3], "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 2 (7,5 m): die beiden 12-Element-Yagis gestockt auf 4,0 und 7,5 m, fest auf 302° nach Deutschland, Abspannung bei 3,5 m unter der unteren Yagi. Mast 1 (10 m): die beiden Vierfachquads auf 6,4 und 9,7 m, jede für sich richtbar — Regler unten, die Gradzahl daneben, die Stationen im Hauptstrahl hier. Gleich gerichtet arbeiten die Quads als Stack mit 14,5 dBi, getrennt mit je 12. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 220°–265° und 180° gedreht 40°–85°.</span> Ziehen dreht die Ansicht, Rad zoomt."};
+const CNT={"qo": [[7, 3, 0, 0, 0, 0, 0, 0, 0, 9, 4, 7, 15, 40, 24, 4, 2, 12, 5, 12, 6, 4, 6, 7, 6, 4, 22, 17, 22, 7, 3, 7, 6, 18, 10, 19, 12, 12, 7, 9, 5, 5, 8, 9, 10, 7, 5, 3, 4, 5, 3, 8, 4, 6, 7, 4, 4, 3, 11, 4, 2, 2, 8, 6, 10, 15, 1, 5, 2, 7, 7, 4, 3, 9, 3, 1, 5, 2, 0, 2, 0, 0, 2, 1, 1, 4, 3, 2, 2, 0, 0, 3, 1, 2, 0, 1, 0, 0, 0, 0, 0, 1, 2, 6, 2, 0, 2, 1, 0, 5, 1, 1, 6, 3, 3, 1, 4, 2, 1, 1, 2, 0, 1, 2, 3, 0, 2, 1, 6, 9, 4, 5, 8, 5, 2, 5, 3, 0, 2, 0, 1, 4, 1, 0, 3, 3, 3, 2, 4, 4, 3, 2, 7, 2, 5, 7, 4, 1, 1, 3, 4, 2, 3, 2, 4, 6, 1, 2, 0, 6, 3, 2, 4, 8, 2, 6, 7, 0, 4, 1, 6, 3, 7, 3, 1, 2, 2, 2, 9, 1, 2, 1, 1, 6, 0, 4, 1, 4, 2, 1, 3, 0, 11, 11, 7, 16, 4, 7, 13, 4, 12, 3, 1, 8, 6, 6, 5, 2, 2, 7, 4, 3, 14, 8, 15, 17, 15, 12, 8, 4, 4, 3, 4, 10, 8, 4, 3, 3, 7, 18, 8, 9, 9, 7, 5, 7, 7, 9, 16, 27, 9, 6, 0, 0, 3, 1, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 1, 3, 2, 4, 2, 1, 5, 4, 0, 0, 0, 0, 0, 0, 0, 7, 15, 20, 13, 2, 0, 0, 0, 15, 13, 14, 5, 4, 12, 4, 7, 5, 10, 10, 12, 23, 12, 6, 13, 8, 20, 23, 6, 6, 8, 4, 0, 0, 0, 0, 0, 7, 10, 7, 5, 6, 5, 4, 12, 7, 24, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 5, 18, 3, 12, 11, 7, 11, 6, 2, 8, 10, 8, 12], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 6, 14, 17, 9, 0, 0, 0, 0, 13, 13, 14, 5, 3, 10, 4, 3, 5, 7, 10, 11, 23, 12, 6, 13, 8, 20, 22, 6, 6, 6, 4, 0, 0, 0, 0, 0, 5, 9, 6, 4, 5, 5, 4, 9, 4, 22, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 4, 12, 2, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0]], "qu": [[7, 3, 0, 0, 0, 0, 0, 0, 0, 9, 4, 7, 15, 40, 24, 4, 2, 12, 5, 12, 6, 4, 6, 7, 6, 4, 22, 17, 22, 7, 3, 7, 6, 18, 10, 19, 12, 12, 7, 9, 5, 5, 8, 9, 10, 7, 5, 3, 4, 5, 3, 8, 4, 6, 7, 4, 4, 3, 11, 4, 2, 2, 8, 6, 10, 15, 1, 5, 2, 7, 7, 4, 3, 9, 3, 1, 5, 2, 0, 2, 0, 0, 2, 1, 1, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 4, 2, 1, 1, 2, 0, 1, 2, 3, 0, 2, 1, 6, 9, 4, 5, 8, 5, 2, 5, 3, 0, 2, 0, 1, 4, 1, 0, 3, 3, 3, 2, 4, 4, 3, 2, 7, 2, 5, 7, 4, 1, 1, 3, 4, 2, 3, 2, 4, 6, 1, 2, 0, 6, 3, 2, 4, 8, 2, 6, 7, 0, 4, 1, 6, 3, 7, 3, 1, 2, 2, 2, 9, 1, 2, 1, 1, 6, 0, 4, 1, 4, 2, 1, 3, 0, 11, 11, 7, 16, 4, 7, 13, 4, 12, 3, 1, 8, 6, 6, 5, 2, 2, 7, 4, 3, 14, 8, 15, 17, 15, 12, 8, 4, 4, 3, 4, 10, 8, 4, 3, 3, 7, 18, 8, 9, 9, 7, 5, 7, 7, 9, 16, 27, 9, 6, 0, 0, 3, 1, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 1, 3, 2, 4, 2, 1, 5, 4, 0, 0, 0, 0, 0, 0, 0, 7, 15, 20, 13, 2, 0, 0, 0, 15, 13, 14, 5, 4, 12, 4, 7, 5, 10, 10, 12, 23, 12, 6, 13, 8, 20, 23, 6, 6, 8, 4, 0, 0, 0, 0, 0, 7, 10, 7, 5, 6, 5, 4, 12, 7, 24, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 5, 18, 3, 12, 11, 7, 11, 6, 2, 8, 10, 8, 12], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 6, 14, 17, 9, 0, 0, 0, 0, 13, 13, 14, 5, 3, 10, 4, 3, 5, 7, 10, 11, 23, 12, 6, 13, 8, 20, 22, 6, 6, 6, 4, 0, 0, 0, 0, 0, 5, 9, 6, 4, 5, 5, 4, 9, 4, 22, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 4, 12, 2, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0]], "ys": [[7, 3, 0, 0, 0, 0, 0, 0, 0, 9, 4, 7, 15, 40, 24, 4, 2, 12, 5, 12, 6, 4, 6, 7, 6, 4, 22, 17, 22, 7, 3, 7, 6, 18, 10, 19, 12, 12, 7, 9, 5, 5, 8, 9, 10, 7, 5, 3, 4, 5, 3, 8, 4, 6, 7, 4, 4, 3, 11, 4, 2, 2, 8, 6, 10, 15, 1, 5, 2, 7, 7, 4, 3, 9, 3, 1, 5, 2, 0, 2, 0, 0, 2, 1, 1, 4, 3, 2, 2, 4, 5, 3, 1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 2, 3, 0, 2, 1, 6, 9, 4, 5, 8, 5, 2, 5, 3, 0, 2, 0, 1, 4, 1, 0, 3, 3, 3, 2, 4, 4, 3, 2, 7, 2, 5, 7, 4, 1, 1, 3, 4, 2, 3, 2, 4, 6, 1, 2, 0, 6, 3, 2, 4, 8, 2, 6, 7, 0, 4, 1, 6, 3, 7, 3, 1, 2, 2, 2, 9, 1, 2, 1, 1, 6, 0, 4, 1, 4, 2, 1, 3, 0, 11, 11, 7, 16, 4, 7, 13, 4, 12, 3, 1, 8, 6, 6, 5, 2, 2, 7, 4, 3, 14, 8, 15, 17, 15, 12, 8, 4, 4, 3, 4, 10, 8, 4, 3, 3, 7, 18, 8, 9, 9, 7, 5, 7, 7, 9, 16, 27, 9, 6, 0, 0, 3, 1, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 1, 3, 2, 4, 2, 1, 5, 4, 0, 0, 0, 0, 0, 0, 0, 7, 15, 20, 13, 2, 0, 0, 0, 15, 13, 14, 5, 4, 12, 4, 7, 5, 10, 10, 12, 23, 12, 6, 13, 8, 20, 23, 6, 6, 8, 4, 0, 0, 0, 0, 0, 7, 10, 7, 5, 6, 5, 4, 12, 7, 24, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 5, 18, 3, 12, 11, 7, 11, 6, 2, 8, 10, 8, 12], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 6, 14, 17, 9, 0, 0, 0, 0, 13, 13, 14, 5, 3, 10, 4, 3, 5, 7, 10, 11, 23, 12, 6, 13, 8, 20, 22, 6, 6, 6, 4, 0, 0, 0, 0, 0, 5, 9, 6, 4, 5, 5, 4, 9, 4, 22, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 4, 12, 2, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0]], "cities": [["Nürnberg", 302.7], ["Regensburg", 301.7], ["Passau", 303.5], ["München", 282.8], ["Linz", 306.7], ["Prag", 340.9], ["Dresden", 339.7], ["Erfurt", 319.3], ["Bayreuth", 312.0], ["Hof", 318.6], ["Augsburg", 285.4], ["Stuttgart", 287.6], ["Berlin", 343.7], ["Leipzig", 330.7], ["Breslau", 12.4], ["Brünn", 18.3], ["Ostrava", 35.2], ["Kraków", 46.2], ["Wien", 31.3], ["Bratislava", 56.6], ["Žilina", 48.9], ["Košice", 70.6], ["Lwiw", 64.4], ["Budapest", 90.7], ["Debrecen", 88.5], ["Szeged", 112.3], ["Pécs", 131.0], ["Belgrad", 128.8], ["Novi Sad", 128.1], ["Sarajevo", 152.8], ["Zagreb", 175.7], ["Split", 173.4], ["Rijeka", 203.1], ["Ljubljana", 210.6], ["Graz", 205.4], ["Triest", 216.5], ["Venedig", 229.5], ["Bologna", 226.8], ["Verona", 239.0], ["Mailand", 247.5], ["Klagenfurt", 227.2], ["Innsbruck", 265.8], ["Salzburg", 277.9], ["Zürich", 270.3], ["Bozen", 252.1], ["Timișoara", 114.0], ["Cluj", 95.7]]};
 
 const matRed=0xd9463a;
 const QM={x:SITE.QM[0],y:SITE.QM[1]}, YM={x:SITE.YM[0],y:SITE.YM[1]}; const gQ=hAt(QM.x,QM.y), gY=hAt(YM.x,YM.y);
 const grp=new THREE.Group(); scene.add(grp);
-// Mast 2: 7,5 m, Yagi-Stack fest
-mast(YM.x,YM.y,7.5,grp,3.5,4.0);   // Abspannung unterhalb der unteren Yagi
-const YF=new THREE.Group(); const ya=yagi(), yb=yagi(); ya.position.y=7.5; yb.position.y=4.0; YF.add(ya); YF.add(yb); YF.rotation.y=-SITE.yagi*Math.PI/180; YF.position.set(YM.x,gY,-YM.y); grp.add(YF);
-// Mast 1: 10 m, Rotor mit Quad-Stack
-mast(QM.x,QM.y,5.6,grp,4.0,4.5);   // Abspannung unterhalb des Rotors
-const Q=new THREE.Group(); const qa=quad(), qb=quad(); qa.position.y=9.7; qb.position.y=6.4; Q.add(qa); Q.add(qb);
-Q.add(tube(new THREE.Vector3(0,5.7,0),new THREE.Vector3(0,10.4,0),0.045,matAlu)); Q.position.set(QM.x,gQ,-QM.y); grp.add(Q);
+// Mast 2: 7,5 m, Yagi-Stack (Abspannung 3,5 m, unter der unteren Yagi)
+mast(YM.x,YM.y,7.5,grp,3.5,4.0);
+const YF=new THREE.Group(); const ya=yagi(), yb=yagi(); ya.position.y=7.5; yb.position.y=4.0; YF.add(ya); YF.add(yb); YF.position.set(YM.x,gY,-YM.y); grp.add(YF);
+// Mast 1: 10 m, Rotor, zwei Quads einzeln richtbar
+mast(QM.x,QM.y,5.6,grp,4.0,4.5);
+grp.add(tube(new THREE.Vector3(QM.x,gQ+5.7,-QM.y),new THREE.Vector3(QM.x,gQ+10.4,-QM.y),0.045,matAlu));
 const rotor=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rotor.position.set(QM.x,gQ+5.4,-QM.y); grp.add(rotor);
+const QO=quad(), QU=quad(); QO.position.set(QM.x,gQ+9.7,-QM.y); QU.position.set(QM.x,gQ+6.4,-QM.y); grp.add(QO); grp.add(QU);
 grp.add(car(SITE.CAR[0],SITE.CAR[1],0.785));
-fan(YM.x,YM.y,33.8,90,0xd8a55f,0.14,grp).setHeading(SITE.yagi);
-const beam=fan(QM.x,QM.y,69,80,0x6fa384,0.14,grp);
+// Sektoren: Quad oben bernstein, Quad unten hell, Yagi-Stack grün
+const ANT={qo:{obj:QO,fan:fan(QM.x,QM.y,69,80,0xd8a55f,0.15,grp),col:'#d8a55f',name:'Quad oben',hp:69,mx:QM.x,my:QM.y,r:84,cnt:CNT.qo},
+           qu:{obj:QU,fan:fan(QM.x,QM.y,69,66,0xc4c4ca,0.15,grp),col:'#c4c4ca',name:'Quad unten',hp:69,mx:QM.x,my:QM.y,r:70,cnt:CNT.qu},
+           ys:{obj:YF,fan:fan(YM.x,YM.y,33.8,92,0x6fa384,0.18,grp),col:'#6fa384',name:'Yagi-Stack',hp:33.8,mx:YM.x,my:YM.y,r:96,cnt:CNT.ys}};
 const lo=SITE.tabu[0], hi=SITE.tabu[1], w=((hi-lo)%360+360)%360, mid=lo+w/2;
 fan(QM.x,QM.y,w,150,matRed,0.30,grp).setHeading(mid); fan(QM.x,QM.y,w,150,matRed,0.13,grp).setHeading(mid+180);
 fan(QM.x,QM.y,((SITE.core[1]-SITE.core[0])%360+360)%360,150,matRed,0.22,grp).setHeading(SITE.core[0]+(((SITE.core[1]-SITE.core[0])%360+360)%360)/2);
-const edge=(mx,my,b,txt,size,col,r)=>{ const x=mx+r*Math.sin(b*Math.PI/180), y=my+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const sp=label(txt,col,size); sp.position.set(x,hAt(xx,yy)+3,-y); grp.add(sp); };
+const edge=(mx,my,b,txt,size,col,r)=>{ const x=mx+r*Math.sin(b*Math.PI/180), y=my+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const sp=label(txt,col,size); sp.position.set(x,hAt(xx,yy)+3,-y); grp.add(sp); return sp; };
 edge(QM.x,QM.y,lo,Math.round(lo)+'°',14,'#f0a090',152); edge(QM.x,QM.y,hi,Math.round(hi)+'°',14,'#f0a090',152); edge(QM.x,QM.y,mid,'TABU · Seilbahn',20,'#f0a090',105);
 edge(QM.x,QM.y,lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152); edge(QM.x,QM.y,hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152); edge(QM.x,QM.y,mid+180,'180° gedreht',18,'#f0a090',105);
-edge(YM.x,YM.y,SITE.yagi,'Yagi-Stack fest '+SITE.yagi+'°',22,'#d8a55f',95);
+// Zählung im Hauptstrahl und Städte
+function inSec(b,lo,hi){ return ((b-lo)%360+360)%360<=((hi-lo)%360+360)%360; }
+function tabuHit(key,h){ const t=key==='ys'?SITE.tabuY:SITE.tabuQ; const lo=t[0]-2, hi=t[1]+2; return inSec(h,lo,hi)||inSec(h,lo+180,hi+180); }
+function lobeCount(a,h){ const c=a.cnt; let n=0, dl=0; const half=a.hp/2; for(let k=0;k<360;k++){ let d=((k-h+540)%360)-180; if(Math.abs(d)<=half){ n+=c[0][k]; dl+=c[1][k]; } } return [n,dl]; }
+function lobeCities(a,h){ return CNT.cities.filter(([n,b])=>Math.abs(((b-h+540)%360)-180)<=a.hp/2).map(([n])=>n).slice(0,6).join(', '); }
+const HD={...SITE.start}; const nowEl=document.getElementById('now');
+function apply(key,h,fromInput){ h=((Math.round(h)%360)+360)%360; HD[key]=h; const a=ANT[key];
+  a.obj.rotation.y=-h*Math.PI/180; a.fan.setHeading(h);
+  if(a.lab){ grp.remove(a.lab); a.lab.material.map.dispose(); a.lab.material.dispose(); }
+  const [n,dl]=lobeCount(a,h); const bad=tabuHit(key,h); a.lab=edge(a.mx,a.my,h,a.name+' '+h+'° · '+(bad?'TABU':n+' Stationen'),22,bad?'#f0a090':a.col,a.r);
+  document.querySelectorAll('#ctl input[data-a="'+key+'"]').forEach(i=>{ if(i!==fromInput) i.value=h; });
+  const stacked=HD.qo===HD.qu;
+  nowEl.innerHTML=['qo','qu','ys'].map(k=>{ const b=ANT[k]; const [nn,dd]=lobeCount(b,HD[k]); const bad=tabuHit(k,HD[k]); return `<span style="color:${b.col}">${b.name}</span> <b>${HD[k]}°</b> `+(bad?`<span class="tabu">im Tabu — Richtung Seilbahn, hier wird nicht gesendet</span>`:`${nn} Stationen, ${dd} DL — ${lobeCities(b,HD[k])}`); }).join('<br>')+(stacked?'<br><span style="color:var(--t5)">Beide Quads gleich gerichtet: Stack, 14,5 dBi</span>':'<br><span style="color:var(--t5)">Quads getrennt: je 12 dBi</span>'); }
+document.querySelectorAll('#ctl input[data-a]').forEach(i=>{ i.addEventListener('input',()=>apply(i.dataset.a,+i.value,i)); });
+document.querySelectorAll('#ctl button[data-preset]').forEach(b=>b.addEventListener('click',()=>{ const [a,b2,c]=b.dataset.preset.split(',').map(Number); apply('qo',a); apply('qu',b2); apply('ys',c); }));
+apply('qo',HD.qo); apply('qu',HD.qu); apply('ys',HD.ys);
 const midp={x:(QM.x+YM.x)/2,y:(QM.y+YM.y)/2}; const g=Math.max(gQ,gY);
 const VIEW_M={p:new THREE.Vector3(midp.x-30,g+16,-(midp.y-34)),t:new THREE.Vector3(midp.x,g+7,-midp.y)};
 const st=D.station.center; const bs=Math.atan2(st[0]-QM.x,st[1]-QM.y); const back=bs+Math.PI;
 const VIEW_S={p:new THREE.Vector3(QM.x+48*Math.sin(back),gQ+17,-(QM.y+48*Math.cos(back))),t:new THREE.Vector3(QM.x+40*Math.sin(bs),gQ+5,-(QM.y+40*Math.cos(bs)))};
 document.getElementById('txt').innerHTML=SITE.txt;
-const hdgEl=document.getElementById('hdg'), whatEl=document.getElementById('what'), hdgsEl=document.getElementById('hdgs');
-const seq=SITE.quads.slice(); let targetH=seq[0], curH=seq[0], autoOn=!reduced, lastSwitch=performance.now(), seqI=0, lastBeam=null;
-function setTarget(h,manual){ targetH=h; hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.h===h))); hdgEl.textContent=h+'°'; whatEl.textContent=SITE.what[h]||''; lastSwitch=performance.now()+(manual?14000:0); }
-hdgsEl.innerHTML=seq.map(h=>`<button type="button" data-h="${h}">${h}°</button>`).join(' ');
-hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.addEventListener('click',()=>{ seqI=seq.indexOf(+b.dataset.h); setTarget(+b.dataset.h,true); }));
-setTarget(seq[0],false); Q.rotation.y=-curH*Math.PI/180; beam.setHeading(curH); lastBeam=curH;
 camera.position.copy(VIEW_M.p); controls.target.copy(VIEW_M.t);
-let fly=null, stView=false; const viewBtn=document.getElementById('view');
+let fly=null, stView=false, autoOn=!reduced; const viewBtn=document.getElementById('view');
 function flyTo(v){ if(reduced){ camera.position.copy(v.p); controls.target.copy(v.t); return; } fly={p0:camera.position.clone(),t0:controls.target.clone(),p1:v.p,t1:v.t,s:performance.now()}; }
 const hudEl=document.getElementById('hud'), miniBtn=document.getElementById('mini'); let hudWasOpen=true;
 viewBtn.addEventListener('click',()=>{ stView=!stView; viewBtn.setAttribute('aria-pressed',String(stView)); flyTo(stView?VIEW_S:VIEW_M);
@@ -202,9 +229,6 @@ document.getElementById('mini').addEventListener('click',e=>{ const h=document.g
 function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); } addEventListener('resize',resize); resize();
 sun.target.position.set(-12,hAt(-12,-45),45);
 function frame(now){ requestAnimationFrame(frame);
-  if(autoOn && now-lastSwitch>8000){ seqI=(seqI+1)%seq.length; setTarget(seq[seqI],false); }
-  let d=((targetH-curH+540)%360)-180; curH+= d*(reduced?1:0.035); if(Math.abs(d)<0.05)curH=targetH;
-  Q.rotation.y=-curH*Math.PI/180; if(lastBeam===null||Math.abs(curH-lastBeam)>0.4){ beam.setHeading(curH); lastBeam=curH; }
   if(fly){ const k=Math.min(1,(now-fly.s)/2200); const e=k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2; camera.position.lerpVectors(fly.p0,fly.p1,e); controls.target.lerpVectors(fly.t0,fly.t1,e); if(k>=1)fly=null; }
   controls.update(); renderer.render(scene,camera); }
 requestAnimationFrame(frame);

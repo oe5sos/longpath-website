@@ -65,7 +65,7 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 
 <figure class="szene">
   <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con el stack de Yagis fijo hacia Alemania, el stack de cuadros giratorio, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca, los botones de grados orientan el stack de cuadros, «Bergstation» gira hacia el telesilla. Rojo: el sector prohibido. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
+  <figcaption>Arrastrar gira, la rueda acerca. Los deslizadores orientan el cuadro superior, el inferior y el stack de Yagis a cualquier rumbo — con grados, estaciones en el haz principal y aviso si una dirección cae en el sector prohibido; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena muestra la instalación tal como queda planeada al final — el stack de Yagis fijo hacia Alemania, los cuadros en el rotor, más el sector rojo; cómo se llegó a eso está en las dos secciones siguientes.
+La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena muestra la instalación tal como queda planeada al final — el stack de Yagis fijo hacia Alemania, los cuadros en el rotor, cada uno orientable por separado, más el sector rojo; cómo se llegó a eso está en las dos secciones siguientes.
 
 ## Dos sitios, una prohibición
 

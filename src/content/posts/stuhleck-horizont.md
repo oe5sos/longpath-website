@@ -65,7 +65,7 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 
 <figure class="szene">
   <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit dem festen Yagi-Stack nach Deutschland, dem drehbaren Quad-Stack, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt, die Gradknöpfe stellen den Quad-Stack, „Bergstation“ schwenkt zur Seilbahn. Rot: der Tabu-Sektor. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+  <figcaption>Ziehen dreht, das Rad zoomt. Die Regler richten Quad oben, Quad unten und den Yagi-Stack auf jede Peilung — mit Gradzahl, Stationen im Hauptstrahl und Warnung, wenn eine Richtung im Tabu liegt; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene zeigt die Anlage, wie sie am Ende geplant ist — der Yagi-Stack fest nach Deutschland, die Quads auf dem Rotor, dazu der rote Sektor; wie es dazu kam, steht in den nächsten beiden Abschnitten.
+Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene zeigt die Anlage, wie sie am Ende geplant ist — der Yagi-Stack fest nach Deutschland, die Quads auf dem Rotor, jede für sich richtbar, dazu der rote Sektor; wie es dazu kam, steht in den nächsten beiden Abschnitten.
 
 ## Zwei Plätze, ein Tabu
 
