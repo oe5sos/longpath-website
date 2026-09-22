@@ -64,7 +64,7 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=14" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con el stack de Yagis en el rotor 1, el stack de cuadros en el rotor 2, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-3d.html?v=15" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con el stack de Yagis en el rotor 1, el stack de cuadros en el rotor 2, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
   <figcaption>Arrastrar gira, la rueda acerca. Arriba a la izquierda se cambia entre el emplazamiento A (hoy), C (propuesta) y el prado sur — mástiles, sector prohibido y cifras se mueven con él. Los botones fijan las direcciones fijas — stack de Yagis 302° / 18° / 86°, stack de cuadros 20° / 116° / 120° / 136° / 200° —, los deslizadores cualquier otra; debajo, por stack, las estaciones, países y ciudades en el haz principal y un aviso si una dirección cae en el sector prohibido. «Drehen» hace girar la vista lentamente, «Stopp» la detiene; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 

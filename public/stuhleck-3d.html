@@ -43,7 +43,7 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
 #hud.min > :not(button){display:none}
 #hud.min{width:auto;padding:10px 60px 10px 16px}
 #hud.min::before{content:"Stuhleck 3D";font-weight:600}
-@media (max-width:640px){#hud{font-size:12px}#hud h1{font-size:16px}#bar .src{display:none}}
+@media (max-width:640px){#hud{font-size:12px;left:10px;right:10px;width:auto;padding:12px 44px 12px 14px;max-height:72vh;overflow-y:auto;-webkit-overflow-scrolling:touch}#hud h1{font-size:15px;margin-bottom:6px}#hud .k{font-size:9.5px;margin-bottom:4px}#hud.min{width:34px;height:34px;padding:0;border:0;background:none;backdrop-filter:none;overflow:visible}#hud.min::before{content:none}#hud.min > :not(button){display:none}#hud button.min{position:absolute;right:0;top:0;width:34px;height:34px;border-radius:50%;font-size:13px;background:var(--panel);backdrop-filter:blur(6px);color:var(--t2)}#hud:not(.min) button.min{border-radius:4px;width:auto;height:auto;padding:3px 8px}#bar{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));gap:6px}#bar .src{display:none}#bar button{padding:7px 10px;font-size:12px}#bar .sites{padding:5px 6px;gap:4px;flex:1 0 100%}#bar .sites button{padding:6px 8px;font-size:11.5px;flex:1}#bar .ctl{padding:6px 8px;gap:4px 8px;flex:1 0 100%}#bar .ctl label{gap:5px;font-size:11.5px;flex-wrap:wrap}#bar .ctl .n{width:56px;font-size:11px}#bar .ctl input[type=range]{width:74px}#bar .ctl input[type=number]{width:44px;font-size:12px;padding:2px 3px}#bar .ctl .presets{gap:4px}#bar .ctl .presets button{padding:4px 7px;font-size:11px}}
 @media (max-height:560px){#hud{width:min(260px,calc(100vw - 32px));padding:10px 12px}#hud h1{font-size:14px;margin-bottom:4px}#hud p:not(.now):not(.k){display:none}#hud .now{margin-top:6px;padding-top:6px}}
 </style>
 </head>
@@ -203,9 +203,10 @@ function buildSite(key){ const S=SD.sites[key]; const G=new THREE.Group(); grp.a
   edge(qm.x,qm.y,lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152,G); edge(qm.x,qm.y,hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152,G); edge(qm.x,qm.y,mid+180,'180° gedreht',18,'#f0a090',105,G);
   const midp={x:(qm.x+ym.x)/2,y:(qm.y+ym.y)/2}; const gg=Math.max(g1,g2);
   const viewM={p:new THREE.Vector3(midp.x-30,gg+16,-(midp.y-34)),t:new THREE.Vector3(midp.x,gg+7,-midp.y)};
+  const viewP={p:new THREE.Vector3(midp.x-42,gg+58,-(midp.y-56)),t:new THREE.Vector3(midp.x+4,gg-2,-(midp.y+6))};
   const st=D.station.center; const bs=Math.atan2(st[0]-qm.x,st[1]-qm.y), back=bs+Math.PI;
   const viewS={p:new THREE.Vector3(qm.x+48*Math.sin(back),g1+17,-(qm.y+48*Math.cos(back))),t:new THREE.Vector3(qm.x+40*Math.sin(bs),g1+5,-(qm.y+40*Math.cos(bs)))};
-  return {S,G,QM:qm,YM:ym,gQ:g1,gY:g2,ant,cnt,viewM,viewS}; }
+  return {S,G,QM:qm,YM:ym,gQ:g1,gY:g2,ant,cnt,viewM,viewP,viewS}; }
 // Zählung im Hauptstrahl und Städte
 function inSec(b,lo,hi){ return ((b-lo)%360+360)%360<=((hi-lo)%360+360)%360; }
 function tabuHit(key,h){ const t=key==='ys'?SITE.tabuY:SITE.tabuQ; const lo=t[0]-2, hi=t[1]+2; return inSec(h,lo,hi)||inSec(h,lo+180,hi+180); }
@@ -220,14 +221,14 @@ function apply(key,h,fromInput){ h=((Math.round(h)%360)+360)%360; HD[key]=h; con
   document.querySelectorAll('#ctl input[data-a="'+key+'"]').forEach(i=>{ if(i!==fromInput) i.value=h; });
   nowEl.innerHTML=['ys','qs'].map(k=>{ const b=ANT[k]; const [nn,dd,by]=lobeCount(b,HD[k]); const bad=tabuHit(k,HD[k]); return `<span style="color:${b.col}">${b.name}</span> <b>${HD[k]}°</b> `+(bad?`<span class="tabu">im Tabu — Richtung Seilbahn, hier wird nicht gesendet</span>`:`${nn} Stationen — ${lobeCountries(by)}<br><span style="color:var(--t5)">${lobeCities(b,HD[k])}</span>`); }).join('<br>'); }
 document.querySelectorAll('#ctl input[data-a]').forEach(i=>{ i.addEventListener('input',()=>apply(i.dataset.a,+i.value,i)); });
-const BUILT={}; let CUR=null, first=true;
+const BUILT={}; let CUR=null, first=true; const hoch=()=>innerHeight>innerWidth*1.15; let warHoch=hoch();
 function presetBtns(){ for(const k of ['ys','qs']){ const el=document.getElementById('pres-'+k);
     el.innerHTML=SITE.pres[k].map(v=>`<button type="button" data-a="${k}" data-v="${v}">${v}°</button>`).join('');
     el.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>apply(k,+b.dataset.v))); } }
 function selectSite(key){ if(CUR) CUR.G.visible=false;
   if(!BUILT[key]) BUILT[key]=buildSite(key);
   CUR=BUILT[key]; CUR.G.visible=true; SG=CUR.G;
-  SITE=CUR.S; CNT=CUR.cnt; ANT=CUR.ant; QM=CUR.QM; YM=CUR.YM; gQ=CUR.gQ; gY=CUR.gY; VIEW_M=CUR.viewM; VIEW_S=CUR.viewS;
+  SITE=CUR.S; CNT=CUR.cnt; ANT=CUR.ant; QM=CUR.QM; YM=CUR.YM; gQ=CUR.gQ; gY=CUR.gY; VIEW_M=hoch()?CUR.viewP:CUR.viewM; VIEW_S=CUR.viewS;
   document.getElementById('txt').innerHTML=SITE.txt;
   document.getElementById('h1').textContent=SITE.nam;
   presetBtns(); HD.ys=SITE.start.ys; HD.qs=SITE.start.qs;
@@ -239,15 +240,21 @@ let fly=null, stView=false, autoOn=false; const viewBtn=document.getElementById(
 function flyTo(v){ if(reduced){ camera.position.copy(v.p); controls.target.copy(v.t); return; } fly={p0:camera.position.clone(),t0:controls.target.clone(),p1:v.p,t1:v.t,s:performance.now()}; }
 const hudEl=document.getElementById('hud'), miniBtn=document.getElementById('mini'); let hudWasOpen=true;
 selectSite('A'); first=false; camera.position.copy(VIEW_M.p); controls.target.copy(VIEW_M.t);
+if(innerWidth<=640){ hudEl.classList.add('min'); hudWasOpen=false; }
 viewBtn.addEventListener('click',()=>{ stView=!stView; viewBtn.setAttribute('aria-pressed',String(stView)); flyTo(stView?VIEW_S:VIEW_M);
-  if(stView){ hudWasOpen=!hudEl.classList.contains('min'); if(innerWidth<900){ hudEl.classList.add('min'); miniBtn.textContent='+'; } } else if(hudWasOpen){ hudEl.classList.remove('min'); miniBtn.textContent='−'; } });
+  if(stView){ hudWasOpen=!hudEl.classList.contains('min'); if(innerWidth<900){ hudEl.classList.add('min'); hudLabel(); } } else if(hudWasOpen){ hudEl.classList.remove('min'); hudLabel(); } });
 const autoBtn=document.getElementById('auto');
 function setAuto(v){ autoOn=v && !reduced; controls.autoRotate=autoOn; autoBtn.setAttribute('aria-pressed',String(autoOn)); autoBtn.textContent=autoOn?'Stopp':'Drehen'; autoBtn.title=autoOn?'Drehung anhalten':'Ansicht langsam drehen lassen'; }
 setAuto(false);
 autoBtn.addEventListener('click',()=>setAuto(!autoOn));
 controls.addEventListener('start',()=>{ if(autoOn) setAuto(false); });
-document.getElementById('mini').addEventListener('click',e=>{ const h=document.getElementById('hud'); h.classList.toggle('min'); e.target.textContent=h.classList.contains('min')?'+':'−'; });
-function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); } addEventListener('resize',resize); resize();
+const small=()=>innerWidth<=640;
+function hudLabel(){ const closed=hudEl.classList.contains('min'); miniBtn.textContent=closed?(small()?'i':'+'):(small()?'\u00d7':'\u2212'); miniBtn.setAttribute('aria-label',closed?'Erklärung zeigen':'Erklärung ausblenden'); }
+miniBtn.addEventListener('click',()=>{ hudEl.classList.toggle('min'); hudWasOpen=!hudEl.classList.contains('min'); hudLabel(); });
+addEventListener('resize',hudLabel);
+hudLabel();
+function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+  if(CUR && hoch()!==warHoch){ warHoch=hoch(); VIEW_M=warHoch?CUR.viewP:CUR.viewM; if(!stView) flyTo(VIEW_M); } } addEventListener('resize',resize); resize();
 sun.target.position.set(-12,hAt(-12,-45),45);
 function frame(now){ requestAnimationFrame(frame);
   if(fly){ const k=Math.min(1,(now-fly.s)/2200); const e=k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2; camera.position.lerpVectors(fly.p0,fly.p1,e); controls.target.lerpVectors(fly.t0,fly.t1,e); if(k>=1)fly=null; }
