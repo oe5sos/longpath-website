@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Der Stuhleck-Gipfel als 3D-Szene: Orthofoto auf dem Laserscan-Gelände mit zwei Standorten für die Antennenmasten, dem Yagi-Stack, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn.">
+<meta name="description" content="Der Stuhleck-Gipfel als 3D-Szene: Orthofoto auf dem Laserscan-Gelände mit dem festen Yagi-Stack nach Deutschland, dem drehbaren Quad-Stack, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.longpath.at/stuhleck-3d">
-<title>Stuhleck 3D · Standorte A und B · longpath.at</title>
+<title>Stuhleck 3D · Antennenanlage · longpath.at</title>
 <style>
 :root{--bg:#0c0c0e;--panel:rgba(20,20,24,.86);--t1:#dcdce1;--t2:#c4c4ca;--t3:#a6a6ac;--t5:#7e7e85;--t6:#58585e;--amb:#d8a55f;--ok:#6fa384;--warn:#a8853f;--border:#2c2c31;--ff:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
 html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:var(--ff);font-size:13px;overflow:hidden}
@@ -23,8 +23,6 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
 #bar button:focus-visible{outline:2px solid var(--amb);outline-offset:1px}
 #bar button[aria-pressed="true"]{border-color:var(--amb);color:var(--amb)}
 #bar .sp{flex:1}
-#bar #siteA,#bar #siteB{border-color:var(--t5)}
-#bar #siteA[aria-pressed="true"],#bar #siteB[aria-pressed="true"]{background:var(--amb);color:#0c0c0e;border-color:var(--amb)}
 #hud .tabu{color:#e06a5a}
 #bar .src{color:var(--t6);font-size:10.5px;line-height:1.4;text-align:right;max-width:46vw}
 #hud button.min{position:absolute;right:10px;top:10px;font:inherit;font-size:11px;color:var(--t5);background:none;border:1px solid var(--border);border-radius:4px;padding:2px 7px;cursor:pointer}
@@ -41,13 +39,11 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--t1);font-family:
 <div id="hud">
   <button class="min" id="mini" aria-label="Erklärung einklappen">−</button>
   <p class="k"><a href="/blog/stuhleck-horizont/" style="color:inherit;text-decoration:none">← Was das Stuhleck sieht</a> · 1 782 m · JN77VN</p>
-  <h1 id="h1">Standort A · Zwei Masten auf der Kuppe</h1>
+  <h1 id="h1">Yagi-Stack fest, die Quads drehen</h1>
   <p id="txt"></p>
-  <p class="now">Yagi <b id="hdg">312°</b> <span id="what">Nürnberg, Regensburg, Passau, Linz, Erfurt</span></p>
+  <p class="now">Quad-Stack <b id="hdg">20°</b> <span id="what">Nürnberg, Regensburg, Passau, Linz, Erfurt</span></p>
 </div>
 <div id="bar">
-  <button type="button" id="siteA" aria-pressed="true">Standort A</button>
-  <button type="button" id="siteB" aria-pressed="false">Standort B</button>
   <span id="hdgs"></span>
   <button type="button" id="auto" aria-pressed="true">Rundflug</button>
   <button type="button" id="view" aria-pressed="false">Bergstation</button>
@@ -161,59 +157,54 @@ function fan(mx,my,hp,r,color,opacity,grp){ const geo=new THREE.BufferGeometry()
 const CX=-12, CY=-45; const targets=[[31,'Wien 31°'],[57,'Bratislava 57°'],[91,'Budapest 91°'],[129,'Belgrad 129°'],[176,'Zagreb 176°'],[205,'Graz 205°'],[229,'Venedig 229°'],[283,'München 283°'],[303,'Nürnberg 303°'],[342,'Prag 341° · Berlin 344°'],[46,'Kraków 46°'],[15,'Breslau 12° · Brünn 18°'],[211,'Ljubljana 211°'],[72,'Košice 71°']];
 targets.forEach(([b,t])=>{ const r=118; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#dcdce1',26); s.position.set(x,hAt(xx,yy)+9,-y); scene.add(s); });
 [[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const r=100; const x=CX+r*Math.sin(b*Math.PI/180), y=CY+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const s=label(t,'#d8a55f',14); s.position.set(x,hAt(xx,yy)+4,-y); scene.add(s); });
-const SITES={"A": {"M1": [-36.0, -18.0], "M2": [-42.0, -8.0], "CAR": [-2.0, 12.0], "carRot": 0.785, "q1": 20, "q2": 294, "yagi": [138, 172, 212], "what": {"138": "Pécs, Belgrad, Novi Sad, Sarajevo, Skopje — 101 Stationen", "172": "Zagreb, Split, Banja Luka — 105 Stationen", "212": "Rijeka, Ljubljana, Graz, Triest, Bologna — 229 Stationen"}, "tabu": [214.7, 262.3], "core": [231.6, 245.4], "total": 1342, "quads": 907, "q1c": "Breslau, Brünn, Ostrava, Kraków, Wien", "q2c": "Nürnberg, Regensburg, Passau, München, Linz", "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 1 (13,5 m) mit zwei festen Vierfachquads, Mast 2 (10 m) mit zwei gestockten 12-Element-Yagis auf 6,4 und 9,7 m. Standort A liegt auf der Kuppe zwischen Parkplatz und Gipfelkreuz, 42 m vom Haus, 120 m von der Bergstation. Plan unter der Tabu-Regel: Quad 1 (8 m) 20° — Breslau, Brünn, Ostrava, Kraków, Wien; Quad 2 (11,8 m) 294° — Nürnberg, Regensburg, Passau, München, Linz; Yagi 138° / 172° / 212°. Zusammen 1 342 Stationen unter 3 dB. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 215°–262° und 180° gedreht 35°–82°.</span> Ziehen dreht die Ansicht, Rad zoomt.", "title": "Standort A · Zwei Masten auf der Kuppe"}, "B": {"M1": [13.4, -70.4], "M2": [10.0, -82.0], "CAR": [2.0, -26.0], "carRot": 0.785, "q1": 216, "q2": 42, "yagi": [118, 164, 294], "what": {"118": "Szeged, Timișoara, Pécs, Belgrad, Novi Sad — 88 Stationen", "164": "Sarajevo, Zagreb, Split, Banja Luka — 113 Stationen", "294": "Nürnberg, Regensburg, Passau, München, Linz — 231 Stationen"}, "tabu": [244.4, 288.4], "core": [261.3, 271.5], "total": 1325, "quads": 893, "q1c": "Rijeka, Ljubljana, Graz, Triest, Venedig", "q2c": "Breslau, Brünn, Ostrava, Kraków, Wien", "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Gleiche Masten und Antennen wie A, aber auf der Wiese südlich des Hauses: 34 m von der Hausecke, 153 m von der Bergstation. Das Haus steht dort genau im Norden, sein First neun Meter über dem Boden — die untere Quad und die untere Yagi sehen ihn, 342°–18° kosten bis 9 dB. Plan unter der Tabu-Regel: Quad 1 (8 m) 216° — Rijeka, Ljubljana, Graz, Triest, Venedig; Quad 2 (11,8 m) 42° — Breslau, Brünn, Ostrava, Kraków, Wien; Yagi 118° / 164° / 294°. Zusammen 1 325 Stationen unter 3 dB. <span class=\"tabu\">Rot: Tabu Richtung Seilbahn 244°–288°, 180° gedreht 64°–108°.</span> Ziehen dreht die Ansicht, Rad zoomt.", "title": "Standort B · Auf der Wiese südlich des Hauses"}};
+const SITE={"QM": [-36.0, -18.0], "YM": [-42.0, -8.0], "CAR": [-2.0, 12.0], "yagi": 302, "quads": [20, 108, 200], "what": {"20": "Breslau, Brünn, Ostrava, Kraków, Wien, Žilina — 405 Stationen", "108": "Budapest, Debrecen, Szeged, Pécs, Belgrad, Novi Sad — 104 Stationen", "200": "Zagreb, Rijeka, Ljubljana, Graz, Triest, Venedig, Bologna — 238 Stationen"}, "tabu": [220.2, 264.6], "core": [237.1, 247.7], "txt": "Orthofoto auf dem Laserscan-Gelände, maßstäblich. Mast 2 (7,5 m) trägt die beiden 12-Element-Yagis gestockt auf 4,0 und 7,5 m, fest auf 302° — Regensburg, Nürnberg, Passau, Bayreuth, Hof, 17,8 dBi für Deutschland rund um die Uhr. Mast 1 (10 m) trägt die beiden Vierfachquads gestockt auf 6,4 und 9,7 m auf dem Rotor, 69° breit, 14,5 dBi, drei Stellungen: 20° / 108° / 200°. Zusammen 968 Stationen bis 500 km und 1 205 bis 750 km, Deutschland 349 von 1 070, davon 107 kleine. <span class=\"tabu\">Rot: Richtung Seilbahn wird nicht gesendet, 220°–265° und 180° gedreht 40°–85°.</span> Ziehen dreht die Ansicht, Rad zoomt."};
 
-// ---- Standort aufbauen: Masten, Quads, Yagi-Stack, Auto, Sektoren, Tabu
 const matRed=0xd9463a;
-function buildSite(key){ const S=SITES[key]; const grp=new THREE.Group(); scene.add(grp);
-  const M1={x:S.M1[0],y:S.M1[1]}, M2={x:S.M2[0],y:S.M2[1]}; const g1=hAt(M1.x,M1.y), g2=hAt(M2.x,M2.y);
-  mast(M1.x,M1.y,13.5,grp); mast(M2.x,M2.y,5.9,grp);
-  grp.add(placeQuad(M1.x,M1.y,8.0,S.q1)); grp.add(placeQuad(M1.x,M1.y,11.8,S.q2));
-  const Y=new THREE.Group(); const y1=yagi(), y2=yagi(); y1.position.y=9.7; y2.position.y=6.4; Y.add(y1); Y.add(y2);
-  Y.add(tube(new THREE.Vector3(0,6.0,0),new THREE.Vector3(0,10.0,0),0.045,matAlu)); Y.position.set(M2.x,g2,-M2.y); grp.add(Y);
-  const rotor=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rotor.position.set(M2.x,g2+5.7,-M2.y); grp.add(rotor);
-  grp.add(car(S.CAR[0],S.CAR[1],S.carRot));
-  fan(M1.x,M1.y,69,75,0xd8a55f,0.10,grp).setHeading(S.q1); fan(M1.x,M1.y,69,75,0xc4c4ca,0.10,grp).setHeading(S.q2);
-  const beam=fan(M2.x,M2.y,33.8,90,0x6fa384,0.16,grp);
-  // Tabu: vorwärts (voll) und 180° gedreht (blasser), Gradzahlen an den Rändern
-  const lo=S.tabu[0], hi=S.tabu[1], w=((hi-lo)%360+360)%360, mid=lo+w/2;
-  fan(M2.x,M2.y,w,150,matRed,0.30,grp).setHeading(mid); fan(M2.x,M2.y,w,150,matRed,0.13,grp).setHeading(mid+180);
-  fan(M2.x,M2.y,((S.core[1]-S.core[0])%360+360)%360,150,matRed,0.22,grp).setHeading(S.core[0]+(((S.core[1]-S.core[0])%360+360)%360)/2);
-  const edge=(b,txt,size,col,r)=>{ const x=M2.x+r*Math.sin(b*Math.PI/180), y=M2.y+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const sp=label(txt,col,size); sp.position.set(x,hAt(xx,yy)+3,-y); grp.add(sp); };
-  edge(lo,Math.round(lo)+'°',14,'#f0a090',152); edge(hi,Math.round(hi)+'°',14,'#f0a090',152); edge(mid,'TABU · Seilbahn',20,'#f0a090',105);
-  edge(lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152); edge(hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152); edge(mid+180,'180° gedreht',18,'#f0a090',105);
-  for(const [h,col] of [[S.q1,'#d8a55f'],[S.q2,'#c4c4ca']]){ edge(h,'Quad '+h+'°',16,col,80); }
-  const mid2={x:(M1.x+M2.x)/2,y:(M1.y+M2.y)/2}; const g=Math.max(g1,g2);
-  const viewM={p:new THREE.Vector3(mid2.x-30,g+16,-(mid2.y-34)),t:new THREE.Vector3(mid2.x,g+7,-mid2.y)};
-  const st=D.station.center; const bs=Math.atan2(st[0]-M2.x,st[1]-M2.y); const back=bs+Math.PI;
-  const viewS={p:new THREE.Vector3(M2.x+48*Math.sin(back),g2+17,-(M2.y+48*Math.cos(back))),t:new THREE.Vector3(M2.x+40*Math.sin(bs),g2+5,-(M2.y+40*Math.cos(bs)))};
-  grp.visible=false; return {grp,Y,beam,viewM,viewS,S}; }
-const SITE={A:buildSite('A'),B:buildSite('B')}; let cur='A';
+const QM={x:SITE.QM[0],y:SITE.QM[1]}, YM={x:SITE.YM[0],y:SITE.YM[1]}; const gQ=hAt(QM.x,QM.y), gY=hAt(YM.x,YM.y);
+const grp=new THREE.Group(); scene.add(grp);
+// Mast 2: 7,5 m, Yagi-Stack fest
+mast(YM.x,YM.y,7.5,grp);
+const YF=new THREE.Group(); const ya=yagi(), yb=yagi(); ya.position.y=7.5; yb.position.y=4.0; YF.add(ya); YF.add(yb); YF.rotation.y=-SITE.yagi*Math.PI/180; YF.position.set(YM.x,gY,-YM.y); grp.add(YF);
+// Mast 1: 10 m, Rotor mit Quad-Stack
+mast(QM.x,QM.y,5.6,grp);
+const Q=new THREE.Group(); const qa=quad(), qb=quad(); qa.position.y=9.7; qb.position.y=6.4; Q.add(qa); Q.add(qb);
+Q.add(tube(new THREE.Vector3(0,5.7,0),new THREE.Vector3(0,10.4,0),0.045,matAlu)); Q.position.set(QM.x,gQ,-QM.y); grp.add(Q);
+const rotor=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rotor.position.set(QM.x,gQ+5.4,-QM.y); grp.add(rotor);
+grp.add(car(SITE.CAR[0],SITE.CAR[1],0.785));
+fan(YM.x,YM.y,33.8,90,0xd8a55f,0.14,grp).setHeading(SITE.yagi);
+const beam=fan(QM.x,QM.y,69,80,0x6fa384,0.14,grp);
+const lo=SITE.tabu[0], hi=SITE.tabu[1], w=((hi-lo)%360+360)%360, mid=lo+w/2;
+fan(QM.x,QM.y,w,150,matRed,0.30,grp).setHeading(mid); fan(QM.x,QM.y,w,150,matRed,0.13,grp).setHeading(mid+180);
+fan(QM.x,QM.y,((SITE.core[1]-SITE.core[0])%360+360)%360,150,matRed,0.22,grp).setHeading(SITE.core[0]+(((SITE.core[1]-SITE.core[0])%360+360)%360)/2);
+const edge=(mx,my,b,txt,size,col,r)=>{ const x=mx+r*Math.sin(b*Math.PI/180), y=my+r*Math.cos(b*Math.PI/180); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); const sp=label(txt,col,size); sp.position.set(x,hAt(xx,yy)+3,-y); grp.add(sp); };
+edge(QM.x,QM.y,lo,Math.round(lo)+'°',14,'#f0a090',152); edge(QM.x,QM.y,hi,Math.round(hi)+'°',14,'#f0a090',152); edge(QM.x,QM.y,mid,'TABU · Seilbahn',20,'#f0a090',105);
+edge(QM.x,QM.y,lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152); edge(QM.x,QM.y,hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152); edge(QM.x,QM.y,mid+180,'180° gedreht',18,'#f0a090',105);
+edge(YM.x,YM.y,SITE.yagi,'Yagi-Stack fest '+SITE.yagi+'°',22,'#d8a55f',95);
+const midp={x:(QM.x+YM.x)/2,y:(QM.y+YM.y)/2}; const g=Math.max(gQ,gY);
+const VIEW_M={p:new THREE.Vector3(midp.x-30,g+16,-(midp.y-34)),t:new THREE.Vector3(midp.x,g+7,-midp.y)};
+const st=D.station.center; const bs=Math.atan2(st[0]-QM.x,st[1]-QM.y); const back=bs+Math.PI;
+const VIEW_S={p:new THREE.Vector3(QM.x+48*Math.sin(back),gQ+17,-(QM.y+48*Math.cos(back))),t:new THREE.Vector3(QM.x+40*Math.sin(bs),gQ+5,-(QM.y+40*Math.cos(bs)))};
+document.getElementById('txt').innerHTML=SITE.txt;
 const hdgEl=document.getElementById('hdg'), whatEl=document.getElementById('what'), hdgsEl=document.getElementById('hdgs');
-let seq=[], targetH=0, curH=0, autoOn=!reduced, lastSwitch=performance.now(), seqI=0;
-function setTarget(h,manual){ targetH=h; hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.h===h))); hdgEl.textContent=h+'°'; whatEl.textContent=SITE[cur].S.what[h]||''; lastSwitch=performance.now()+(manual?14000:0); }
-function showSite(key,first){ cur=key; for(const k in SITE) SITE[k].grp.visible=(k===key); const S=SITE[key].S;
-  document.getElementById('h1').textContent=S.title; document.getElementById('txt').innerHTML=S.txt;
-  document.getElementById('siteA').setAttribute('aria-pressed',String(key==='A')); document.getElementById('siteB').setAttribute('aria-pressed',String(key==='B'));
-  seq=S.yagi.slice(); seqI=0; hdgsEl.innerHTML=seq.map(h=>`<button type="button" data-h="${h}">${h}°</button>`).join(' ');
-  hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.addEventListener('click',()=>{ seqI=seq.indexOf(+b.dataset.h); setTarget(+b.dataset.h,true); }));
-  curH=targetH=seq[0]; setTarget(seq[0],false); SITE[key].Y.rotation.y=-curH*Math.PI/180; SITE[key].beam.setHeading(curH); lastBeam=curH;
-  const v=stView?SITE[key].viewS:SITE[key].viewM; if(first){ camera.position.copy(v.p); controls.target.copy(v.t); } else flyTo(v); }
-let fly=null, stView=false, lastBeam=null; const viewBtn=document.getElementById('view');
+const seq=SITE.quads.slice(); let targetH=seq[0], curH=seq[0], autoOn=!reduced, lastSwitch=performance.now(), seqI=0, lastBeam=null;
+function setTarget(h,manual){ targetH=h; hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.h===h))); hdgEl.textContent=h+'°'; whatEl.textContent=SITE.what[h]||''; lastSwitch=performance.now()+(manual?14000:0); }
+hdgsEl.innerHTML=seq.map(h=>`<button type="button" data-h="${h}">${h}°</button>`).join(' ');
+hdgsEl.querySelectorAll('button[data-h]').forEach(b=>b.addEventListener('click',()=>{ seqI=seq.indexOf(+b.dataset.h); setTarget(+b.dataset.h,true); }));
+setTarget(seq[0],false); Q.rotation.y=-curH*Math.PI/180; beam.setHeading(curH); lastBeam=curH;
+camera.position.copy(VIEW_M.p); controls.target.copy(VIEW_M.t);
+let fly=null, stView=false; const viewBtn=document.getElementById('view');
 function flyTo(v){ if(reduced){ camera.position.copy(v.p); controls.target.copy(v.t); return; } fly={p0:camera.position.clone(),t0:controls.target.clone(),p1:v.p,t1:v.t,s:performance.now()}; }
 const hudEl=document.getElementById('hud'), miniBtn=document.getElementById('mini'); let hudWasOpen=true;
-viewBtn.addEventListener('click',()=>{ stView=!stView; viewBtn.setAttribute('aria-pressed',String(stView)); flyTo(stView?SITE[cur].viewS:SITE[cur].viewM);
+viewBtn.addEventListener('click',()=>{ stView=!stView; viewBtn.setAttribute('aria-pressed',String(stView)); flyTo(stView?VIEW_S:VIEW_M);
   if(stView){ hudWasOpen=!hudEl.classList.contains('min'); if(innerWidth<900){ hudEl.classList.add('min'); miniBtn.textContent='+'; } } else if(hudWasOpen){ hudEl.classList.remove('min'); miniBtn.textContent='−'; } });
-document.getElementById('siteA').addEventListener('click',()=>showSite('A')); document.getElementById('siteB').addEventListener('click',()=>showSite('B'));
 const autoBtn=document.getElementById('auto'); autoBtn.setAttribute('aria-pressed',String(autoOn)); autoBtn.addEventListener('click',()=>{ autoOn=!autoOn; controls.autoRotate=autoOn; autoBtn.setAttribute('aria-pressed',String(autoOn)); });
 document.getElementById('mini').addEventListener('click',e=>{ const h=document.getElementById('hud'); h.classList.toggle('min'); e.target.textContent=h.classList.contains('min')?'+':'−'; });
 function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); } addEventListener('resize',resize); resize();
 sun.target.position.set(-12,hAt(-12,-45),45);
-showSite('A',true);
 function frame(now){ requestAnimationFrame(frame);
   if(autoOn && now-lastSwitch>8000){ seqI=(seqI+1)%seq.length; setTarget(seq[seqI],false); }
   let d=((targetH-curH+540)%360)-180; curH+= d*(reduced?1:0.035); if(Math.abs(d)<0.05)curH=targetH;
-  const site=SITE[cur]; site.Y.rotation.y=-curH*Math.PI/180; if(lastBeam===null||Math.abs(curH-lastBeam)>0.4){ site.beam.setHeading(curH); lastBeam=curH; }
+  Q.rotation.y=-curH*Math.PI/180; if(lastBeam===null||Math.abs(curH-lastBeam)>0.4){ beam.setHeading(curH); lastBeam=curH; }
   if(fly){ const k=Math.min(1,(now-fly.s)/2200); const e=k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2; camera.position.lerpVectors(fly.p0,fly.p1,e); controls.target.lerpVectors(fly.t0,fly.t1,e); if(k>=1)fly=null; }
   controls.update(); renderer.render(scene,camera); }
 requestAnimationFrame(frame);

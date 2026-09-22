@@ -64,8 +64,8 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with two switchable antenna sites, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Drag to turn, scroll to zoom, “Standort A / B” switches the site, the degree buttons set the Yagi, “Bergstation” swings to the chairlift. Red: the no-go sector. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with the fixed Yagi stack towards Germany, the rotatable quad stack, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, scroll to zoom, the degree buttons set the quad stack, “Bergstation” swings to the chairlift. Red: the no-go sector. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twenty centimetres, the masts, the quads and the stack are to scale. What the scene shows is not the view — that comes from the terrain model — but what stands in the first hundred and fifty metres: the hut, the car park, the summit cross, the dome — and 120 metres to the south-west the top station of the Steinbachalmbahn, a roofed structure of eighteen by seven metres on columns, eight metres high, with the two rope strands running down the valley over two pylons. Seen from the antennas its roof lies five to eight degrees below the horizontal; it stands in no sector’s way, and the “Bergstation” button shows that from the masts’ point of view. None of it is in the way. The scene now knows two sites and a red sector — why, the next section tells.
+The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twenty centimetres, the masts, the quads and the stack are to scale. What the scene shows is not the view — that comes from the terrain model — but what stands in the first hundred and fifty metres: the hut, the car park, the summit cross, the dome — and 120 metres to the south-west the top station of the Steinbachalmbahn, a roofed structure of eighteen by seven metres on columns, eight metres high, with the two rope strands running down the valley over two pylons. Seen from the antennas its roof lies five to eight degrees below the horizontal; it stands in no sector’s way, and the “Bergstation” button shows that from the masts’ point of view. None of it is in the way. The scene shows the installation as it is finally planned — the Yagi stack fixed on Germany, the quads on the rotator, plus the red sector; how that came about, the next two sections tell.
 
 ## Two sites, one no-go
 
@@ -89,27 +89,41 @@ Recalculated under the rule, the plan looks different. On the dome, quad 2 goes 
 
 Without the no-go the dome is clearly the better site, 1,473 against 1,331. With it the two come almost level — A loses its Italian direction, B loses the west instead, and the north to the hut. What the number does not show: on the meadow the stack’s lower Yagi is blind to north and west, leaving a single Yagi with two and a half decibels less, and everything German has to go over the upper quad. The dome remains the site where all four antennas work.
 
-Then the question that came up while calculating: Germany is the country with the most stations — would a fixed 12JXX2 be better for Germany than the quad? Calculated with 920 German stations, IARU logs and the DARC list, from the dome: a quad pair fixed on Germany, 286° and 318°, has 599 of them in the main beam, at twelve decibels. Two 12JXX2 fixed in two directions, 294° and 334°, have 583 — almost the same, with three decibels more. The price lies elsewhere: the quads’ 69 degrees take Poland, Czechia and Italy along, and in the whole plan two fixed Yagis are 250 stations fewer. The middle way: the quad below on 20°, the 12JXX2 on top fixed on **296°** — Franconia, Upper Palatinate, Bavaria at fifteen decibels for 411 German stations, Saxony and Berlin fetched by the stack over 330°. A hundred stations fewer than two quads, three decibels more for the ones that count.
+While calculating, a second question came up: Germany is the country with the most stations — does the quad belong there, or a fixed Yagi? The answer turned the plan around once more; it is in the next section.
 
 The [site plan with both sites](/karten/stuhleck-lageplan-standorte-a-b.pdf) has the distances to hut, top station and pylons for mast 1, mast 2 and the point on the meadow.
+
+## The choice
+
+The brief was clear: every long contact is better than a near one, but most QSOs are to be had in Germany, and many small stations sit there — being able to reach them matters more than the last kilometre. So one more calculation, with a counting rule that reflects that: a station counts if an antenna has it above the far horizon, under three decibels of near-field loss and with the required gain in the beam — six dBi up to 300 kilometres, from there three decibels per hundred kilometres. Small stations, under fifty QSOs in their best contest, need four decibels more, big ones three less. For Germany the DARC contest lists joined the IARU logs: 1,070 stations within 750 kilometres, 567 of them small. Then 42 combinations: two quads or two Yagis fixed, one stack fixed, quad and Yagi mixed — against a Yagi stack, a quad stack or a single antenna on the rotator, ANJO’s 14-element Yagi as a candidate too.
+
+![Sheet “The antenna installation”: polar diagram of the 1,274 stations within 500 kilometres of the Stuhleck, bars per ten degrees stacked by country — the mass in the north-west and north-east —, over it the white arrow of the fixed Yagi stack on 302°, three green wedges of the quad stack on 20°, 108° and 200° and the red no-go sector; at right the numbers against the first plan](../../../assets/karten/stuhleck-antennenanlage.png)
+
+The result turns the first plan around. **The two 12JXX2 go stacked and fixed on the mast towards 302°** — Regensburg, Nuremberg, Passau, Bayreuth, Hof, with 17.8 dBi around the clock, Munich at the beam’s edge with thirteen, which is enough for two hundred kilometres. **The two quads go stacked on the rotator**, 69 degrees wide, 14.5 dBi, three positions: **20°** Wrocław, Brno, Ostrava, Kraków, Vienna — the second big block, 405 stations; **108°** Budapest, Belgrade, Hungary, Serbia; **200°** Zagreb, Rijeka, Ljubljana, Trieste, Venice, as far as the no-go allows. The near range lies in two broad blocks that a wide antenna serves without constant turning; the far range needs the gain only the stack has — and Germany needs both, fixed.
+
+The numbers: 968 stations within 500 kilometres and 1,205 within 750, against 872 and 987 for the first plan. In Germany 349 of the 1,070, 107 of them small — the first plan had 159 and 49, because a quad with twelve dBi no longer reaches a small station beyond four hundred kilometres. Two single Yagis in two directions would be as good in the near range but lose forty between 500 and 750 kilometres; the ANJO 14 el as a stack would add seventeen, nothing else; a single antenna on the rotator instead of a stack costs two hundred. And 169 of the 406 near German stations lie behind Hochschwab, Veitsch and Rax, Saxony and Thuringia above all — in no number, because the model cuts off hard there; in reality troposcatter with three to eight decibels extra, which is exactly the terrain where the 17.8 dBi make the difference.
+
+The masts are shorter than thought: ten metres for the rotator, seven and a half for the fixed stack. On the dome that changes nothing — the laser scan recalculated for every height gives the same numbers at eight metres as at thirteen, because in every direction only the hut stands in the near field, and nothing fixed points there. What counts is the stack, not the height: a mast with only one antenna costs a hundred stations in the near range. The masts’ roles are swapped so that the fixed stack does not point at the other mast: mast 1 on the dome, twelve metres from the summit cross, now carries the quads at 6.4 and 9.7 metres; mast 2, twelve metres further north-west, the Yagis at 4.0 and 7.5 — from the quad mast the Yagi mast lies at 328°, outside every quad position, and from the Yagi mast the quads lie at 148°, behind the stack.
+
+The [site plan as PDF, revision 3](/karten/stuhleck-lageplan-antennenanlage.pdf) has the installation as it stands: coordinates, mast heights, directions, distances, sources.
 
 ## The data
 
 | | |
 |---|---|
 | Site | summit car park by the Alois-Günther-Haus, municipality of Spital am Semmering, JN77VN |
-| Mast 1 | 47.574278 N / 15.790072 E · 13.5 m · quad 1 at 20° (8 m), quad 2 at 216° (11.8 m) |
-| Mast 2 | 47.574368 N / 15.789992 E · 10 m · 2 × 12JXX2 at 6.4 and 9.7 m, rotator · 312° / 72° / 280° |
+| Mast 1 | 47.574278 N / 15.790072 E · 10 m · 2 × quad stacked at 6.4 and 9.7 m, rotator · 20° / 108° / 200° |
+| Mast 2 | 47.574368 N / 15.789992 E · 7.5 m · 2 × 12JXX2 stacked at 4.0 and 7.5 m, fixed on 302° |
 | Ground | 1,780 m (laser scan), summit cross 1,782 m, ridge of the hut 1,786.9 m |
 | Distances | hut 42 / 51 m · summit cross 12 / 19 m · Steinbachalmbahn top station 120 / 121 m · car 45 m |
 | Site B | 47.573805 N / 15.790728 E · meadow south of the hut, ground 1,778 m · hut 34 m · top station 153 m · summit cross 72 m |
-| No-go towards the chairlift | A 215°–262° and 35°–82° · B 244°–288° and 64°–108° (top station and line ± 17°, forward and turned 180°) |
+| No-go towards the chairlift | from the rotator mast 220°–265° and 40°–85° (top station and line ± 17°, forward and turned 180°); from site B 244°–288° and 64°–108° |
 | Horizon | clear 11°–226°, 291°–305°, 352°–1°; marginal 227°–273°, 281°–284°, 306°–327°; above the horizontal 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, at most +0.8° |
 | Stations ≤ 700 km | 1,741 clear of 2,127, 386 in the diffraction shadow, 18 countries, Σ 754,000 km |
-| Plan | quads 980, three Yagi positions 493, together 1,473 (85 %), Σ 663,000 km |
-| Plan with no-go | A: quads 20° / 294°, Yagi 138° / 172° / 212°, 1,342 (Σ 574,000 km) · B: quads 216° / 42°, Yagi 118° / 164° / 294°, 1,325 (Σ 561,000 km) |
+| First plan | quads fixed 20° / 216°, Yagi stack 312° / 72° / 280°: 1,473 of 1,741 in the main beam (85 %), Σ 663,000 km; with no-go 20° / 294° and 138° / 172° / 212°: 1,342 |
+| Installation | Yagi stack fixed 302°, quad stack 20° / 108° / 200°: 968 stations within 500 km, 1,205 within 750 km (counting rule with range and size); Germany 349 of 1,070, 107 of them small — first plan by the same rule 872 / 987, Germany 159 / 49 |
 
-The [site plan as PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) has it all on one sheet, overview and detail, with coordinates, distances and sources — the way you can hand it in.
+The [site plan as PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) has it all on one sheet, overview and detail, with coordinates, mast heights, distances and sources — the way you can hand it in.
 
 ## The comparison
 

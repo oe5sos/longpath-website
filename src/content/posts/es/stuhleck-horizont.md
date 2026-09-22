@@ -64,8 +64,8 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con dos emplazamientos conmutables para las antenas, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca, «Standort A / B» cambia de emplazamiento, los botones de grados orientan la Yagi, «Bergstation» gira hacia el telesilla. Rojo: el sector prohibido. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con el stack de Yagis fijo hacia Alemania, el stack de cuadros giratorio, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca, los botones de grados orientan el stack de cuadros, «Bergstation» gira hacia el telesilla. Rojo: el sector prohibido. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena conoce ahora dos emplazamientos y un sector rojo — el porqué está en la sección siguiente.
+La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena muestra la instalación tal como queda planeada al final — el stack de Yagis fijo hacia Alemania, los cuadros en el rotor, más el sector rojo; cómo se llegó a eso está en las dos secciones siguientes.
 
 ## Dos sitios, una prohibición
 
@@ -89,27 +89,41 @@ Recalculado bajo la regla, el plan cambia. En la loma, el cuadro 2 pasa de 216°
 
 Sin la prohibición, la loma es claramente el mejor sitio, 1473 frente a 1331. Con ella los dos quedan casi igualados — A pierde su dirección italiana, B pierde en cambio el oeste, y el norte al refugio. Lo que la cifra no muestra: en el prado, la Yagi inferior del stack está ciega hacia el norte y el oeste, allí queda una Yagi sola con dos decibelios y medio menos, y todo lo alemán tiene que pasar por el cuadro superior. La loma sigue siendo el sitio donde trabajan las cuatro antenas.
 
-Luego la pregunta que surgió al calcular: Alemania es el país con más estaciones — ¿sería mejor para Alemania una 12JXX2 fija que el cuadro? Calculado con 920 estaciones alemanas, logs de la IARU y lista del DARC, desde la loma: un par de cuadros fijos hacia Alemania, 286° y 318°, tiene 599 de ellas en el haz principal, con doce decibelios. Dos 12JXX2 fijas en dos direcciones, 294° y 334°, tienen 583 — casi las mismas, con tres decibelios más. El precio está en otra parte: los 69 grados de los cuadros se llevan Polonia, Chequia e Italia, y en el plan completo dos Yagis fijas son 250 estaciones menos. El término medio: abajo el cuadro en 20°, arriba la 12JXX2 fija en **296°** — Franconia, Alto Palatinado, Baviera con quince decibelios para 411 estaciones alemanas, Sajonia y Berlín las recoge el stack por 330°. Cien estaciones menos que dos cuadros, tres decibelios más para las que cuentan.
+Al calcular surgió una segunda pregunta: Alemania es el país con más estaciones — ¿le corresponde el cuadro o una Yagi fija? La respuesta dio la vuelta al plan una vez más; está en la sección siguiente.
 
 El [plano de situación con los dos emplazamientos](/karten/stuhleck-lageplan-standorte-a-b.pdf) tiene las distancias al refugio, a la estación superior y a las pilonas para el mástil 1, el mástil 2 y el punto del prado.
+
+## La elección
+
+La consigna era clara: todo contacto lejano vale más que uno cercano, pero la mayoría de los QSO están en Alemania, y allí hay muchas estaciones pequeñas — poder alcanzarlas importa más que el último kilómetro. Así que un cálculo más, con una regla de recuento que lo refleje: una estación cuenta si una antena la tiene por encima del horizonte lejano, con menos de tres decibelios de pérdida en el campo cercano y con la ganancia necesaria en el haz — seis dBi hasta 300 kilómetros, desde ahí tres decibelios por cada cien kilómetros. Las estaciones pequeñas, menos de cincuenta QSO en su mejor concurso, necesitan cuatro decibelios más; las grandes, tres menos. Para Alemania se sumaron a los logs de la IARU las listas de concursos del DARC: 1070 estaciones hasta 750 kilómetros, 567 de ellas pequeñas. Luego 42 combinaciones: dos cuadros o dos Yagis fijas, un stack fijo, cuadro y Yagi mezclados — contra un stack de Yagis, un stack de cuadros o una antena sola en el rotor, también la Yagi de 14 elementos de ANJO como candidata.
+
+![Hoja «La instalación de antenas»: diagrama polar de las 1274 estaciones hasta 500 kilómetros alrededor del Stuhleck, barras por diez grados apiladas por país — la masa en el noroeste y el noreste —, encima la flecha blanca del stack de Yagis fijo en 302°, tres cuñas verdes del stack de cuadros en 20°, 108° y 200° y el sector rojo prohibido; a la derecha las cifras frente al primer plan](../../../assets/karten/stuhleck-antennenanlage.png)
+
+El resultado da la vuelta al primer plan. **Las dos 12JXX2 van apiladas y fijas en el mástil hacia 302°** — Ratisbona, Núremberg, Passau, Bayreuth, Hof, con 17,8 dBi las veinticuatro horas, Múnich en el borde del haz con trece, que basta para doscientos kilómetros. **Los dos cuadros van apilados en el rotor**, 69 grados de ancho, 14,5 dBi, tres posiciones: **20°** Breslavia, Brno, Ostrava, Cracovia, Viena — el segundo gran bloque, 405 estaciones; **108°** Budapest, Belgrado, Hungría, Serbia; **200°** Zagreb, Rijeka, Liubliana, Trieste, Venecia, hasta donde lo permite la prohibición. El entorno cercano está en dos bloques anchos que una antena ancha atiende sin girar constantemente; la lejanía necesita la ganancia que solo tiene el stack — y Alemania necesita ambas cosas, fijas.
+
+Las cifras: 968 estaciones hasta 500 kilómetros y 1205 hasta 750, frente a 872 y 987 con el primer plan. En Alemania 349 de las 1070, 107 de ellas pequeñas — el primer plan tenía 159 y 49, porque un cuadro con doce dBi ya no alcanza una estación pequeña más allá de cuatrocientos kilómetros. Dos Yagis sueltas en dos direcciones serían igual de buenas en el entorno cercano pero pierden cuarenta entre 500 y 750 kilómetros; la ANJO de 14 elementos como stack sumaría diecisiete, nada más; una antena sola en el rotor en vez de un stack cuesta doscientas. Y 169 de las 406 estaciones alemanas cercanas quedan detrás del Hochschwab, del Veitsch y del Rax, sobre todo Sajonia y Turingia — en ninguna cifra, porque el modelo corta ahí sin más; en realidad es troposcatter con tres a ocho decibelios de recargo, justo el terreno donde los 17,8 dBi marcan la diferencia.
+
+Los mástiles son más cortos de lo pensado: diez metros para el rotor, siete y medio para el stack fijo. En la loma eso no cambia nada — el escaneo láser recalculado para cada altura da a ocho metros las mismas cifras que a trece, porque en todas las direcciones solo el refugio está en el campo cercano, y hacia allí no apunta nada fijo. Lo que cuenta es el stack, no la altura: un mástil con una sola antena cuesta cien estaciones en el entorno cercano. Los papeles de los mástiles se intercambian para que el stack fijo no apunte al otro mástil: el mástil 1 en la loma, a doce metros de la cruz, lleva ahora los cuadros a 6,4 y 9,7 metros; el mástil 2, doce metros más al noroeste, las Yagis a 4,0 y 7,5 — desde el mástil de los cuadros el de las Yagis queda a 328°, fuera de toda posición del cuadro, y desde el mástil de las Yagis los cuadros quedan a 148°, detrás del stack.
+
+El [plano de situación en PDF, revisión 3](/karten/stuhleck-lageplan-antennenanlage.pdf) tiene la instalación tal como queda: coordenadas, alturas de mástil, direcciones, distancias, fuentes.
 
 ## Los datos
 
 | | |
 |---|---|
 | Emplazamiento | aparcamiento de la cumbre junto al Alois-Günther-Haus, municipio de Spital am Semmering, JN77VN |
-| Mástil 1 | 47,574278 N / 15,790072 E · 13,5 m · cuadro 1 a 20° (8 m), cuadro 2 a 216° (11,8 m) |
-| Mástil 2 | 47,574368 N / 15,789992 E · 10 m · 2 × 12JXX2 a 6,4 y 9,7 m, rotor · 312° / 72° / 280° |
+| Mástil 1 | 47,574278 N / 15,790072 E · 10 m · 2 × cuadro apilados a 6,4 y 9,7 m, rotor · 20° / 108° / 200° |
+| Mástil 2 | 47,574368 N / 15,789992 E · 7,5 m · 2 × 12JXX2 apiladas a 4,0 y 7,5 m, fijas en 302° |
 | Suelo | 1780 m (escaneo láser), cruz de la cumbre 1782 m, cumbrera del refugio 1786,9 m |
 | Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 120 / 121 m · coche 45 m |
 | Emplazamiento B | 47,573805 N / 15,790728 E · prado al sur del refugio, suelo 1778 m · refugio 34 m · estación superior 153 m · cruz 72 m |
-| Prohibición hacia el telesilla | A 215°–262° y 35°–82° · B 244°–288° y 64°–108° (estación superior y línea ± 17°, hacia delante y girado 180°) |
+| Prohibición hacia el telesilla | desde el mástil del rotor 220°–265° y 40°–85° (estación superior y línea ± 17°, hacia delante y girado 180°); desde el emplazamiento B 244°–288° y 64°–108° |
 | Horizonte | libre 11°–226°, 291°–305°, 352°–1°; justo 227°–273°, 281°–284°, 306°–327°; sobre la horizontal 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, como máximo +0,8° |
 | Estaciones ≤ 700 km | 1741 libres de 2127, 386 en la sombra de difracción, 18 países, Σ 754 000 km |
-| Plan | cuadros 980, tres posiciones de la Yagi 493, juntos 1473 (85 %), Σ 663 000 km |
-| Plan con prohibición | A: cuadros 20° / 294°, Yagi 138° / 172° / 212°, 1342 (Σ 574 000 km) · B: cuadros 216° / 42°, Yagi 118° / 164° / 294°, 1325 (Σ 561 000 km) |
+| Primer plan | cuadros fijos 20° / 216°, stack de Yagis 312° / 72° / 280°: 1473 de 1741 en el haz principal (85 %), Σ 663 000 km; con prohibición 20° / 294° y 138° / 172° / 212°: 1342 |
+| Instalación | stack de Yagis fijo 302°, stack de cuadros 20° / 108° / 200°: 968 estaciones hasta 500 km, 1205 hasta 750 km (regla de recuento con alcance y tamaño); Alemania 349 de 1070, 107 de ellas pequeñas — primer plan con la misma regla 872 / 987, Alemania 159 / 49 |
 
-El [plano de situación en PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) lo tiene todo en una hoja, vista general y detalle, con coordenadas, distancias y fuentes — tal como se puede presentar.
+El [plano de situación en PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) lo tiene todo en una hoja, vista general y detalle, con coordenadas, alturas de mástil, distancias y fuentes — tal como se puede presentar.
 
 ## La comparación
 

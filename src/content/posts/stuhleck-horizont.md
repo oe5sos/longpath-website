@@ -64,8 +64,8 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit zwei umschaltbaren Antennenstandorten, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt, „Standort A / B“ wechselt den Platz, die Gradknöpfe stellen die Yagi, „Bergstation“ schwenkt zur Seilbahn. Rot: der Tabu-Sektor. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+  <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit dem festen Yagi-Stack nach Deutschland, dem drehbaren Quad-Stack, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt, die Gradknöpfe stellen den Quad-Stack, „Bergstation“ schwenkt zur Seilbahn. Rot: der Tabu-Sektor. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
@@ -73,7 +73,7 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
-Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene kennt inzwischen zwei Plätze und einen roten Sektor — warum, steht im nächsten Abschnitt.
+Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene zeigt die Anlage, wie sie am Ende geplant ist — der Yagi-Stack fest nach Deutschland, die Quads auf dem Rotor, dazu der rote Sektor; wie es dazu kam, steht in den nächsten beiden Abschnitten.
 
 ## Zwei Plätze, ein Tabu
 
@@ -89,27 +89,41 @@ Unter der Regel neu gerechnet, sieht der Plan anders aus. Auf der Kuppe geht Qua
 
 Ohne Tabu ist die Kuppe klar der bessere Platz, 1 473 gegen 1 331. Mit Tabu rücken beide fast gleich — A verliert seine Italien-Richtung, B verliert stattdessen den Westen und den Norden ans Haus. Was die Zahl nicht zeigt: Auf der Wiese ist die untere Yagi des Stacks nach Norden und Westen blind, dort bleibt eine Einzel-Yagi mit zweieinhalb Dezibel weniger, und alles Deutsche muss über die obere Quad gehen. Die Kuppe bleibt der Platz, an dem alle vier Antennen arbeiten.
 
-Dann die Frage, die beim Rechnen aufkam: Deutschland ist das Land mit den meisten Stationen — wäre für Deutschland eine feste 12JXX2 besser als die Quad? Gerechnet mit 920 deutschen Stationen, IARU-Logs und DARC-Liste, von der Kuppe aus: Ein Quad-Paar fest nach Deutschland, 286° und 318°, hat 599 davon im Hauptstrahl, mit zwölf Dezibel. Zwei 12JXX2 fest in zwei Richtungen, 294° und 334°, haben 583 — fast dieselben, mit drei Dezibel mehr. Der Preis steht woanders: Die 69 Grad der Quads nehmen Polen, Tschechien und Italien mit, und im ganzen Plan sind zwei feste Yagis 250 Stationen weniger. Der Mittelweg: unten die Quad auf 20°, oben die 12JXX2 fest auf **296°** — Franken, Oberpfalz, Bayern mit fünfzehn Dezibel für 411 deutsche Stationen, Sachsen und Berlin holt der Stack über 330°. Hundert Stationen weniger als zwei Quads, drei Dezibel mehr für die, die zählen.
+Beim Rechnen kam eine zweite Frage auf: Deutschland ist das Land mit den meisten Stationen — gehört dorthin die Quad oder eine feste Yagi? Die Antwort hat den Plan noch einmal umgedreht; sie steht im nächsten Abschnitt.
 
 Der [Lageplan mit beiden Standorten](/karten/stuhleck-lageplan-standorte-a-b.pdf) hat die Entfernungen zu Haus, Bergstation und Stützen für Mast 1, Mast 2 und den Punkt auf der Wiese.
+
+## Die Wahl
+
+Die Vorgabe war klar: Jede weite Verbindung ist besser als eine nahe, aber die meisten QSOs sind in Deutschland zu holen, und dort sitzen viele kleine Stationen — die erreichen zu können ist wichtiger als der letzte Kilometer. Also noch einmal gerechnet, mit einer Zählregel, die das abbildet: Eine Station zählt, wenn eine Antenne sie über dem Fernhorizont, unter drei Dezibel Nahfeldverlust und mit dem nötigen Gewinn im Strahl hat — sechs dBi bis 300 Kilometer, ab da drei Dezibel je hundert Kilometer. Kleine Stationen, unter fünfzig QSO im besten Contest, brauchen vier Dezibel mehr, große drei weniger. Für Deutschland kamen zu den IARU-Logs die DARC-Contestlisten dazu: 1 070 Stationen bis 750 Kilometer, 567 davon klein. Dann 42 Kombinationen: zwei Quads oder zwei Yagis fest, ein Stack fest, Quad und Yagi gemischt — gegen Yagi-Stack, Quad-Stack oder eine einzelne Antenne auf dem Rotor, auch die 14-Element-Yagi von ANJO als Kandidat.
+
+![Blatt „Die Antennenanlage“: Polardiagramm der 1 274 Stationen bis 500 Kilometer um das Stuhleck, je zehn Grad als Balken nach Land gestapelt — die Masse im Nordwesten und Nordosten —, darüber der weiße Pfeil des festen Yagi-Stacks auf 302°, drei grüne Keile des Quad-Stacks auf 20°, 108° und 200° und der rote Tabu-Sektor; rechts die Zahlen gegen den ersten Plan](../../assets/karten/stuhleck-antennenanlage.png)
+
+Das Ergebnis dreht den ersten Plan um. **Die beiden 12JXX2 kommen gestockt und fest auf den Mast nach 302°** — Regensburg, Nürnberg, Passau, Bayreuth, Hof, mit 17,8 dBi rund um die Uhr, München am Keulenrand mit dreizehn, was für zweihundert Kilometer reicht. **Die beiden Quads kommen gestockt auf den Rotor**, 69 Grad breit, 14,5 dBi, drei Stellungen: **20°** Breslau, Brünn, Ostrava, Kraków, Wien — der zweite große Block, 405 Stationen; **108°** Budapest, Belgrad, Ungarn, Serbien; **200°** Zagreb, Rijeka, Ljubljana, Triest, Venedig, so weit es das Tabu erlaubt. Der Nahbereich liegt in zwei breiten Blöcken, die eine breite Antenne ohne ständiges Nachdrehen bedient; die Ferne braucht den Gewinn, den nur der Stack hat — und Deutschland braucht beides fest.
+
+Die Zahlen: 968 Stationen bis 500 Kilometer und 1 205 bis 750, gegen 872 und 987 beim ersten Plan. In Deutschland 349 der 1 070, davon 107 kleine — beim ersten Plan waren es 159 und 49, weil eine Quad mit zwölf dBi jenseits von vierhundert Kilometern keine kleine Station mehr erreicht. Zwei einzelne Yagis in zwei Richtungen wären im Nahbereich gleich gut, verlieren aber vierzig bei 500 bis 750 Kilometern; die ANJO 14 el brächte als Stack siebzehn dazu, sonst nichts; eine einzelne Antenne auf dem Rotor statt eines Stacks kostet zweihundert. Und 169 der 406 nahen deutschen Stationen liegen hinter Hochschwab, Veitsch und Rax, Sachsen und Thüringen vor allem — in keiner Zahl drin, weil das Modell dort hart abschneidet, real Troposcatter mit drei bis acht Dezibel Aufschlag, also genau das Gelände, in dem die 17,8 dBi den Unterschied machen.
+
+Die Masten sind kürzer als gedacht: zehn Meter für den Rotor, siebeneinhalb für den festen Stack. Auf der Kuppe macht das nichts aus — der Laserscan für jede Höhe neu gerechnet gibt bei acht Metern dieselben Zahlen wie bei dreizehn, weil nach allen Seiten nur das Haus im Nahfeld steht, und dorthin zeigt nichts Festes. Was zählt, ist der Stack, nicht die Höhe: ein Mast mit nur einer Antenne kostet hundert Stationen im Nahbereich. Die Rollen der Masten sind getauscht, damit der feste Stack nicht auf den anderen Mast zeigt: Mast 1 auf der Kuppe, zwölf Meter vom Gipfelkreuz, trägt jetzt die Quads auf 6,4 und 9,7 Metern; Mast 2, zwölf Meter weiter nordwestlich, die Yagis auf 4,0 und 7,5 — vom Quad-Mast aus liegt der Yagi-Mast bei 328°, außerhalb jeder Quad-Stellung, und vom Yagi-Mast aus liegen die Quads bei 148°, hinter dem Stack.
+
+Der [Lageplan als PDF, Stand 3](/karten/stuhleck-lageplan-antennenanlage.pdf) hat die Anlage so, wie sie steht: Koordinaten, Masthöhen, Richtungen, Entfernungen, Quellen.
 
 ## Die Daten
 
 | | |
 |---|---|
 | Standort | Gipfelparkplatz beim Alois-Günther-Haus, Gemeinde Spital am Semmering, JN77VN |
-| Mast 1 | 47,574278 N / 15,790072 O · 13,5 m · Quad 1 auf 20° (8 m), Quad 2 auf 216° (11,8 m) |
-| Mast 2 | 47,574368 N / 15,789992 O · 10 m · 2 × 12JXX2 auf 6,4 und 9,7 m, Rotor · 312° / 72° / 280° |
+| Mast 1 | 47,574278 N / 15,790072 O · 10 m · 2 × Vierfachquad gestockt auf 6,4 und 9,7 m, Rotor · 20° / 108° / 200° |
+| Mast 2 | 47,574368 N / 15,789992 O · 7,5 m · 2 × 12JXX2 gestockt auf 4,0 und 7,5 m, fest auf 302° |
 | Boden | 1 780 m (Laserscan), Gipfelkreuz 1 782 m, First des Hauses 1 786,9 m |
 | Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 120 / 121 m · Auto 45 m |
 | Standort B | 47,573805 N / 15,790728 O · Wiese südlich des Hauses, Boden 1 778 m · Haus 34 m · Bergstation 153 m · Gipfelkreuz 72 m |
-| Tabu Richtung Seilbahn | A 215°–262° und 35°–82° · B 244°–288° und 64°–108° (Bergstation und Trasse ± 17°, vorwärts und 180° gedreht) |
+| Tabu Richtung Seilbahn | vom Rotormast 220°–265° und 40°–85° (Bergstation und Trasse ± 17°, vorwärts und 180° gedreht); von Standort B 244°–288° und 64°–108° |
 | Horizont | frei 11°–226°, 291°–305°, 352°–1°; knapp 227°–273°, 281°–284°, 306°–327°; über der Waagrechten 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, höchstens +0,8° |
 | Stationen ≤ 700 km | 1 741 frei von 2 127, 386 im Beugungsschatten, 18 Länder, Σ 754 000 km |
-| Plan | Quads 980, drei Yagi-Stellungen 493, zusammen 1 473 (85 %), Σ 663 000 km |
-| Plan mit Tabu | A: Quads 20° / 294°, Yagi 138° / 172° / 212°, 1 342 (Σ 574 000 km) · B: Quads 216° / 42°, Yagi 118° / 164° / 294°, 1 325 (Σ 561 000 km) |
+| Erster Plan | Quads fest 20° / 216°, Yagi-Stack 312° / 72° / 280°: 1 473 von 1 741 im Hauptstrahl (85 %), Σ 663 000 km; mit Tabu 20° / 294° und 138° / 172° / 212°: 1 342 |
+| Anlage | Yagi-Stack fest 302°, Quad-Stack 20° / 108° / 200°: 968 Stationen bis 500 km, 1 205 bis 750 km (Zählregel mit Reichweite und Größe); Deutschland 349 von 1 070, davon 107 kleine — erster Plan nach derselben Regel 872 / 987, Deutschland 159 / 49 |
 
-Der [Lageplan als PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) hat alles auf einem Blatt, Übersicht und Detail, mit Koordinaten, Entfernungen und Quellen — so, wie man ihn vorlegen kann.
+Der [Lageplan als PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) hat alles auf einem Blatt, Übersicht und Detail, mit Koordinaten, Masthöhen, Entfernungen und Quellen — so, wie man ihn vorlegen kann.
 
 ## Der Vergleich
 
