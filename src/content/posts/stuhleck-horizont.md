@@ -65,7 +65,7 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 
 <figure class="szene">
   <iframe src="/stuhleck-3d.html" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit dem Yagi-Stack auf Rotor 1, dem Quad-Stack auf Rotor 2, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt. Die Knöpfe stellen die festen Richtungen — Yagi-Stack 302° / 18° / 86°, Quad-Stack 20° / 110° / 116° / 136° / 200° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+  <figcaption>Ziehen dreht, das Rad zoomt. Die Knöpfe stellen die festen Richtungen — Yagi-Stack 302° / 18° / 86°, Quad-Stack 20° / 116° / 120° / 136° / 200° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
