@@ -64,12 +64,13 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=15" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with the Yagi stack on rotator 1, the quad stack on rotator 2, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-3d.html?v=16" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with the Yagi stack on rotator 1, the quad stack on rotator 2, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
   <figcaption>Drag to turn, scroll to zoom. Top left switches between site A (today), C (proposal) and the south meadow — masts, no-go sector and figures move along. The buttons set the fixed directions — Yagi stack 302° / 18° / 86°, quad stack 20° / 116° / 120° / 136° / 200° —, the sliders any other; below, per stack, the stations, countries and cities in the main beam and a warning when a direction lies in the no-go sector. “Drehen” lets the view circle slowly, “Stopp” holds it; “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
 .szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 

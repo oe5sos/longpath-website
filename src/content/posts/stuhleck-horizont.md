@@ -64,12 +64,13 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=15" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit dem Yagi-Stack auf Rotor 1, dem Quad-Stack auf Rotor 2, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-3d.html?v=16" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit dem Yagi-Stack auf Rotor 1, dem Quad-Stack auf Rotor 2, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Oben links schaltest du zwischen den Standorten A (heute), C (Vorschlag) und der Südwiese um — Masten, Tabu-Sektor und Zahlen wandern mit. Die Knöpfe stellen die festen Richtungen — Yagi-Stack 302° / 18° / 86°, Quad-Stack 20° / 116° / 120° / 136° / 200° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
 .szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
 .szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
 </style>
 
