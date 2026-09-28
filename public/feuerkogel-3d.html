@@ -44,6 +44,7 @@ body.pick canvas{cursor:crosshair}
 #bar .ctl .presets button{padding:4px 7px;font-size:11.5px}
 #bar .src{color:var(--t6);font-size:10.5px;line-height:1.4;text-align:right;max-width:40vw}
 @media (max-width:640px){#bar .sites{flex:1 0 100%}#bar .sites button{flex:1;padding:6px 6px;font-size:11px}#hud{font-size:12px;left:10px;right:10px;width:auto;padding:12px 44px 12px 14px;max-height:60vh}#hud h1{font-size:15px}#hud.min{width:34px;height:34px;padding:0;border:0;background:none;backdrop-filter:none}#hud.min::before{content:none}#hud button.min{position:absolute;right:0;top:0;width:34px;height:34px;border-radius:50%;font-size:13px;background:var(--panel);color:var(--t2)}#hud:not(.min) button.min{border-radius:4px;width:auto;height:auto;padding:3px 8px}#bar{left:10px;right:10px;gap:6px}#bar .src{display:none}#bar .ctl{flex:1 0 100%;padding:6px 8px}#bar .ctl .n{width:74px;font-size:11px}#bar .ctl input[type=range]{width:80px}#bar .ctl input[type=number]{width:44px;font-size:12px}#bar .ctl .presets button{padding:3px 6px;font-size:10.5px}#bar button{padding:7px 10px;font-size:12px}}
+@media (max-height:620px){#hud{width:min(270px,calc(100vw - 32px));padding:10px 12px;max-height:calc(100vh - 150px)}#hud h1{font-size:14px;margin-bottom:4px}#hud p:not(.now):not(.k):not(.sum){display:none}#hud .now{margin-top:6px;padding-top:6px;font-size:11px}#hud .sum{font-size:11px}#bar{gap:4px;left:8px;right:8px;bottom:8px}#bar .ctl{padding:4px 8px;gap:2px}#bar .ctl label{gap:4px;font-size:10.5px;flex-wrap:nowrap}#bar .ctl .n{width:auto;white-space:nowrap;font-size:10.5px}#bar .ctl input[type=range]{width:70px}#bar .ctl input[type=number]{width:40px;font-size:11px;padding:1px 2px}#bar .ctl .u{display:none}#bar .ctl .presets button{padding:2px 5px;font-size:10px}#bar button{padding:5px 8px;font-size:11px}#bar .src{display:none}}
 </style>
 </head>
 <body>
@@ -226,7 +227,7 @@ const autoBtn=document.getElementById('auto'); function setAuto(v){ autoOn=v&&!r
 autoBtn.addEventListener('click',()=>setAuto(!autoOn)); controls.addEventListener('start',()=>{ if(autoOn) setAuto(false); });
 const hudEl=document.getElementById('hud'), miniBtn=document.getElementById('mini');
 function hudLabel(){ const c=hudEl.classList.contains('min'); miniBtn.textContent=c?(innerWidth<=640?'i':'+'):(innerWidth<=640?'×':'−'); }
-miniBtn.addEventListener('click',()=>{ hudEl.classList.toggle('min'); hudLabel(); }); if(innerWidth<=640) hudEl.classList.add('min'); hudLabel();
+miniBtn.addEventListener('click',()=>{ hudEl.classList.toggle('min'); hudLabel(); }); if(innerWidth<=640||innerHeight<=460) hudEl.classList.add('min'); hudLabel();
 function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); } addEventListener('resize',resize); resize();
 function frame(now){ requestAnimationFrame(frame);
   if(fly){ const k=Math.min(1,(now-fly.s)/2000); const e=k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2; camera.position.lerpVectors(fly.p0,fly.p1,e); controls.target.lerpVectors(fly.t0,fly.t1,e); if(k>=1)fly=null; }
