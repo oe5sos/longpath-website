@@ -135,6 +135,26 @@ Der [Lageplan als PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) hat alles a
 
 Sechs Standorte, eine Zahl. Das Stuhleck führt, aber die Balken sagen auch, womit: der deutsche Anteil ist der kleinste der Reihe, der italienische und der südosteuropäische die größten. Die Traisner Hütte und das Feuerkogelhaus sind die Deutschland-Standorte, das Stuhleck ist der Europa-Standort. Was man will, muss man vorher wissen.
 
+## Stuhleck und Feuerkogel
+
+![Vergleichsblatt „Zwei Standorte, zwei Richtungen“: für Feuerkogelhaus und Stuhleck je ein Balken der frei sichtbaren Stationen nach Land — Feuerkogel 1 388 mit großem deutschem, polnischem und tschechischem Anteil, Stuhleck 1 741 mit Italien, Kroatien und Slowenien dazu —, daneben Deutschland frei, die Zahlen der geplanten Anlage mit einem Kilowatt und mit je 500 Watt und die Summe der Kilometer](../../assets/karten/feuerkogel-stuhleck-vergleich.png)
+
+Für den Feuerkogel ist die Anlage inzwischen auch gerechnet, [zweimal zwei Yagis](/blog/feuerkogel-antennen/), einer fest nach Deutschland, einer auf dem Rotor. Damit lassen sich beide Standorte mit ihrer eigenen Anlage und derselben Regel vergleichen:
+
+| | Stuhleck | Feuerkogelhaus |
+|---|---|---|
+| Stationen frei ≤ 700 km | **1 741** | 1 388 |
+| Länder | **18** | 10 |
+| Deutschland frei (DARC) | 606 von 943 | **1 107 von 1 319** |
+| Anlage, umgeschaltet 1 kW | **1 331** | 1 183 |
+| davon bis 500 km | **1 006** | 717 |
+| davon Deutschland (DARC) | 551 | **1 035** |
+| Anlage, je 500 W | 894 | 895 |
+| davon Deutschland (DARC) | 316 | **710** |
+| Σ Kilometer frei | **754 000** | 627 000 |
+
+Das Stuhleck hat mehr Stationen, mehr Länder und den besseren Nahbereich. Der Feuerkogel erreicht mit seiner Anlage fast doppelt so viele deutsche Stationen, weil vor dem deutschen Norden dort kein Berg steht. Mit je 500 Watt auf beiden Stacks liegen beide gleichauf. Wer deutsche Stationen sammelt, fährt auf den Feuerkogel, wer Länder und Kilometer im Süden und Osten sammelt, aufs Stuhleck.
+
 ## Die Karten
 
 ![Reliefkarte 180 Kilometer um das Stuhleck, für jede Peilung ein Strich bis zu dem Gelände, das den Horizont bildet — nach Osten und Süden lange grüne Striche bis an den Kartenrand, nach Nordwesten kurze rote zu Rax, Schneealpe, Veitsch und Hochschwab](../../assets/karten/stuhleck-horizont-zoom-karte.png)

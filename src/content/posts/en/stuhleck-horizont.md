@@ -135,6 +135,26 @@ The [site plan as PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) has it all 
 
 Six sites, one number. The Stuhleck leads, but the bars also say with what: its German share is the smallest in the series, its Italian and south-eastern European shares the largest. The Traisner Hütte and the Feuerkogelhaus are the Germany sites; the Stuhleck is the Europe site. What you want, you have to know beforehand.
 
+## Stuhleck and Feuerkogel
+
+![Comparison sheet "Two sites, two directions": for the Feuerkogelhaus and the Stuhleck one bar each of the clearly visible stations by country — Feuerkogel 1,388 with a large German, Polish and Czech share, Stuhleck 1,741 with Italy, Croatia and Slovenia on top —, next to it Germany clear, the figures of the planned installation with one kilowatt and with 500 watts each, and the sum of kilometres](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
+
+The installation for the Feuerkogel has now been calculated as well, [two times two Yagis](/en/blog/feuerkogel-antennen/), one fixed on Germany, one on the rotator. That makes it possible to compare both sites, each with its own installation and the same rule:
+
+| | Stuhleck | Feuerkogelhaus |
+|---|---|---|
+| Stations clear ≤ 700 km | **1,741** | 1,388 |
+| Countries | **18** | 10 |
+| Germany clear (DARC) | 606 of 943 | **1,107 of 1,319** |
+| Installation, switched 1 kW | **1,331** | 1,183 |
+| of which within 500 km | **1,006** | 717 |
+| of which Germany (DARC) | 551 | **1,035** |
+| Installation, 500 W each | 894 | 895 |
+| of which Germany (DARC) | 316 | **710** |
+| Σ kilometres clear | **754,000** | 627,000 |
+
+The Stuhleck has more stations, more countries and the better close range. With its installation the Feuerkogel reaches almost twice as many German stations, because no mountain stands in front of the German north there. With 500 watts on each stack the two are level. Whoever collects German stations goes to the Feuerkogel; whoever collects countries and kilometres in the south and east goes to the Stuhleck.
+
 ## The maps
 
 ![Relief map 180 kilometres around the Stuhleck, for every bearing a line out to the terrain that forms the horizon — long green lines to the east and south out to the edge of the map, short red ones to the north-west to Rax, Schneealpe, Veitsch and Hochschwab](../../../assets/karten/stuhleck-horizont-zoom-karte.png)

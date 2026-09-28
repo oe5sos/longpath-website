@@ -135,6 +135,26 @@ El [plano de situación en PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) lo
 
 Seis emplazamientos, una cifra. El Stuhleck va delante, pero las barras también dicen con qué: su parte alemana es la más pequeña de la serie, la italiana y la del sureste de Europa las más grandes. La Traisner Hütte y el Feuerkogelhaus son los emplazamientos para Alemania; el Stuhleck es el emplazamiento para Europa. Lo que uno quiere hay que saberlo antes.
 
+## Stuhleck y Feuerkogel
+
+![Hoja comparativa «Dos sitios, dos direcciones»: para el Feuerkogelhaus y el Stuhleck una barra cada uno con las estaciones visibles por país — Feuerkogel 1388 con una gran parte alemana, polaca y checa, Stuhleck 1741 con Italia, Croacia y Eslovenia además —, al lado Alemania libre, las cifras de la instalación prevista con un kilovatio y con 500 vatios cada una, y la suma de kilómetros](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
+
+La instalación del Feuerkogel también está calculada ya, [dos veces dos Yagis](/es/blog/feuerkogel-antennen/), una fija hacia Alemania y otra en el rotor. Así se pueden comparar los dos sitios, cada uno con su instalación y la misma regla:
+
+| | Stuhleck | Feuerkogelhaus |
+|---|---|---|
+| Estaciones libres ≤ 700 km | **1741** | 1388 |
+| Países | **18** | 10 |
+| Alemania libre (DARC) | 606 de 943 | **1107 de 1319** |
+| Instalación, conmutado 1 kW | **1331** | 1183 |
+| de ellas hasta 500 km | **1006** | 717 |
+| de ellas Alemania (DARC) | 551 | **1035** |
+| Instalación, 500 W cada una | 894 | 895 |
+| de ellas Alemania (DARC) | 316 | **710** |
+| Σ kilómetros libres | **754 000** | 627 000 |
+
+El Stuhleck tiene más estaciones, más países y la mejor corta distancia. Con su instalación, el Feuerkogel llega a casi el doble de estaciones alemanas, porque allí ninguna montaña se interpone ante el norte de Alemania. Con 500 vatios en cada apilamiento quedan empatados. Quien reúne estaciones alemanas va al Feuerkogel; quien reúne países y kilómetros en el sur y el este, al Stuhleck.
+
 ## Los mapas
 
 ![Mapa de relieve de 180 kilómetros alrededor del Stuhleck, para cada rumbo un trazo hasta el terreno que forma el horizonte — trazos verdes largos hacia el este y el sur hasta el borde del mapa, rojos cortos hacia el noroeste hasta Rax, Schneealpe, Veitsch y Hochschwab](../../../assets/karten/stuhleck-horizont-zoom-karte.png)
