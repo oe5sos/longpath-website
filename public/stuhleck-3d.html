@@ -164,10 +164,10 @@ for(const sx of [-1,1]){ const pts=[stGrp.localToWorld(new THREE.Vector3(sx*GAUG
   const p3=D.pylon3; const last=pyl[pyl.length-1].grp; const far=new THREE.Vector3(p3[0],p3[2]+p3[3]+0.3,-p3[1]); pts.push(new THREE.Vector3().lerpVectors(pts[pts.length-1],far,0.9));
   for(let k=0;k<pts.length-1;k++) cableSpan(pts[k],pts[k+1],k===pts.length-2); }
 { const s=label('Bergstation Steinbachalmbahn','#dcdce1',30); s.position.set(S.center[0],S.ground+S.roof+7,-S.center[1]); scene.add(s); }
-function fan(mx,my,hp,r,color,opacity,grp){ const geo=new THREE.BufferGeometry(); const mesh=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide})); grp.add(mesh);
+function fan(mx,my,hp,r,color,opacity,grp,z){ /* z: Höhe der Stackmitte (absolut); ohne z liegt der Fächer am Boden (Tabu) */ const geo=new THREE.BufferGeometry(); const mesh=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide})); grp.add(mesh);
   mesh.userData={mx,my,hp,r}; mesh.setHeading=function(h){ const pts=[]; const n=24; const g0=hAt(mx,my);
-    for(let k=0;k<=n;k++){ const a=(h-hp/2+hp*k/n)*Math.PI/180; for(let s=1;s<=6;s++){ const rr=r*s/6; const x=mx+rr*Math.sin(a), y=my+rr*Math.cos(a); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); pts.push(new THREE.Vector3(x,hAt(xx,yy)+0.35,-y)); } }
-    const pos=[]; const idx=[]; pos.push(mx,g0+0.35,-my); pts.forEach(p=>pos.push(p.x,p.y,p.z));
+    for(let k=0;k<=n;k++){ const a=(h-hp/2+hp*k/n)*Math.PI/180; for(let s=1;s<=6;s++){ const rr=r*s/6; const x=mx+rr*Math.sin(a), y=my+rr*Math.cos(a); const xx=Math.max(D.x0+1,Math.min(X1-1,x)), yy=Math.max(D.y0+1,Math.min(Y1-1,y)); pts.push(new THREE.Vector3(x,z!==undefined?z:hAt(xx,yy)+0.35,-y)); } }
+    const pos=[]; const idx=[]; pos.push(mx,z!==undefined?z:g0+0.35,-my); pts.forEach(p=>pos.push(p.x,p.y,p.z));
     for(let k=0;k<n;k++){ const c0=1+k*6, c1=1+(k+1)*6; idx.push(0,c0,c1); for(let s=0;s<5;s++){ idx.push(c0+s,c0+s+1,c1+s, c0+s+1,c1+s+1,c1+s); } }
     geo.setIndex(idx); geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3)); geo.computeVertexNormals(); };
   return mesh; }
@@ -194,8 +194,8 @@ function buildSite(key){ const S=SD.sites[key]; const G=new THREE.Group(); grp.a
   const QO=quad(), QU=quad(); QO.position.y=9.7; QU.position.y=6.4;
   const QS=new THREE.Group(); QS.add(QO); QS.add(QU); QS.position.set(qm.x,g1,-qm.y); G.add(QS);
   const cnt={qo:S.cnt.qo,qu:S.cnt.qu,ys:S.cnt.ys,cities:S.cities,ctys:SD.ctys};
-  const ant={qs:{obj:QS,fan:fan(qm.x,qm.y,69,80,0xb35c06,0.42,G),col:'#d8a55f',name:'Quad-Stack',hp:69,mx:qm.x,my:qm.y,r:84,cnt:cnt.qo},
-             ys:{obj:YF,fan:fan(ym.x,ym.y,33.8,92,0x1a6b42,0.42,G),col:'#6fa384',name:'Yagi-Stack',hp:33.8,mx:ym.x,my:ym.y,r:96,cnt:cnt.ys}};
+  const ant={qs:{obj:QS,fan:fan(qm.x,qm.y,69,80,0xb35c06,0.42,G,g1+8.05),col:'#d8a55f',name:'Quad-Stack',hp:69,mx:qm.x,my:qm.y,r:84,cnt:cnt.qo},
+             ys:{obj:YF,fan:fan(ym.x,ym.y,33.8,92,0x1a6b42,0.42,G,g2+5.75),col:'#6fa384',name:'Yagi-Stack',hp:33.8,mx:ym.x,my:ym.y,r:96,cnt:cnt.ys}};
   const lo=S.tabu[0], hi=S.tabu[1], w=((hi-lo)%360+360)%360, mid=lo+w/2, cw=((S.core[1]-S.core[0])%360+360)%360;
   fan(qm.x,qm.y,w,150,matRed,0.44,G).setHeading(mid); fan(qm.x,qm.y,w,150,matRed,0.24,G).setHeading(mid+180);
   fan(qm.x,qm.y,cw,150,matRed,0.34,G).setHeading(S.core[0]+cw/2);

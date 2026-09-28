@@ -60,7 +60,7 @@ Die beiden Masten stehen 45 Meter auseinander, beide zehn Meter hoch, die Booms 
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/feuerkogel-3d.html?v=2" title="Feuerkogelhaus in 3D: Orthofoto auf dem Laserscan-Gelände mit dem festen 2×12-Stack rechts neben dem Gasthaus und dem Rotor-Stack links zwischen Haus und Rampe" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/feuerkogel-3d.html?v=3" title="Feuerkogelhaus in 3D: Orthofoto auf dem Laserscan-Gelände mit dem festen 2×12-Stack rechts neben dem Gasthaus und dem Rotor-Stack links zwischen Haus und Rampe" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Die Knöpfe stellen die geplanten Richtungen, fester Stack 328° / 312° / 346°, Rotor-Stack 8° / 304° / 46° / 76° / 342°, die Regler jede andere und die Masthöhe. Oben links stehen je Stack die Stationen, Länder und Städte im Hauptstrahl, und eine Warnung, wenn Haus, Hütte oder Bäume eine Yagi verdecken. „Drehen“ lässt die Ansicht kreisen, „Von oben“ zeigt den Grundriss. <a href="/feuerkogel-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 

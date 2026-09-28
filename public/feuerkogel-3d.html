@@ -140,7 +140,7 @@ function yagi(){ const grp=new THREE.Group(); const pos=[0,0.42,0.62,0.92,1.36,1
   pos.forEach((p,k)=>{ const z=2.8-p; grp.add(tube(new THREE.Vector3(-len[k]/2,0.03,z),new THREE.Vector3(len[k]/2,0.03,z),0.014,matAlu)); }); return grp; }
 function fan(mx,my,hz,hp,r,color,opacity){ const geo=new THREE.BufferGeometry(); const mesh=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide})); scene.add(mesh);
   mesh.setHeading=function(h){ const pts=[]; const n=24;
-    for(let k=0;k<=n;k++){ const a=(h-hp/2+hp*k/n)*Math.PI/180; for(let s=1;s<=6;s++){ const rr=r*s/6; const x=mx+rr*Math.sin(a), y=my+rr*Math.cos(a); const [xx,yy]=clampXY(x,y); pts.push(new THREE.Vector3(x,Math.max(hz,hAt(xx,yy)+0.4),-y)); } }
+    for(let k=0;k<=n;k++){ const a=(h-hp/2+hp*k/n)*Math.PI/180; for(let s=1;s<=6;s++){ const rr=r*s/6; const x=mx+rr*Math.sin(a), y=my+rr*Math.cos(a); const [xx,yy]=clampXY(x,y); pts.push(new THREE.Vector3(x,hz,-y)); /* waagrecht auf Höhe der Stackmitte */ } }
     const pos=[mx,hz,-my]; pts.forEach(p=>pos.push(p.x,p.y,p.z)); const idx=[];
     for(let k=0;k<n;k++){ const c0=1+k*6, c1=1+(k+1)*6; idx.push(0,c0,c1); for(let s=0;s<5;s++) idx.push(c0+s,c0+s+1,c1+s, c0+s+1,c1+s+1,c1+s); }
     geo.setIndex(idx); geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3)); geo.computeVertexNormals(); };
@@ -166,7 +166,7 @@ function rebuild(){ while(MG.children.length){ const c=MG.children.pop(); c.geom
   const g1=mast(m1x,m1y,HM[1]-4.0,(HM[1]-4.0)*0.9,Math.max(3.5,HM[1]*0.4)), g2=mast(m2x,m2y,HM[2]-4.0,(HM[2]-4.0)*0.9,Math.max(3.5,HM[2]*0.4));
   for(const [x,y,g,h] of [[m1x,m1y,g1,HM[1]],[m2x,m2y,g2,HM[2]]]){ const rot=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.13,0.4,12),matDark); rot.position.set(x,g+h-4.2,-y); MG.add(rot); }
   for(const k in ANT){ const a=ANT[k]; const [mx,my]=a.m===1?POS.m1:POS.m2; const g=a.m===1?g1:g2; a.mx=mx; a.my=my; a.obj.position.set(mx,g+antH(k),-my);
-    if(a.fan){ scene.remove(a.fan); a.fan.geometry.dispose(); } a.fan=fan(mx,my,g+0.6,a.hp,a.r,a.fanCol,a.op);
+    if(a.fan){ scene.remove(a.fan); a.fan.geometry.dispose(); } a.fan=fan(mx,my,g+antH(k)-1.65,a.hp,a.r,a.fanCol,a.op); /* Mitte zwischen oberer und unterer Yagi */
     a.mask=freeMask(mx,my,antH(k)); a.maskU=freeMask(mx,my,antH(k)-3.3); }
   for(const [x,y,g,t,c,hh] of [[m1x,m1y,g1,'Mast 1 · '+HM[1].toFixed(1).replace('.',',')+' m','#d8a55f',HM[1]],[m2x,m2y,g2,'Mast 2 · '+HM[2].toFixed(1).replace('.',',')+' m','#7fd6a0',HM[2]]]){ const l=label(t,c,16); l.position.set(x,g+hh+2.2,-y); MG.add(l); }
   for(const k in ANT) apply(k,HD[k]); }
