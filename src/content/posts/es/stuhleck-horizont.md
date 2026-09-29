@@ -112,6 +112,19 @@ El [plano de situación en PDF, revisión 4](/karten/stuhleck-lageplan-antennena
 
 **Añadido, 29 de septiembre: también dos Yagis en el mástil 1.** En lugar del stack de cuadros, un segundo stack de 12JXX2 va en el rotor del mástil 1, a 6,4 y 9,7 metros, como en el Feuerkogel. El lóbulo se estrecha, 34 en vez de 69 grados, con 3,3 decibelios más. Las tres posiciones, calculadas con la misma regla y fuera del sector prohibido: **18°** Breslavia, Brno, Viena, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopie; **216°** Liubliana, Rijeka, Trieste, Venecia, Bolonia. Con 500 vatios en cada stack son **948 estaciones en vez de 894**, Alemania 316 como antes, y 330 000 en vez de 270 000 kilómetros — la ganancia llega más lejos. Conmutado con un kilovatio son 1308 en vez de 1331: a corta distancia el cuadro ancho consigue más, 1006 frente a 869 hasta 500 kilómetros; las Yagis consiguen a cambio la distancia. La hoja de arriba y la escena 3D ya muestran los dos stacks de Yagis; el texto de arriba describe todavía el plan con los cuadros.
 
+## Mástiles y vientos
+
+<figure class="szene">
+  <iframe src="/stuhleck-masten-3d.html?v=1" title="Cumbre del Stuhleck en 3D con los dos mástiles: mástil 1 con dos 12JXX2 y rotor en el suelo, mástil 2 con tres 12JXX2 fijas hacia Alemania, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca. A la izquierda la longitud y el ángulo de cada viento, calculados sobre el terreno del escaneo láser, y la comprobación de distancias. <a href="/stuhleck-masten-3d.html">Abrir a pantalla completa</a></figcaption>
+</figure>
+
+Cómo se arriostran los dos mástiles depende de lo que gira. El **mástil 1** lleva dos 12JXX2 a 6,9 y 9,7 metros; el rotor está en el suelo y gira todo el mástil, que pasa arriba por un cojinete. El boom y los elementos barren un círculo de 2,85 metros de radio, y ningún viento puede atravesarlo. Por eso todos los vientos cuelgan por debajo de la Yagi inferior: en el cojinete superior a 6,4 y en un segundo cojinete a 3,3 metros, tres vientos cada uno, anclajes a cinco metros del mástil, 47 metros de cuerda en total. Por encima del cojinete superior quedan 3,6 metros de mástil libres.
+
+El **mástil 2** lleva tres 12JXX2 a 4,1, 6,9 y 9,7 metros, fijas en 306° hacia Alemania, sin rotor. Como no gira, los vientos pueden pasar entre las Yagis: anillos a 6,4 y 9,2 metros, los vientos pasan junto al boom hacia 36°, 156° y 276°, anclajes a siete metros, 71 metros de cuerda. Una tercera Yagi en un mástil giratorio habría necesitado seis metros de tubo libre; fija, funciona.
+
+Los mástiles están a 11,7 metros. Ningún viento se acerca a menos de 0,39 metros de una Yagi, ni siquiera cuando gira el mástil 1, y los vientos de los dos mástiles quedan a más de tres metros entre sí. Los vientos son de cuerda sintética para no perturbar el diagrama.
+
 ## Los datos
 
 | | |

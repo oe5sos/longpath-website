@@ -112,6 +112,19 @@ Der [Lageplan als PDF, Stand 4](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 
 **Nachtrag, 29. September: auch auf Mast 1 zwei Yagis.** Statt des Quad-Stacks kommt ein zweiter 12JXX2-Stack auf den Rotor von Mast 1, auf 6,4 und 9,7 Metern, wie am Feuerkogel. Die Keule wird schmaler, 34 statt 69 Grad, und hat 3,3 Dezibel mehr. Die drei Stellungen, nach derselben Regel gerechnet und außerhalb des Tabus: **18°** Breslau, Brünn, Wien, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Triest, Venedig, Bologna. Mit je 500 Watt auf beiden Stacks sind es **948 Stationen statt 894**, Deutschland 316 wie vorher, und 330 000 statt 270 000 Kilometer — der Gewinn trägt weiter. Umgeschaltet mit einem Kilowatt sind es 1 308 statt 1 331: Im Nahbereich holt die breite Quad mehr, 1 006 gegen 869 bis 500 Kilometer, die Yagis holen dafür die Ferne. Das Blatt oben und die 3D-Szene zeigen schon beide Yagi-Stacks; der Text darüber beschreibt noch den Plan mit den Quads.
 
+## Masten und Abspannung
+
+<figure class="szene">
+  <iframe src="/stuhleck-masten-3d.html?v=1" title="Stuhleck-Gipfel in 3D mit beiden Masten: Mast 1 mit zwei 12JXX2 auf Rotor am Boden, Mast 2 mit drei 12JXX2 fest nach Deutschland, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt. Links die Länge und der Winkel jedes Seils, gerechnet auf dem Laserscan-Gelände, und die Prüfung der Abstände. <a href="/stuhleck-masten-3d.html">Im Vollbild öffnen</a></figcaption>
+</figure>
+
+Wie die beiden Masten stehen, hängt daran, was sich dreht. **Mast 1** trägt zwei 12JXX2 auf 6,9 und 9,7 Metern, der Rotor steht am Boden und dreht den ganzen Mast, oben läuft er durch das Oberlager. Boom und Elemente überstreichen dabei einen Kreis von 2,85 Metern Radius, und durch diesen Kreis darf kein Seil laufen. Darum hängen alle Seile unter der unteren Yagi: am Oberlager auf 6,4 und an einem zweiten Lager auf 3,3 Metern, je drei Seile, Anker fünf Meter vom Mast, zusammen 47 Meter Seil. Über dem Oberlager stehen 3,6 Meter Mast frei.
+
+**Mast 2** trägt drei 12JXX2 auf 4,1, 6,9 und 9,7 Metern, fest auf 306° nach Deutschland, ohne Rotor. Weil er sich nicht dreht, dürfen die Seile zwischen die Yagis: Ringe auf 6,4 und 9,2 Metern, die Seile laufen seitlich am Boom vorbei nach 36°, 156° und 276°, Anker sieben Meter vom Mast, 71 Meter Seil. Ein dritter Stack auf demselben Mast hätte mit Rotor sechs Meter frei stehendes Rohr gebraucht; fest geht es.
+
+Die Masten stehen 11,7 Meter auseinander. Kein Seil kommt einer Yagi näher als 0,39 Meter, auch nicht, wenn Mast 1 dreht, und die Seile der beiden Masten bleiben mehr als drei Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören.
+
 ## Die Daten
 
 | | |

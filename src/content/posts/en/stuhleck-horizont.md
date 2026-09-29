@@ -112,6 +112,19 @@ The [site plan as PDF, revision 4](/karten/stuhleck-lageplan-antennenanlage.pdf)
 
 **Update, 29 September: two Yagis on mast 1 as well.** Instead of the quad stack, a second 12JXX2 stack goes on the rotator of mast 1, at 6.4 and 9.7 metres, as on the Feuerkogel. The lobe gets narrower, 34 instead of 69 degrees, with 3.3 decibels more. The three positions, calculated with the same rule and outside the no-go sector: **18°** Wrocław, Brno, Vienna, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Trieste, Venice, Bologna. With 500 watts on each stack that makes **948 stations instead of 894**, Germany 316 as before, and 330,000 instead of 270,000 kilometres — the gain reaches further. Switched with one kilowatt it is 1,308 instead of 1,331: at close range the wide quad gets more, 1,006 against 869 within 500 kilometres, the Yagis get the distance instead. The sheet above and the 3D scene already show both Yagi stacks; the text above still describes the plan with the quads.
 
+## Masts and guying
+
+<figure class="szene">
+  <iframe src="/stuhleck-masten-3d.html?v=1" title="Stuhleck summit in 3D with both masts: mast 1 with two 12JXX2 on a ground-mounted rotator, mast 2 with three 12JXX2 fixed on Germany, every guy with length and angle" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, scroll to zoom. At left the length and angle of every guy, calculated on the laser-scan terrain, and the clearance check. <a href="/stuhleck-masten-3d.html">Open full screen</a></figcaption>
+</figure>
+
+How the two masts are guyed depends on what turns. **Mast 1** carries two 12JXX2 at 6.9 and 9.7 metres; the rotator stands on the ground and turns the whole mast, which runs through a top bearing. Boom and elements sweep a circle of 2.85 metres radius, and no guy may pass through it. So all guys hang below the lower Yagi: at the top bearing at 6.4 and a second bearing at 3.3 metres, three guys each, anchors five metres from the mast, 47 metres of rope in all. Above the top bearing 3.6 metres of mast stand free.
+
+**Mast 2** carries three 12JXX2 at 4.1, 6.9 and 9.7 metres, fixed on 306° towards Germany, without a rotator. Because it does not turn, the guys may run between the Yagis: rings at 6.4 and 9.2 metres, the guys pass beside the boom towards 36°, 156° and 276°, anchors seven metres out, 71 metres of rope. A third Yagi on a rotating mast would have needed six metres of free-standing tube; fixed, it works.
+
+The masts are 11.7 metres apart. No guy comes closer than 0.39 metres to a Yagi, not even while mast 1 turns, and the guys of the two masts stay more than three metres apart. The guys are plastic rope so they do not disturb the pattern.
+
 ## The data
 
 | | |
