@@ -12,3 +12,11 @@ https://longpath.at/*    https://www.longpath.at/:splat    301
 # Der erste Beitrag hiess anfangs anders. Wer den alten Verweis hat,
 # soll nicht ins Leere laufen.
 /blog/nacht-am-gipfelkreuz/    /blog/hoellengebirge-ueberquerung/    301
+
+# Loser: die beiden Beiträge sind seit 29.09.2026 einer
+/blog/loser-bergstation/       /blog/loser-horizont/       301
+/blog/loser-bergstation        /blog/loser-horizont/       301
+/en/blog/loser-bergstation/    /en/blog/loser-horizont/    301
+/en/blog/loser-bergstation     /en/blog/loser-horizont/    301
+/es/blog/loser-bergstation/    /es/blog/loser-horizont/    301
+/es/blog/loser-bergstation     /es/blog/loser-horizont/    301
