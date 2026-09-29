@@ -170,6 +170,19 @@ The installation for the Feuerkogel has now been calculated as well, [two times 
 
 The Stuhleck has more stations, more countries and the better close range. With its installation the Feuerkogel reaches almost twice as many German stations, because no mountain stands in front of the German north there. With 500 watts on each stack the Stuhleck is narrowly ahead, 948 against 895. Both installations are now two times two 12JXX2. Whoever collects German stations goes to the Feuerkogel; whoever collects countries and kilometres in the south and east goes to the Stuhleck.
 
+## The choice of site
+
+In the end a contest counts kilometres. So once more both sites with the same installation, two times two 12JXX2, both stacks transmitting at once, one standing on Germany (Feuerkogel 328°, Stuhleck 302°). Counted is the sum of kilometres of all stations reached within 700 km, once with the rotator stack on its three best positions, once turned freely, the way a contest turns after cluster and skeds. For the Stuhleck also the variant without the no-go sector, in case the cable-car company allows transmitting towards the lift.
+
+| Points (km) | Feuerkogel | Stuhleck with no-go | Stuhleck without no-go |
+|---|---|---|---|
+| 500 W per stack, rotator on 3 positions | **327,000** (845 stations) | 298,000 (869) | 322,000 (890) |
+| 500 W per stack, rotator turned freely | 415,000 (1,051) | 437,000 (1,222) | **506,000** (1,357) |
+| 1000 W per stack, rotator on 3 positions | **543,000** (1,240) | 463,000 (1,182) | 497,000 (1,181) |
+| 1000 W per stack, rotator turned freely | 622,000 (1,375) | 681,000 (1,624) | **753,000** (1,738) |
+
+The Feuerkogel wins only as long as the rotator stays on a few positions; then Germany carries everything. Once it turns, the Stuhleck is ahead, by 5 to 10 percent with the no-go sector and by a good 20 percent without, and the gap grows with power because far more stations are clear from the Stuhleck. Then there is the setup: an open dome with the car beside it, against masts squeezed next to the house between the path, the ramp and the drop. And the Plöckenstein, where OE5BGN operates, lies 107 kilometres from the Feuerkogel exactly in the direction of Prague and Berlin, and 195 kilometres from the Stuhleck behind the Rax. The choice is the Stuhleck.
+
 ## The maps
 
 ![Relief map 180 kilometres around the Stuhleck, for every bearing a line out to the terrain that forms the horizon — long green lines to the east and south out to the edge of the map, short red ones to the north-west to Rax, Schneealpe, Veitsch and Hochschwab](../../../assets/karten/stuhleck-horizont-zoom-karte.png)

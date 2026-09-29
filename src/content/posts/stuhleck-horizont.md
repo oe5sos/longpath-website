@@ -170,6 +170,19 @@ Für den Feuerkogel ist die Anlage inzwischen auch gerechnet, [zweimal zwei Yagi
 
 Das Stuhleck hat mehr Stationen, mehr Länder und den besseren Nahbereich. Der Feuerkogel erreicht mit seiner Anlage fast doppelt so viele deutsche Stationen, weil vor dem deutschen Norden dort kein Berg steht. Mit je 500 Watt auf beiden Stacks liegt das Stuhleck knapp vorn, 948 gegen 895. Beide Anlagen sind jetzt zweimal zwei 12JXX2. Wer deutsche Stationen sammelt, fährt auf den Feuerkogel, wer Länder und Kilometer im Süden und Osten sammelt, aufs Stuhleck.
 
+## Die Standortwahl
+
+Am Ende zählen im Contest Kilometer. Darum noch einmal beide Standorte mit derselben Anlage, zweimal zwei 12JXX2, beide Stacks senden gleichzeitig, einer steht auf Deutschland (Feuerkogel 328°, Stuhleck 302°). Gezählt ist die Summe der Kilometer aller erreichten Stationen bis 700 km, einmal mit dem Rotor-Stack auf seinen drei besten Stellungen, einmal frei gedreht, so wie im Contest nach Cluster und Sked gedreht wird. Beim Stuhleck dazu die Variante ohne Tabu, falls die Bergbahn das Senden Richtung Seilbahn erlaubt.
+
+| Punkte (km) | Feuerkogel | Stuhleck mit Tabu | Stuhleck ohne Tabu |
+|---|---|---|---|
+| 500 W je Stack, Rotor auf 3 Stellungen | **327 000** (845 Stationen) | 298 000 (869) | 322 000 (890) |
+| 500 W je Stack, Rotor dreht frei | 415 000 (1 051) | 437 000 (1 222) | **506 000** (1 357) |
+| 1000 W je Stack, Rotor auf 3 Stellungen | **543 000** (1 240) | 463 000 (1 182) | 497 000 (1 181) |
+| 1000 W je Stack, Rotor dreht frei | 622 000 (1 375) | 681 000 (1 624) | **753 000** (1 738) |
+
+Der Feuerkogel gewinnt nur, solange der Rotor auf wenigen Stellungen bleibt; dann trägt Deutschland alles. Wird gedreht, liegt das Stuhleck vorn, mit Tabu um 5 bis 10 Prozent, ohne Tabu um gut 20 Prozent, und der Abstand wächst mit der Leistung, weil am Stuhleck viel mehr Stationen frei zu sehen sind. Dazu kommt der Aufbau: freie Kuppe, Auto daneben, gegen Masten eng am Haus zwischen Weg, Rampe und Abbruch. Und der Plöckenstein, wo OE5BGN funkt, liegt vom Feuerkogel 107 Kilometer genau in der Richtung Prag–Berlin, vom Stuhleck 195 Kilometer hinter der Rax. Die Wahl fällt aufs Stuhleck.
+
 ## Die Karten
 
 ![Reliefkarte 180 Kilometer um das Stuhleck, für jede Peilung ein Strich bis zu dem Gelände, das den Horizont bildet — nach Osten und Süden lange grüne Striche bis an den Kartenrand, nach Nordwesten kurze rote zu Rax, Schneealpe, Veitsch und Hochschwab](../../assets/karten/stuhleck-horizont-zoom-karte.png)

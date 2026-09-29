@@ -108,6 +108,19 @@ El Stuhleck tiene más estaciones y más países, y a corta distancia es clarame
 
 La elección depende, pues, de lo que se quiera reunir en el concurso. Quien quiera estaciones alemanas, que es donde está la mayoría, va al Feuerkogel. Quien quiera países y kilómetros en el sur y el este, va al Stuhleck.
 
+## La elección
+
+Al final, en un concurso cuentan los kilómetros. Así que una vez más los dos sitios con la misma instalación, dos veces dos 12JXX2, los dos stacks transmitiendo a la vez, uno fijo hacia Alemania (Feuerkogel 328°, Stuhleck 302°). Se cuenta la suma de kilómetros de todas las estaciones alcanzadas hasta 700 km, una vez con el stack del rotor en sus tres mejores posiciones y otra girándolo libremente, como se gira en un concurso según el cluster y los skeds. Para el Stuhleck también la variante sin sector prohibido, por si la empresa del teleférico permite transmitir hacia el telesilla.
+
+| Puntos (km) | Feuerkogel | Stuhleck con prohibición | Stuhleck sin prohibición |
+|---|---|---|---|
+| 500 W por stack, rotor en 3 posiciones | **327 000** (845 estaciones) | 298 000 (869) | 322 000 (890) |
+| 500 W por stack, rotor libre | 415 000 (1051) | 437 000 (1222) | **506 000** (1357) |
+| 1000 W por stack, rotor en 3 posiciones | **543 000** (1240) | 463 000 (1182) | 497 000 (1181) |
+| 1000 W por stack, rotor libre | 622 000 (1375) | 681 000 (1624) | **753 000** (1738) |
+
+El Feuerkogel solo gana mientras el rotor se quede en pocas posiciones; entonces Alemania lo lleva todo. Cuando se gira, el Stuhleck va delante, entre un 5 y un 10 por ciento con el sector prohibido y algo más de un 20 por ciento sin él, y la diferencia crece con la potencia, porque desde el Stuhleck se ven libres muchas más estaciones. Además está el montaje: una loma abierta con el coche al lado, frente a mástiles apretados junto a la casa entre el camino, la rampa y el precipicio. Y el Plöckenstein, donde opera OE5BGN, está a 107 kilómetros del Feuerkogel justo en la dirección de Praga y Berlín, y a 195 kilómetros del Stuhleck detrás del Rax. La elección es el Stuhleck.
+
 ## Reserva
 
 Las cifras cuentan logs, no estaciones, y tienen uno o dos años. El modelo de superficie por láser es anterior al último verano: no conoce los matorrales que han crecido desde entonces. La posición exacta de la rampa de parapente no está en ningún mapa; el mástil de la izquierda está puesto a ojo. Si se pueden poner mástiles junto a la casa lo dicen el posadero y el teleférico, no el cálculo. Y antes del concurso, un filtro paso bajo en el amplificador y una llamada al responsable de OE5XFK.
