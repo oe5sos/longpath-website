@@ -115,15 +115,15 @@ Der [Lageplan als PDF, Stand 4](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 ## Masten und Abspannung
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=1" title="Stuhleck-Gipfel in 3D mit beiden Masten: Mast 1 mit zwei 12JXX2 auf Rotor am Boden, Mast 2 mit drei 12JXX2 fest nach Deutschland, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=2" title="Stuhleck-Gipfel in 3D mit beiden Masten: Mast 1 mit zwei 12JXX2 auf Rotor am Boden, Mast 2 mit drei 12JXX2 im Drehfenster 296°–340°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Links die Länge und der Winkel jedes Seils, gerechnet auf dem Laserscan-Gelände, und die Prüfung der Abstände. <a href="/stuhleck-masten-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 Wie die beiden Masten stehen, hängt daran, was sich dreht. **Mast 1** trägt zwei 12JXX2 auf 6,9 und 9,7 Metern, der Rotor steht am Boden und dreht den ganzen Mast, oben läuft er durch das Oberlager. Boom und Elemente überstreichen dabei einen Kreis von 2,85 Metern Radius, und durch diesen Kreis darf kein Seil laufen. Darum hängen alle Seile unter der unteren Yagi: am Oberlager auf 6,4 und an einem zweiten Lager auf 3,3 Metern, je drei Seile, Anker fünf Meter vom Mast, zusammen 47 Meter Seil. Über dem Oberlager stehen 3,6 Meter Mast frei.
 
-**Mast 2** trägt drei 12JXX2 auf 4,1, 6,9 und 9,7 Metern, fest auf 306° nach Deutschland, ohne Rotor. Weil er sich nicht dreht, dürfen die Seile zwischen die Yagis: Ringe auf 6,4 und 9,2 Metern, die Seile laufen seitlich am Boom vorbei nach 36°, 156° und 276°, Anker sieben Meter vom Mast, 71 Meter Seil. Ein dritter Stack auf demselben Mast hätte mit Rotor sechs Meter frei stehendes Rohr gebraucht; fest geht es.
+**Mast 2** trägt drei 12JXX2 auf 4,1, 6,9 und 9,7 Metern und dreht nur in einem Fenster: **296° bis 340°**, zwischen den Seilen hindurch. Der Rotor steht auch hier am Boden, mit Endanschlägen an beiden Rändern. Die Seile hängen zwischen den Yagis, an Lagern auf 6,4 und 9,2 Metern, und zwar je **vier** statt drei, nach 3°, 93°, 183° und 273°, Anker neun Meter vom Mast, 108 Meter Seil. Der Grund für die vier: Der Boom reicht nach vorn und nach hinten, jedes Seil sperrt also zwei Richtungen. Bei drei Seilen im 120-Grad-Raster liegt alle 60 Grad eine Sperre und das freie Fenster bleibt unter 30 Grad; bei vier Seilen fallen die Sperren paarweise zusammen, und dazwischen bleiben 44 Grad. Das Fenster holt drei Stellungen, **300°** Nürnberg, Regensburg, Passau, **318°** Hessen und Thüringen, **336°** Prag, Dresden, Leipzig, Berlin — mit 500 Watt 460 deutsche Stationen statt 335 bei fest 306°, mit einem Kilowatt alle 597, die frei zu sehen sind. Den Norden und Osten dahinter hat ohnehin der Rotor-Stack.
 
-Die Masten stehen 11,7 Meter auseinander. Kein Seil kommt einer Yagi näher als 0,39 Meter, auch nicht, wenn Mast 1 dreht, und die Seile der beiden Masten bleiben mehr als drei Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören.
+Die Masten stehen 11,7 Meter auseinander. Kein Seil kommt einer Yagi näher als 0,35 Meter, auch nicht, wenn Mast 1 rundum oder Mast 2 im ganzen Fenster dreht, und die Seile der beiden Masten bleiben mehr als vier Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören.
 
 ## Die Daten
 
