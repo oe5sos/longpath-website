@@ -1,0 +1,194 @@
+---
+/* Bildlupe fuer die Beitraege: jedes Bild im Text und der Aufmacher lassen
+   sich gross ansehen, mit + / − (Knopf und Taste), Mausrad, zwei Fingern,
+   Ziehen zum Verschieben, 0 zum Einpassen, Esc zum Schliessen. */
+---
+<div class="lupe" role="dialog" aria-modal="true" hidden>
+  <div class="lupe-buehne"><img alt="" draggable="false" /></div>
+  <div class="lupe-leiste">
+    <button type="button" data-z="-" class="lupe-z">−</button>
+    <span class="lupe-wert">100 %</span>
+    <button type="button" data-z="+" class="lupe-z">+</button>
+    <button type="button" data-z="0" class="lupe-fit"></button>
+    <button type="button" data-z="x" class="lupe-zu">×</button>
+  </div>
+  <p class="lupe-hinweis"></p>
+</div>
+
+<script>
+  const T: Record<string, Record<string, string>> = {
+    de: { auf: "Bild vergrößern", ein: "Vergrößern", aus: "Verkleinern", fit: "Einpassen", zu: "Schließen", hin: "+ / − oder Mausrad zoomt · ziehen verschiebt · 0 passt ein · Esc schließt" },
+    en: { auf: "Enlarge image", ein: "Zoom in", aus: "Zoom out", fit: "Fit", zu: "Close", hin: "+ / − or wheel zooms · drag pans · 0 fits · Esc closes" },
+    es: { auf: "Ampliar imagen", ein: "Ampliar", aus: "Reducir", fit: "Ajustar", zu: "Cerrar", hin: "+ / − o la rueda amplían · arrastrar desplaza · 0 ajusta · Esc cierra" },
+  };
+  const t = T[(document.documentElement.lang || "de").slice(0, 2)] ?? T.de;
+
+  const box = document.querySelector<HTMLDivElement>(".lupe")!;
+  const buehne = box.querySelector<HTMLDivElement>(".lupe-buehne")!;
+  const bild = buehne.querySelector<HTMLImageElement>("img")!;
+  const wert = box.querySelector<HTMLSpanElement>(".lupe-wert")!;
+  box.querySelector<HTMLButtonElement>('[data-z="-"]')!.setAttribute("aria-label", t.aus);
+  box.querySelector<HTMLButtonElement>('[data-z="+"]')!.setAttribute("aria-label", t.ein);
+  box.querySelector<HTMLButtonElement>('[data-z="0"]')!.textContent = t.fit;
+  box.querySelector<HTMLButtonElement>('[data-z="x"]')!.setAttribute("aria-label", t.zu);
+  box.querySelector<HTMLParagraphElement>(".lupe-hinweis")!.textContent = t.hin;
+
+  let s = 1, s0 = 1, tx = 0, ty = 0, vorher: HTMLElement | null = null;
+  const W = () => bild.naturalWidth || 1, H = () => bild.naturalHeight || 1;
+  const zeichne = () => {
+    bild.style.transform = `translate(${tx}px,${ty}px) scale(${s})`;
+    wert.textContent = Math.round(s * 100) + " %";
+  };
+  const einpassen = () => {
+    const r = buehne.getBoundingClientRect();
+    s0 = Math.min(r.width / W(), r.height / H(), 1.5);
+    s = s0; tx = (r.width - W() * s) / 2; ty = (r.height - H() * s) / 2; zeichne();
+  };
+  const zoom = (f: number, cx?: number, cy?: number) => {
+    const r = buehne.getBoundingClientRect();
+    const x = cx ?? r.width / 2, y = cy ?? r.height / 2;
+    const ns = Math.min(Math.max(s * f, s0 * 0.5), Math.max(8, s0 * 8));
+    tx = x - (x - tx) * ns / s; ty = y - (y - ty) * ns / s; s = ns; zeichne();
+  };
+
+  /* Groesste verfuegbare Fassung aus srcset, sonst die aktuelle Quelle. */
+  const quelle = (img: HTMLImageElement) => {
+    const set = img.getAttribute("srcset");
+    if (set) {
+      const best = set.split(",").map((p) => p.trim().split(/\s+/))
+        .map(([u, w]) => [u, parseFloat(w) || 0] as [string, number])
+        .sort((a, b) => b[1] - a[1])[0];
+      if (best?.[0]) return best[0];
+    }
+    return img.currentSrc || img.src;
+  };
+
+  const oeffnen = (img: HTMLImageElement) => {
+    vorher = document.activeElement as HTMLElement | null;
+    bild.alt = img.alt;
+    bild.onload = einpassen;
+    bild.src = quelle(img);
+    box.hidden = false; document.documentElement.classList.add("lupe-offen");
+    if (bild.complete && bild.naturalWidth) einpassen();
+    box.querySelector<HTMLButtonElement>('[data-z="x"]')!.focus();
+  };
+  const schliessen = () => {
+    box.hidden = true; document.documentElement.classList.remove("lupe-offen");
+    bild.removeAttribute("src"); vorher?.focus();
+  };
+
+  box.querySelector(".lupe-leiste")!.addEventListener("click", (e) => {
+    const z = (e.target as HTMLElement).closest("button")?.dataset.z;
+    if (z === "+") zoom(1.4); else if (z === "-") zoom(1 / 1.4);
+    else if (z === "0") einpassen(); else if (z === "x") schliessen();
+  });
+  addEventListener("keydown", (e) => {
+    if (box.hidden) return;
+    if (e.key === "Escape") schliessen();
+    else if (e.key === "+" || e.key === "=") zoom(1.4);
+    else if (e.key === "-" || e.key === "_") zoom(1 / 1.4);
+    else if (e.key === "0") einpassen();
+    else if (e.key.startsWith("Arrow")) {
+      const d = 60; if (e.key === "ArrowLeft") tx += d; if (e.key === "ArrowRight") tx -= d;
+      if (e.key === "ArrowUp") ty += d; if (e.key === "ArrowDown") ty -= d; zeichne();
+    } else return;
+    e.preventDefault();
+  });
+  addEventListener("resize", () => { if (!box.hidden) einpassen(); });
+
+  buehne.addEventListener("wheel", (e) => {
+    e.preventDefault(); const r = buehne.getBoundingClientRect();
+    zoom(Math.exp(-e.deltaY * 0.0015), e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+  buehne.addEventListener("dblclick", (e) => {
+    const r = buehne.getBoundingClientRect();
+    if (s > s0 * 1.05) einpassen(); else zoom(2.5, e.clientX - r.left, e.clientY - r.top);
+  });
+
+  /* Ziehen mit einem Finger/Maus, Zwei-Finger-Zoom. */
+  const zeiger = new Map<number, { x: number; y: number }>();
+  let abstand = 0, bewegt = false;
+  buehne.addEventListener("pointerdown", (e) => {
+    buehne.setPointerCapture(e.pointerId); zeiger.set(e.pointerId, { x: e.clientX, y: e.clientY }); bewegt = false;
+    if (zeiger.size === 2) { const [a, b] = [...zeiger.values()]; abstand = Math.hypot(a.x - b.x, a.y - b.y); }
+  });
+  buehne.addEventListener("pointermove", (e) => {
+    const alt = zeiger.get(e.pointerId); if (!alt) return;
+    const neu = { x: e.clientX, y: e.clientY }; zeiger.set(e.pointerId, neu);
+    if (zeiger.size === 1) { tx += neu.x - alt.x; ty += neu.y - alt.y; bewegt ||= Math.abs(neu.x - alt.x) + Math.abs(neu.y - alt.y) > 2; zeichne(); }
+    else if (zeiger.size === 2) {
+      const [a, b] = [...zeiger.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y);
+      const r = buehne.getBoundingClientRect();
+      if (abstand) zoom(d / abstand, (a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top);
+      abstand = d; bewegt = true;
+    }
+  });
+  const los = (e: PointerEvent) => { zeiger.delete(e.pointerId); if (zeiger.size < 2) abstand = 0; };
+  buehne.addEventListener("pointerup", los); buehne.addEventListener("pointercancel", los);
+  /* Klick neben das Bild schliesst, wenn nicht gezogen wurde. */
+  buehne.addEventListener("click", (e) => { if (e.target === buehne && !bewegt) schliessen(); });
+
+  /* Jedes Bild im Beitrag bekommt Zeiger und einen kleinen Knopf. */
+  document.querySelectorAll<HTMLImageElement>("article .body img, article .aufmacher img").forEach((img) => {
+    if (img.closest("a")) return;
+    img.classList.add("lupe-bild");
+    img.addEventListener("click", () => oeffnen(img));
+    const eltern = img.parentElement!; eltern.classList.add("lupe-traeger");
+    const k = document.createElement("button");
+    k.type = "button"; k.className = "lupe-knopf"; k.textContent = "+"; k.setAttribute("aria-label", t.auf); k.title = t.auf;
+    k.addEventListener("click", () => oeffnen(img));
+    img.insertAdjacentElement("afterend", k);
+  });
+</script>
+
+<style is:global>
+  .lupe-traeger { position: relative; }
+  .lupe-bild { cursor: zoom-in; }
+  .lupe-knopf {
+    position: absolute; top: .6rem; right: .6rem; z-index: 2;
+    width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center; padding: 0;
+    font: 500 20px/1 var(--ff-body); color: var(--t1);
+    background: rgba(12, 12, 14, .72); border: 1px solid var(--border-2);
+    cursor: zoom-in; backdrop-filter: blur(4px);
+    transition: background var(--ease), color var(--ease);
+  }
+  .lupe-knopf:hover, .lupe-knopf:focus-visible { background: var(--btn-hover); color: var(--measured-hi); }
+  html.lupe-offen { overflow: hidden; }
+
+  .lupe {
+    position: fixed; inset: 0; z-index: 1000; background: rgba(6, 6, 8, .96);
+    display: flex; flex-direction: column;
+  }
+  .lupe[hidden] { display: none; }
+  .lupe-buehne {
+    position: relative; flex: 1; overflow: hidden; touch-action: none; cursor: grab;
+  }
+  .lupe-buehne:active { cursor: grabbing; }
+  .lupe-buehne img {
+    position: absolute; left: 0; top: 0; max-width: none; max-height: none;
+    width: auto; height: auto; transform-origin: 0 0; user-select: none; -webkit-user-drag: none;
+  }
+  .lupe-leiste {
+    position: absolute; left: 50%; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+    display: flex; align-items: center; gap: .4rem; padding: .4rem;
+    background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+  }
+  .lupe-leiste button {
+    min-width: 40px; height: 36px; padding: 0 .8rem; border-radius: var(--radius-s);
+    background: var(--btn); border: 1px solid var(--border-2); color: var(--t1);
+    font: 500 15px/1 var(--ff-body); cursor: pointer;
+  }
+  .lupe-leiste .lupe-z { font-size: 20px; padding: 0; }
+  .lupe-leiste button:hover, .lupe-leiste button:focus-visible { background: var(--btn-hover); color: var(--measured-hi); }
+  .lupe-wert {
+    min-width: 4.2rem; text-align: center; font: 12px/1 var(--ff-mono);
+    color: var(--t4); font-variant-numeric: tabular-nums;
+  }
+  .lupe-hinweis {
+    position: absolute; top: calc(.8rem + env(safe-area-inset-top, 0px)); left: 0; right: 0; margin: 0;
+    padding: 0 1rem; text-align: center; font: 10px/1.4 var(--ff-mono);
+    letter-spacing: .1em; text-transform: uppercase; color: var(--t5); pointer-events: none;
+  }
+  @media (hover: none) { .lupe-hinweis { display: none; } }
+</style>

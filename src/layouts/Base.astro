@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import Lupe from "../components/Lupe.astro";
 import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
 import "../styles/global.css";
 
@@ -23,5 +24,6 @@ const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
     {!nackt && <Nav raum={raum} pfad={Astro.url.pathname} lang={lang} />}
     <slot />
     {!nackt && <div class="wrap"><Footer raum={raum} lang={lang} /></div>}
+    {raum === "blog" && <Lupe />}
   </body>
 </html>
