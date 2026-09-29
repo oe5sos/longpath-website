@@ -64,8 +64,8 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=18" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit dem Yagi-Stack auf Rotor 1, dem Quad-Stack auf Rotor 2, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt. Oben links schaltest du zwischen den Standorten A (heute), C (Vorschlag) und der Südwiese um — Masten, Tabu-Sektor und Zahlen wandern mit. Die Knöpfe stellen die festen Richtungen — Yagi-Stack 302° / 18° / 86°, Quad-Stack 20° / 116° / 120° / 136° / 200° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+  <iframe src="/stuhleck-3d.html?v=19" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit zwei gestockten 12JXX2 auf Rotor 1 und zwei weiteren auf Rotor 2, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt. Oben links schaltest du zwischen den Standorten A (heute), C (Vorschlag) und der Südwiese um — Masten, Tabu-Sektor und Zahlen wandern mit. Die Knöpfe stellen die festen Richtungen — DL-Stack 302° / 18° / 86°, Rotor-Stack 18° / 158° / 216° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
 <style>
@@ -110,12 +110,14 @@ Die Masten sind kürzer als gedacht: zehn Meter für die Quads, siebeneinhalb f�
 
 Der [Lageplan als PDF, Stand 4](/karten/stuhleck-lageplan-antennenanlage.pdf) hat die Anlage so, wie sie steht: Koordinaten, Masthöhen, Richtungen, Entfernungen, Quellen.
 
+**Nachtrag, 29. September: auch auf Mast 1 zwei Yagis.** Statt des Quad-Stacks kommt ein zweiter 12JXX2-Stack auf den Rotor von Mast 1, auf 6,4 und 9,7 Metern, wie am Feuerkogel. Die Keule wird schmaler, 34 statt 69 Grad, und hat 3,3 Dezibel mehr. Die drei Stellungen, nach derselben Regel gerechnet und außerhalb des Tabus: **18°** Breslau, Brünn, Wien, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Triest, Venedig, Bologna. Mit je 500 Watt auf beiden Stacks sind es **948 Stationen statt 894**, Deutschland 316 wie vorher, und 330 000 statt 270 000 Kilometer — der Gewinn trägt weiter. Umgeschaltet mit einem Kilowatt sind es 1 308 statt 1 331: Im Nahbereich holt die breite Quad mehr, 1 006 gegen 869 bis 500 Kilometer, die Yagis holen dafür die Ferne. Die 3D-Szene zeigt schon beide Yagi-Stacks, die Zahlen oben im Abschnitt gelten für den Plan mit den Quads.
+
 ## Die Daten
 
 | | |
 |---|---|
 | Standort | Gipfelparkplatz beim Alois-Günther-Haus, Gemeinde Spital am Semmering, JN77VN |
-| Mast 1 | 47,574278 N / 15,790072 O · 10 m · 2 × Vierfachquad gestockt auf 6,4 und 9,7 m, Rotor · 20° / 108° / 200° |
+| Mast 1 | 47,574278 N / 15,790072 O · 10 m · 2 × 12JXX2 gestockt auf 6,4 und 9,7 m, Rotor · 18° / 158° / 216° (bis 28. 09.: 2 × Vierfachquad, 20° / 108° / 200°) |
 | Mast 2 | 47,574368 N / 15,789992 O · 7,5 m · 2 × 12JXX2 gestockt auf 4,0 und 7,5 m, Rotor · 302° (Grundstellung) / 330° / 266° |
 | Boden | 1 780 m (Laserscan), Gipfelkreuz 1 782 m, First des Hauses 1 786,9 m |
 | Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 120 / 121 m · Auto 45 m |
@@ -146,14 +148,14 @@ Für den Feuerkogel ist die Anlage inzwischen auch gerechnet, [zweimal zwei Yagi
 | Stationen frei ≤ 700 km | **1 741** | 1 388 |
 | Länder | **18** | 10 |
 | Deutschland frei (DARC) | 606 von 943 | **1 107 von 1 319** |
-| Anlage, umgeschaltet 1 kW | **1 331** | 1 183 |
-| davon bis 500 km | **1 006** | 717 |
+| Anlage, umgeschaltet 1 kW | **1 308** | 1 183 |
+| davon bis 500 km | **869** | 717 |
 | davon Deutschland (DARC) | 551 | **1 035** |
-| Anlage, je 500 W | 894 | 895 |
+| Anlage, je 500 W | **948** | 895 |
 | davon Deutschland (DARC) | 316 | **710** |
 | Σ Kilometer frei | **754 000** | 627 000 |
 
-Das Stuhleck hat mehr Stationen, mehr Länder und den besseren Nahbereich. Der Feuerkogel erreicht mit seiner Anlage fast doppelt so viele deutsche Stationen, weil vor dem deutschen Norden dort kein Berg steht. Mit je 500 Watt auf beiden Stacks liegen beide gleichauf. Wer deutsche Stationen sammelt, fährt auf den Feuerkogel, wer Länder und Kilometer im Süden und Osten sammelt, aufs Stuhleck.
+Das Stuhleck hat mehr Stationen, mehr Länder und den besseren Nahbereich. Der Feuerkogel erreicht mit seiner Anlage fast doppelt so viele deutsche Stationen, weil vor dem deutschen Norden dort kein Berg steht. Mit je 500 Watt auf beiden Stacks liegt das Stuhleck knapp vorn, 948 gegen 895. Beide Anlagen sind jetzt zweimal zwei 12JXX2. Wer deutsche Stationen sammelt, fährt auf den Feuerkogel, wer Länder und Kilometer im Süden und Osten sammelt, aufs Stuhleck.
 
 ## Die Karten
 

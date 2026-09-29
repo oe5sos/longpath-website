@@ -64,8 +64,8 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=18" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with the Yagi stack on rotator 1, the quad stack on rotator 2, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Drag to turn, scroll to zoom. Top left switches between site A (today), C (proposal) and the south meadow — masts, no-go sector and figures move along. The buttons set the fixed directions — Yagi stack 302° / 18° / 86°, quad stack 20° / 116° / 120° / 136° / 200° —, the sliders any other; below, per stack, the stations, countries and cities in the main beam and a warning when a direction lies in the no-go sector. “Drehen” lets the view circle slowly, “Stopp” holds it; “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
+  <iframe src="/stuhleck-3d.html?v=19" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with two stacked 12JXX2 on rotator 1 and two more on rotator 2, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, scroll to zoom. Top left switches between site A (today), C (proposal) and the south meadow — masts, no-go sector and figures move along. The buttons set the fixed directions — DL stack 302° / 18° / 86°, rotator stack 18° / 158° / 216° —, the sliders any other; below, per stack, the stations, countries and cities in the main beam and a warning when a direction lies in the no-go sector. “Drehen” lets the view circle slowly, “Stopp” holds it; “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
 <style>
@@ -110,12 +110,14 @@ The masts are shorter than thought: ten metres for the quads, seven and a half f
 
 The [site plan as PDF, revision 4](/karten/stuhleck-lageplan-antennenanlage.pdf) has the installation as it stands: coordinates, mast heights, directions, distances, sources.
 
+**Update, 29 September: two Yagis on mast 1 as well.** Instead of the quad stack, a second 12JXX2 stack goes on the rotator of mast 1, at 6.4 and 9.7 metres, as on the Feuerkogel. The lobe gets narrower, 34 instead of 69 degrees, with 3.3 decibels more. The three positions, calculated with the same rule and outside the no-go sector: **18°** Wrocław, Brno, Vienna, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Trieste, Venice, Bologna. With 500 watts on each stack that makes **948 stations instead of 894**, Germany 316 as before, and 330,000 instead of 270,000 kilometres — the gain reaches further. Switched with one kilowatt it is 1,308 instead of 1,331: at close range the wide quad gets more, 1,006 against 869 within 500 kilometres, the Yagis get the distance instead. The 3D scene already shows both Yagi stacks; the figures above in this section apply to the plan with the quads.
+
 ## The data
 
 | | |
 |---|---|
 | Site | summit car park by the Alois-Günther-Haus, municipality of Spital am Semmering, JN77VN |
-| Mast 1 | 47.574278 N / 15.790072 E · 10 m · 2 × quad stacked at 6.4 and 9.7 m, rotator · 20° / 108° / 200° |
+| Mast 1 | 47.574278 N / 15.790072 E · 10 m · 2 × 12JXX2 stacked at 6.4 and 9.7 m, rotator · 18° / 158° / 216° (until 28 Sept: 2 × quad, 20° / 108° / 200°) |
 | Mast 2 | 47.574368 N / 15.789992 E · 7.5 m · 2 × 12JXX2 stacked at 4.0 and 7.5 m, rotator · 302° (rest) / 330° / 266° |
 | Ground | 1,780 m (laser scan), summit cross 1,782 m, ridge of the hut 1,786.9 m |
 | Distances | hut 42 / 51 m · summit cross 12 / 19 m · Steinbachalmbahn top station 120 / 121 m · car 45 m |
@@ -146,14 +148,14 @@ The installation for the Feuerkogel has now been calculated as well, [two times 
 | Stations clear ≤ 700 km | **1,741** | 1,388 |
 | Countries | **18** | 10 |
 | Germany clear (DARC) | 606 of 943 | **1,107 of 1,319** |
-| Installation, switched 1 kW | **1,331** | 1,183 |
-| of which within 500 km | **1,006** | 717 |
+| Installation, switched 1 kW | **1,308** | 1,183 |
+| of which within 500 km | **869** | 717 |
 | of which Germany (DARC) | 551 | **1,035** |
-| Installation, 500 W each | 894 | 895 |
+| Installation, 500 W each | **948** | 895 |
 | of which Germany (DARC) | 316 | **710** |
 | Σ kilometres clear | **754,000** | 627,000 |
 
-The Stuhleck has more stations, more countries and the better close range. With its installation the Feuerkogel reaches almost twice as many German stations, because no mountain stands in front of the German north there. With 500 watts on each stack the two are level. Whoever collects German stations goes to the Feuerkogel; whoever collects countries and kilometres in the south and east goes to the Stuhleck.
+The Stuhleck has more stations, more countries and the better close range. With its installation the Feuerkogel reaches almost twice as many German stations, because no mountain stands in front of the German north there. With 500 watts on each stack the Stuhleck is narrowly ahead, 948 against 895. Both installations are now two times two 12JXX2. Whoever collects German stations goes to the Feuerkogel; whoever collects countries and kilometres in the south and east goes to the Stuhleck.
 
 ## The maps
 

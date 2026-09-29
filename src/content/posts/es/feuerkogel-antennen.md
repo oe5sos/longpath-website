@@ -97,14 +97,14 @@ Los dos sitios están ya calculados del todo, cada uno con su propia instalació
 | Estaciones libres ≤ 700 km | 1388 | **1741** |
 | Países | 10 | **18** |
 | Alemania libre (DARC) | **1107 de 1319** | 606 de 943 |
-| Instalación, conmutado 1 kW | 1183 | **1331** |
-| de ellas hasta 500 km | 717 | **1006** |
+| Instalación, conmutado 1 kW | 1183 | **1308** |
+| de ellas hasta 500 km | 717 | **869** |
 | de ellas Alemania (DARC) | **1035** | 551 |
-| Instalación, 500 W cada una | 895 | 894 |
+| Instalación, 500 W cada una | 895 | **948** |
 | de ellas Alemania (DARC) | **710** | 316 |
 | Σ kilómetros libres | 627 000 | **754 000** |
 
-El Stuhleck tiene más estaciones y más países, y a corta distancia es claramente mejor: Italia, Croacia, Eslovenia, Hungría y Serbia no existen desde el Feuerkogel. El Feuerkogel tiene Alemania. Con la instalación prevista llega a casi el doble de estaciones alemanas que el Stuhleck, porque allí el Rax, la Schneealpe y el Hochschwab se interponen ante el norte de Alemania. Con 500 vatios en cada apilamiento quedan empatados, 895 frente a 894.
+El Stuhleck tiene más estaciones y más países, y a corta distancia es claramente mejor: Italia, Croacia, Eslovenia, Hungría y Serbia no existen desde el Feuerkogel. El Feuerkogel tiene Alemania. Con la instalación prevista llega a casi el doble de estaciones alemanas que el Stuhleck, porque allí el Rax, la Schneealpe y el Hochschwab se interponen ante el norte de Alemania. Las dos instalaciones son dos veces dos 12JXX2; con 500 vatios en cada apilamiento el Stuhleck va ligeramente delante, 948 frente a 895.
 
 La elección depende, pues, de lo que se quiera reunir en el concurso. Quien quiera estaciones alemanas, que es donde está la mayoría, va al Feuerkogel. Quien quiera países y kilómetros en el sur y el este, va al Stuhleck.
 

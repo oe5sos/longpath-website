@@ -64,8 +64,8 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=18" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con el stack de Yagis en el rotor 1, el stack de cuadros en el rotor 2, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca. Arriba a la izquierda se cambia entre el emplazamiento A (hoy), C (propuesta) y el prado sur — mástiles, sector prohibido y cifras se mueven con él. Los botones fijan las direcciones fijas — stack de Yagis 302° / 18° / 86°, stack de cuadros 20° / 116° / 120° / 136° / 200° —, los deslizadores cualquier otra; debajo, por stack, las estaciones, países y ciudades en el haz principal y un aviso si una dirección cae en el sector prohibido. «Drehen» hace girar la vista lentamente, «Stopp» la detiene; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
+  <iframe src="/stuhleck-3d.html?v=19" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con dos 12JXX2 apiladas en el rotor 1 y otras dos en el rotor 2, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca. Arriba a la izquierda se cambia entre el emplazamiento A (hoy), C (propuesta) y el prado sur — mástiles, sector prohibido y cifras se mueven con él. Los botones fijan las direcciones fijas — stack DL 302° / 18° / 86°, stack del rotor 18° / 158° / 216° —, los deslizadores cualquier otra; debajo, por stack, las estaciones, países y ciudades en el haz principal y un aviso si una dirección cae en el sector prohibido. «Drehen» hace girar la vista lentamente, «Stopp» la detiene; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
 <style>
@@ -110,12 +110,14 @@ Los mástiles son más cortos de lo pensado: diez metros para los cuadros, siete
 
 El [plano de situación en PDF, revisión 4](/karten/stuhleck-lageplan-antennenanlage.pdf) tiene la instalación tal como queda: coordenadas, alturas de mástil, direcciones, distancias, fuentes.
 
+**Añadido, 29 de septiembre: también dos Yagis en el mástil 1.** En lugar del stack de cuadros, un segundo stack de 12JXX2 va en el rotor del mástil 1, a 6,4 y 9,7 metros, como en el Feuerkogel. El lóbulo se estrecha, 34 en vez de 69 grados, con 3,3 decibelios más. Las tres posiciones, calculadas con la misma regla y fuera del sector prohibido: **18°** Breslavia, Brno, Viena, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopie; **216°** Liubliana, Rijeka, Trieste, Venecia, Bolonia. Con 500 vatios en cada stack son **948 estaciones en vez de 894**, Alemania 316 como antes, y 330 000 en vez de 270 000 kilómetros — la ganancia llega más lejos. Conmutado con un kilovatio son 1308 en vez de 1331: a corta distancia el cuadro ancho consigue más, 1006 frente a 869 hasta 500 kilómetros; las Yagis consiguen a cambio la distancia. La escena 3D ya muestra los dos stacks de Yagis; las cifras de arriba en esta sección valen para el plan con los cuadros.
+
 ## Los datos
 
 | | |
 |---|---|
 | Emplazamiento | aparcamiento de la cumbre junto al Alois-Günther-Haus, municipio de Spital am Semmering, JN77VN |
-| Mástil 1 | 47,574278 N / 15,790072 E · 10 m · 2 × cuadro apilados a 6,4 y 9,7 m, rotor · 20° / 108° / 200° |
+| Mástil 1 | 47,574278 N / 15,790072 E · 10 m · 2 × 12JXX2 apiladas a 6,4 y 9,7 m, rotor · 18° / 158° / 216° (hasta el 28/09: 2 × cuadro, 20° / 108° / 200°) |
 | Mástil 2 | 47,574368 N / 15,789992 E · 7,5 m · 2 × 12JXX2 apiladas a 4,0 y 7,5 m, rotor · 302° (reposo) / 330° / 266° |
 | Suelo | 1780 m (escaneo láser), cruz de la cumbre 1782 m, cumbrera del refugio 1786,9 m |
 | Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 120 / 121 m · coche 45 m |
@@ -146,14 +148,14 @@ La instalación del Feuerkogel también está calculada ya, [dos veces dos Yagis
 | Estaciones libres ≤ 700 km | **1741** | 1388 |
 | Países | **18** | 10 |
 | Alemania libre (DARC) | 606 de 943 | **1107 de 1319** |
-| Instalación, conmutado 1 kW | **1331** | 1183 |
-| de ellas hasta 500 km | **1006** | 717 |
+| Instalación, conmutado 1 kW | **1308** | 1183 |
+| de ellas hasta 500 km | **869** | 717 |
 | de ellas Alemania (DARC) | 551 | **1035** |
-| Instalación, 500 W cada una | 894 | 895 |
+| Instalación, 500 W cada una | **948** | 895 |
 | de ellas Alemania (DARC) | 316 | **710** |
 | Σ kilómetros libres | **754 000** | 627 000 |
 
-El Stuhleck tiene más estaciones, más países y la mejor corta distancia. Con su instalación, el Feuerkogel llega a casi el doble de estaciones alemanas, porque allí ninguna montaña se interpone ante el norte de Alemania. Con 500 vatios en cada apilamiento quedan empatados. Quien reúne estaciones alemanas va al Feuerkogel; quien reúne países y kilómetros en el sur y el este, al Stuhleck.
+El Stuhleck tiene más estaciones, más países y la mejor corta distancia. Con su instalación, el Feuerkogel llega a casi el doble de estaciones alemanas, porque allí ninguna montaña se interpone ante el norte de Alemania. Con 500 vatios en cada apilamiento el Stuhleck va ligeramente delante, 948 frente a 895. Las dos instalaciones son ahora dos veces dos 12JXX2. Quien reúne estaciones alemanas va al Feuerkogel; quien reúne países y kilómetros en el sur y el este, al Stuhleck.
 
 ## Los mapas
 

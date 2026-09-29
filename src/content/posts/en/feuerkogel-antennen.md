@@ -97,14 +97,14 @@ Both sites are now fully calculated, each with its own installation and the same
 | Stations clear ≤ 700 km | 1,388 | **1,741** |
 | Countries | 10 | **18** |
 | Germany clear (DARC) | **1,107 of 1,319** | 606 of 943 |
-| Installation, switched 1 kW | 1,183 | **1,331** |
-| of which within 500 km | 717 | **1,006** |
+| Installation, switched 1 kW | 1,183 | **1,308** |
+| of which within 500 km | 717 | **869** |
 | of which Germany (DARC) | **1,035** | 551 |
-| Installation, 500 W each | 895 | 894 |
+| Installation, 500 W each | 895 | **948** |
 | of which Germany (DARC) | **710** | 316 |
 | Σ kilometres clear | 627,000 | **754,000** |
 
-The Stuhleck has more stations and more countries, and at close range it is clearly better: Italy, Croatia, Slovenia, Hungary and Serbia do not exist from the Feuerkogel. The Feuerkogel has Germany. With the planned installation it reaches almost twice as many German stations as the Stuhleck, because there the Rax, the Schneealpe and the Hochschwab stand in front of the German north. With 500 watts on each stack the two are level, 895 against 894.
+The Stuhleck has more stations and more countries, and at close range it is clearly better: Italy, Croatia, Slovenia, Hungary and Serbia do not exist from the Feuerkogel. The Feuerkogel has Germany. With the planned installation it reaches almost twice as many German stations as the Stuhleck, because there the Rax, the Schneealpe and the Hochschwab stand in front of the German north. Both installations are two times two 12JXX2; with 500 watts on each stack the Stuhleck is narrowly ahead, 948 against 895.
 
 So the choice depends on what you want to collect in the contest. Whoever wants German stations, and that is where most of them are, goes to the Feuerkogel. Whoever wants countries and kilometres in the south and east goes to the Stuhleck.
 

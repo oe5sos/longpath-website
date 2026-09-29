@@ -97,14 +97,14 @@ Beide Standorte sind jetzt fertig gerechnet, jeweils mit ihrer eigenen Anlage un
 | Stationen frei ≤ 700 km | 1 388 | **1 741** |
 | Länder | 10 | **18** |
 | Deutschland frei (DARC) | **1 107 von 1 319** | 606 von 943 |
-| Anlage, umgeschaltet 1 kW | 1 183 | **1 331** |
-| davon bis 500 km | 717 | **1 006** |
+| Anlage, umgeschaltet 1 kW | 1 183 | **1 308** |
+| davon bis 500 km | 717 | **869** |
 | davon Deutschland (DARC) | **1 035** | 551 |
-| Anlage, je 500 W | 895 | 894 |
+| Anlage, je 500 W | 895 | **948** |
 | davon Deutschland (DARC) | **710** | 316 |
 | Σ Kilometer frei | 627 000 | **754 000** |
 
-Das Stuhleck hat mehr Stationen und mehr Länder, und im Nahbereich ist es klar besser: Italien, Kroatien, Slowenien, Ungarn und Serbien gibt es am Feuerkogel nicht. Der Feuerkogel hat Deutschland. Mit der geplanten Anlage erreicht er fast doppelt so viele deutsche Stationen wie das Stuhleck, weil dort die Rax, die Schneealpe und der Hochschwab vor dem deutschen Norden stehen. Mit je 500 Watt auf beiden Stacks liegen beide gleichauf, 895 gegen 894.
+Das Stuhleck hat mehr Stationen und mehr Länder, und im Nahbereich ist es klar besser: Italien, Kroatien, Slowenien, Ungarn und Serbien gibt es am Feuerkogel nicht. Der Feuerkogel hat Deutschland. Mit der geplanten Anlage erreicht er fast doppelt so viele deutsche Stationen wie das Stuhleck, weil dort die Rax, die Schneealpe und der Hochschwab vor dem deutschen Norden stehen. Beide Anlagen sind zweimal zwei 12JXX2; mit je 500 Watt auf beiden Stacks liegt das Stuhleck knapp vorn, 948 gegen 895.
 
 Die Wahl hängt also davon ab, was man im Contest sammeln will. Wer deutsche Stationen will, und dort sind die meisten, fährt auf den Feuerkogel. Wer Länder und Kilometer im Süden und Osten will, fährt aufs Stuhleck.
 
