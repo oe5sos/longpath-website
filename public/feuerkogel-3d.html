@@ -173,10 +173,14 @@ function rebuild(){ while(MG.children.length){ const c=MG.children.pop(); c.geom
 // mast() hängt an MG statt an scene
 // Städte am Rand: frei hell, hinter dem Berg grau
 const hzAt=b=>{ b=((b%360)+360)%360; const i=Math.floor(b), f=b-i; return SD.hz[i]*(1-f)+SD.hz[(i+1)%360]*f; };
-const RIM=150, CX=40, CY=40;
-SD.cities.forEach(([n,b,d])=>{ const x=CX+RIM*Math.sin(b*Math.PI/180), y=CY+RIM*Math.cos(b*Math.PI/180); const [xx,yy]=clampXY(x,y); const free=hzAt(b)<0;
-  const s=label(n+' '+Math.round(b)+'°',free?'#dcdce1':'#6a6a70',free?20:16); s.position.set(x,hAt(xx,yy)+8,-y); scene.add(s); });
-[[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const x=CX+128*Math.sin(b*Math.PI/180), y=CY+128*Math.cos(b*Math.PI/180); const [xx,yy]=clampXY(x,y); const s=label(t,'#d8a55f',13); s.position.set(x,hAt(xx,yy)+4,-y); scene.add(s); });
+/* Städte auf einem festen Ring in Antennenhöhe um die Masten — nicht auf dem Gelände, das nach allen Seiten abfällt */
+const CX=-4.5, CY=4.5, RIM=115, ZR=12;
+{ const pts=[]; for(let a=0;a<=360;a+=2){ const r=a*Math.PI/180; pts.push(new THREE.Vector3(CX+RIM*Math.sin(r),ZR,-(CY+RIM*Math.cos(r)))); }
+  const ring=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineDashedMaterial({color:0x7e7e85,dashSize:3,gapSize:2,transparent:true,opacity:0.6})); ring.computeLineDistances(); scene.add(ring); }
+SD.cities.forEach(([n,b,d])=>{ const x=CX+RIM*Math.sin(b*Math.PI/180), y=CY+RIM*Math.cos(b*Math.PI/180); const free=hzAt(b)<0;
+  const s=label(n+' '+Math.round(b)+'°',free?'#e8e2cf':'#8a8a90',free?30:22); s.position.set(x,ZR+3,-y); scene.add(s);
+  const tick=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,ZR,-y),new THREE.Vector3(x,ZR+1.6,-y)]),new THREE.LineBasicMaterial({color:free?0xe8e2cf:0x6a6a70})); scene.add(tick); });
+[[0,'N'],[90,'O'],[180,'S'],[270,'W']].forEach(([b,t])=>{ const x=CX+(RIM+14)*Math.sin(b*Math.PI/180), y=CY+(RIM+14)*Math.cos(b*Math.PI/180); const s=label(t,'#d8a55f',22); s.position.set(x,ZR+2,-y); scene.add(s); });
 // Zählung
 function lobe(key,h){ const a=ANT[key]; const c=SD.cnt; let n=0,dl=0; const by=new Array(SD.ctys.length).fill(0); for(let k=0;k<360;k++){ const d=((k-h+540)%360)-180; if(Math.abs(d)<=a.hp/2 && a.mask.m[k]){ n+=c[0][k]; dl+=c[1][k]; for(let j=0;j<by.length;j++) by[j]+=c[2][k][j]; } } return [n,dl,by]; }
 function union(){ const sel=new Array(360).fill(false); for(const k in ANT){ const h=HD[k], hp=ANT[k].hp; for(let b=0;b<360;b++){ if(Math.abs(((b-h+540)%360)-180)<=hp/2 && ANT[k].mask.m[b]) sel[b]=true; } } let n=0,dl=0; for(let b=0;b<360;b++) if(sel[b]){ n+=SD.cnt[0][b]; dl+=SD.cnt[1][b]; } return [n,dl]; }
@@ -187,7 +191,7 @@ function apply(key,h,from){ h=((Math.round(h)%360)+360)%360; HD[key]=h; const a=
   a.obj.rotation.y=-h*Math.PI/180; a.fan.setHeading(h);
   if(a.lab){ scene.remove(a.lab); a.lab.material.map.dispose(); a.lab.material.dispose(); }
   const [n]=lobe(key,h); const x=a.mx+a.r*0.85*Math.sin(h*Math.PI/180), y=a.my+a.r*0.85*Math.cos(h*Math.PI/180); const [xx,yy]=clampXY(x,y);
-  a.lab=label(a.name+' '+h+'° · '+n+' Stationen',a.col,20); a.lab.userData.k=key; a.lab.position.set(x,hAt(xx,yy)+4,-y); scene.add(a.lab);
+  a.lab=label(a.name+' '+h+'° · '+n+' Stationen',a.col,30); a.lab.userData.k=key; a.lab.position.set(x,ZR+10+(key==='sr'?5:0),-y); scene.add(a.lab);
   document.querySelectorAll('#ctl input[data-a="'+key+'"]').forEach(i=>{ if(i!==from) i.value=h; });
   nowEl.innerHTML=Object.keys(ANT).map(k=>{ const b=ANT[k]; const [nn,dd,by]=lobe(k,HD[k]); const top=by.map((v,j)=>[SD.ctys[j],v]).filter(([c,v])=>v>0&&c!=='andere').sort((p,q)=>q[1]-p[1]).slice(0,4).map(([c,v])=>c+' '+v).join(', ');
     const cit=SD.cities.filter(([c,bb])=>Math.abs(((bb-HD[k]+540)%360)-180)<=b.hp/2 && hzAt(bb)<0).map(([c])=>c).slice(0,5).join(', ');
@@ -216,7 +220,7 @@ let mid={x:(POS.m1[0]+POS.m2[0])/2,y:(POS.m1[1]+POS.m2[1])/2}, gm=hAt(mid.x,mid.
 let VIEW, TOP;
 function views(){ mid={x:(POS.m1[0]+POS.m2[0])/2,y:(POS.m1[1]+POS.m2[1])/2}; gm=hAt(mid.x,mid.y);
   const L=Math.hypot(mid.x,mid.y)||1, ux=mid.x/L, uy=mid.y/L;   // Kamera auf der vom Haus abgewandten Seite
-  VIEW={p:new THREE.Vector3(mid.x-30,gm+44,-(mid.y-70)),t:new THREE.Vector3(mid.x-14,gm+6,-(mid.y+4))};
+  VIEW={p:new THREE.Vector3(mid.x-30,gm+48,-(mid.y-80)),t:new THREE.Vector3(mid.x-14,gm+14,-(mid.y+10))};
   TOP={p:new THREE.Vector3(mid.x+0.1,gm+170,-(mid.y-0.1)),t:new THREE.Vector3(mid.x,gm,-mid.y)}; }
 views();
 camera.position.copy(VIEW.p); controls.target.copy(VIEW.t); SITE_READY=true;

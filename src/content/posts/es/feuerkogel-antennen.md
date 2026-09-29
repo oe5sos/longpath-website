@@ -60,7 +60,7 @@ Los dos mástiles quedan a 45 metros el uno del otro, los dos de diez metros; lo
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/feuerkogel-3d.html?v=3" title="Feuerkogelhaus en 3D: ortofoto sobre el terreno del láser con el apilamiento fijo de 2×12 a la derecha de la posada y el del rotor a la izquierda entre la casa y la rampa" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/feuerkogel-3d.html?v=4" title="Feuerkogelhaus en 3D: ortofoto sobre el terreno del láser con el apilamiento fijo de 2×12 a la derecha de la posada y el del rotor a la izquierda entre la casa y la rampa" loading="lazy" allowfullscreen></iframe>
   <figcaption>Arrastrar gira, la rueda hace zoom. Los botones ponen las direcciones previstas, apilamiento fijo 328° / 312° / 346°, apilamiento del rotor 8° / 304° / 46° / 76° / 342°; los reguladores, cualquier otra dirección y la altura del mástil. Arriba a la izquierda, por apilamiento, las estaciones, países y ciudades del haz principal, y un aviso cuando la casa, la cabaña o los árboles tapan una Yagi. «Drehen» hace girar la vista, «Von oben» muestra la planta. <a href="/feuerkogel-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 

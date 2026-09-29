@@ -60,7 +60,7 @@ The two masts stand 45 metres apart, both ten metres high; the booms cannot touc
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/feuerkogel-3d.html?v=3" title="Feuerkogelhaus in 3D: orthophoto on the laser-scan terrain with the fixed 2×12 stack to the right of the inn and the rotator stack on the left between the house and the ramp" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/feuerkogel-3d.html?v=4" title="Feuerkogelhaus in 3D: orthophoto on the laser-scan terrain with the fixed 2×12 stack to the right of the inn and the rotator stack on the left between the house and the ramp" loading="lazy" allowfullscreen></iframe>
   <figcaption>Drag to rotate, the wheel zooms. The buttons set the planned directions, fixed stack 328° / 312° / 346°, rotator stack 8° / 304° / 46° / 76° / 342°; the sliders set any other direction and the mast height. Top left, per stack, the stations, countries and cities in the main beam, and a warning when the house, the hut or trees block a Yagi. "Drehen" circles the view, "Von oben" shows the plan view. <a href="/feuerkogel-3d.html">Open full screen</a></figcaption>
 </figure>
 
