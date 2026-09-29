@@ -96,6 +96,21 @@ Con más y menos el mapa se abre de 200 a 700 kilómetros — el abanico verde h
 
 Ambos mapas en PDF, para ampliar e imprimir: [zoom 180 km](/karten/feuerkogelhaus-horizont-zoom-180km.pdf) con todos los nombres de las montañas y [vista general 800 km](/karten/feuerkogelhaus-horizont-uebersicht-800km.pdf) con la lista numerada.
 
+## En tres dimensiones
+
+<figure class="szene">
+  <iframe src="/feuerkogel-3d.html?v=4" title="Feuerkogelhaus en 3D: ortofoto sobre el terreno del escaneo láser con el refugio, la Christophorushütte, los dos mástiles y las direcciones hacia Alemania" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca. Las ciudades están en un anillo a la altura de la antena; claro significa libre, gris tapado. <a href="/feuerkogel-3d.html">Abrir a pantalla completa</a></figcaption>
+</figure>
+
+La escena muestra la cumbre tal como la conoce el escaneo láser: el refugio, la Christophorushütte, la capilla y la estación del teleférico con sus alturas medidas, con la ortofoto encima. Los mástiles y lóbulos pertenecen a la instalación calculada en [Dos veces dos Yagis](/es/blog/feuerkogel-antennen/); aquí se ve sobre todo hacia dónde mira libre el Feuerkogel — al norte sobre la llanura — y dónde el Höllengebirge cierra el sur.
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
 ## Qué significa
 
 En un concurso cuenta dónde están las otras estaciones — y la mayoría están en Alemania. De Franconia por Renania del Norte-Westfalia hasta Berlín y Sajonia el horizonte desde el Feuerkogelhaus está tan libre como puede estarlo en una montaña: Núremberg −0,9°, Colonia −0,9°, Erfurt −0,8°, Berlín −0,6°, Passau −1,0°.

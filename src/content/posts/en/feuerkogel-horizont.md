@@ -96,6 +96,21 @@ Plus and minus pull the map out from 200 to 700 kilometres — the green fan to 
 
 Both maps as PDF, to zoom into and print: [zoom 180 km](/karten/feuerkogelhaus-horizont-zoom-180km.pdf) with every mountain named, and [overview 800 km](/karten/feuerkogelhaus-horizont-uebersicht-800km.pdf) with the numbered list.
 
+## In three dimensions
+
+<figure class="szene">
+  <iframe src="/feuerkogel-3d.html?v=4" title="Feuerkogelhaus in 3D: orthophoto on the laser-scan terrain with the inn, the Christophorushütte, both antenna masts and the directions towards Germany" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, scroll to zoom. The cities stand on a ring at antenna height; bright means clear, grey blocked. <a href="/feuerkogel-3d.html">Open full screen</a></figcaption>
+</figure>
+
+The scene shows the summit as the laser scan knows it: the inn, the Christophorushütte, the chapel and the cable-car station with their measured heights, the orthophoto on top. The masts and lobes belong to the installation calculated in [Two times two Yagis](/en/blog/feuerkogel-antennen/); here you mainly see where the Feuerkogel looks out freely — north over the lowlands — and where the Höllengebirge closes off the south.
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
 ## What it means
 
 For a contest what counts is where the other stations sit — and most of them sit in Germany. From Franconia over North Rhine-Westphalia to Berlin and Saxony the horizon from the Feuerkogelhaus is as clear as it can be on a mountain: Nuremberg −0.9°, Cologne −0.9°, Erfurt −0.8°, Berlin −0.6°, Passau −1.0°.

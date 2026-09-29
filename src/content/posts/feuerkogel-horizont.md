@@ -96,6 +96,21 @@ Die Karte lässt sich mit Plus und Minus von 200 auf 700 Kilometer aufziehen —
 
 Beide Karten als PDF, zum Hineinzoomen und Ausdrucken: [Zoom 180 km](/karten/feuerkogelhaus-horizont-zoom-180km.pdf) mit allen Bergnamen und [Übersicht 800 km](/karten/feuerkogelhaus-horizont-uebersicht-800km.pdf) mit der nummerierten Liste.
 
+## In drei Dimensionen
+
+<figure class="szene">
+  <iframe src="/feuerkogel-3d.html?v=4" title="Feuerkogelhaus in 3D: Orthofoto auf dem Laserscan-Gelände mit dem Gasthaus, der Christophorushütte, den beiden Antennenmasten und den Richtungen nach Deutschland" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt. Die Städte stehen auf einem Ring in Antennenhöhe; hell heißt frei, grau verdeckt. <a href="/feuerkogel-3d.html">Im Vollbild öffnen</a></figcaption>
+</figure>
+
+Die Szene zeigt den Gipfel so, wie der Laserscan ihn kennt: Gasthaus, Christophorushütte, Kapelle und Bergstation mit ihren gemessenen Höhen, darauf das Orthofoto. Die Masten und Keulen gehören zur Antennenanlage, die im Beitrag [Zweimal zwei Yagis](/blog/feuerkogel-antennen/) gerechnet ist; hier sieht man vor allem, wohin der Feuerkogel frei schaut — nach Norden über das Flachland — und wo das Höllengebirge den Süden zumacht.
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
 ## Was das heißt
 
 Für einen Contest zählt, wo die Gegenstationen sitzen — und die sitzen zum größten Teil in Deutschland. Von Franken über Nordrhein-Westfalen bis Berlin und Sachsen ist der Horizont vom Feuerkogelhaus aus so frei, wie er auf einem Berg nur sein kann: Nürnberg −0,9°, Köln −0,9°, Erfurt −0,8°, Berlin −0,6°, Passau −1,0°.
