@@ -115,7 +115,7 @@ El [plano de situación en PDF, revisión 4](/karten/stuhleck-lageplan-antennena
 ## Mástiles y vientos
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=2" title="Cumbre del Stuhleck en 3D con los dos mástiles: mástil 1 con dos 12JXX2 y rotor en el suelo, mástil 2 con tres 12JXX2 en una ventana de giro de 296°–340°, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=3" title="Cumbre del Stuhleck en 3D con tres mástiles: mástil de Tonna fijo en 24°, mástil 1 con dos 12JXX2 y rotor en el suelo, mástil 2 con tres 12JXX2 en una ventana de giro de 296°–340°, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
   <figcaption>Arrastrar gira, la rueda acerca. A la izquierda la longitud y el ángulo de cada viento, calculados sobre el terreno del escaneo láser, y la comprobación de distancias. <a href="/stuhleck-masten-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
@@ -123,7 +123,9 @@ Cómo se arriostran los dos mástiles depende de lo que gira. El **mástil 1** l
 
 El **mástil 2** lleva tres 12JXX2 a 4,1, 6,9 y 9,7 metros y gira solo dentro de una ventana: **296° a 340°**, entre los vientos. Su rotor también está en el suelo, con topes en ambos bordes. Los vientos pasan entre las Yagis, desde cojinetes a 6,4 y 9,2 metros, **cuatro** por nivel en vez de tres, hacia 3°, 93°, 183° y 273°, anclajes a nueve metros, 108 metros de cuerda. Por qué cuatro: el boom llega hacia delante y hacia atrás, así que cada viento bloquea dos direcciones. Con tres vientos a 120 grados hay un bloqueo cada 60 grados y la ventana libre queda por debajo de 30; con cuatro los bloqueos coinciden de dos en dos y quedan 44 grados. La ventana tiene tres posiciones, **300°** Núremberg, Ratisbona, Passau, **318°** Hesse y Turingia, **336°** Praga, Dresde, Leipzig, Berlín — con 500 vatios 460 estaciones alemanas en vez de 335 fijo en 306°, con un kilovatio las 597 que están libres. El norte y el este más allá son cosa del stack del rotor.
 
-Los mástiles están a 11,7 metros. Ningún viento se acerca a menos de 0,35 metros de una Yagi, ni siquiera cuando el mástil 1 gira del todo o el mástil 2 recorre toda su ventana, y los vientos de los dos mástiles quedan a más de cuatro metros entre sí. Los vientos son de cuerda sintética para no perturbar el diagrama.
+**El mástil 3 es una opción para las horas tranquilas.** Dos Tonna de 9 elementos fijas en **24°** — Breslavia, Brno, Ostrava, Cracovia, Viena, el bloque más grande después de Alemania — sobre un mástil de 7,5 metros sin rotor, a unos 21 metros al oeste del mástil 1, vientos a 3,8 y 6,6 metros, 49 metros de cuerda. El amplificador del stack del rotor recibe un conmutador de tres posiciones: rotor a plena potencia, Tonna a plena potencia o las dos repartidas. Normalmente el rotor va a plena potencia, porque en todo el concurso la Tonna apenas añade puntos — repartida de forma fija incluso cuesta una quinta parte, porque al stack del rotor le faltan las estaciones lejanas. Pero cuando casi nadie llama, de noche o el domingo por la mañana, se pasa a «las dos»: la estación llama entonces en tres direcciones a la vez, Alemania, el noreste y el rotor en otra parte, con de media un cuarenta por ciento más de estaciones al alcance. La Tonna se monta la última, si queda tiempo; sin ella no falta nada importante.
+
+Los mástiles 1 y 2 están a 11,7 metros, el mástil 3 a unos 21 metros del mástil 1. Ningún viento se acerca a menos de 0,35 metros de una Yagi, ni siquiera cuando el mástil 1 gira del todo o el mástil 2 recorre toda su ventana, y los vientos de los dos mástiles quedan a más de cuatro metros entre sí. Los vientos son de cuerda sintética para no perturbar el diagrama.
 
 ## Los datos
 

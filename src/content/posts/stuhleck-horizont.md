@@ -115,7 +115,7 @@ Der [Lageplan als PDF, Stand 4](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 ## Masten und Abspannung
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=2" title="Stuhleck-Gipfel in 3D mit beiden Masten: Mast 1 mit zwei 12JXX2 auf Rotor am Boden, Mast 2 mit drei 12JXX2 im Drehfenster 296°–340°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=3" title="Stuhleck-Gipfel in 3D mit drei Masten: Tonna-Mast fest auf 24°, Mast 1 mit zwei 12JXX2 auf Rotor am Boden, Mast 2 mit drei 12JXX2 im Drehfenster 296°–340°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Links die Länge und der Winkel jedes Seils, gerechnet auf dem Laserscan-Gelände, und die Prüfung der Abstände. <a href="/stuhleck-masten-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
@@ -123,7 +123,9 @@ Wie die beiden Masten stehen, hängt daran, was sich dreht. **Mast 1** trägt zw
 
 **Mast 2** trägt drei 12JXX2 auf 4,1, 6,9 und 9,7 Metern und dreht nur in einem Fenster: **296° bis 340°**, zwischen den Seilen hindurch. Der Rotor steht auch hier am Boden, mit Endanschlägen an beiden Rändern. Die Seile hängen zwischen den Yagis, an Lagern auf 6,4 und 9,2 Metern, und zwar je **vier** statt drei, nach 3°, 93°, 183° und 273°, Anker neun Meter vom Mast, 108 Meter Seil. Der Grund für die vier: Der Boom reicht nach vorn und nach hinten, jedes Seil sperrt also zwei Richtungen. Bei drei Seilen im 120-Grad-Raster liegt alle 60 Grad eine Sperre und das freie Fenster bleibt unter 30 Grad; bei vier Seilen fallen die Sperren paarweise zusammen, und dazwischen bleiben 44 Grad. Das Fenster holt drei Stellungen, **300°** Nürnberg, Regensburg, Passau, **318°** Hessen und Thüringen, **336°** Prag, Dresden, Leipzig, Berlin — mit 500 Watt 460 deutsche Stationen statt 335 bei fest 306°, mit einem Kilowatt alle 597, die frei zu sehen sind. Den Norden und Osten dahinter hat ohnehin der Rotor-Stack.
 
-Die Masten stehen 11,7 Meter auseinander. Kein Seil kommt einer Yagi näher als 0,35 Meter, auch nicht, wenn Mast 1 rundum oder Mast 2 im ganzen Fenster dreht, und die Seile der beiden Masten bleiben mehr als vier Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören.
+**Mast 3 ist eine Option für ruhige Phasen.** Zwei 9-Element-Tonnas fest auf **24°** — Breslau, Brünn, Ostrava, Kraków, Wien, nach Deutschland der größte Block —, auf einem 7,5-Meter-Mast ohne Rotor rund 21 Meter westlich von Mast 1, Seile auf 3,8 und 6,6 Metern, 49 Meter Seil. Die Endstufe des Rotor-Stacks bekommt einen Umschalter mit drei Stellungen: Rotor voll, Tonna voll oder beide geteilt. Normal läuft der Rotor mit voller Leistung, denn über den ganzen Contest bringt die Tonna kaum Punkte — fest geteilt kostet sie sogar ein Fünftel, weil dem Rotor-Stack die weiten Stationen fehlen. Wenn aber nachts oder am Sonntagvormittag kaum noch jemand ruft, schaltet man auf „beide“: dann ruft die Station in drei Richtungen zugleich, Deutschland, Nordost und der Rotor irgendwo sonst, und hat im Mittel rund vierzig Prozent mehr Stationen in Reichweite. Die Tonna kommt zuletzt, wenn beim Aufbau Zeit bleibt; fehlt sie, fehlt nichts Wichtiges.
+
+Mast 1 und Mast 2 stehen 11,7 Meter auseinander, Mast 3 gut 21 Meter von Mast 1. Kein Seil kommt einer Yagi näher als 0,35 Meter, auch nicht, wenn Mast 1 rundum oder Mast 2 im ganzen Fenster dreht, und die Seile der beiden Masten bleiben mehr als vier Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören.
 
 ## Die Daten
 
