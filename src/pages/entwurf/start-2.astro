@@ -1,0 +1,64 @@
+---
+/** Entwurf 2 — Vier Felder: gerades Raster statt Diagonalen. Nicht verlinkt. */
+import Base from "../../layouts/Base.astro";
+import Wordmark from "../../components/Wordmark.astro";
+import Spektrum from "../../components/Spektrum.astro";
+import Hoehenlinien from "../../components/entwurf/Hoehenlinien.astro";
+import LangSwitch from "../../components/LangSwitch.astro";
+import { useTranslations } from "../../i18n/utils";
+const t = useTranslations("de");
+const felder = [
+  { k: "a", href: "/longpath/", kick: t.home.appKicker, lede: t.home.appLede, go: t.home.appGo, nr: "01" },
+  { k: "t", href: "/trainer/", kick: t.home.trainerKicker, lede: t.home.trainerLede, go: t.home.trainerGo, nr: "02", big: "TRAINER" },
+  { k: "c", href: "/contest/", kick: t.home.contestKicker, lede: t.home.contestLede, go: t.home.contestGo, nr: "03", big: "CONTEST" },
+  { k: "b", href: "/blog/", kick: "Standorte · Horizonte · SOTA", lede: "Horizonte, Standorte und Antennen für den Contest am Berg.", go: t.home.blogGo, nr: "04", big: "BLOG" },
+];
+---
+<Base titel="Entwurf 2 — Vier Felder" beschreibung="Startseite als Raster" raum="app" nackt>
+  <div class="raster">
+    <header class="kopf">
+      <span class="caps">OE5SOS · Martin Fischer</span>
+      <span class="r"><span class="caps num">{t.home.cornerTop2}</span><LangSwitch lang="de" /></span>
+    </header>
+    {felder.map((f) => (
+      <a class:list={["feld", `feld--${f.k}`]} href={f.href}>
+        {f.k === "a" && <Spektrum art="band" grundlinie={0.6} />}
+        {f.k === "t" && <Spektrum art="kurve" grundlinie={0.3} staerke={0.6} />}
+        {f.k === "c" && <Spektrum art="rauschen" grundlinie={0.3} staerke={0.6} />}
+        {f.k === "b" && <Hoehenlinien cx={0.78} cy={0.36} n={18} />}
+        <div class="in">
+          <span class="nr num">{f.nr}</span>
+          <p class="caps">{f.kick}</p>
+          <div class="big">{f.big ?? <Wordmark />}</div>
+          <p class="lede">{f.lede}</p>
+          <span class="go">{f.go} <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+    ))}
+  </div>
+</Base>
+<style>
+  .raster { height: 100svh; min-height: 640px; display: grid; grid-template-columns: 1.35fr 1fr; grid-template-rows: auto 1.25fr 1fr; gap: 1px; background: linear-gradient(90deg, transparent, rgba(194,146,79,.45), transparent); }
+  .kopf { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem var(--pad); background: var(--bg); }
+  .kopf .r { display: flex; gap: .9rem; align-items: center; }
+  .feld { position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: var(--pad); background: var(--panel); text-decoration: none; }
+  .feld--a { background: var(--bg); grid-row: 2 / 4; }
+  .feld--b { background: var(--panel-2); }
+  .feld--t { grid-column: 2; grid-row: 2; display: none; }
+  /* rechte Spalte: Trainer + Contest + Blog übereinander */
+  .raster { grid-template-rows: auto repeat(3, 1fr); }
+  .feld--a { grid-row: 2 / 5; }
+  .feld--t { display: flex; grid-row: 2; }
+  .feld--c { grid-column: 2; grid-row: 3; }
+  .feld--b { grid-column: 2; grid-row: 4; }
+  .feld::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,10,.2), rgba(8,8,10,.85)); pointer-events: none; }
+  .in { position: relative; z-index: 2; display: flex; flex-direction: column; gap: .35rem; max-width: 34ch; }
+  .nr {  font: 12px var(--ff-mono); color: var(--measured); }
+  .feld:not(.feld--a) .in { flex-direction: column; }
+  .big { font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em; line-height: 1; color: var(--t1); font-size: clamp(1.5rem, 2.6vw, 2.2rem); }
+  .feld--a .big { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+  .lede { margin: .2rem 0 0; color: var(--t3); font-size: .92rem; }
+  .feld:hover { background: var(--btn); }
+  .feld:hover .go { color: var(--t1); gap: .9rem; }
+  @media (max-width: 900px) { .raster { height: auto; grid-template-columns: 1fr; grid-template-rows: none; } .feld { min-height: 34svh; grid-column: 1 !important; grid-row: auto !important; } .kopf { grid-column: 1; } }
+</style>

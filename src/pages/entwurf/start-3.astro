@@ -1,0 +1,72 @@
+---
+/** Entwurf 3 — Band oben, Register unten. Nicht verlinkt. */
+import Base from "../../layouts/Base.astro";
+import Wordmark from "../../components/Wordmark.astro";
+import Spektrum from "../../components/Spektrum.astro";
+import LangSwitch from "../../components/LangSwitch.astro";
+import { alleBeitraege } from "../../lib/sota";
+import { useTranslations } from "../../i18n/utils";
+const t = useTranslations("de");
+const neu = (await alleBeitraege()).slice(0, 4);
+---
+<Base titel="Entwurf 3 — Band und Register" beschreibung="Startseite mit Band oben" raum="app" nackt>
+  <div class="seite">
+    <section class="band">
+      <Spektrum art="band" grundlinie={0.66} />
+      <header class="kopf">
+        <span class="caps">OE5SOS · Martin Fischer</span>
+        <span class="r"><span class="caps num">{t.home.cornerTop2}</span><LangSwitch lang="de" /></span>
+      </header>
+      <div class="held">
+        <p class="caps">{t.home.appKicker}</p>
+        <div class="wm-gross"><Wordmark /></div>
+        <p class="lede">{t.home.appLede}</p>
+        <a class="go" href="/longpath/">{t.home.appGo} <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <section class="register">
+      <a class="spalte" href="/trainer/">
+        <span class="num nr">02</span><p class="caps">{t.home.trainerKicker}</p>
+        <h2>Trainer</h2><p class="lede">{t.home.trainerLede}</p>
+        <span class="go">{t.home.trainerGo} →</span>
+      </a>
+      <a class="spalte" href="/contest/">
+        <span class="num nr">03</span><p class="caps">{t.home.contestKicker}</p>
+        <h2>Contest</h2><p class="lede">{t.home.contestLede}</p>
+        <span class="go">{t.home.contestGo} →</span>
+      </a>
+      <div class="spalte spalte--blog">
+        <span class="num nr">04</span><p class="caps">Blog · zuletzt</p>
+        <h2><a href="/blog/">Blog</a></h2>
+        <ol>
+          {neu.map((b) => (
+            <li><a href={`/blog/${b.id}/`}><span class="num">{b.data.datum.toLocaleDateString("de-AT", { day: "2-digit", month: "2-digit" })}</span><span>{b.data.titel}</span></a></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  </div>
+</Base>
+<style>
+  .seite { min-height: 100svh; display: grid; grid-template-rows: 1.5fr 1fr; background: var(--bg); }
+  .band { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+  .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,10,.55), rgba(8,8,10,.15) 40%, rgba(8,8,10,.85)); pointer-events: none; }
+  .kopf { position: relative; z-index: 2; display: flex; justify-content: space-between; padding: 1.4rem var(--pad); }
+  .kopf .r { display: flex; gap: .9rem; align-items: center; }
+  .held { position: relative; z-index: 2; padding: 0 var(--pad) 2.6rem; display: flex; flex-direction: column; gap: .5rem; }
+  .wm-gross { font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em; font-size: clamp(3rem, 9vw, 7.5rem); line-height: .95; color: var(--t1); }
+  .lede { color: var(--t3); margin: 0; font-size: .95rem; max-width: 46ch; }
+  .register { display: grid; grid-template-columns: 1fr 1fr 1.4fr; border-top: 1px solid transparent; border-image: linear-gradient(to right, transparent, var(--measured) 50%, transparent) 1; }
+  .spalte { position: relative; padding: 2rem var(--pad) 2.2rem; display: flex; flex-direction: column; gap: .4rem; text-decoration: none; border-right: 1px solid var(--border-fine); background: var(--panel); }
+  .spalte:hover { background: var(--panel-2); }
+  .spalte--blog { background: var(--panel-2); border-right: 0; }
+  .nr { font: 12px var(--ff-mono); color: var(--measured); }
+  h2 { font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--t1); font-size: 1.9rem; margin: .1rem 0 .2rem; }
+  h2 a { color: inherit; text-decoration: none; }
+  .go { margin-top: auto; }
+  ol { list-style: none; margin: .2rem 0 0; padding: 0; display: flex; flex-direction: column; }
+  li a { display: grid; grid-template-columns: 3.4rem 1fr; gap: .6rem; padding: .5rem 0; border-top: 1px solid var(--border-fine); color: var(--t2); text-decoration: none; font-size: .92rem; line-height: 1.3; }
+  li a:hover { color: var(--t1); }
+  li .num { font-family: var(--ff-mono); font-size: .75rem; color: var(--measured); padding-top: .15rem; }
+  @media (max-width: 900px) { .seite { grid-template-rows: auto auto; } .band { min-height: 62svh; } .register { grid-template-columns: 1fr; } .spalte { border-right: 0; border-bottom: 1px solid var(--border-fine); } }
+</style>

@@ -1,0 +1,19 @@
+---
+/** Entwurf: Rundum-Horizont als Polarbild, das Zeichen der Blogbeitraege. */
+interface Props { class?: string; cx?: number; cy?: number; r?: number }
+const { class: klass = "", cx = 500, cy = 420, r = 330 } = Astro.props;
+const pts: string[] = [];
+for (let i = 0; i <= 360; i += 2) {
+  const t = (i - 90) * Math.PI / 180;
+  const v = 0.78 + 0.07 * Math.sin(i * Math.PI / 60) + 0.05 * Math.sin(i * Math.PI / 23 + 1) + (i > 280 && i < 350 ? -0.16 * Math.sin((i - 280) * Math.PI / 70) : 0);
+  pts.push(`${i ? "L" : "M"}${(cx + r * v * Math.cos(t)).toFixed(1)} ${(cy + r * v * Math.sin(t)).toFixed(1)}`);
+}
+const ticks = Array.from({ length: 12 }, (_, k) => { const t = (k * 30 - 90) * Math.PI / 180; return { x: cx + r * 1.04 * Math.cos(t), y: cy + r * 1.04 * Math.sin(t) }; });
+---
+<svg class:list={["hz", klass]} viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  {[0.33, 0.66, 1].map((f) => <circle cx={cx} cy={cy} r={r * f} fill="none" stroke="var(--t6)" stroke-opacity=".5" stroke-width="1" vector-effect="non-scaling-stroke" />)}
+  {ticks.map((p) => <line x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="var(--t6)" stroke-opacity=".35" vector-effect="non-scaling-stroke" />)}
+  <path d={pts.join("") + "Z"} fill="var(--measured)" fill-opacity=".1" stroke="var(--measured)" stroke-width="1.6" vector-effect="non-scaling-stroke" />
+  <text x={cx} y={cy - r - 14} text-anchor="middle" fill="var(--t5)" font-family="IBM Plex Mono, monospace" font-size="16">0°</text>
+</svg>
+<style>.hz { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }</style>

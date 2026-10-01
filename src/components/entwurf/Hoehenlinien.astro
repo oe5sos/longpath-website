@@ -1,0 +1,23 @@
+---
+/** Entwurf: gezeichnete Hoehenlinien um einen Gipfel, statt Foto. */
+interface Props { cx?: number; cy?: number; n?: number; class?: string }
+const { cx = 0.62, cy = 0.34, n = 16, class: klass = "" } = Astro.props;
+const W = 1000, H = 1000;
+const linien: { d: string; o: number; w: number }[] = [];
+for (let k = 1; k <= n; k++) {
+  const r = 34 * k + 6 * Math.sin(k * 1.7);
+  const pts: string[] = [];
+  for (let i = 0; i <= 180; i++) {
+    const t = (i / 180) * Math.PI * 2;
+    const f = 1 + 0.16 * Math.sin(3 * t + k * 0.35) + 0.09 * Math.sin(5 * t + 1.3 + k * 0.2) + 0.05 * Math.sin(9 * t + k);
+    const x = cx * W + r * f * 1.25 * Math.cos(t), y = cy * H + r * f * Math.sin(t);
+    pts.push(`${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`);
+  }
+  linien.push({ d: pts.join("") + "Z", o: k % 5 === 0 ? 0.55 : 0.26, w: k % 5 === 0 ? 1.4 : 0.8 });
+}
+---
+<svg class:list={["hl", klass]} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  {linien.map((l) => <path d={l.d} fill="none" stroke="var(--measured)" stroke-opacity={l.o} stroke-width={l.w} vector-effect="non-scaling-stroke" />)}
+  <circle cx={cx * W} cy={cy * H} r="4" fill="var(--measured-hi)" />
+</svg>
+<style>.hl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }</style>
