@@ -179,7 +179,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     download: {
       kicker: "Aktueller Stand",
       h2: "Geprüft an echter Hardware — jetzt zum Laden.",
-      introHtml: "Die Pakete für alle drei Plattformen werden gemeinsam gebaut und gemeinsam signiert. <em>Am Gerät geprüft</em> ist diese Version auf dem Mac; Windows und Linux sind gebaut, aber nicht am Gerät gefahren — unter Windows ist eine Tonverzerrung mit der ANAN-10 noch offen.",
+      introHtml: "Die Pakete für alle drei Plattformen werden gemeinsam gebaut und gemeinsam signiert. <em>Am Gerät geprüft</em> ist diese Version auf dem Mac; Windows und Linux sind gebaut, aber nicht am Gerät gefahren — unter Windows ist eine Tonverzerrung mit der ANAN-10 noch offen. An diesen Paketen nachgemessen: die Fassung für Apple Silicon verlangt macOS 15, das AppImage für aarch64 verlangt glibc 2.38 und startet damit auf Raspberry Pi OS Bookworm nicht, und serielles PTT/CW fehlt in Mac Intel, Linux x86_64 und Linux aarch64. Die nächste Version setzt die Grenzen auf macOS 12 und glibc 2.35 und hat die serielle Tastung überall.",
       kanalKopf: "Kanal · freigegeben",
       fuerDieses: "Für dieses Gerät",
       stand: "Geprüft & signiert",
@@ -301,7 +301,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     download: {
       kicker: "Current status",
       h2: "Verified on real hardware — ready to download.",
-      introHtml: "The packages for all three platforms are built together and signed together. This version is <em>verified on hardware</em> on the Mac; Windows and Linux are built but have not been run on a device — on Windows an audio distortion with the ANAN-10 is still open.",
+      introHtml: "The packages for all three platforms are built together and signed together. This version is <em>verified on hardware</em> on the Mac; Windows and Linux are built but have not been run on a device — on Windows an audio distortion with the ANAN-10 is still open. Measured on these very packages: the Apple Silicon build requires macOS 15, the aarch64 AppImage requires glibc 2.38 and therefore will not start on Raspberry Pi OS Bookworm, and serial PTT/CW is missing from Mac Intel, Linux x86_64 and Linux aarch64. The next version lowers the floors to macOS 12 and glibc 2.35 and carries serial keying everywhere.",
       kanalKopf: "Channel · released",
       fuerDieses: "For this device",
       stand: "Verified & signed",
@@ -423,7 +423,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     download: {
       kicker: "Estado actual",
       h2: "Verificado en hardware real — listo para descargar.",
-      introHtml: "Los paquetes para las tres plataformas se construyen juntos y se firman juntos. Esta versión está <em>verificada en hardware</em> en el Mac; Windows y Linux están construidos pero no se han probado en un equipo — en Windows sigue abierta una distorsión de audio con el ANAN-10.",
+      introHtml: "Los paquetes para las tres plataformas se construyen juntos y se firman juntos. Esta versión está <em>verificada en hardware</em> en el Mac; Windows y Linux están construidos pero no se han probado en un equipo — en Windows sigue abierta una distorsión de audio con el ANAN-10. Medido sobre estos mismos paquetes: la versión para Apple Silicon exige macOS 15, el AppImage para aarch64 exige glibc 2.38 y por eso no arranca en Raspberry Pi OS Bookworm, y el PTT/CW serie falta en Mac Intel, Linux x86_64 y Linux aarch64. La siguiente versión baja los límites a macOS 12 y glibc 2.35 y lleva la manipulación serie en todas partes.",
       kanalKopf: "Canal · publicado",
       fuerDieses: "Para este equipo",
       stand: "Verificado y firmado",
