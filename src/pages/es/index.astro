@@ -12,7 +12,6 @@
  * Grund (ueber die volle Hoehe gezogen unscharf), sondern eine
  * gezeichnete Kurve wie bei Konsole und Trainer.
  */
-import { Image } from "astro:assets";
 import Base from "../../layouts/Base.astro";
 import Wordmark from "../../components/Wordmark.astro";
 import Spektrum from "../../components/Spektrum.astro";
@@ -82,17 +81,6 @@ const neuester = gehalten
     </a>
 
     <a class="half half--blog" href="/blog/" data-f="b">
-      {neuester?.data.aufmacher && (
-        <Image
-          class="foto"
-          src={neuester.data.aufmacher}
-          alt={neuester.data.aufmacherAlt ?? ""}
-          widths={[720, 1200, 1800]}
-          sizes="(max-width: 900px) 100vw, 40vw"
-          loading="eager"
-          format="avif"
-        />
-      )}
       <div class="half__in">
         <p class="caps">{t.home.blogKicker}</p>
         <div class="big">BLOG</div>
