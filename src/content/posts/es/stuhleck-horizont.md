@@ -115,7 +115,7 @@ El [plano de situación en PDF, revisión 5](/karten/stuhleck-lageplan-antennena
 ![Plano de situación de la cumbre del Stuhleck a partir del escaneo láser: aparcamiento, cruz de la cumbre y tres mástiles al oeste — el mástil 1 con el anillo que muestra grado a grado la pérdida de la Yagi inferior y sus tres posiciones de rotor a trazos en 18°, 158° y 216°, el mástil 2 con la cuña verde hacia 302° y el mástil 3 con la azul hacia 24°; desde el coche en el borde oeste del aparcamiento tres tendidos de coaxial punteados llegan a los mástiles, rotulados con 40, 35 y 50 metros](../../../assets/karten/stuhleck-lageplan.png)
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=8" title="Cumbre del Stuhleck en 3D con tres mástiles: dos veces dos 12JXX2 con rotor en el suelo y dos Tonna de 9 elementos fijas en 24°, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=9" title="Cumbre del Stuhleck en 3D con tres mástiles: dos veces dos 12JXX2 con rotor en el suelo y dos Tonna de 9 elementos fijas en 24°, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
   <figcaption>Arrastrar gira, la rueda acerca. A la izquierda la longitud y el ángulo de cada viento, calculados sobre el terreno del escaneo láser, y la comprobación de distancias. <a href="/stuhleck-masten-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 

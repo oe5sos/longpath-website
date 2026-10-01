@@ -280,9 +280,9 @@ function buildSite(key){ const S=SD.sites[key]; const G=new THREE.Group(); grp.a
   fan(qm.x,qm.y,cw,150,matRed,0.34,G).setHeading(S.core[0]+cw/2);
   edge(qm.x,qm.y,lo,Math.round(lo)+'°',14,'#f0a090',152,G); edge(qm.x,qm.y,hi,Math.round(hi)+'°',14,'#f0a090',152,G); edge(qm.x,qm.y,mid,'TABU · Seilbahn',20,'#f0a090',105,G);
   edge(qm.x,qm.y,lo+180,Math.round((lo+180)%360)+'°',14,'#f0a090',152,G); edge(qm.x,qm.y,hi+180,Math.round((hi+180)%360)+'°',14,'#f0a090',152,G); edge(qm.x,qm.y,mid+180,'180° gedreht',18,'#f0a090',105,G);
-  const midp={x:(qm.x+ym.x)/2,y:(qm.y+ym.y)/2}; const gg=Math.max(g1,g2);
-  const viewM={p:new THREE.Vector3(midp.x+2,gg+13,-(midp.y-31)),t:new THREE.Vector3(midp.x-7,gg+4.5,-(midp.y-1))};
-  const viewP={p:new THREE.Vector3(midp.x+12,gg+20,-(midp.y-30)),t:new THREE.Vector3(midp.x-1,gg+4,-(midp.y+1))};
+  const midp={x:(qm.x+ym.x+tm.x)/3,y:(qm.y+ym.y+tm.y)/3}; const gg=Math.max(g1,g2);  /* Mitte aller drei Masten */
+  const viewM={p:new THREE.Vector3(midp.x+8,gg+13,-(midp.y-31)),t:new THREE.Vector3(midp.x-1,gg+4.5,-(midp.y-1))};
+  const viewP={p:new THREE.Vector3(midp.x-2,gg+46,-(midp.y-66)),t:new THREE.Vector3(midp.x-7,gg+2,-midp.y)};  /* Hochformat: Masten rechts neben der Tafel */
   const st=D.station.center; const bs=Math.atan2(st[0]-qm.x,st[1]-qm.y), back=bs+Math.PI;
   const viewS={p:new THREE.Vector3(qm.x+48*Math.sin(back),g1+17,-(qm.y+48*Math.cos(back))),t:new THREE.Vector3(qm.x+40*Math.sin(bs),g1+5,-(qm.y+40*Math.cos(bs)))};
   return {S,G,QM:qm,YM:ym,gQ:g1,gY:g2,ant,cnt,viewM,viewP,viewS,seileHTML}; }

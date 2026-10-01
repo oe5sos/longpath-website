@@ -115,7 +115,7 @@ The [site plan as PDF, revision 5](/karten/stuhleck-lageplan-antennenanlage.pdf)
 ![Site plan of the Stuhleck summit from the laser scan: car park, summit cross and three masts to the west of it — mast 1 with the ring showing the lower Yagi's loss per degree and its three dashed rotator positions at 18°, 158° and 216°, mast 2 with the green wedge towards 302° and mast 3 with the blue one towards 24°; from the car at the western edge of the car park three dotted coax runs lead to the masts, labelled 40, 35 and 50 metres](../../../assets/karten/stuhleck-lageplan.png)
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=8" title="Stuhleck summit in 3D with three masts: two times two 12JXX2 on ground-mounted rotators and two 9-element Tonnas fixed on 24°, every guy with length and angle" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=9" title="Stuhleck summit in 3D with three masts: two times two 12JXX2 on ground-mounted rotators and two 9-element Tonnas fixed on 24°, every guy with length and angle" loading="lazy" allowfullscreen></iframe>
   <figcaption>Drag to turn, scroll to zoom. At left the length and angle of every guy, calculated on the laser-scan terrain, and the clearance check. <a href="/stuhleck-masten-3d.html">Open full screen</a></figcaption>
 </figure>
 

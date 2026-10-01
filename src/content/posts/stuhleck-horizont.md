@@ -115,7 +115,7 @@ Der [Lageplan als PDF, Stand 5](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 ![Lageplan des Stuhleck-Gipfels aus dem Laserscan: Parkplatz, Gipfelkreuz und drei Masten westlich davon — Mast 1 mit dem Ring, der je Grad den Verlust der unteren Yagi zeigt, und seinen drei gestrichelten Rotorstellungen bei 18°, 158° und 216°, Mast 2 mit dem grünen Keil nach 302° und Mast 3 mit dem blauen nach 24°; vom Auto am Westrand des Parkplatzes laufen drei gepunktete Koaxwege zu den Masten, beschriftet mit 40, 35 und 50 Metern](../../assets/karten/stuhleck-lageplan.png)
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=8" title="Stuhleck-Gipfel in 3D mit drei Masten: zweimal zwei 12JXX2 auf Rotor am Boden und zwei 9-Element-Tonnas fest auf 24°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=9" title="Stuhleck-Gipfel in 3D mit drei Masten: zweimal zwei 12JXX2 auf Rotor am Boden und zwei 9-Element-Tonnas fest auf 24°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Links die Länge und der Winkel jedes Seils, gerechnet auf dem Laserscan-Gelände, und die Prüfung der Abstände. <a href="/stuhleck-masten-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
