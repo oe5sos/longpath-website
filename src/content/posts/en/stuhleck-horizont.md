@@ -62,7 +62,7 @@ The laser scan decides where the masts stand. The summit is a flat dome; car par
 ## In three dimensions
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=19" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with two stacked 12JXX2 on rotator 1 and two more on rotator 2, the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-3d.html?v=20" title="Stuhleck summit in 3D: orthophoto on the laser-scan terrain with three masts — two stacks of two 12JXX2 on rotators and two 9-element Tonnas fixed at 24° — the car, the Steinbachalmbahn top station and the no-go sector towards the chairlift" loading="lazy" allowfullscreen></iframe>
   <figcaption>Drag to turn, scroll to zoom. Top left switches between site A (today), C (proposal) and the south meadow — masts, no-go sector and figures move along. The buttons set the fixed directions — DL stack 302° / 18° / 86°, rotator stack 18° / 158° / 216° —, the sliders any other; below, per stack, the stations, countries and cities in the main beam and a warning when a direction lies in the no-go sector. “Drehen” lets the view circle slowly, “Stopp” holds it; “Bergstation” swings to the chairlift. <a href="/stuhleck-3d.html">Open full screen</a></figcaption>
 </figure>
 
@@ -130,8 +130,9 @@ Masts 1 and 2 are 11.7 metres apart, mast 3 a good 21 metres from mast 1. No guy
 | | |
 |---|---|
 | Site | summit car park by the Alois-Günther-Haus, municipality of Spital am Semmering, JN77VN |
-| Mast 1 | 47.574278 N / 15.790072 E · 10 m · 2 × 12JXX2 stacked at 6.4 and 9.7 m, rotator · 18° / 158° / 216° (until 28 Sept: 2 × quad, 20° / 108° / 200°) |
-| Mast 2 | 47.574368 N / 15.789992 E · 7.5 m · 2 × 12JXX2 stacked at 4.0 and 7.5 m, rotator · 302° (rest) / 330° / 266° |
+| Mast 1 | 47.574278 N / 15.790072 E · 10 m · 2 × 12JXX2 stacked at 6.9 and 9.7 m, rotator · 18° / 158° / 216° (until 28 Sept: 2 × quad, 20° / 108° / 200°) |
+| Mast 2 | 47.574368 N / 15.789992 E · 7 m · 2 × 12JXX2 stacked at 3.9 and 6.7 m, rotator · 302° (rest) / 330° / 266° |
+| Mast 3 | about 21 m west of mast 1 · 7 m · 2 × 9-element Tonna stacked at 3.9 and 6.7 m, fixed at 24°, no rotator, guyed once |
 | Ground | 1,780 m (laser scan), summit cross 1,782 m, ridge of the hut 1,786.9 m |
 | Distances | hut 42 / 51 m · summit cross 12 / 19 m · Steinbachalmbahn top station 120 / 121 m · car 45 m |
 | Site B | 47.573805 N / 15.790728 E · meadow south of the hut, ground 1,778 m · hut 34 m · top station 153 m · summit cross 72 m |

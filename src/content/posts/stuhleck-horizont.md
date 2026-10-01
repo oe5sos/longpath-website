@@ -62,7 +62,7 @@ Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kupp
 ## In drei Dimensionen
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=19" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit zwei gestockten 12JXX2 auf Rotor 1 und zwei weiteren auf Rotor 2, dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-3d.html?v=20" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit drei Masten — zweimal zwei gestockte 12JXX2 auf Rotor und zwei 9-Element-Tonnas fest auf 24° — dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Oben links schaltest du zwischen den Standorten A (heute), C (Vorschlag) und der Südwiese um — Masten, Tabu-Sektor und Zahlen wandern mit. Die Knöpfe stellen die festen Richtungen — DL-Stack 302° / 18° / 86°, Rotor-Stack 18° / 158° / 216° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
@@ -130,8 +130,9 @@ Mast 1 und Mast 2 stehen 11,7 Meter auseinander, Mast 3 gut 21 Meter von Mast 1.
 | | |
 |---|---|
 | Standort | Gipfelparkplatz beim Alois-Günther-Haus, Gemeinde Spital am Semmering, JN77VN |
-| Mast 1 | 47,574278 N / 15,790072 O · 10 m · 2 × 12JXX2 gestockt auf 6,4 und 9,7 m, Rotor · 18° / 158° / 216° (bis 28. 09.: 2 × Vierfachquad, 20° / 108° / 200°) |
-| Mast 2 | 47,574368 N / 15,789992 O · 7,5 m · 2 × 12JXX2 gestockt auf 4,0 und 7,5 m, Rotor · 302° (Grundstellung) / 330° / 266° |
+| Mast 1 | 47,574278 N / 15,790072 O · 10 m · 2 × 12JXX2 gestockt auf 6,9 und 9,7 m, Rotor · 18° / 158° / 216° (bis 28. 09.: 2 × Vierfachquad, 20° / 108° / 200°) |
+| Mast 2 | 47,574368 N / 15,789992 O · 7 m · 2 × 12JXX2 gestockt auf 3,9 und 6,7 m, Rotor · 302° (Grundstellung) / 330° / 266° |
+| Mast 3 | rund 21 m westlich von Mast 1 · 7 m · 2 × 9-Element-Tonna gestockt auf 3,9 und 6,7 m, fest auf 24°, ohne Rotor, einmal abgespannt |
 | Boden | 1 780 m (Laserscan), Gipfelkreuz 1 782 m, First des Hauses 1 786,9 m |
 | Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 120 / 121 m · Auto 45 m |
 | Standort B | 47,573805 N / 15,790728 O · Wiese südlich des Hauses, Boden 1 778 m · Haus 34 m · Bergstation 153 m · Gipfelkreuz 72 m |

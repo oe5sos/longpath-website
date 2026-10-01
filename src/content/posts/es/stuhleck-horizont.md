@@ -62,7 +62,7 @@ El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; 
 ## En tres dimensiones
 
 <figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=19" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con dos 12JXX2 apiladas en el rotor 1 y otras dos en el rotor 2, el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-3d.html?v=20" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con tres mástiles — dos pares de 12JXX2 apiladas en rotor y dos Tonna de 9 elementos fijas a 24° — el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
   <figcaption>Arrastrar gira, la rueda acerca. Arriba a la izquierda se cambia entre el emplazamiento A (hoy), C (propuesta) y el prado sur — mástiles, sector prohibido y cifras se mueven con él. Los botones fijan las direcciones fijas — stack DL 302° / 18° / 86°, stack del rotor 18° / 158° / 216° —, los deslizadores cualquier otra; debajo, por stack, las estaciones, países y ciudades en el haz principal y un aviso si una dirección cae en el sector prohibido. «Drehen» hace girar la vista lentamente, «Stopp» la detiene; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
@@ -130,8 +130,9 @@ Los mástiles 1 y 2 están a 11,7 metros, el mástil 3 a unos 21 metros del más
 | | |
 |---|---|
 | Emplazamiento | aparcamiento de la cumbre junto al Alois-Günther-Haus, municipio de Spital am Semmering, JN77VN |
-| Mástil 1 | 47,574278 N / 15,790072 E · 10 m · 2 × 12JXX2 apiladas a 6,4 y 9,7 m, rotor · 18° / 158° / 216° (hasta el 28/09: 2 × cuadro, 20° / 108° / 200°) |
-| Mástil 2 | 47,574368 N / 15,789992 E · 7,5 m · 2 × 12JXX2 apiladas a 4,0 y 7,5 m, rotor · 302° (reposo) / 330° / 266° |
+| Mástil 1 | 47,574278 N / 15,790072 E · 10 m · 2 × 12JXX2 apiladas a 6,9 y 9,7 m, rotor · 18° / 158° / 216° (hasta el 28/09: 2 × cuadro, 20° / 108° / 200°) |
+| Mástil 2 | 47,574368 N / 15,789992 E · 7 m · 2 × 12JXX2 apiladas a 3,9 y 6,7 m, rotor · 302° (reposo) / 330° / 266° |
+| Mástil 3 | unos 21 m al oeste del mástil 1 · 7 m · 2 × Tonna de 9 elementos apiladas a 3,9 y 6,7 m, fijas a 24°, sin rotor, un solo nivel de vientos |
 | Suelo | 1780 m (escaneo láser), cruz de la cumbre 1782 m, cumbrera del refugio 1786,9 m |
 | Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 120 / 121 m · coche 45 m |
 | Emplazamiento B | 47,573805 N / 15,790728 E · prado al sur del refugio, suelo 1778 m · refugio 34 m · estación superior 153 m · cruz 72 m |
