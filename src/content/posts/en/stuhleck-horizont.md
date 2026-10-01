@@ -115,7 +115,7 @@ The [site plan as PDF, revision 4](/karten/stuhleck-lageplan-antennenanlage.pdf)
 ## Masts and guying
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=6" title="Stuhleck summit in 3D with three masts: two times two 12JXX2 on ground-mounted rotators and two 9-element Tonnas fixed on 24°, every guy with length and angle" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=7" title="Stuhleck summit in 3D with three masts: two times two 12JXX2 on ground-mounted rotators and two 9-element Tonnas fixed on 24°, every guy with length and angle" loading="lazy" allowfullscreen></iframe>
   <figcaption>Drag to turn, scroll to zoom. At left the length and angle of every guy, calculated on the laser-scan terrain, and the clearance check. <a href="/stuhleck-masten-3d.html">Open full screen</a></figcaption>
 </figure>
 
@@ -123,7 +123,7 @@ The installation stands on three masts. **Mast 1** and **mast 2** each carry two
 
 **Mast 3** carries two 9-element Tonnas fixed on **24°** — Wrocław, Brno, Ostrava, Kraków, Vienna, the largest block after Germany. It is seven metres high as well, without a rotator, the Tonnas at 3.9 and 6.7 metres, some 21 metres west of mast 1; the guys at 3.5 and 6.3 metres pass beside the boom, 48 metres of rope. It is fed through a switch at the rotator stack's amplifier: rotator full, Tonna full, or both split. While stations are calling, the rotator runs at full power; over the whole contest the Tonna adds hardly any points, and split permanently it would cost a fifth. In quiet hours, at night or on Sunday morning, you switch to "both" and call in three directions at once: Germany, north-east and the rotator somewhere else, with on average some forty percent more stations in reach.
 
-Masts 1 and 2 are 11.7 metres apart, mast 3 a good 21 metres from mast 1. No guy comes closer than 0.4 metres to a Yagi in any position of either rotator, and the guys of the masts stay more than six metres apart. The guys are plastic rope so they do not disturb the pattern.
+Masts 1 and 2 are 11.7 metres apart, mast 3 a good 21 metres from mast 1. No guy comes closer than 0.4 metres to a Yagi in any position of either rotator, and the guys of the masts stay more than six metres apart. The guys are plastic rope so they do not disturb the pattern. The car with the amplifiers stands at the west edge of the car park; along the ground, up the mast and with loop and reserve that is 40 metres of coax from mast 1, 35 from mast 2 and 50 from mast 3, with Ecoflex 15 so 1.0 to 1.5 dB.
 
 ## The data
 

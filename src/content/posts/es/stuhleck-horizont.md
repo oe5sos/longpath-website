@@ -115,7 +115,7 @@ El [plano de situación en PDF, revisión 4](/karten/stuhleck-lageplan-antennena
 ## Mástiles y vientos
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=6" title="Cumbre del Stuhleck en 3D con tres mástiles: dos veces dos 12JXX2 con rotor en el suelo y dos Tonna de 9 elementos fijas en 24°, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=7" title="Cumbre del Stuhleck en 3D con tres mástiles: dos veces dos 12JXX2 con rotor en el suelo y dos Tonna de 9 elementos fijas en 24°, cada viento con longitud y ángulo" loading="lazy" allowfullscreen></iframe>
   <figcaption>Arrastrar gira, la rueda acerca. A la izquierda la longitud y el ángulo de cada viento, calculados sobre el terreno del escaneo láser, y la comprobación de distancias. <a href="/stuhleck-masten-3d.html">Abrir a pantalla completa</a></figcaption>
 </figure>
 
@@ -123,7 +123,7 @@ La instalación está en tres mástiles. El **mástil 1** y el **mástil 2** lle
 
 El **mástil 3** lleva dos Tonna de 9 elementos fijas en **24°** — Breslavia, Brno, Ostrava, Cracovia, Viena, el bloque más grande después de Alemania. También tiene siete metros, sin rotor, las Tonna a 3,9 y 6,7 metros, a unos 21 metros al oeste del mástil 1; los vientos a 3,5 y 6,3 metros pasan junto al boom, 48 metros de cuerda. Se alimenta mediante un conmutador en el amplificador del stack del rotor: rotor a plena potencia, Tonna a plena potencia o las dos repartidas. Mientras llaman estaciones, el rotor va a plena potencia; en todo el concurso la Tonna apenas añade puntos, y repartida de forma fija costaría una quinta parte. En las horas tranquilas, de noche o el domingo por la mañana, se pasa a «las dos» y se llama en tres direcciones a la vez: Alemania, el noreste y el rotor en otra parte, con de media un cuarenta por ciento más de estaciones al alcance.
 
-Los mástiles 1 y 2 están a 11,7 metros, el mástil 3 a unos 21 metros del mástil 1. Ningún viento se acerca a menos de 0,4 metros de una Yagi en ninguna posición de los dos rotores, y los vientos de los mástiles quedan a más de seis metros entre sí. Los vientos son de cuerda sintética para no perturbar el diagrama.
+Los mástiles 1 y 2 están a 11,7 metros, el mástil 3 a unos 21 metros del mástil 1. Ningún viento se acerca a menos de 0,4 metros de una Yagi en ninguna posición de los dos rotores, y los vientos de los mástiles quedan a más de seis metros entre sí. Los vientos son de cuerda sintética para no perturbar el diagrama. El coche con los amplificadores está en el borde oeste del aparcamiento; por el suelo, subiendo el mástil y con bucle y reserva son 40 metros de coaxial desde el mástil 1, 35 desde el mástil 2 y 50 desde el mástil 3, con Ecoflex 15 entre 1,0 y 1,5 dB.
 
 ## Los datos
 

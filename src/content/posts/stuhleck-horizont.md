@@ -115,7 +115,7 @@ Der [Lageplan als PDF, Stand 4](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 ## Masten und Abspannung
 
 <figure class="szene">
-  <iframe src="/stuhleck-masten-3d.html?v=6" title="Stuhleck-Gipfel in 3D mit drei Masten: zweimal zwei 12JXX2 auf Rotor am Boden und zwei 9-Element-Tonnas fest auf 24°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
+  <iframe src="/stuhleck-masten-3d.html?v=7" title="Stuhleck-Gipfel in 3D mit drei Masten: zweimal zwei 12JXX2 auf Rotor am Boden und zwei 9-Element-Tonnas fest auf 24°, alle Abspannseile mit Länge und Winkel" loading="lazy" allowfullscreen></iframe>
   <figcaption>Ziehen dreht, das Rad zoomt. Links die Länge und der Winkel jedes Seils, gerechnet auf dem Laserscan-Gelände, und die Prüfung der Abstände. <a href="/stuhleck-masten-3d.html">Im Vollbild öffnen</a></figcaption>
 </figure>
 
@@ -123,7 +123,7 @@ Die Anlage steht auf drei Masten. **Mast 1** und **Mast 2** tragen je zwei 12JXX
 
 **Mast 3** trägt zwei 9-Element-Tonnas fest auf **24°** — Breslau, Brünn, Ostrava, Kraków, Wien, nach Deutschland der größte Block. Er ist ebenfalls sieben Meter hoch, ohne Rotor, die Tonnas auf 3,9 und 6,7 Metern, und steht rund 21 Meter westlich von Mast 1; die Seile auf 3,5 und 6,3 Metern laufen seitlich am Boom vorbei, 48 Meter Seil. Gespeist wird er über einen Umschalter an der Endstufe des Rotor-Stacks: Rotor voll, Tonna voll oder beide geteilt. Solange Stationen rufen, läuft der Rotor mit voller Leistung; über den ganzen Contest bringt die Tonna kaum Punkte, fest geteilt würde sie ein Fünftel kosten. In ruhigen Phasen, nachts oder am Sonntagvormittag, schaltet man auf „beide“ und ruft in drei Richtungen zugleich: Deutschland, Nordost und den Rotor irgendwo sonst, im Mittel mit rund vierzig Prozent mehr Stationen in Reichweite.
 
-Mast 1 und Mast 2 stehen 11,7 Meter auseinander, Mast 3 gut 21 Meter von Mast 1. Kein Seil kommt einer Yagi näher als 0,4 Meter, in jeder Stellung der beiden Rotoren, und die Seile der Masten bleiben mehr als sechs Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören.
+Mast 1 und Mast 2 stehen 11,7 Meter auseinander, Mast 3 gut 21 Meter von Mast 1. Kein Seil kommt einer Yagi näher als 0,4 Meter, in jeder Stellung der beiden Rotoren, und die Seile der Masten bleiben mehr als sechs Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören. Das Auto mit den Endstufen steht am Westrand des Parkplatzes; dorthin sind es am Boden entlang, den Mast hinauf und mit Schleife und Reserve 40 Meter Koax von Mast 1, 35 von Mast 2 und 50 von Mast 3, mit Ecoflex 15 also 1,0 bis 1,5 dB.
 
 ## Die Daten
 
