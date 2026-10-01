@@ -17,7 +17,7 @@ for (let k = 1; k <= n; k++) {
 }
 ---
 <svg class:list={["hl", klass]} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  {linien.map((l) => <path d={l.d} fill="none" stroke="var(--measured)" stroke-opacity={l.o} stroke-width={l.w} vector-effect="non-scaling-stroke" />)}
+  {linien.map((l) => <path d={l.d} pathLength="1" fill="none" stroke="var(--measured)" stroke-opacity={l.o} stroke-width={l.w} vector-effect="non-scaling-stroke" />)}
   <circle cx={cx * W} cy={cy * H} r="4" fill="var(--measured-hi)" />
 </svg>
 <style>.hl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }</style>

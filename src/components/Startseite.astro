@@ -1,0 +1,228 @@
+---
+/**
+ * Die Startseite — "Band und Register" (Entwurf 3, gewählt 2026-10-01).
+ *
+ * Oben über die ganze Breite das laufende Band mit dem Schriftzug: die
+ * App ist die Hauptsache. Unten ein Register mit drei Spalten — Trainer,
+ * Contest, Blog —, der Blog ohne Foto, dafür mit den neuesten Beiträgen.
+ *
+ * Bewegung: Beim Laden zieht das Band von links auf, der Ring im O
+ * zeichnet sich, die Messingnaht wächst aus der Mitte, das Register
+ * steigt Spalte für Spalte auf, und die Beitragszeilen ziehen ihre
+ * Linien. Danach bleibt es lebendig, aber ruhig: das Band atmet, ein
+ * Abstimmzeiger wandert von Träger zu Träger, die Linien hinter den
+ * Spalten treiben langsam. prefers-reduced-motion schaltet alles ab.
+ */
+import Base from "../layouts/Base.astro";
+import Wordmark from "./Wordmark.astro";
+import Spektrum from "./Spektrum.astro";
+import LangSwitch from "./LangSwitch.astro";
+import Hoehenlinien from "./Hoehenlinien.astro";
+import { alleBeitraege, blossId } from "../lib/sota";
+import { useTranslations } from "../i18n/utils";
+import { DEFAULT_LOCALE, LOCALE_TAG, type Locale } from "../i18n/ui";
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const vor = lang === DEFAULT_LOCALE ? "" : `/${lang}`;
+const neu = (await alleBeitraege(lang)).slice(0, 4);
+const zuletzt = { de: "zuletzt", en: "latest", es: "lo último" }[lang];
+---
+
+<Base titel={t.home.titel} beschreibung={t.home.beschreibung} raum="app" nackt>
+  <div class="seite" id="seite">
+    <section class="band">
+      <div class="band__spektrum"><Spektrum art="band" grundlinie={0.66} /></div>
+      <div class="zeiger" id="zeiger" data-komma={lang === "en" ? "." : ","} aria-hidden="true"><span class="zeiger__f num">144,300</span></div>
+      <header class="kopf">
+        <span class="caps">OE5SOS · Martin Fischer</span>
+        <span class="kopf__r">
+          <span class="caps num">{t.home.cornerTop2}</span>
+          <LangSwitch lang={lang} />
+        </span>
+      </header>
+      <a class="held" href={`${vor}/longpath/`}>
+        <p class="caps auf" style="--i:0">{t.home.appKicker}</p>
+        <div class="wm-gross auf" style="--i:1"><Wordmark /></div>
+        <p class="lede auf" style="--i:2">{t.home.appLede}</p>
+        <span class="go auf" style="--i:3">{t.home.appGo} <span aria-hidden="true">→</span></span>
+      </a>
+    </section>
+
+    <div class="naht" aria-hidden="true"></div>
+
+    <section class="register">
+      <a class="spalte" href="/trainer/" style="--i:0">
+        <div class="spalte__grund"><Spektrum art="kurve" grundlinie={0.34} staerke={0.45} /></div>
+        <span class="num nr">02</span>
+        <p class="caps">{t.home.trainerKicker}</p>
+        <h2>Trainer</h2>
+        <p class="lede">{t.home.trainerLede}</p>
+        <span class="go">{t.home.trainerGo} <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="spalte" href="/contest/" style="--i:1">
+        <div class="spalte__grund"><Spektrum art="rauschen" grundlinie={0.3} staerke={0.5} /></div>
+        <span class="num nr">03</span>
+        <p class="caps">{t.home.contestKicker}</p>
+        <h2>Contest</h2>
+        <p class="lede">{t.home.contestLede}</p>
+        <span class="go">{t.home.contestGo} <span aria-hidden="true">→</span></span>
+      </a>
+      <div class="spalte spalte--blog" style="--i:2">
+        <div class="spalte__grund hl-treibt"><Hoehenlinien cx={0.84} cy={0.22} n={15} /></div>
+        <span class="num nr">04</span>
+        <p class="caps">{t.home.blogKicker}</p>
+        <h2><a href={`${vor}/blog/`}>Blog</a></h2>
+        <p class="lede">{t.home.blogLede}</p>
+        <ol class="liste">
+          {neu.map((b, k) => (
+            <li style={`--k:${k}`}>
+              <a href={`${vor}/blog/${blossId(b)}/`}>
+                <span class="num">{b.data.datum.toLocaleDateString(LOCALE_TAG[lang], { day: "2-digit", month: "2-digit" })}</span>
+                <span class="titel">{b.data.titel}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <a class="go" href={`${vor}/blog/`}>{t.home.blogGo} <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .seite { min-height: 100svh; display: grid; grid-template-rows: minmax(52svh, 1.45fr) auto minmax(0, 1fr); background: var(--bg); }
+
+  /* ── Band ─────────────────────────────────────────── */
+  .band { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+  .band__spektrum { position: absolute; inset: 0; animation: aufziehen 1.8s cubic-bezier(.22,.7,.3,1) both; }
+  .band::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(8,8,10,.55), rgba(8,8,10,.1) 38%, rgba(8,8,10,.25) 62%, rgba(8,8,10,.9));
+  }
+  .kopf { position: relative; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.4rem var(--pad); }
+  .kopf__r { display: flex; gap: .9rem; align-items: center; }
+  .held { position: relative; z-index: 3; align-self: flex-start; padding: 0 var(--pad) clamp(2rem, 5vh, 3rem); display: flex; flex-direction: column; gap: .5rem; text-decoration: none; }
+  .wm-gross { font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em; font-size: clamp(3rem, 9vw, 7.5rem); line-height: .95; color: var(--t1); }
+  .lede { color: var(--t3); margin: 0; font-size: .95rem; max-width: 46ch; }
+  .held:hover .go { gap: .9rem; color: var(--t1); border-color: var(--border-2); }
+
+  /* Der Ring im O zeichnet sich, dann der lange Weg, dann der kurze. */
+  .wm-gross :global(.wm__ring) { stroke-dasharray: 132; stroke-dashoffset: 132; animation: ziehen 1.4s .5s cubic-bezier(.6,.1,.3,1) forwards; }
+  .wm-gross :global(.wm__long) { stroke-dasharray: 80; stroke-dashoffset: 80; animation: ziehen 1.1s 1.3s cubic-bezier(.6,.1,.3,1) forwards; }
+  .wm-gross :global(.wm__short) { opacity: 0; animation: einblenden .8s 2.1s ease forwards; }
+
+  /* Abstimmzeiger: wandert von Träger zu Träger (Lage per Skript). */
+  .zeiger {
+    position: absolute; z-index: 2; top: 18%; bottom: 30%; left: 30%; width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(216,165,95,.75) 30%, rgba(216,165,95,.75) 80%, transparent);
+    box-shadow: 0 0 12px 1px rgba(216,165,95,.25);
+    transition: left 1.6s cubic-bezier(.65,0,.35,1);
+    opacity: 0; animation: einblenden 1s 2.2s ease forwards;
+  }
+  .zeiger__f { position: absolute; top: 22%; left: .55rem; font: 11px var(--ff-mono); letter-spacing: .06em; color: var(--measured-hi); white-space: nowrap; }
+
+  /* ── Naht ─────────────────────────────────────────── */
+  .naht {
+    height: 1px; transform-origin: 50% 50%; transform: scaleX(0);
+    background: linear-gradient(to right, transparent, var(--measured) 50%, transparent);
+    box-shadow: 0 0 14px 1px rgba(194,146,79,.25);
+    animation: wachsen 1.3s .9s cubic-bezier(.22,.7,.3,1) forwards;
+  }
+
+  /* ── Register ─────────────────────────────────────── */
+  .register { display: grid; grid-template-columns: 1fr 1fr 1.4fr; }
+  .spalte {
+    position: relative; overflow: hidden; isolation: isolate;
+    padding: 2rem var(--pad) 2.2rem; display: flex; flex-direction: column; gap: .4rem;
+    text-decoration: none; border-right: 1px solid var(--border-fine); background: var(--panel);
+    opacity: 0; transform: translateY(18px);
+    animation: steigen .9s calc(1.2s + var(--i) * .15s) cubic-bezier(.22,.7,.3,1) forwards;
+    transition: background .4s ease;
+  }
+  .spalte--blog { background: var(--panel-2); border-right: 0; }
+  .spalte__grund { position: absolute; inset: 0; z-index: -1; opacity: .55; transition: opacity .5s ease; }
+  .spalte__grund::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,12,14,.15), rgba(12,12,14,.92) 55%); }
+  .spalte:hover { background: var(--panel-2); }
+  .spalte:hover .spalte__grund { opacity: 1; }
+  .spalte:hover .go, .spalte--blog > .go:hover { gap: .9rem; color: var(--t1); border-color: var(--border-2); }
+  .nr { font: 12px var(--ff-mono); color: var(--measured); }
+  h2 { font-family: var(--ff-cond); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--t1); font-size: 1.9rem; margin: .1rem 0 .2rem; }
+  h2 a { color: inherit; text-decoration: none; }
+  .spalte .go { margin-top: auto; align-self: flex-start; }
+  .spalte--blog .lede { margin-bottom: .5rem; }
+
+  /* Höhenlinien zeichnen sich und treiben dann langsam. */
+  .hl-treibt :global(path) { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ziehen 2.6s calc(1.6s) ease-out forwards; }
+  .hl-treibt :global(svg) { animation: treiben 38s 4s ease-in-out infinite alternate; }
+
+  .liste { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; }
+  .liste li { position: relative; opacity: 0; animation: einblenden .6s calc(1.9s + var(--k) * .12s) ease forwards; }
+  /* Die Linie über jeder Zeile zieht sich von links. */
+  .liste li::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--border);
+    transform-origin: left; transform: scaleX(0);
+    animation: wachsen .8s calc(1.9s + var(--k) * .12s) cubic-bezier(.22,.7,.3,1) forwards;
+  }
+  .liste a {
+    display: grid; grid-template-columns: 3.4rem 1fr; gap: .6rem; padding: .55rem 0;
+    color: var(--t2); text-decoration: none; font-size: .92rem; line-height: 1.3;
+    transition: color .2s ease, padding-left .3s ease;
+  }
+  .liste a::after {
+    content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%;
+    background: var(--measured); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.22,.7,.3,1);
+  }
+  .liste a:hover { color: var(--t1); padding-left: .35rem; }
+  .liste a:hover::after { transform: scaleX(1); }
+  .liste .num { font-family: var(--ff-mono); font-size: .75rem; color: var(--measured); padding-top: .15rem; }
+
+  /* Der Schriftblock oben steigt Zeile für Zeile auf. */
+  .auf { opacity: 0; transform: translateY(14px); animation: steigen .9s calc(.25s + var(--i) * .12s) cubic-bezier(.22,.7,.3,1) forwards; }
+
+  @keyframes aufziehen { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes ziehen { to { stroke-dashoffset: 0; } }
+  @keyframes einblenden { to { opacity: 1; } }
+  @keyframes wachsen { to { transform: scaleX(1); } }
+  @keyframes steigen { to { opacity: 1; transform: none; } }
+  @keyframes treiben { from { transform: translate(0, 0) scale(1); } to { transform: translate(-4%, 3%) scale(1.06); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .band__spektrum, .auf, .spalte, .liste li, .liste li::before, .naht, .zeiger,
+    .wm-gross :global(.wm__ring), .wm-gross :global(.wm__long), .wm-gross :global(.wm__short),
+    .hl-treibt :global(path), .hl-treibt :global(svg) {
+      animation: none !important; opacity: 1 !important; transform: none !important;
+      stroke-dashoffset: 0 !important; clip-path: none !important;
+    }
+    .zeiger { transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    .seite { grid-template-rows: auto auto auto; }
+    .band { min-height: 64svh; }
+    .register { grid-template-columns: 1fr; }
+    .spalte { border-right: 0; border-bottom: 1px solid var(--border-fine); min-height: 30svh; }
+    .zeiger__f { display: none; }
+    .kopf__r > .caps { display: none; }
+  }
+</style>
+
+<script>
+  /* Der Abstimmzeiger springt nicht, er fährt — von Träger zu Träger
+     des Bandes (dieselben Lagen wie in Spektrum.astro). Die Anzeige
+     ist die Frequenz an dieser Stelle, 144,000–144,500 über die Breite. */
+  const zeiger = document.getElementById("zeiger");
+  const anzeige = zeiger?.querySelector<HTMLElement>(".zeiger__f");
+  const ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (zeiger && anzeige) {
+    const traeger = [0.3, 0.46, 0.61, 0.79, 0.17];
+    let k = 0;
+    const setze = (x: number) => {
+      zeiger.style.left = `${x * 100}%`;
+      anzeige.textContent = (144 + x * 0.5).toFixed(3).replace(".", zeiger.dataset.komma ?? ",");
+    };
+    setze(traeger[0]);
+    if (!ruhig) setInterval(() => { k = (k + 1) % traeger.length; setze(traeger[k]); }, 4200);
+  }
+</script>
