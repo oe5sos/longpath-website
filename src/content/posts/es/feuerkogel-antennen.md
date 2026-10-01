@@ -29,7 +29,7 @@ Un breve recordatorio: **el horizonte está libre de 294° por el norte hasta 83
 
 En el Stuhleck el cálculo dio dos apilamientos: las Yagis hacia Alemania y las quads en el rotor para los dos grandes bloques del este y del sur. En el Feuerkogel no hay sur. Todo lo libre está entre el noroeste y el este, en medio círculo. Para eso no hace falta un apilamiento ancho de quads (69°, 14,5 dBi); el apilamiento estrecho de Yagis (34°, 17,8 dBi), con sus tres decibelios más, es mejor. Por eso aquí van **dos veces dos 12JXX2**:
 
-| Instalación | 500 W cada una | conmutado, 1 kW |
+| Instalación | repartida | conmutada |
 |---|---|---|
 | 2 × 12JXX2 fija a 328° + apilamiento de quads en el rotor | 743 estaciones, Alemania 578 | 1087, Alemania 841 |
 | **2 × 12JXX2 fija a 328° + 2 × 12JXX2 en el rotor** | **895, Alemania 710** | **1183, Alemania 1035** |
@@ -42,7 +42,7 @@ El **apilamiento fijo apunta a 328°**, el centro de gravedad de las estaciones 
 - **304°** para Fráncfort y Colonia,
 - **46°** para Breslavia, Ostrava y Cracovia.
 
-Quien conmuta siempre un kilovatio al apilamiento que toca llega a 1183 estaciones. Quien transmite por las dos a la vez con un divisor fijo tiene 500 vatios en cada una y llega a 895. Es la misma regla que en el Stuhleck: transmitir por una antena, escuchar por todas.
+Quien conmuta siempre al apilamiento que toca llega a 1183 estaciones. Quien transmite por las dos a la vez con un divisor fijo tiene la mitad de la potencia en cada una y llega a 895. Es la misma regla que en el Stuhleck: transmitir por una antena, escuchar por todas.
 
 ## Dónde hay sitio junto a la casa
 
@@ -83,12 +83,12 @@ La ortofoto de basemap.at está sobre el terreno del láser. La posada, la Chris
 | Suelo | hueco al este de la casa 1592 m, cumbrera de la posada 1602,9 m (láser) |
 | Horizonte | libre 294°–83°, diente del Traunstein 52,7°–54,2° hasta +0,27°, cerrado 106°–293° |
 | Estaciones ≤ 700 km | 1388 libres de 2260 · Alemania (DARC) 1107 de 1319 · Σ 627 000 km |
-| Instalación | conmutado 1 kW: 1183 estaciones, 717 hasta 500 km, Alemania 1035 · 500 W cada una: 895, Alemania 710 |
-| Frente a quads | fija a 328° + apilamiento de quads en el rotor: 1087 / Alemania 841 (1 kW) · 743 / 578 (500 W) |
+| Instalación | conmutada: 1183 estaciones, 717 hasta 500 km, Alemania 1035 · repartida: 895, Alemania 710 |
+| Frente a quads | fija a 328° + apilamiento de quads en el rotor: 1087 / Alemania 841 (conmutada) · 743 / 578 (repartida) |
 
 ## Feuerkogel y Stuhleck
 
-![Hoja comparativa «Dos sitios, dos direcciones»: para el Feuerkogelhaus y el Stuhleck una barra cada uno con las estaciones visibles por país — Feuerkogel 1388 con una gran parte alemana, polaca y checa, Stuhleck 1741 con Italia, Croacia y Eslovenia además —, al lado Alemania libre, las cifras de la instalación prevista con un kilovatio y con 500 vatios cada una, y la suma de kilómetros](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
+![Hoja comparativa «Dos sitios, dos direcciones»: para el Feuerkogelhaus y el Stuhleck una barra cada uno con las estaciones visibles por país — Feuerkogel 1388 con una gran parte alemana, polaca y checa, Stuhleck 1741 con Italia, Croacia y Eslovenia además —, al lado Alemania libre, las cifras de la instalación prevista, conmutada y repartida, y la suma de kilómetros](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
 
 Los dos sitios están ya calculados del todo, cada uno con su propia instalación y la misma regla.
 
@@ -97,14 +97,14 @@ Los dos sitios están ya calculados del todo, cada uno con su propia instalació
 | Estaciones libres ≤ 700 km | 1388 | **1741** |
 | Países | 10 | **18** |
 | Alemania libre (DARC) | **1107 de 1319** | 606 de 943 |
-| Instalación, conmutado 1 kW | 1183 | **1308** |
+| Instalación, conmutada | 1183 | **1308** |
 | de ellas hasta 500 km | 717 | **869** |
 | de ellas Alemania (DARC) | **1035** | 551 |
-| Instalación, 500 W cada una | 895 | **948** |
+| Instalación, repartida | 895 | **948** |
 | de ellas Alemania (DARC) | **710** | 316 |
 | Σ kilómetros libres | 627 000 | **754 000** |
 
-El Stuhleck tiene más estaciones y más países, y a corta distancia es claramente mejor: Italia, Croacia, Eslovenia, Hungría y Serbia no existen desde el Feuerkogel. El Feuerkogel tiene Alemania. Con la instalación prevista llega a casi el doble de estaciones alemanas que el Stuhleck, porque allí el Rax, la Schneealpe y el Hochschwab se interponen ante el norte de Alemania. Las dos instalaciones son dos veces dos 12JXX2; con 500 vatios en cada apilamiento el Stuhleck va ligeramente delante, 948 frente a 895.
+El Stuhleck tiene más estaciones y más países, y a corta distancia es claramente mejor: Italia, Croacia, Eslovenia, Hungría y Serbia no existen desde el Feuerkogel. El Feuerkogel tiene Alemania. Con la instalación prevista llega a casi el doble de estaciones alemanas que el Stuhleck, porque allí el Rax, la Schneealpe y el Hochschwab se interponen ante el norte de Alemania. Las dos instalaciones son dos veces dos 12JXX2; repartida entre los dos apilamientos, el Stuhleck va ligeramente delante, 948 frente a 895.
 
 La elección depende, pues, de lo que se quiera reunir en el concurso. Quien quiera estaciones alemanas, que es donde está la mayoría, va al Feuerkogel. Quien quiera países y kilómetros en el sur y el este, va al Stuhleck.
 
@@ -114,10 +114,10 @@ Al final, en un concurso cuentan los kilómetros. Así que una vez más los dos 
 
 | Puntos (km) | Feuerkogel | Stuhleck con prohibición | Stuhleck sin prohibición |
 |---|---|---|---|
-| 500 W por stack, rotor en 3 posiciones | **327 000** (845 estaciones) | 298 000 (869) | 322 000 (890) |
-| 500 W por stack, rotor libre | 415 000 (1051) | 437 000 (1222) | **506 000** (1357) |
-| 1000 W por stack, rotor en 3 posiciones | **543 000** (1240) | 463 000 (1182) | 497 000 (1181) |
-| 1000 W por stack, rotor libre | 622 000 (1375) | 681 000 (1624) | **753 000** (1738) |
+| media potencia por stack, rotor en 3 posiciones | **327 000** (845 estaciones) | 298 000 (869) | 322 000 (890) |
+| media potencia por stack, rotor libre | 415 000 (1051) | 437 000 (1222) | **506 000** (1357) |
+| plena potencia por stack, rotor en 3 posiciones | **543 000** (1240) | 463 000 (1182) | 497 000 (1181) |
+| plena potencia por stack, rotor libre | 622 000 (1375) | 681 000 (1624) | **753 000** (1738) |
 
 El Feuerkogel solo gana mientras el rotor se quede en pocas posiciones; entonces Alemania lo lleva todo. Cuando se gira, el Stuhleck va delante, entre un 5 y un 10 por ciento con el sector prohibido y algo más de un 20 por ciento sin él, y la diferencia crece con la potencia, porque desde el Stuhleck se ven libres muchas más estaciones. Además está el montaje: una loma abierta con el coche al lado, frente a mástiles apretados junto a la casa entre el camino, la rampa y el precipicio. Y el Plöckenstein, donde opera OE5BGN, está a 107 kilómetros del Feuerkogel justo en la dirección de Praga y Berlín, y a 195 kilómetros del Stuhleck detrás del Rax. La elección es el Stuhleck.
 

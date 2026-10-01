@@ -50,7 +50,7 @@ Better still is the **summit meadow north of the transmitter** (ground 1,284 m):
 
 ![Two bar charts: clear stations per ten degrees for the car park and for the summit meadow, split by country; at the car park the sector 0° to 40° is missing, on the meadow it is full](../../../assets/karten/gaisberg-richtungen.png)
 
-For the planned setup — one Yagi stack and one quad stack, each on three rotor positions, 500 watts each — that means, at the car park: **827 reachable stations, 506 of them in Germany**, with the Yagi stack on 312°, 342° and 60° and the quad stack on 88°, 282° and 284°. Counting only the German stations and only the two quads, 300° and 340° together bring 852 of 1,327 — from the summit meadow the same directions would give 1,319.
+For the planned setup — one Yagi stack and one quad stack, each on three rotor positions, power split — that means, at the car park: **827 reachable stations, 506 of them in Germany**, with the Yagi stack on 312°, 342° and 60° and the quad stack on 88°, 282° and 284°. Counting only the German stations and only the two quads, 300° and 340° together bring 852 of 1,327 — from the summit meadow the same directions would give 1,319.
 
 ## Out to 700 kilometres
 
@@ -99,7 +99,7 @@ Both maps as PDF: [zoom 180 km](/karten/gaisberg-horizont-zoom-180km.pdf) and [o
 
 The Gaisberg is not an empty mountain. A transmitter park has stood on the summit for decades, and you do not simply drive into the middle of it with a contest station:
 
-- The **2 m repeater OE2XZR on 145.6875 MHz** stands 139 metres from the car park — and at 297°, right in the direction you want to beam towards Germany. Plus the **APRS digipeater on 144.800 MHz**. Both are in the very band you intend to work with a kilowatt for two days. It cuts both ways: what an amplifier 139 metres away puts into a repeater input makes that repeater useless for the duration of the contest.
+- The **2 m repeater OE2XZR on 145.6875 MHz** stands 139 metres from the car park — and at 297°, right in the direction you want to beam towards Germany. Plus the **APRS digipeater on 144.800 MHz**. Both are in the very band you intend to work with high power for two days. It cuts both ways: what an amplifier 139 metres away puts into a repeater input makes that repeater useless for the duration of the contest.
 - Two hundred and ten metres further stands the **ORF transmitter**: four FM programmes at 100 kW each plus DAB+. A receiver meant to listen on 145 MHz sits there in a field against which any preselection is a compromise.
 - The place is also **taken**: the IARU logs of 2024 and 2025 show **OE2M** with JN67NT and 1,270 metres — the Salzburg radio club operates from there. Two stations on 145 MHz on the same plateau are not a good idea.
 - And the summit meadow, which would be the best one on paper, is a **paraglider launch site**.
@@ -108,7 +108,7 @@ That is the real answer to the question “Gaisberg?”: not the geography, but 
 
 ## Five sites side by side
 
-Because the question keeps coming up, here are the five calculated sites with **the same setup** that is planned for the Stuhleck: a stack of two 12-element Yagis (17.8 dBi, 34° beamwidth) and a stack of two quad arrays (14.5 dBi, 69°), each on three rotor positions, and 1,000 watts on both at once — that is **500 watts per stack**. Reachable here does not only mean “horizon clear”, but also: enough gain for the distance — 6 dBi out to 300 kilometres, then 3 dB per further hundred, referred to one kilowatt. The SRTM horizon and the contest logs are the same for all five. The bracket at the Stuhleck shows what is left once the **no-go sector towards the cable car** is respected (237°–248° and the same turned by 180°, each with half the antenna's beamwidth as a safety margin). Near field and station size are left out — the figures compare with each other, but not with those in the [Stuhleck article](/en/blog/stuhleck-horizont/), which calculates more finely.
+Because the question keeps coming up, here are the five calculated sites with **the same setup** that is planned for the Stuhleck: a stack of two 12-element Yagis (17.8 dBi, 34° beamwidth) and a stack of two quad arrays (14.5 dBi, 69°), each on three rotor positions, and the power on both at once — that is **half per stack**. Reachable here does not only mean “horizon clear”, but also: enough gain for the distance — 6 dBi out to 300 kilometres, then 3 dB per further hundred, referred to full power on one antenna. The SRTM horizon and the contest logs are the same for all five. The bracket at the Stuhleck shows what is left once the **no-go sector towards the cable car** is respected (237°–248° and the same turned by 180°, each with half the antenna's beamwidth as a safety margin). Near field and station size are left out — the figures compare with each other, but not with those in the [Stuhleck article](/en/blog/stuhleck-horizont/), which calculates more finely.
 
 ![Comparison of five sites with the same setup: horizontal bars of reachable stations by country for Stuhleck 1,068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1,015 and Traisner Hütte 1,015, next to each a sector rose with the clear directions and the home position of the Yagi stack; at the Stuhleck a red line with the figures under the no-go sector](../../../assets/karten/standorte-vergleich.png)
 
@@ -120,9 +120,9 @@ Because the question keeps coming up, here are the five calculated sites with **
 | **Feuerkogelhaus** · 1,591 m | 945 | 407 | 772 | 346° · 308° · 40° | 8° · 70° · 88° | cable car, inn |
 | **Gaisberg, car park** · 1,272 m | 827 | **506** | 652 | 312° · 342° · 60° | 88° · 282° · 284° | drive to the top |
 
-Five sites, five characters — and the power shifts the picture once more. Five hundred watts per stack is three decibels less than a kilowatt on one antenna; the long contacts drop out first, the close range stays.
+Five sites, five characters — and the power shifts the picture once more. Half power per stack is three decibels less than all of it on one antenna; the long contacts drop out first, the close range stays.
 
-The **Stuhleck** reaches the most overall and in the close range as well: 946 stations inside 500 kilometres. It sits in the densest corner of Europe, with Hungary, Croatia, Slovenia, Slovakia and Czechia within reach. The no-go sector towards the cable car costs little — 1,032 instead of 1,068, so 36 contacts — because it points south-west, where the Alps stand anyway; with the permitted positions (Yagi 306°/34°/218°, quad 106°/156°/354°) four more German stations are left than without it. Towards Germany, though, there are only 141: from there it is 400 to 700 kilometres to the German contest sites, and 500 watts on one stack rarely covers that.
+The **Stuhleck** reaches the most overall and in the close range as well: 946 stations inside 500 kilometres. It sits in the densest corner of Europe, with Hungary, Croatia, Slovenia, Slovakia and Czechia within reach. The no-go sector towards the cable car costs little — 1,032 instead of 1,068, so 36 contacts — because it points south-west, where the Alps stand anyway; with the permitted positions (Yagi 306°/34°/218°, quad 106°/156°/354°) four more German stations are left than without it. Towards Germany, though, there are only 141: from there it is 400 to 700 kilometres to the German contest sites, and half power on one stack rarely covers that.
 
 The **Gaisberg** is its exact opposite: the weakest overall, but **the strongest towards Germany** with 506 stations — its clear western sector is precisely the one that counts there, with Munich 145 kilometres away instead of 500.
 

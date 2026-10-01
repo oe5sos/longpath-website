@@ -29,7 +29,7 @@ Kurz zur Erinnerung: **Frei ist der Horizont von 294° über Nord bis 83°**, 0,
 
 Am Stuhleck hat die Rechnung zwei Stacks ergeben: die Yagis nach Deutschland, die Quads auf dem Rotor für die beiden großen Blöcke im Osten und im Süden. Am Feuerkogel gibt es keinen Süden. Alles, was frei ist, liegt zwischen Nordwest und Ost, in einem halben Kreis. Einen breiten Quad-Stack (69°, 14,5 dBi) braucht es dafür nicht, der schmale Yagi-Stack (34°, 17,8 dBi) mit seinen drei Dezibel mehr ist besser. Darum stehen hier **zweimal zwei 12JXX2**:
 
-| Anlage | je 500 W | umgeschaltet, 1 kW |
+| Anlage | geteilt | umgeschaltet |
 |---|---|---|
 | 2 × 12JXX2 fest 328° + Quad-Stack auf dem Rotor | 743 Stationen, Deutschland 578 | 1 087, Deutschland 841 |
 | **2 × 12JXX2 fest 328° + 2 × 12JXX2 auf dem Rotor** | **895, Deutschland 710** | **1 183, Deutschland 1 035** |
@@ -42,7 +42,7 @@ Der **feste Stack zeigt auf 328°**, den Schwerpunkt der deutschen Stationen: N�
 - **304°** für Frankfurt und Köln,
 - **46°** für Breslau, Ostrava und Kraków.
 
-Wer mit einem Kilowatt immer auf den Stack schaltet, der gerade dran ist, erreicht 1 183 Stationen. Wer mit festem Teiler auf beiden zugleich sendet, hat je 500 Watt und kommt auf 895. Das ist dieselbe Regel wie am Stuhleck: senden auf eine Antenne, hören auf allen.
+Wer immer auf den Stack schaltet, der gerade dran ist, erreicht 1 183 Stationen. Wer mit festem Teiler auf beiden zugleich sendet, hat je die halbe Leistung und kommt auf 895. Das ist dieselbe Regel wie am Stuhleck: senden auf eine Antenne, hören auf allen.
 
 ## Wo am Haus Platz ist
 
@@ -83,12 +83,12 @@ Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände. Gasthaus, Christo
 | Boden | Spalt östlich vom Haus 1 592 m, First des Gasthauses 1 602,9 m (Laserscan) |
 | Horizont | frei 294°–83°, Traunstein-Zahn 52,7°–54,2° bis +0,27°, zu 106°–293° |
 | Stationen ≤ 700 km | 1 388 frei von 2 260 · Deutschland (DARC) 1 107 von 1 319 · Σ 627 000 km |
-| Anlage | umgeschaltet 1 kW: 1 183 Stationen, 717 bis 500 km, Deutschland 1 035 · je 500 W: 895, Deutschland 710 |
-| Gegen Quad-Stack | fest 328° + Quad-Stack auf dem Rotor: 1 087 / Deutschland 841 (1 kW) · 743 / 578 (500 W) |
+| Anlage | umgeschaltet: 1 183 Stationen, 717 bis 500 km, Deutschland 1 035 · geteilt: 895, Deutschland 710 |
+| Gegen Quad-Stack | fest 328° + Quad-Stack auf dem Rotor: 1 087 / Deutschland 841 (umgeschaltet) · 743 / 578 (geteilt) |
 
 ## Feuerkogel und Stuhleck
 
-![Vergleichsblatt „Zwei Standorte, zwei Richtungen“: für Feuerkogelhaus und Stuhleck je ein Balken der frei sichtbaren Stationen nach Land — Feuerkogel 1 388 mit großem deutschem, polnischem und tschechischem Anteil, Stuhleck 1 741 mit Italien, Kroatien und Slowenien dazu —, daneben Deutschland frei, die Zahlen der geplanten Anlage mit einem Kilowatt und mit je 500 Watt und die Summe der Kilometer](../../assets/karten/feuerkogel-stuhleck-vergleich.png)
+![Vergleichsblatt „Zwei Standorte, zwei Richtungen“: für Feuerkogelhaus und Stuhleck je ein Balken der frei sichtbaren Stationen nach Land — Feuerkogel 1 388 mit großem deutschem, polnischem und tschechischem Anteil, Stuhleck 1 741 mit Italien, Kroatien und Slowenien dazu —, daneben Deutschland frei, die Zahlen der geplanten Anlage, umgeschaltet und geteilt, und die Summe der Kilometer](../../assets/karten/feuerkogel-stuhleck-vergleich.png)
 
 Beide Standorte sind jetzt fertig gerechnet, jeweils mit ihrer eigenen Anlage und derselben Regel.
 
@@ -97,14 +97,14 @@ Beide Standorte sind jetzt fertig gerechnet, jeweils mit ihrer eigenen Anlage un
 | Stationen frei ≤ 700 km | 1 388 | **1 741** |
 | Länder | 10 | **18** |
 | Deutschland frei (DARC) | **1 107 von 1 319** | 606 von 943 |
-| Anlage, umgeschaltet 1 kW | 1 183 | **1 308** |
+| Anlage, umgeschaltet | 1 183 | **1 308** |
 | davon bis 500 km | 717 | **869** |
 | davon Deutschland (DARC) | **1 035** | 551 |
-| Anlage, je 500 W | 895 | **948** |
+| Anlage, geteilt | 895 | **948** |
 | davon Deutschland (DARC) | **710** | 316 |
 | Σ Kilometer frei | 627 000 | **754 000** |
 
-Das Stuhleck hat mehr Stationen und mehr Länder, und im Nahbereich ist es klar besser: Italien, Kroatien, Slowenien, Ungarn und Serbien gibt es am Feuerkogel nicht. Der Feuerkogel hat Deutschland. Mit der geplanten Anlage erreicht er fast doppelt so viele deutsche Stationen wie das Stuhleck, weil dort die Rax, die Schneealpe und der Hochschwab vor dem deutschen Norden stehen. Beide Anlagen sind zweimal zwei 12JXX2; mit je 500 Watt auf beiden Stacks liegt das Stuhleck knapp vorn, 948 gegen 895.
+Das Stuhleck hat mehr Stationen und mehr Länder, und im Nahbereich ist es klar besser: Italien, Kroatien, Slowenien, Ungarn und Serbien gibt es am Feuerkogel nicht. Der Feuerkogel hat Deutschland. Mit der geplanten Anlage erreicht er fast doppelt so viele deutsche Stationen wie das Stuhleck, weil dort die Rax, die Schneealpe und der Hochschwab vor dem deutschen Norden stehen. Beide Anlagen sind zweimal zwei 12JXX2; geteilt auf beide Stacks liegt das Stuhleck knapp vorn, 948 gegen 895.
 
 Die Wahl hängt also davon ab, was man im Contest sammeln will. Wer deutsche Stationen will, und dort sind die meisten, fährt auf den Feuerkogel. Wer Länder und Kilometer im Süden und Osten will, fährt aufs Stuhleck.
 
@@ -114,10 +114,10 @@ Am Ende zählen im Contest Kilometer. Darum noch einmal beide Standorte mit ders
 
 | Punkte (km) | Feuerkogel | Stuhleck mit Tabu | Stuhleck ohne Tabu |
 |---|---|---|---|
-| 500 W je Stack, Rotor auf 3 Stellungen | **327 000** (845 Stationen) | 298 000 (869) | 322 000 (890) |
-| 500 W je Stack, Rotor dreht frei | 415 000 (1 051) | 437 000 (1 222) | **506 000** (1 357) |
-| 1000 W je Stack, Rotor auf 3 Stellungen | **543 000** (1 240) | 463 000 (1 182) | 497 000 (1 181) |
-| 1000 W je Stack, Rotor dreht frei | 622 000 (1 375) | 681 000 (1 624) | **753 000** (1 738) |
+| halbe Leistung je Stack, Rotor auf 3 Stellungen | **327 000** (845 Stationen) | 298 000 (869) | 322 000 (890) |
+| halbe Leistung je Stack, Rotor dreht frei | 415 000 (1 051) | 437 000 (1 222) | **506 000** (1 357) |
+| volle Leistung je Stack, Rotor auf 3 Stellungen | **543 000** (1 240) | 463 000 (1 182) | 497 000 (1 181) |
+| volle Leistung je Stack, Rotor dreht frei | 622 000 (1 375) | 681 000 (1 624) | **753 000** (1 738) |
 
 Der Feuerkogel gewinnt nur, solange der Rotor auf wenigen Stellungen bleibt; dann trägt Deutschland alles. Wird gedreht, liegt das Stuhleck vorn, mit Tabu um 5 bis 10 Prozent, ohne Tabu um gut 20 Prozent, und der Abstand wächst mit der Leistung, weil am Stuhleck viel mehr Stationen frei zu sehen sind. Dazu kommt der Aufbau: freie Kuppe, Auto daneben, gegen Masten eng am Haus zwischen Weg, Rampe und Abbruch. Und der Plöckenstein, wo OE5BGN funkt, liegt vom Feuerkogel 107 Kilometer genau in der Richtung Prag–Berlin, vom Stuhleck 195 Kilometer hinter der Rax. Die Wahl fällt aufs Stuhleck.
 

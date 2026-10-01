@@ -29,7 +29,7 @@ A short reminder: **the horizon is clear from 294° through north to 83°**, 0.5
 
 On the Stuhleck the calculation gave two stacks: the Yagis towards Germany, the quads on the rotator for the two big blocks in the east and the south. On the Feuerkogel there is no south. Everything that is clear lies between north-west and east, in half a circle. A wide quad stack (69°, 14.5 dBi) is not needed for that; the narrow Yagi stack (34°, 17.8 dBi) with its three extra decibels is better. That is why there are **two times two 12JXX2** here:
 
-| Installation | 500 W each | switched, 1 kW |
+| Installation | split | switched |
 |---|---|---|
 | 2 × 12JXX2 fixed 328° + quad stack on the rotator | 743 stations, Germany 578 | 1,087, Germany 841 |
 | **2 × 12JXX2 fixed 328° + 2 × 12JXX2 on the rotator** | **895, Germany 710** | **1,183, Germany 1,035** |
@@ -42,7 +42,7 @@ The **fixed stack points to 328°**, the centre of gravity of the German station
 - **304°** for Frankfurt and Cologne,
 - **46°** for Wrocław, Ostrava and Kraków.
 
-Whoever always switches one kilowatt to the stack whose turn it is reaches 1,183 stations. Whoever transmits on both at once through a fixed splitter has 500 watts each and gets 895. It is the same rule as on the Stuhleck: transmit on one antenna, listen on all.
+Whoever always switches to the stack whose turn it is reaches 1,183 stations. Whoever transmits on both at once through a fixed splitter has half the power each and gets 895. It is the same rule as on the Stuhleck: transmit on one antenna, listen on all.
 
 ## Where there is room at the house
 
@@ -83,12 +83,12 @@ The basemap.at orthophoto lies on the laser-scan terrain. The inn, the Christoph
 | Ground | gap east of the house 1,592 m, ridge of the inn 1,602.9 m (laser scan) |
 | Horizon | clear 294°–83°, Traunstein tooth 52.7°–54.2° up to +0.27°, closed 106°–293° |
 | Stations ≤ 700 km | 1,388 clear of 2,260 · Germany (DARC) 1,107 of 1,319 · Σ 627,000 km |
-| Installation | switched 1 kW: 1,183 stations, 717 within 500 km, Germany 1,035 · 500 W each: 895, Germany 710 |
-| Against a quad stack | fixed 328° + quad stack on the rotator: 1,087 / Germany 841 (1 kW) · 743 / 578 (500 W) |
+| Installation | switched: 1,183 stations, 717 within 500 km, Germany 1,035 · split: 895, Germany 710 |
+| Against a quad stack | fixed 328° + quad stack on the rotator: 1,087 / Germany 841 (switched) · 743 / 578 (split) |
 
 ## Feuerkogel and Stuhleck
 
-![Comparison sheet "Two sites, two directions": for the Feuerkogelhaus and the Stuhleck one bar each of the clearly visible stations by country — Feuerkogel 1,388 with a large German, Polish and Czech share, Stuhleck 1,741 with Italy, Croatia and Slovenia on top —, next to it Germany clear, the figures of the planned installation with one kilowatt and with 500 watts each, and the sum of kilometres](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
+![Comparison sheet "Two sites, two directions": for the Feuerkogelhaus and the Stuhleck one bar each of the clearly visible stations by country — Feuerkogel 1,388 with a large German, Polish and Czech share, Stuhleck 1,741 with Italy, Croatia and Slovenia on top —, next to it Germany clear, the figures of the planned installation, switched and split, and the sum of kilometres](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
 
 Both sites are now fully calculated, each with its own installation and the same rule.
 
@@ -97,14 +97,14 @@ Both sites are now fully calculated, each with its own installation and the same
 | Stations clear ≤ 700 km | 1,388 | **1,741** |
 | Countries | 10 | **18** |
 | Germany clear (DARC) | **1,107 of 1,319** | 606 of 943 |
-| Installation, switched 1 kW | 1,183 | **1,308** |
+| Installation, switched | 1,183 | **1,308** |
 | of which within 500 km | 717 | **869** |
 | of which Germany (DARC) | **1,035** | 551 |
-| Installation, 500 W each | 895 | **948** |
+| Installation, split | 895 | **948** |
 | of which Germany (DARC) | **710** | 316 |
 | Σ kilometres clear | 627,000 | **754,000** |
 
-The Stuhleck has more stations and more countries, and at close range it is clearly better: Italy, Croatia, Slovenia, Hungary and Serbia do not exist from the Feuerkogel. The Feuerkogel has Germany. With the planned installation it reaches almost twice as many German stations as the Stuhleck, because there the Rax, the Schneealpe and the Hochschwab stand in front of the German north. Both installations are two times two 12JXX2; with 500 watts on each stack the Stuhleck is narrowly ahead, 948 against 895.
+The Stuhleck has more stations and more countries, and at close range it is clearly better: Italy, Croatia, Slovenia, Hungary and Serbia do not exist from the Feuerkogel. The Feuerkogel has Germany. With the planned installation it reaches almost twice as many German stations as the Stuhleck, because there the Rax, the Schneealpe and the Hochschwab stand in front of the German north. Both installations are two times two 12JXX2; split between both stacks the Stuhleck is narrowly ahead, 948 against 895.
 
 So the choice depends on what you want to collect in the contest. Whoever wants German stations, and that is where most of them are, goes to the Feuerkogel. Whoever wants countries and kilometres in the south and east goes to the Stuhleck.
 
@@ -114,10 +114,10 @@ In the end a contest counts kilometres. So once more both sites with the same in
 
 | Points (km) | Feuerkogel | Stuhleck with no-go | Stuhleck without no-go |
 |---|---|---|---|
-| 500 W per stack, rotator on 3 positions | **327,000** (845 stations) | 298,000 (869) | 322,000 (890) |
-| 500 W per stack, rotator turned freely | 415,000 (1,051) | 437,000 (1,222) | **506,000** (1,357) |
-| 1000 W per stack, rotator on 3 positions | **543,000** (1,240) | 463,000 (1,182) | 497,000 (1,181) |
-| 1000 W per stack, rotator turned freely | 622,000 (1,375) | 681,000 (1,624) | **753,000** (1,738) |
+| half power per stack, rotator on 3 positions | **327,000** (845 stations) | 298,000 (869) | 322,000 (890) |
+| half power per stack, rotator turned freely | 415,000 (1,051) | 437,000 (1,222) | **506,000** (1,357) |
+| full power per stack, rotator on 3 positions | **543,000** (1,240) | 463,000 (1,182) | 497,000 (1,181) |
+| full power per stack, rotator turned freely | 622,000 (1,375) | 681,000 (1,624) | **753,000** (1,738) |
 
 The Feuerkogel wins only as long as the rotator stays on a few positions; then Germany carries everything. Once it turns, the Stuhleck is ahead, by 5 to 10 percent with the no-go sector and by a good 20 percent without, and the gap grows with power because far more stations are clear from the Stuhleck. Then there is the setup: an open dome with the car beside it, against masts squeezed next to the house between the path, the ramp and the drop. And the Plöckenstein, where OE5BGN operates, lies 107 kilometres from the Feuerkogel exactly in the direction of Prague and Berlin, and 195 kilometres from the Stuhleck behind the Rax. The choice is the Stuhleck.
 

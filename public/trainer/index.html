@@ -28,7 +28,7 @@
 [data-theme="light"] body{background:var(--bg0);color:var(--txt)}
 [data-theme="light"] #login-screen{background:rgba(235,240,250,.97)}
 [data-theme="light"] .login-box{background:#ffffff;border-color:rgba(47,92,134,.3)}
-[data-theme="light"] .login-input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.15);color:var(--txt)}
+[data-theme="light"] .login-input{background:rgba(0,0,0,.04)!important;border-color:rgba(0,0,0,.15)!important;color:var(--txt)!important;box-shadow:inset 0 1px 3px rgba(0,0,0,.06)!important}
 [data-theme="light"] .login-input:focus{border-color:rgba(47,92,134,.55)}
 [data-theme="light"] .hdr{background:rgba(245,247,251,.97);border-bottom-color:rgba(0,0,0,.1)}
 [data-theme="light"] .htitle{color:rgba(17,17,19,.5)}
@@ -43,8 +43,7 @@
 [data-theme="light"] .psec{border-bottom-color:rgba(0,0,0,.06)}
 [data-theme="light"] .plbl{color:var(--txt3)}
 [data-theme="light"] .plbl::after{background:rgba(0,0,0,.08)}
-[data-theme="light"] .vfo-wrap{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1)}
-[data-theme="light"] .vfo-freq{color:var(--txt)}
+[data-theme="light"] .vfo-wrap{border-color:rgba(0,0,0,.15)}
 [data-theme="light"] .btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:var(--txt2)}
 [data-theme="light"] .btn:hover{background:rgba(0,0,0,.08);border-color:rgba(0,0,0,.2);color:var(--txt)}
 [data-theme="light"] .btn.on{background:rgba(47,92,134,.1);border-color:rgba(47,92,134,.4);color:var(--txt)}
@@ -232,10 +231,10 @@ body{font-family:var(--fui);background:var(--bg0);color:var(--txt);display:flex;
 
 
 /* ─ VFO ─ */
-.vfo-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;text-align:center}
-.vfo-freq{font-family:var(--fmono);font-size:22px;font-weight:300;color:var(--txt);letter-spacing:1px;font-variant-numeric:tabular-nums}
-.vfo-freq-acc{color:var(--txt);font-weight:500}
-.vfo-mode{font-size:9px;color:var(--txt3);letter-spacing:.5px;margin-top:3px}
+.vfo-wrap{background:#000;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;text-align:center;box-shadow:inset 0 2px 8px #000,inset 0 1px 0 rgba(255,255,255,.04)}
+.vfo-freq{font-family:var(--fmono);font-size:22px;font-weight:300;color:var(--acc4);letter-spacing:1px;font-variant-numeric:tabular-nums}
+.vfo-freq-acc{color:var(--acc4);font-weight:500}
+.vfo-mode{font-size:9px;color:rgba(255,255,255,.38);letter-spacing:.5px;margin-top:3px}
 
 /* ─ Buttons / Controls ─ */
 .btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--txt2);padding:6px 10px;font-size:9px;font-family:var(--fui);font-weight:500;letter-spacing:.3px;cursor:pointer;transition:all .15s;width:100%;text-align:left;border-radius:8px}
@@ -465,14 +464,14 @@ input[type=range]{flex:1;height:3px;background:rgba(255,255,255,.1);border-radiu
 /* Score panel */
 .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
 .sc-card{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:6px 8px;text-align:center}
-.sc-val{font-family:var(--fui);font-size:16px;font-weight:600;color:var(--txt);line-height:1}
+.sc-val{font-family:var(--fmono);font-size:16px;font-weight:500;color:var(--txt);line-height:1;font-variant-numeric:tabular-nums}
 .sc-lbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:1px;margin-top:2px;text-transform:uppercase}
 .big-score{background:linear-gradient(135deg,var(--bg0),rgba(255,255,255,.03));border:1px solid var(--acc);border-radius:6px;padding:9px;text-align:center}
-.big-score-val{font-family:var(--fui);font-size:22px;font-weight:800;color:var(--txt);text-shadow:var(--glow);letter-spacing:2px}
+.big-score-val{font-family:var(--fmono);font-size:24px;font-weight:500;color:var(--txt);text-shadow:var(--glow);letter-spacing:1px;font-variant-numeric:tabular-nums}
 .big-score-lbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:2px;margin-top:2px}
 .rg-wrap{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;height:34px;overflow:hidden}
 .proj-box{background:rgba(194,146,79,.04);border:1px solid rgba(194,146,79,.18);border-radius:6px;padding:6px;text-align:center;margin-bottom:4px}
-.proj-val{font-family:var(--fui);font-size:13px;color:var(--acc4)}
+.proj-val{font-family:var(--fmono);font-size:13px;color:var(--acc4);font-variant-numeric:tabular-nums}
 .proj-lbl{font-family:var(--fui);font-size:9px;color:var(--txt3);letter-spacing:1px;margin-top:1px}
 .log-scroll{max-height:130px;overflow-y:auto}
 .log-scroll::-webkit-scrollbar{width:2px}.log-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
@@ -711,9 +710,29 @@ body.layout-c .big-score{
 }
 body.layout-c .sc-card{background:var(--lc-bg3);border-color:var(--lc-border)}
 
-/* ── C: VFO compact ── */
-body.layout-c .vfo-wrap{background:var(--lc-bg3);border-color:var(--lc-border)}
+/* ── C: VFO compact — Glas bleibt schwarz in jedem Theme, siehe Regel-3-Anpassung */
 body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
+
+/* ── C: Light-theme overrides — die --lc-* Variablen sind fest dunkel
+   und die dunkler-spezifischen body.layout-c Regeln stechen die
+   allgemeinen [data-theme="light"]-Regeln (Element+Klasse schlaegt
+   Attribut+Klasse), darum bleiben VFO-Box, Difficulty-Kacheln,
+   Session-Time, Log und Rate-Graph sonst schwarz. ── */
+[data-theme="light"] body.layout-c{
+  --lc-bg0:#eef2f8;--lc-bg1:#ffffff;--lc-bg2:#f5f7fb;--lc-bg3:#e6ecf4;
+  --lc-border:rgba(0,0,0,.1);--lc-border2:rgba(0,0,0,.16);
+  --lc-muted:rgba(0,0,0,.18);--lc-dim:rgba(0,0,0,.04);
+}
+[data-theme="light"] body.layout-c .lc-tab{color:rgba(17,17,19,.4)}
+[data-theme="light"] body.layout-c .lc-tab:hover{color:rgba(17,17,19,.7)}
+[data-theme="light"] body.layout-c .lc-tab-call{color:rgba(17,17,19,.4)}
+[data-theme="light"] body.layout-c .plbl{color:rgba(17,17,19,.35)}
+[data-theme="light"] body.layout-c .aa-btn{color:rgba(17,17,19,.45)}
+[data-theme="light"] body.layout-c .rl.sys{color:rgba(17,17,19,.35)}
+[data-theme="light"] .lc-dotbar-label{color:rgba(17,17,19,.35)}
+[data-theme="light"] .lc-dot{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.15)}
+[data-theme="light"] .lc-dotbar-info{color:rgba(17,17,19,.45)}
+[data-theme="light"] .lc-dotbar-stat{color:rgba(17,17,19,.4)}
 
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -724,7 +743,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
    Regel 3 — jedes Panel traegt denselben Kopf: 3 px Akzentbalken
    links, Titel versal mit weiter Laufweite. Im Programm ist das
    das Erkennungszeichen; hier fehlte es. */
-.ovt, .zmap-title, .hdr {
+.ovt, .zmap-title, .hdr, .plbl {
   position: relative;
   padding-left: 12px !important;
   font-family: var(--fui);
@@ -734,11 +753,11 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
   text-transform: uppercase;
   color: var(--txt2);
 }
-.ovt::before, .zmap-title::before, .hdr::before {
+.ovt::before, .zmap-title::before, .hdr::before, .plbl::before {
   content: ""; position: absolute; left: 0; top: 50%;
   transform: translateY(-50%);
   width: 3px; height: 1.15em;
-  background: linear-gradient(to bottom, #a86b6d, #8a6a30);
+  background: linear-gradient(to bottom, #a87a3c, #8a6a30);
   border-radius: 1px;
 }
 /* Versalzeilen: 9 px, Laufweite .18em, Skalengrau — Regel 1 */
@@ -756,6 +775,74 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
 </style><style>/* Fensterknopf-Attrappen oben links: sie bedeuten nichts und
    tun nichts, also tragen sie keine Farbe. */
 .tb-dot{background:var(--dimb)!important}</style><style>
+/* ── Voice Lab: ElevenLabs-Status/Modell/Akzent-Zuweisung im
+   Hausstil statt nativer Browser-<select> ─────────────────── */
+.el-status{background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}
+.el-status-l{display:flex;align-items:center;gap:9px}
+.el-status-dot{width:7px;height:7px;border-radius:50%;background:var(--txt3);flex-shrink:0}
+.el-status-dot.on{background:#5ba876}
+.el-status-t{font-family:var(--fui);font-size:11px;letter-spacing:.03em;color:var(--txt)}
+.el-status-s{font-size:9px;color:var(--txt3);margin-top:1px;font-family:var(--fui)}
+.el-pill{font-family:var(--fui);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc4);
+  border:1px solid rgba(194,146,79,.35);background:rgba(194,146,79,.08);border-radius:20px;padding:2px 8px}
+.el-credits{font-family:var(--fmono);font-size:13px;color:var(--txt);font-variant-numeric:tabular-nums}
+.el-credits-l{font-size:8px;color:var(--txt3);letter-spacing:.08em;text-transform:uppercase;margin-top:1px;text-align:right}
+
+.el-models{display:flex;gap:6px;margin-top:10px}
+.el-model{flex:1;padding:7px 8px;border:1px solid rgba(255,255,255,.08);border-radius:8px;cursor:pointer;background:rgba(255,255,255,.02)}
+.el-model:hover{border-color:rgba(255,255,255,.16)}
+.el-model.on{border-color:var(--acc);background:rgba(74,123,168,.08)}
+.el-model-n{font-family:var(--fui);font-size:10px;letter-spacing:.02em;color:var(--txt2)}
+.el-model.on .el-model-n{color:var(--txt)}
+.el-model-d{font-size:8px;color:var(--txt3);margin-top:2px}
+
+.el-picker{position:relative;flex:1}
+.el-pbtn{width:100%;display:flex;align-items:center;gap:8px;padding:5px 8px;border:1px solid rgba(255,255,255,.08);
+  border-radius:6px;background:transparent;cursor:pointer;text-align:left;font-family:var(--fhud)}
+.el-pbtn:hover{border-color:rgba(255,255,255,.16)}
+.el-avatar{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--fui);font-size:8px;font-weight:600;flex-shrink:0;color:var(--bg1)}
+.el-vname{font-size:10px;color:var(--txt);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.el-vcat{font-family:var(--fui);font-size:7px;letter-spacing:.06em;text-transform:uppercase;color:var(--txt3);flex-shrink:0}
+.el-chev{color:var(--txt3);font-size:8px;transition:transform .12s;flex-shrink:0}
+.el-pbtn[aria-expanded="true"] .el-chev{transform:rotate(180deg)}
+.el-menu{position:absolute;top:calc(100% + 3px);left:0;right:0;background:var(--bg1);border:1px solid rgba(255,255,255,.16);
+  border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:20;padding:4px;display:none;max-height:180px;overflow-y:auto}
+.el-menu.open{display:block}
+.el-opt{display:flex;align-items:center;gap:8px;padding:6px 7px;border-radius:5px;cursor:pointer}
+.el-opt:hover,.el-opt:focus{background:rgba(255,255,255,.06);outline:none}
+[data-theme="light"] .el-status{border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .el-model{border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.02)}
+[data-theme="light"] .el-model:hover{border-color:rgba(0,0,0,.18)}
+[data-theme="light"] .el-pbtn{border-color:rgba(0,0,0,.1)}
+[data-theme="light"] .el-pbtn:hover{border-color:rgba(0,0,0,.18)}
+[data-theme="light"] .el-menu{border-color:rgba(0,0,0,.16)}
+[data-theme="light"] .el-opt:hover,[data-theme="light"] .el-opt:focus{background:rgba(0,0,0,.05)}
+
+/* ── Generic Hausstil-Select: ersetzt die letzten nativen <select>
+   (Contest, Test-Satz) durch dieselbe Picker-Optik wie Voice Lab ── */
+.hs-select{position:relative}
+.hs-select-native{position:absolute;left:-9999px;opacity:0}
+.hs-sel-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--txt);
+  padding:6px 10px;font-size:11px;font-family:var(--fui);font-weight:400;border-radius:8px;cursor:pointer;text-align:left}
+.hs-sel-btn:hover{border-color:rgba(255,255,255,.18)}
+.hs-sel-btn[aria-expanded="true"]{border-color:var(--acc)}
+.hs-sel-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hs-chev{color:var(--txt3);font-size:9px;flex-shrink:0;transition:transform .12s}
+.hs-sel-btn[aria-expanded="true"] .hs-chev{transform:rotate(180deg)}
+.hs-sel-menu{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--bg1);border:1px solid rgba(255,255,255,.16);
+  border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:30;padding:4px;display:none;max-height:240px;overflow-y:auto}
+.hs-sel-menu.open{display:block}
+.hs-sel-opt{padding:6px 9px;border-radius:6px;cursor:pointer;font-size:11px;font-family:var(--fui);color:var(--txt2)}
+.hs-sel-opt:hover,.hs-sel-opt:focus{background:rgba(255,255,255,.06);color:var(--txt);outline:none}
+.hs-sel-opt.on{color:var(--acc);background:rgba(74,123,168,.08)}
+[data-theme="light"] .hs-sel-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:var(--txt2)}
+[data-theme="light"] .hs-sel-btn:hover{border-color:rgba(0,0,0,.2);color:var(--txt)}
+[data-theme="light"] .hs-sel-menu{border-color:rgba(0,0,0,.16)}
+[data-theme="light"] .hs-sel-opt:hover,[data-theme="light"] .hs-sel-opt:focus{background:rgba(0,0,0,.05)}
+</style><style>
 /* ── Startfenster, nach HAUSSTIL.md ────────────────────────── */
 #login-screen{background:rgba(8,8,10,.88);backdrop-filter:blur(6px)}
 .login-box{
@@ -1384,6 +1471,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <div class="lb-tab" id="ant-time" onclick="anTab('time')">⏱ Training</div>
       <div class="lb-tab" id="ant-errors" onclick="anTab('errors')"><svg class="ic"><use href="#ic-warn"/></svg> Errors</div>
       <div class="lb-tab" id="ant-elo" onclick="anTab('elo')"><svg class="ic"><use href="#ic-target"/></svg> Elo</div>
+      <div class="lb-tab" id="ant-contest" onclick="anTab('contest')"><svg class="ic"><use href="#ic-trophy"/></svg> Contest</div>
     </div>
     <div id="an-body" style="min-height:340px"></div>
     <div style="display:flex;gap:6px;margin-top:12px">
@@ -1426,15 +1514,23 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
           <button onclick="elConnect()" style="padding:6px 14px;font-size:9px;font-weight:700;border:1px solid rgba(160,127,168,.5);color:var(--txt2);background:rgba(160,127,168,.08);border-radius:8px;cursor:pointer;font-family:var(--fui);white-space:nowrap">VERBINDEN</button>
           <button onclick="elDisconnect()" style="padding:6px 10px;font-size:9px;border:1px solid rgba(194,90,92,.3);color:var(--red);background:transparent;border-radius:8px;cursor:pointer;font-family:var(--fui)" title="Trennen & API-Key löschen">✕</button>
         </div>
-        <div id="el-status" style="font-size:9px;color:var(--txt3);font-family:var(--fmono);min-height:14px">Nicht verbunden</div>
+        <div id="el-status-wrap">
+          <div id="el-status" style="font-size:9px;color:var(--txt3);font-family:var(--fmono);min-height:14px">Nicht verbunden</div>
+        </div>
         <!-- Model selector -->
-        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
-          <span style="font-size:9px;color:var(--txt3);font-family:var(--fui);letter-spacing:1px;flex-shrink:0">MODELL</span>
-          <select id="el-model" onchange="elSetModel(this.value)" style="font-size:9px;flex:1;padding:4px 8px">
-            <option value="eleven_flash_v2_5">Flash v2.5 — schnellste Latenz</option>
-            <option value="eleven_turbo_v2_5" selected>Turbo v2.5 — Qualität &amp; Speed ✓ (empfohlen)</option>
-            <option value="eleven_multilingual_v2">Multilingual v2 — maximale Qualität</option>
-          </select>
+        <div class="el-models" id="el-models">
+          <div class="el-model" data-m="eleven_flash_v2_5" onclick="elPickModel(this)">
+            <div class="el-model-n">Flash v2.5</div>
+            <div class="el-model-d">schnellste Latenz</div>
+          </div>
+          <div class="el-model on" data-m="eleven_turbo_v2_5" onclick="elPickModel(this)">
+            <div class="el-model-n">Turbo v2.5</div>
+            <div class="el-model-d">empfohlen</div>
+          </div>
+          <div class="el-model" data-m="eleven_multilingual_v2" onclick="elPickModel(this)">
+            <div class="el-model-n">Multilingual v2</div>
+            <div class="el-model-d">max. Qualität</div>
+          </div>
         </div>
       </div>
 
@@ -3352,13 +3448,55 @@ function elLoad(){
     // Restore key input if overlay already rendered
     const ki = document.getElementById('el-key-input');
     if(ki && elCfg.key) ki.value = elCfg.key;
-    const ms = document.getElementById('el-model');
-    if(ms) ms.value = elCfg.model;
+    elHighlightModel(elCfg.model);
     if(elCfg.enabled){
-      const st = document.getElementById('el-status');
-      if(st) st.textContent = '✓ Verbunden (gecachte Stimmen: '+elVoices.length+')';
+      elRenderStatus('connected', {voiceCount: elVoices.length});
     }
   }catch(e){}
+}
+
+// ── Status card + model tiles (Hausstil, replaces plain text / native <select>) ──
+function elHighlightModel(model){
+  document.querySelectorAll('.el-model').forEach(function(el){
+    el.classList.toggle('on', el.dataset.m === model);
+  });
+}
+function elPickModel(el){
+  elHighlightModel(el.dataset.m);
+  elSetModel(el.dataset.m);
+}
+function elRenderStatus(state, data){
+  const el = document.getElementById('el-status');
+  if(!el) return;
+  data = data || {};
+  if(state === 'idle'){
+    el.innerHTML = '<span style="font-family:var(--fmono);color:var(--txt3);font-size:9px">Nicht verbunden</span>';
+  }else if(state === 'disconnected'){
+    el.innerHTML = '<span style="font-family:var(--fmono);color:var(--txt3);font-size:9px">Getrennt</span>';
+  }else if(state === 'connecting'){
+    el.innerHTML = '<span style="font-family:var(--fmono);color:var(--txt3);font-size:9px">⏳ Verbinde…</span>';
+  }else if(state === 'error'){
+    const span = document.createElement('span');
+    span.style.cssText = 'font-family:var(--fmono);color:var(--red);font-size:9px';
+    span.textContent = '✕ '+data.message;   // textContent — data.message may be an unescaped API/network error string
+    el.innerHTML = '';
+    el.appendChild(span);
+  }else if(state === 'connected'){
+    const who = data.firstName ? 'Verbunden — '+data.firstName : 'Verbunden';
+    const sub = (data.voiceCount||0)+' Stimmen geladen';
+    const tierRow = data.tier ? (
+      '<span class="el-pill">'+data.tier+'</span>'+
+      '<div><div class="el-credits">'+(data.remaining!=null?data.remaining.toLocaleString('de-DE'):'—')+'</div>'+
+      '<div class="el-credits-l">Zeichen übrig</div></div>'
+    ) : '';
+    el.innerHTML =
+      '<div class="el-status">'+
+        '<div class="el-status-l"><span class="el-status-dot on"></span>'+
+          '<div><div class="el-status-t">'+who+'</div><div class="el-status-s">'+sub+'</div></div>'+
+        '</div>'+
+        (tierRow ? '<div style="display:flex;align-items:center;gap:10px">'+tierRow+'</div>' : '')+
+      '</div>';
+  }
 }
 
 function elSave(){
@@ -3385,25 +3523,30 @@ async function elConnect(){
   const statusEl = document.getElementById('el-status');
   if(!keyInput||!statusEl) return;
   const key = keyInput.value.trim();
-  if(!key){ statusEl.innerHTML='<svg class="ic"><use href="#ic-warn"/></svg> Bitte API-Key eingeben'; return; }
-  statusEl.textContent = '⏳ Verbinde…';
+  if(!key){ elRenderStatus('error', {message:'Bitte API-Key eingeben'}); return; }
+  elRenderStatus('connecting');
   try{
     const r = await fetch(`${EL_API}/user`, {
       headers:{'xi-api-key':key, 'Accept':'application/json'}
     });
     if(!r.ok) throw new Error('Ungültiger Key (HTTP '+r.status+')');
     const user = await r.json();
+    // A different key means a different voice library — old voice_ids
+    // wouldn't exist in the new account. Only reset if the key actually
+    // changed, so reconnecting with the same key keeps the user's mapping.
+    if(elCfg.key && elCfg.key !== key) elCfg.voiceMap = {};
     elCfg.key = key;
     elCfg.enabled = true;
     await elFetchVoices(key);
+    elAutoAssignVoices();
     const used  = user.subscription?.character_count || 0;
     const limit = user.subscription?.character_limit  || 10000;
     const tier  = user.subscription?.tier || 'free';
-    statusEl.innerHTML = `✓ Verbunden (${tier}) · <strong>${(limit-used).toLocaleString()}</strong> Zeichen verbleibend`;
+    elRenderStatus('connected', {tier, remaining: limit-used, firstName: user.first_name, voiceCount: elVoices.length});
     elSave();
     vlRefreshELVoices();
   }catch(e){
-    statusEl.textContent = '✕ '+e.message;
+    elRenderStatus('error', {message: e.message});
     elCfg.enabled = false;
   }
 }
@@ -3418,14 +3561,43 @@ async function elFetchVoices(key){
   elSave();
 }
 
+// ── Auto-assign accents from the account's own voice library on first
+// connect, so the mapping works immediately without ten manual dropdown
+// picks. Never overwrites a mapping the user already made themselves.
+// elVoiceForAccent()'s own fallback chain (accent → us → any) means a
+// single good 'us' match is enough to make every accent speak.
+function elAutoAssignVoices(){
+  if(!elVoices.length || Object.keys(elCfg.voiceMap).length) return;
+  const findByLabel = kws => elVoices.find(v=>{
+    const hay = [v.labels?.accent, v.labels?.description, v.name].filter(Boolean).join(' ').toLowerCase();
+    return kws.some(k=>hay.includes(k));
+  });
+  const assign = (accentKey, kws) => {
+    const v = findByLabel(kws);
+    if(v) elCfg.voiceMap[accentKey] = v.voice_id;
+  };
+  // Full words only — bare 'us'/'uk' as substrings false-match ordinary
+  // words in ElevenLabs' free-text voice descriptions (e.g. "trustworthy",
+  // "unusual" both contain "us"; a name like "Duke" contains "uk").
+  assign('us', ['american']);
+  assign('gb', ['british','english (uk)']);
+  assign('au', ['australian']);
+  assign('ca', ['canadian']);
+  assign('in', ['indian']);
+  assign('za', ['south african']);
+  // Guaranteed fallback: if nothing matched 'us' by label, take the first
+  // voice in the library — every unmapped accent falls back to this one.
+  if(!elCfg.voiceMap.us) elCfg.voiceMap.us = elVoices[0].voice_id;
+}
+
 function elDisconnect(){
   elCfg = {enabled:false, key:'', model:'eleven_turbo_v2_5', voiceMap:{}};
   elVoices = []; elAudioCache.clear();
   try{ localStorage.removeItem('hfct_el'); localStorage.removeItem('hfct_el_voices'); }catch(e){}
   const ki = document.getElementById('el-key-input');
   if(ki) ki.value = '';
-  const st = document.getElementById('el-status');
-  if(st) st.textContent = 'Getrennt';
+  elRenderStatus('disconnected');
+  elHighlightModel(elCfg.model);
   vlRefreshELVoices();
 }
 
@@ -3531,29 +3703,178 @@ function vlTab(tab){
   if(tab==='sys') { vlRefreshSysVoices(); }
 }
 
+// House-palette avatar colors, hashed per voice so the same voice always
+// gets the same color — no arbitrary hues outside the app's own accents.
+const EL_AVATAR_HUES = ['var(--acc)','var(--acc2)','var(--purple)','var(--acc4)','var(--red)'];
+function elAvatarHue(id){
+  let h=0; for(let i=0;i<id.length;i++) h=(h*31+id.charCodeAt(i))|0;
+  return EL_AVATAR_HUES[Math.abs(h)%EL_AVATAR_HUES.length];
+}
+function elInitials(name){
+  return (name||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+}
+function elCloseAllMenus(){
+  document.querySelectorAll('.el-menu.open').forEach(m=>m.classList.remove('open'));
+  document.querySelectorAll('.el-pbtn[aria-expanded="true"]').forEach(b=>b.setAttribute('aria-expanded','false'));
+}
+if(!window.__elMenuOutsideBound){
+  window.__elMenuOutsideBound = true;
+  document.addEventListener('click', elCloseAllMenus);
+}
+
+// ── Generic Hausstil-Select: turns a plain <select> into a themed
+// button+menu picker while keeping the original <select> in the DOM
+// (hidden, off-screen) so every existing .value / change-listener /
+// onchange="" wired to it elsewhere in the app keeps working untouched.
+function hsCloseAllSelects(){
+  document.querySelectorAll('.hs-sel-menu.open').forEach(m=>m.classList.remove('open'));
+  document.querySelectorAll('.hs-sel-btn[aria-expanded="true"]').forEach(b=>b.setAttribute('aria-expanded','false'));
+}
+if(!window.__hsSelectOutsideBound){
+  window.__hsSelectOutsideBound = true;
+  document.addEventListener('click', hsCloseAllSelects);
+}
+function hsEnhanceSelect(selectId){
+  const sel = document.getElementById(selectId);
+  if(!sel || sel.dataset.hsEnhanced) return;
+  sel.dataset.hsEnhanced = '1';
+  sel.classList.add('hs-select-native');
+
+  const wrap = document.createElement('div');
+  wrap.className = 'hs-select';
+  sel.parentNode.insertBefore(wrap, sel);
+  wrap.appendChild(sel);
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'hs-sel-btn';
+  btn.setAttribute('aria-haspopup', 'listbox');
+  btn.setAttribute('aria-expanded', 'false');
+  const menu = document.createElement('div');
+  menu.className = 'hs-sel-menu';
+  menu.setAttribute('role', 'listbox');
+  wrap.appendChild(btn);
+  wrap.appendChild(menu);
+
+  function renderBtn(){
+    const opt = sel.options[sel.selectedIndex];
+    btn.innerHTML = '<span class="hs-sel-label">'+(opt?opt.textContent:'')+'</span><span class="hs-chev">▾</span>';
+  }
+  function renderMenu(){
+    menu.innerHTML = Array.from(sel.options).map((o,i)=>
+      '<div class="hs-sel-opt'+(i===sel.selectedIndex?' on':'')+'" tabindex="0" role="option" data-i="'+i+'">'+o.textContent+'</div>'
+    ).join('');
+    menu.querySelectorAll('.hs-sel-opt').forEach(opt=>{
+      opt.addEventListener('click', e=>{
+        e.stopPropagation();
+        sel.selectedIndex = parseInt(opt.dataset.i, 10);
+        sel.dispatchEvent(new Event('change', {bubbles:true}));
+        renderBtn();
+        hsCloseAllSelects();
+        btn.focus();
+      });
+    });
+    const current = menu.querySelector('.hs-sel-opt.on');
+    const toFocus = current || menu.querySelector('.hs-sel-opt');
+    // Deferred: a real mouse click gives the clicked <button> native focus
+    // *after* this click handler runs, which would otherwise steal focus
+    // back from the option we just focused.
+    setTimeout(()=>toFocus?.focus(), 0);
+  }
+  btn.addEventListener('click', e=>{
+    e.stopPropagation();
+    const wasOpen = menu.classList.contains('open');
+    hsCloseAllSelects();
+    if(wasOpen) return;
+    renderMenu();
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  });
+  // Keyboard nav within the open menu — bound once, menu persists for the widget's lifetime.
+  menu.addEventListener('keydown', e=>{
+    const opts = Array.from(menu.querySelectorAll('.hs-sel-opt'));
+    const idx = opts.indexOf(document.activeElement);
+    if(e.key==='ArrowDown'){ e.preventDefault(); (opts[idx+1]||opts[0])?.focus(); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); (opts[idx-1]||opts[opts.length-1])?.focus(); }
+    else if(e.key==='Home'){ e.preventDefault(); opts[0]?.focus(); }
+    else if(e.key==='End'){ e.preventDefault(); opts[opts.length-1]?.focus(); }
+    else if(e.key==='Enter' || e.key===' '){ e.preventDefault(); document.activeElement?.click(); }
+    else if(e.key==='Escape'){ e.preventDefault(); hsCloseAllSelects(); btn.focus(); }
+  });
+  // Keep the visible button in sync if the (hidden but still focusable/
+  // tabbable) native <select> ever changes value through any other path.
+  sel.addEventListener('change', renderBtn);
+  renderBtn();
+}
+
 function vlRefreshELVoices(){
   const mapDiv = document.getElementById('el-voice-map');
   if(!mapDiv) return;
   mapDiv.innerHTML = '';
-  const opts = elVoices.length
-    ? '<option value="">— nicht zugewiesen —</option>'
-      + elVoices.map(v=>`<option value="${v.voice_id}">${v.name}${v.category?'  ('+v.category+')':''}</option>`).join('')
-    : '<option value="">— erst verbinden —</option>';
 
   EL_ACCENTS.forEach(({key, flag, label})=>{
+    const v = elVoices.find(x=>x.voice_id===elCfg.voiceMap[key]);
+    const btnInner = v
+      ? `<span class="el-avatar" style="background:${elAvatarHue(v.voice_id)}">${elInitials(v.name)}</span>`
+        +`<span class="el-vname">${v.name}</span><span class="el-vcat">${v.category||''}</span><span class="el-chev">▾</span>`
+      : `<span class="el-vname" style="color:var(--txt3)">${elVoices.length?'— nicht zugewiesen —':'— erst verbinden —'}</span><span class="el-chev">▾</span>`;
     const row = document.createElement('div');
     row.style.cssText = 'display:flex;align-items:center;gap:8px';
-    const assigned = elCfg.voiceMap[key]||'';
     row.innerHTML = `
       <span style="font-size:13px;flex-shrink:0">${flag}</span>
       <span style="font-size:9px;color:var(--txt2);font-family:var(--fmono);width:130px;flex-shrink:0">${label}</span>
-      <select style="flex:1;font-size:9px;padding:3px 6px" onchange="elSetVoiceMap('${key}',this.value)">${opts}</select>
+      <div class="el-picker">
+        <button type="button" class="el-pbtn" aria-haspopup="listbox" aria-expanded="false" data-accent="${key}">${btnInner}</button>
+        <div class="el-menu" id="el-menu-${key}" role="listbox"></div>
+      </div>
       <button onclick="elTestVoice('${key}')" style="font-size:9px;padding:3px 8px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--txt2);border-radius:6px;cursor:pointer;white-space:nowrap;font-family:var(--fui)" title="Test">▶</button>
     `;
-    // Set current selection
-    const sel = row.querySelector('select');
-    if(sel) sel.value = assigned;
     mapDiv.appendChild(row);
+
+    // Keyboard nav within this row's menu — bound once per row; the whole
+    // row (and this menu node) is discarded and rebuilt on every
+    // vlRefreshELVoices() call, so there's no risk of stacking listeners.
+    row.querySelector('.el-menu').addEventListener('keydown', e=>{
+      const menu = e.currentTarget;
+      const opts = Array.from(menu.querySelectorAll('.el-opt'));
+      const idx = opts.indexOf(document.activeElement);
+      if(e.key==='ArrowDown'){ e.preventDefault(); (opts[idx+1]||opts[0])?.focus(); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); (opts[idx-1]||opts[opts.length-1])?.focus(); }
+      else if(e.key==='Home'){ e.preventDefault(); opts[0]?.focus(); }
+      else if(e.key==='End'){ e.preventDefault(); opts[opts.length-1]?.focus(); }
+      else if(e.key==='Enter' || e.key===' '){ e.preventDefault(); document.activeElement?.click(); }
+      else if(e.key==='Escape'){ e.preventDefault(); elCloseAllMenus(); row.querySelector('.el-pbtn').focus(); }
+    });
+  });
+
+  mapDiv.querySelectorAll('.el-pbtn').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.stopPropagation();
+      const key = btn.dataset.accent;
+      const menu = document.getElementById('el-menu-'+key);
+      const wasOpen = menu.classList.contains('open');
+      elCloseAllMenus();
+      if(wasOpen || !elVoices.length) return;
+      menu.innerHTML = elVoices.map(v=>
+        `<div class="el-opt" tabindex="0" role="option" data-voice="${v.voice_id}">`
+        +`<span class="el-avatar" style="background:${elAvatarHue(v.voice_id)}">${elInitials(v.name)}</span>`
+        +`<span class="el-vname">${v.name}</span><span class="el-vcat">${v.category||''}</span></div>`
+      ).join('') + `<div class="el-opt" tabindex="0" role="option" data-voice=""><span style="width:18px"></span><span class="el-vname" style="color:var(--txt3)">— entfernen —</span></div>`;
+      menu.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+      menu.querySelectorAll('.el-opt').forEach(opt=>{
+        opt.addEventListener('click', ev=>{
+          ev.stopPropagation();
+          elSetVoiceMap(key, opt.dataset.voice);
+          vlRefreshELVoices();
+        });
+      });
+      const storedId = elCfg.voiceMap[key];
+      const assigned = storedId ? menu.querySelector(`.el-opt[data-voice="${storedId}"]`) : null;
+      const toFocus = assigned || menu.querySelector('.el-opt');
+      // Deferred — see the matching comment in hsEnhanceSelect's renderMenu().
+      setTimeout(()=>toFocus?.focus(), 0);
+    });
   });
 }
 
@@ -4389,6 +4710,12 @@ const STRINGS = {
     an_elo_history: 'ELO HISTORY BY CATEGORY',
     an_weekday:     'TRAINING HOURS BY WEEKDAY',
     an_weekly:      'HOURS PER WEEK (LAST 8 WEEKS)',
+    an_weekacc:     'ACCURACY PER WEEK (LAST 8 WEEKS)',
+    an_contests_played: 'Contests Played',
+    an_modes_used:  'Modes Used',
+    an_best_contest:'Best Contest',
+    an_acc_by_contest: 'ACCURACY BY CONTEST',
+    an_acc_by_mode: 'ACCURACY BY MODE',
     an_elo_legend:  'Rating · Acc · React · Streak',
     an_elo_by_cat:  'ELO BY CATEGORY',
     an_strongest:   (l,r) => '✓ Strongest: '+l+' ('+r+')',
@@ -4507,6 +4834,12 @@ const STRINGS = {
     an_elo_history: 'ELO-VERLAUF NACH KATEGORIE',
     an_weekday:     'TRAININGSSTUNDEN NACH WOCHENTAG',
     an_weekly:      'STUNDEN PRO WOCHE (LETZTE 8 WOCHEN)',
+    an_weekacc:     'GENAUIGKEIT PRO WOCHE (LETZTE 8 WOCHEN)',
+    an_contests_played: 'Contests gespielt',
+    an_modes_used:  'Betriebsarten',
+    an_best_contest:'Bester Contest',
+    an_acc_by_contest: 'GENAUIGKEIT NACH CONTEST',
+    an_acc_by_mode: 'GENAUIGKEIT NACH BETRIEBSART',
     an_elo_legend:  'Rating · Genauigkeit · Reaktion · Serie',
     an_elo_by_cat:  'ELO NACH KATEGORIE',
     an_strongest:   (l,r) => '✓ Stärkste: '+l+' ('+r+')',
@@ -5161,6 +5494,7 @@ const BAND_CONDITIONS = [
   },
 ];
 
+let bandSimGen     = 0;      // startBandSim() call generation — see startBandSim()
 let bandCondIdx    = 0;      // current condition index
 let bandCondTimer  = null;   // setTimeout handle
 let bandCondEnd    = 0;      // timestamp when condition ends
@@ -5259,7 +5593,34 @@ function scheduleBandCond(){
   }, durMs);
 }
 
-function startBandSim(){
+// ── Real propagation data (NOAA SWPC — public, CORS-open, no key) ──
+// Cached for 15min so repeated session starts don't hammer the API.
+let realPropCache = null;   // {sfi, kp, ts}
+async function fetchRealPropagation(){
+  if(realPropCache && Date.now() - realPropCache.ts < 15*60000) return realPropCache;
+  try{
+    const [sfiRes, kpRes] = await Promise.all([
+      fetch('https://services.swpc.noaa.gov/products/summary/10cm-flux.json'),
+      fetch('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json'),
+    ]);
+    const sfiData = await sfiRes.json();
+    const kpData  = await kpRes.json();
+    const sfi = typeof sfiData?.[0]?.flux === 'number' ? sfiData[0].flux : null;
+    const kp  = typeof kpData?.[kpData.length-1]?.Kp === 'number' ? kpData[kpData.length-1].Kp : null;
+    realPropCache = {sfi, kp, ts:Date.now()};
+  }catch(e){
+    realPropCache = {sfi:null, kp:null, ts:Date.now()};
+  }
+  return realPropCache;
+}
+
+async function startBandSim(){
+  // Generation token: a rapid Start→Stop→Start can leave an earlier call's
+  // NOAA fetch still in flight when a newer session is already running —
+  // sessActive alone can't tell the two apart (it's true again for the
+  // *new* session). Bail after the await unless this is still the latest call.
+  const myGen = ++bandSimGen;
+
   // ── Time-of-day: pick a realistic starting condition ──────────────
   // Simulates 20m propagation profile (main IARU HF band)
   // UTC hour → most likely opening
@@ -5276,7 +5637,22 @@ function startBandSim(){
     // UTC 22–23 & 00–04: band closing / quiet
     22:'closing', 23:'closing', 0:'closing', 1:'normal', 2:'normal', 3:'normal', 4:'normal',
   };
-  const startCondId = todCondMap[utcHour] || 'normal';
+  let startCondId = todCondMap[utcHour] || 'normal';
+
+  // ── Real SFI/K-index bias — nudges the time-of-day guess toward what's
+  // actually happening on the bands right now. Falls back silently to the
+  // pure time-of-day pick if the fetch fails.
+  const real = await fetchRealPropagation();
+  // Bail if the session was stopped, or a newer startBandSim() call has
+  // already superseded this one — otherwise a stale fetch resolving late
+  // would clobber the current session's band state and log a stray line.
+  if(!sessActive || myGen !== bandSimGen) return;
+  if(real.kp !== null && real.kp >= 5){
+    startCondId = 'closing';           // geomagnetic storm — bands degraded regardless of hour
+  }else if(real.sfi !== null && real.sfi >= 150 && startCondId === 'normal'){
+    startCondId = 'eu_peak';           // strong solar flux — upgrades a flat opening
+  }
+
   const startIdx = BAND_CONDITIONS.findIndex(c=>c.id===startCondId);
   bandCondIdx  = startIdx >= 0 ? startIdx : 0;
   bandCallBias = null;
@@ -5284,9 +5660,10 @@ function startBandSim(){
   bandBaseQRN  = qrnLevel;
   const startCond = currentBandCond();
   applyBandCond(startCond, false);
-  // Show time-of-day hint in RX log
+  // Show time-of-day + real propagation hint in RX log
   const utcStr = String(utcHour).padStart(2,'0')+'00z';
-  addLine('<svg class="ic"><use href="#ic-dish"/></svg> Band: '+startCond.name+' ('+utcStr+' UTC) — '+startCond.desc,'sys');
+  const propStr = (real.sfi!=null && real.kp!=null) ? (' · SFI '+real.sfi+' · K '+real.kp.toFixed(1)) : '';
+  addLine('<svg class="ic"><use href="#ic-dish"/></svg> Band: '+startCond.name+' ('+utcStr+' UTC'+propStr+') — '+startCond.desc,'sys');
   scheduleBandCond();
 }
 
@@ -7385,7 +7762,7 @@ function anCleanData(){
 
 function anTab(tab){
   anActiveTab=tab;
-  var tabs=['progress','time','errors','elo'];
+  var tabs=['progress','time','errors','elo','contest'];
   for(var i=0;i<tabs.length;i++){
     var el=document.getElementById('ant-'+tabs[i]);
     if(!el) continue;
@@ -7411,6 +7788,7 @@ function anTab(tab){
   else if(tab==='time') anDrawTime(body, mySessions);
   else if(tab==='errors') anDrawErrors(body, mySessions);
   else if(tab==='elo') anDrawElo(body, mySessions);
+  else if(tab==='contest') anDrawContest(body, mySessions);
 }
 
 function anResetData(){
@@ -7638,6 +8016,21 @@ function anDrawProgress(body, sessions){
 
   var accTrend=anTrend(accs), rateTrend=anTrend(rates);
 
+  // ── Weekly accuracy trend — spans full history, not just the last 20
+  // sessions like the charts above, so a slow drift over weeks/months
+  // is visible even for an active user who burns through 20 sessions fast.
+  var weekAcc={}, weekCnt={};
+  allSess.forEach(function(s){
+    var d=new Date(s.ts);
+    var wn=Math.ceil((d-new Date(d.getFullYear(),0,1))/(7*86400000));
+    var key=d.getFullYear()+'W'+String(wn).padStart(2,'0');
+    weekAcc[key]=(weekAcc[key]||0)+(s.acc||0);
+    weekCnt[key]=(weekCnt[key]||0)+1;
+  });
+  var weekKeys=Object.keys(weekAcc).sort().slice(-8);
+  var weekAccVals=weekKeys.map(function(k){return Math.round(weekAcc[k]/weekCnt[k]);});
+  var weekAccLabels=weekKeys.map(function(k){return k.slice(-3);});
+
   var html='';
   // Summary cards
   html+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:12px">';
@@ -7662,6 +8055,12 @@ function anDrawProgress(body, sessions){
     'XP: '+adapt.xp,'',getLv(adapt.xp).name);
   html+='</div>';
 
+  if(weekKeys.length>=2){
+    html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin:12px 0 6px">'+T('an_weekacc')+'</div>';
+    html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px">';
+    html+='<canvas id="an-c-weekacc" height="70" style="width:100%;height:70px"></canvas></div>';
+  }
+
   body.innerHTML=html;
 
   setTimeout(function(){
@@ -7670,6 +8069,7 @@ function anDrawProgress(body, sessions){
     c=document.getElementById('an-c-rate'); if(c){c.width=c.offsetWidth;anLineChart(c,rates,'--acc3',0,null,dates);}
     c=document.getElementById('an-c-elo');  if(c){c.width=c.offsetWidth;anLineChart(c,elos,'--purple',700,1400,dates);}
     c=document.getElementById('an-c-xp');   if(c){c.width=c.offsetWidth;anLineChart(c,xps,'--acc4',0,null,dates);}
+    c=document.getElementById('an-c-weekacc'); if(c){c.width=c.offsetWidth;anBarChart(c,weekAccVals,'--acc2',weekAccLabels);}
   },40);
 }
 
@@ -7909,6 +8309,63 @@ function anDrawElo(body, sessions){
       anMultiLine(c,seriesArr,colorVars);
     },40);
   }
+}
+
+function anDrawContest(body, sessions){
+  // ── Group by contest ──
+  var byContest={};
+  sessions.forEach(function(s){
+    var c=s.contest||'unknown';
+    if(!byContest[c]) byContest[c]={n:0,accSum:0,qso:0};
+    byContest[c].n++;
+    byContest[c].accSum+=(s.acc||0);
+    byContest[c].qso+=(s.qso||0);
+  });
+  var contestIds=Object.keys(byContest).sort(function(a,b){return byContest[b].n-byContest[a].n;});
+  var contestLabels=contestIds.map(function(id){return id.toUpperCase();});
+  var contestAcc=contestIds.map(function(id){return Math.round(byContest[id].accSum/byContest[id].n);});
+
+  // ── Group by mode ──
+  var byMode={};
+  sessions.forEach(function(s){
+    var m=s.mode||'SSB';
+    if(!byMode[m]) byMode[m]={n:0,accSum:0,rateSum:0};
+    byMode[m].n++;
+    byMode[m].accSum+=(s.acc||0);
+    byMode[m].rateSum+=(s.rate||0);
+  });
+  var modeIds=Object.keys(byMode);
+  var modeAcc=modeIds.map(function(m){return Math.round(byMode[m].accSum/byMode[m].n);});
+
+  var qualified=contestIds.filter(function(id){return byContest[id].n>=2;});
+  var bestId=null, bestAcc=-1;
+  qualified.forEach(function(id){
+    var a=contestAcc[contestIds.indexOf(id)];
+    if(a>bestAcc){bestAcc=a;bestId=id;}
+  });
+
+  var html='';
+  html+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:12px">';
+  html+=anCard(contestIds.length, T('an_contests_played'), 'var(--acc4)');
+  html+=anCard(modeIds.join(' / ')||'—', T('an_modes_used'), 'var(--purple)');
+  html+=anCard(bestId?((CONTESTS[bestId]&&CONTESTS[bestId].name)||bestId):'—', T('an_best_contest'), 'var(--acc2)');
+  html+='</div>';
+
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_acc_by_contest')+'</div>';
+  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px;margin-bottom:10px">';
+  html+='<canvas id="an-c-contest" height="70" style="width:100%;height:70px"></canvas></div>';
+
+  html+='<div style="font-family:var(--fui);font-size:9px;letter-spacing:2px;color:var(--txt3);margin-bottom:6px">'+T('an_acc_by_mode')+'</div>';
+  html+='<div style="background:var(--bg0);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px">';
+  html+='<canvas id="an-c-mode" height="60" style="width:100%;height:60px"></canvas></div>';
+
+  body.innerHTML=html;
+  setTimeout(function(){
+    var c=document.getElementById('an-c-contest');
+    if(c){c.width=c.offsetWidth;anBarChart(c,contestAcc,'--acc2',contestLabels);}
+    var c2=document.getElementById('an-c-mode');
+    if(c2){c2.width=c2.offsetWidth;anBarChart(c2,modeAcc,'--purple',modeIds);}
+  },40);
 }
 
 // ── UI building blocks ──
@@ -8398,6 +8855,7 @@ function hideManual(){ document.getElementById('manual-ov').style.display='none'
 window.addEventListener('load',function(){
   try{
     initWF();initRG();elLoad();
+    hsEnhanceSelect('csel'); hsEnhanceSelect('vl-phrase'); hsEnhanceSelect('vl-phrase-sys');
     // UTC clock - started independently above
     // updClk();
     // setInterval(updClk,1000);
