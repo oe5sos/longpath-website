@@ -251,7 +251,7 @@ function buildSite(key){ const S=SD.sites[key]; const G=new THREE.Group(); grp.a
   // Mast 3: 2 × 9-el-Tonna fest auf 24° (Nordost: Breslau, Brünn, Ostrava, Kraków, Wien), 7,5 m, ohne Rotor; westlich von Mast 1, außerhalb aller Seile und Drehkreise
   const T3=24, tm={x:qm.x-21,y:qm.y+5}; const g3=hAt(tm.x,tm.y);
   const TS=new THREE.Group(); [3.9,6.7].forEach(h=>{const t=tonna(); t.position.y=h; TS.add(t);}); TS.position.set(tm.x,g3,-tm.y); TS.rotation.y=-T3*Math.PI/180; G.add(TS);
-  const m3=guyed(tm.x,tm.y,7,[3.5,6.3],[4.5,6],[T3+90,T3+210,T3+330],G,false,'Mast 3 · Tonna');
+  const m3=guyed(tm.x,tm.y,7,[6.3],[5.5],[T3+90,T3+210,T3+330],G,false,'Mast 3 · Tonna');
   const f3=fan(tm.x,tm.y,44,70,0x5b7fa8,0.30,G,g3+5.3); f3.setHeading(T3);
   { const l3=label('Tonna 2×9 fest 24° · Breslau, Brünn, Kraków, Wien','#8fb0d6',2.8); const a=T3*Math.PI/180; l3.position.set(tm.x+30*Math.sin(a),g3+6,-(tm.y+30*Math.cos(a))); G.add(l3); }
   // Kabel zum Auto (Endstufen im Auto): Mast 1 und Mast 2 je ein Kabel, Mast 3 eigenes Kabel zum Umschalter im Auto
