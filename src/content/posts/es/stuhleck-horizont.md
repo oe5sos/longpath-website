@@ -19,7 +19,7 @@ El punto de referencia es el aparcamiento junto al refugio, 47,57444 N / 15,7905
 
 ## El horizonte
 
-![Diagrama polar del horizonte radioeléctrico desde el Stuhleck: verde sin interrupción desde 11° por el este y el sur hasta 226° y por debajo de −0,3°, amarillo hacia el oeste, picos rojos cortos hasta +0,8° al noroeste y al norte](../../../assets/karten/stuhleck-horizont-rundum-karte.png)
+![Diagrama polar del horizonte radioeléctrico desde el Stuhleck: verde sin interrupción desde 11° por el este y el sur hasta 226° y por debajo de −0,3°, ámbar hacia el oeste, picos rojos cortos hasta +0,8° al noroeste y al norte](../../../assets/karten/stuhleck-horizont-rundum-karte.png)
 
 **De 11° a 226° el horizonte está libre**, 215 grados seguidos, y no por poco: de −0,3° a −1,1° bajo la horizontal. Lo que lo forma está lejos — el Altvater a 298 kilómetros, la Gran Fatra a 286, los Bajos Tatras a 322, el Papuk a 269, el Snežnik a 243. Viena queda a −1,04°, Bratislava a −1,07°, Budapest a −1,05°, Belgrado a −1,11°, Zagreb a −0,88°, Liubliana a −0,52°, Graz a −0,75°. Eso no es una ventana, es medio círculo.
 

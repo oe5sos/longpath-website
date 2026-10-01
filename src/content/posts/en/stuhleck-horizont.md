@@ -19,7 +19,7 @@ The reference point is the car park by the hut, 47.57444 N / 15.79055 E, locator
 
 ## The horizon
 
-![Polar diagram of the radio horizon from the Stuhleck: green without a break from 11° through east and south to 226° and below −0.3°, yellow to the west, short red spikes up to +0.8° to the north-west and north](../../../assets/karten/stuhleck-horizont-rundum-karte.png)
+![Polar diagram of the radio horizon from the Stuhleck: green without a break from 11° through east and south to 226° and below −0.3°, amber to the west, short red spikes up to +0.8° to the north-west and north](../../../assets/karten/stuhleck-horizont-rundum-karte.png)
 
 **From 11° to 226° the horizon is clear**, 215 degrees in one piece, and not by a whisker: −0.3° to −1.1° below the horizontal. What forms it stands far away — the Altvater at 298 kilometres, the Greater Fatra at 286, the Low Tatra at 322, the Papuk at 269, the Snežnik at 243. Vienna lies at −1.04°, Bratislava at −1.07°, Budapest at −1.05°, Belgrade at −1.11°, Zagreb at −0.88°, Ljubljana at −0.52°, Graz at −0.75°. That is not a window, that is half a circle.
 

@@ -19,7 +19,7 @@ Der Standpunkt ist der Parkplatz beim Haus, 47,57444 N / 15,79055 O, Locator JN7
 
 ## Der Horizont
 
-![Polardiagramm des Radiohorizonts vom Stuhleck: von 11° über Osten und Süden bis 226° durchgehend grün und unter −0,3°, nach Westen gelb, nach Nordwesten und Norden kurze rote Zacken bis +0,8°](../../assets/karten/stuhleck-horizont-rundum-karte.png)
+![Polardiagramm des Radiohorizonts vom Stuhleck: von 11° über Osten und Süden bis 226° durchgehend grün und unter −0,3°, nach Westen bernstein, nach Nordwesten und Norden kurze rote Zacken bis +0,8°](../../assets/karten/stuhleck-horizont-rundum-karte.png)
 
 **Von 11° bis 226° ist der Horizont frei**, 215 Grad am Stück, und zwar nicht knapp: −0,3° bis −1,1° unter der Waagrechten. Was ihn bildet, steht weit weg — der Altvater in 298 Kilometern, die Große Fatra in 286, die Niedere Tatra in 322, der Papuk in 269, der Snežnik in 243. Wien liegt bei −1,04°, Bratislava bei −1,07°, Budapest bei −1,05°, Belgrad bei −1,11°, Zagreb bei −0,88°, Ljubljana bei −0,52°, Graz bei −0,75°. Das ist kein Fenster, das ist ein halber Kreis.
 
