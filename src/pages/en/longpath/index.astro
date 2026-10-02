@@ -12,8 +12,8 @@ const c = longpathContent[lang];
 
 /* Inhalte aus ../NereusSDR/README.md. Wenn dort eine Version steigt,
    gehoert sie hier mitgezogen — es gibt bisher keine Automatik dafuer. */
-const VERSION = "0.6.4";
-const DATUM = "22 September 2026";
+const VERSION = "0.6.5";
+const DATUM = "2 October 2026";
 
 const kette = c.kette.map((s, i) => ({ nr: String(i + 1).padStart(2, "0"), ...s }));
 const hardware = c.hardware.map((h, i) => ({ ...h, ok: i < 3 }));
@@ -29,21 +29,21 @@ const RELTAG = `https://github.com/oe5sos/Longpath/releases/tag/v${VERSION}`;
 
 const pakete = [
   {
-    os: "macOS · Apple Silicon", datei: "DMG · PKG · GPG-signed", empfohlen: true,
+    os: "macOS · Apple Silicon", datei: "DMG · PKG · macOS 12 or later · GPG-signed", empfohlen: true,
     links: [
       { label: "DMG", href: `${REL}/Longpath-${VERSION}-macOS-apple-silicon.dmg` },
       { label: "PKG", href: `${REL}/Longpath-${VERSION}-macOS-apple-silicon.pkg` },
     ],
   },
   {
-    os: "macOS · Intel", datei: "DMG · PKG · GPG-signed", empfohlen: false,
+    os: "macOS · Intel", datei: "DMG · PKG · macOS 12 or later · GPG-signed", empfohlen: false,
     links: [
       { label: "DMG", href: `${REL}/Longpath-${VERSION}-macOS-intel.dmg` },
       { label: "PKG", href: `${REL}/Longpath-${VERSION}-macOS-intel.pkg` },
     ],
   },
   {
-    os: "Linux", datei: "AppImage · x86_64 + aarch64", empfohlen: false, stand: c.download.standUngeprueft,
+    os: "Linux", datei: "AppImage · x86_64 glibc 2.35+ · aarch64 2.38+", empfohlen: false, stand: c.download.standUngeprueft,
     links: [
       { label: "x86_64", href: `${REL}/Longpath-${VERSION}-x86_64.AppImage` },
       { label: "aarch64", href: `${REL}/Longpath-${VERSION}-aarch64.AppImage` },
