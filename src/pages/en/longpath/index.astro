@@ -115,7 +115,9 @@ const pakete = [
       <div class="section__head">
         <p class="caps">{c.werkzeugeKopf.kicker}</p>
         <h2>{c.werkzeugeKopf.h2}</h2>
-        <p class="intro" set:html={c.werkzeugeKopf.introHtml.replace("{v}", VERSION)} />
+        {werkzeuge.some((w) => w.neu) && (
+          <p class="intro" set:html={c.werkzeugeKopf.introHtml.replace("{v}", VERSION)} />
+        )}
       </div>
 
       <div class="werk">
