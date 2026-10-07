@@ -71,7 +71,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
   de: {
     meta: {
       titel: "Longpath — Stationskonsole für OpenHPSDR",
-      beschreibung: "Eine native C++20/Qt6-Konsole für ANAN, Hermes und Hermes Lite 2. Panadapter auf der Grafikkarte, WDSP, PureSignal, TCI. macOS, Linux, Windows.",
+      beschreibung: "Eine native C++20/Qt6-Konsole für ANAN, Hermes und Hermes Lite 2. Panadapter auf der Grafikkarte, WDSP, PureSignal, TCI. macOS und Linux.",
     },
     hero: {
       versionZeile: "Version {v} · GPLv3",
@@ -191,7 +191,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     download: {
       kicker: "Aktueller Stand",
       h2: "Geprüft an echter Hardware — jetzt zum Laden.",
-      introHtml: "Die Pakete für alle drei Plattformen werden gemeinsam gebaut und gemeinsam signiert. <em>Am Gerät geprüft</em> ist diese Version auf dem Mac; Windows und Linux sind gebaut, aber nicht am Gerät gefahren — unter Windows ist eine Tonverzerrung mit der ANAN-10 noch offen. An diesen Paketen nachgemessen: macOS 12 genügt jetzt auf Apple Silicon und Intel, Linux x86_64 läuft ab glibc 2.35, in jedem Paket steckt Qt 6.8, und serielles PTT/CW ist überall dabei. Ein zu altes macOS wird gemeldet, statt beim Start abzustürzen. Offen bleibt das AppImage für aarch64: es verlangt glibc 2.38 und startet damit auf Raspberry Pi OS Bookworm nicht.",
+      introHtml: "Die Pakete werden gemeinsam gebaut und gemeinsam signiert. <em>Am Gerät geprüft</em> ist diese Version auf dem Mac; Linux ist gebaut, aber nicht am Gerät gefahren. <strong>Für Windows gibt es kein Paket</strong> — es wurde gebaut, nie am Gerät geprüft, und eine Tonverzerrung mit der ANAN-10 ist seit zwei Anläufen unverstanden. Etwas herauszugeben, von dem man weiß, dass es nicht geht, ist schlechter als nichts. An diesen Paketen nachgemessen: macOS 12 genügt jetzt auf Apple Silicon und Intel, Linux x86_64 läuft ab glibc 2.35, in jedem Paket steckt Qt 6.8, und serielles PTT/CW ist überall dabei. Ein zu altes macOS wird gemeldet, statt beim Start abzustürzen. Offen bleibt das AppImage für aarch64: es verlangt glibc 2.38 und startet damit auf Raspberry Pi OS Bookworm nicht.",
       kanalKopf: "Kanal · freigegeben",
       fuerDieses: "Für dieses Gerät",
       stand: "Geprüft & signiert",
@@ -205,7 +205,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
   en: {
     meta: {
       titel: "Longpath — station console for OpenHPSDR",
-      beschreibung: "A native C++20/Qt6 console for ANAN, Hermes and Hermes Lite 2. Panadapter on the graphics card, WDSP, PureSignal, TCI. macOS, Linux, Windows.",
+      beschreibung: "A native C++20/Qt6 console for ANAN, Hermes and Hermes Lite 2. Panadapter on the graphics card, WDSP, PureSignal, TCI. macOS and Linux.",
     },
     hero: {
       versionZeile: "Version {v} · GPLv3",
@@ -325,7 +325,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     download: {
       kicker: "Current status",
       h2: "Verified on real hardware — ready to download.",
-      introHtml: "The packages for all three platforms are built together and signed together. This version is <em>verified on hardware</em> on the Mac; Windows and Linux are built but have not been run on a device — on Windows an audio distortion with the ANAN-10 is still open. Measured on these very packages: macOS 12 is now enough on Apple Silicon and Intel, Linux x86_64 runs from glibc 2.35, every package carries Qt 6.8, and serial PTT/CW is in all of them. A macOS that is too old says so instead of crashing at startup. Still open is the aarch64 AppImage: it requires glibc 2.38 and therefore will not start on Raspberry Pi OS Bookworm.",
+      introHtml: "The packages are built together and signed together. This version is <em>verified on hardware</em> on the Mac; Linux is built but has not been run on a device. <strong>There is no Windows package</strong> — it was built, never verified on hardware, and an audio distortion with the ANAN-10 has resisted two attempts at diagnosis. Shipping something known not to work is worse than shipping nothing. Measured on these very packages: macOS 12 is now enough on Apple Silicon and Intel, Linux x86_64 runs from glibc 2.35, every package carries Qt 6.8, and serial PTT/CW is in all of them. A macOS that is too old says so instead of crashing at startup. Still open is the aarch64 AppImage: it requires glibc 2.38 and therefore will not start on Raspberry Pi OS Bookworm.",
       kanalKopf: "Channel · released",
       fuerDieses: "For this device",
       stand: "Verified & signed",
@@ -339,7 +339,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
   es: {
     meta: {
       titel: "Longpath — consola de estación para OpenHPSDR",
-      beschreibung: "Una consola nativa en C++20/Qt6 para ANAN, Hermes y Hermes Lite 2. Panadaptador en la tarjeta gráfica, WDSP, PureSignal, TCI. macOS, Linux, Windows.",
+      beschreibung: "Una consola nativa en C++20/Qt6 para ANAN, Hermes y Hermes Lite 2. Panadaptador en la tarjeta gráfica, WDSP, PureSignal, TCI. macOS y Linux.",
     },
     hero: {
       versionZeile: "Versión {v} · GPLv3",
@@ -459,7 +459,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
     download: {
       kicker: "Estado actual",
       h2: "Verificado en hardware real — listo para descargar.",
-      introHtml: "Los paquetes para las tres plataformas se construyen juntos y se firman juntos. Esta versión está <em>verificada en hardware</em> en el Mac; Windows y Linux están construidos pero no se han probado en un equipo — en Windows sigue abierta una distorsión de audio con el ANAN-10. Medido sobre estos mismos paquetes: macOS 12 ya basta en Apple Silicon e Intel, Linux x86_64 funciona a partir de glibc 2.35, cada paquete lleva Qt 6.8, y el PTT/CW serie está en todos. Un macOS demasiado antiguo lo avisa en vez de cerrarse al arrancar. Queda abierto el AppImage para aarch64: exige glibc 2.38 y por eso no arranca en Raspberry Pi OS Bookworm.",
+      introHtml: "Los paquetes se construyen juntos y se firman juntos. Esta versión está <em>verificada en hardware</em> en el Mac; Linux está construido pero no se ha probado en un equipo. <strong>No hay paquete para Windows</strong> — se construyó, nunca se verificó en un equipo, y una distorsión de audio con el ANAN-10 sigue sin explicación tras dos intentos. Publicar algo que se sabe que no funciona es peor que no publicar nada. Medido sobre estos mismos paquetes: macOS 12 ya basta en Apple Silicon e Intel, Linux x86_64 funciona a partir de glibc 2.35, cada paquete lleva Qt 6.8, y el PTT/CW serie está en todos. Un macOS demasiado antiguo lo avisa en vez de cerrarse al arrancar. Queda abierto el AppImage para aarch64: exige glibc 2.38 y por eso no arranca en Raspberry Pi OS Bookworm.",
       kanalKopf: "Canal · publicado",
       fuerDieses: "Para este equipo",
       stand: "Verificado y firmado",
