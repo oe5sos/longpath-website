@@ -12,8 +12,8 @@ const c = longpathContent[lang];
 
 /* Inhalte aus ../NereusSDR/README.md. Wenn dort eine Version steigt,
    gehoert sie hier mitgezogen — es gibt bisher keine Automatik dafuer. */
-const VERSION = "0.6.7";
-const DATUM = "4 October 2026";
+const VERSION = "0.6.8";
+const DATUM = "8 October 2026";
 
 const kette = c.kette.map((s, i) => ({ nr: String(i + 1).padStart(2, "0"), ...s }));
 const hardware = c.hardware.map((h, i) => ({ ...h, ok: i < 3 }));
