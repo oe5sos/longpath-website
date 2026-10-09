@@ -105,6 +105,40 @@ The [site plan as PDF, revision 5](/karten/stuhleck-lageplan-antennenanlage.pdf)
 **Update, 29 September: two Yagis on mast 1 as well.** Instead of the quad stack, a second 12JXX2 stack goes on the rotator of mast 1, at 6.4 and 9.7 metres, as on the Feuerkogel. The lobe gets narrower, 34 instead of 69 degrees, with 3.3 decibels more. The three positions, calculated with the same rule and outside the no-go sector: **18°** Wrocław, Brno, Vienna, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Trieste, Venice, Bologna. Split between both stacks that makes **948 stations instead of 894**, Germany 316 as before, and 330,000 instead of 270,000 kilometres — the gain reaches further. Switched it is 1,308 instead of 1,331: at close range the wide quad gets more, 1,006 against 869 within 500 kilometres, the Yagis get the distance instead. The sheet above and the 3D scene already show both Yagi stacks; the text above still describes the plan with the quads.
 
 
+
+
+That leaves the question the swap raises: **would the quad stack on mast 1 not have brought more?** At 69
+degrees it is twice as wide as the 12JXX2 stack with 34 — one rotator heading covers twice as much sky. In
+exchange it has 3.3 decibels less gain.
+
+![Sheet “Gain versus width”: bars of reachable stations per distance band for both line-ups of mast 1, with the figures for three and six rotator headings, for a freely turning rotator and for split power](../../../assets/karten/stuhleck-quadfrage.png)
+
+Computed with everything else equal — mast 2 stays the 12JXX2 stack towards Germany, mast 3 the fixed
+Tonnas, the no-go sector applies — it looks like this:
+
+| | 2 × 12JXX2 | quad stack | difference |
+|---|---:|---:|---:|
+| switched, three headings | 1 372 | 1 296 | +76 |
+| switched, six headings | 1 582 | 1 348 | +234 |
+| switched, rotator turns freely | 1 636 | 1 636 | 0 |
+| split, 500 W each | 1 052 | 906 | +146 |
+| of that within 500 km | 902 | 843 | +59 |
+
+**Out to 300 kilometres the two are equal** — 429 against 432 stations. There the gain is enough either way,
+and the wider beam saves turning. The difference appears beyond 500 kilometres: there the 12JXX2 stack
+brings in 390 stations, the quad 297. The reason is in the range rule: 6 dBi to 300 km, then 3 dB per
+further 100 km. That takes the 12JXX2 stack to 693 kilometres at full power, the quad to 583 — and at half
+power only to 483, not even past the near range.
+
+Two honest caveats. First: **with a rotator that turns freely the two are equivalent** (1 636 stations) —
+width only replaces turning, and the rotator can turn anyway. Second, the result hangs on the rule: set it
+more gently — 3 dB per 150 instead of per 100 kilometres — and the quad leads with 1 636 against 1 579. The
+rule is an assumption, not a measurement.
+
+For the operating style here it still comes out in favour of the second 12JXX2 stack: work is done on fixed
+headings, not with a constantly turning rotator, and with split power the quad stack drops back behind the
+500-kilometre mark.
+
 ## Masts and guying
 
 

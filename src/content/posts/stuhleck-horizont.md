@@ -105,6 +105,40 @@ Der [Lageplan als PDF, Stand 5](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 **Nachtrag, 29. September: auch auf Mast 1 zwei Yagis.** Statt des Quad-Stacks kommt ein zweiter 12JXX2-Stack auf den Rotor von Mast 1, auf 6,4 und 9,7 Metern, wie am Feuerkogel. Die Keule wird schmaler, 34 statt 69 Grad, und hat 3,3 Dezibel mehr. Die drei Stellungen, nach derselben Regel gerechnet und außerhalb des Tabus: **18°** Breslau, Brünn, Wien, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Triest, Venedig, Bologna. Geteilt auf beide Stacks sind es **948 Stationen statt 894**, Deutschland 316 wie vorher, und 330 000 statt 270 000 Kilometer — der Gewinn trägt weiter. Umgeschaltet sind es 1 308 statt 1 331: Im Nahbereich holt die breite Quad mehr, 1 006 gegen 869 bis 500 Kilometer, die Yagis holen dafür die Ferne. Das Blatt oben und die 3D-Szene zeigen schon beide Yagi-Stacks; der Text darüber beschreibt noch den Plan mit den Quads.
 
 
+
+
+Bleibt die Frage, die der Tausch aufwirft: **Hätte der Vierfachquad-Stack auf Mast 1 nicht mehr gebracht?**
+Er ist mit 69 Grad doppelt so breit wie der 12JXX2-Stack mit 34 — eine Rotorstellung deckt also doppelt so
+viel Himmel ab. Dafür hat er 3,3 Dezibel weniger Gewinn.
+
+![Blatt „Gewinn gegen Breite“: Balken der erreichbaren Stationen je Entfernungsband für beide Bestückungen von Mast 1, dazu die Zahlen für drei und sechs Rotorstellungen, für frei drehenden Rotor und für geteilte Leistung](../../assets/karten/stuhleck-quadfrage.png)
+
+Gerechnet mit allem anderen gleich — Mast 2 bleibt der 12JXX2-Stack nach Deutschland, Mast 3 die festen
+Tonnas, der Tabu-Sektor gilt — sieht es so aus:
+
+| | 2 × 12JXX2 | Vierfachquad | Unterschied |
+|---|---:|---:|---:|
+| umgeschaltet, drei Stellungen | 1 372 | 1 296 | +76 |
+| umgeschaltet, sechs Stellungen | 1 582 | 1 348 | +234 |
+| umgeschaltet, Rotor dreht frei | 1 636 | 1 636 | 0 |
+| geteilt, je 500 W | 1 052 | 906 | +146 |
+| davon bis 500 km | 902 | 843 | +59 |
+
+**Bis 300 Kilometer sind beide gleich** — 429 gegen 432 Stationen. Dort reicht der Gewinn so oder so, und
+die breitere Keule spart Drehen. Der Unterschied entsteht jenseits von 500 Kilometern: dort holt der
+12JXX2-Stack 390 Stationen, der Quad 297. Der Grund steht in der Reichweitenregel: 6 dBi bis 300 km, danach
+3 dB je weitere 100 km. Damit reicht der 12JXX2-Stack mit voller Leistung bis 693 Kilometer, der Quad bis
+583 — und mit halber Leistung nur noch bis 483, also nicht einmal über den Nahbereich hinaus.
+
+Zwei Einschränkungen, die ehrlich dazugehören. Erstens: **Mit einem Rotor, der frei dreht, sind beide
+gleichwertig** (1 636 Stationen) — die Breite ersetzt nur das Drehen, und drehen kann der Rotor ohnehin.
+Zweitens hängt das Ergebnis an der Regel: Wäre sie milder angesetzt — 3 dB je 150 statt je 100 Kilometer —,
+läge der Quad mit 1 636 gegen 1 579 vorn. Die Regel ist eine Annahme, keine Messung.
+
+Für den Betrieb hier bleibt es trotzdem beim zweiten 12JXX2-Stack: Es wird mit festen Stellungen gearbeitet,
+nicht mit dauernd drehendem Rotor, und bei geteilter Leistung fällt der Quad-Stack hinter die 500-Kilometer-
+Marke zurück.
+
 ## Masten und Abspannung
 
 

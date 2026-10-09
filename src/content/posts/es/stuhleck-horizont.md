@@ -105,6 +105,40 @@ El [plano de situación en PDF, revisión 5](/karten/stuhleck-lageplan-antennena
 **Añadido, 29 de septiembre: también dos Yagis en el mástil 1.** En lugar del stack de cuadros, un segundo stack de 12JXX2 va en el rotor del mástil 1, a 6,4 y 9,7 metros, como en el Feuerkogel. El lóbulo se estrecha, 34 en vez de 69 grados, con 3,3 decibelios más. Las tres posiciones, calculadas con la misma regla y fuera del sector prohibido: **18°** Breslavia, Brno, Viena, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopie; **216°** Liubliana, Rijeka, Trieste, Venecia, Bolonia. Repartida entre los dos stacks son **948 estaciones en vez de 894**, Alemania 316 como antes, y 330 000 en vez de 270 000 kilómetros — la ganancia llega más lejos. Conmutado son 1308 en vez de 1331: a corta distancia el cuadro ancho consigue más, 1006 frente a 869 hasta 500 kilómetros; las Yagis consiguen a cambio la distancia. La hoja de arriba y la escena 3D ya muestran los dos stacks de Yagis; el texto de arriba describe todavía el plan con los cuadros.
 
 
+
+
+Queda la pregunta que plantea el cambio: **¿no habría rendido más la pila de cuads en el mástil 1?** Con 69
+grados es el doble de ancha que la pila de 12JXX2 con 34 — una posición del rotor cubre el doble de cielo. A
+cambio tiene 3,3 decibelios menos de ganancia.
+
+![Lámina «Ganancia frente a anchura»: barras de estaciones alcanzables por banda de distancia para ambas configuraciones del mástil 1, con las cifras para tres y seis posiciones del rotor, para rotor girando libremente y para potencia repartida](../../../assets/karten/stuhleck-quadfrage.png)
+
+Calculado con todo lo demás igual — el mástil 2 sigue siendo la pila de 12JXX2 hacia Alemania, el mástil 3
+las Tonna fijas, con el sector prohibido vigente — queda así:
+
+| | 2 × 12JXX2 | pila de cuads | diferencia |
+|---|---:|---:|---:|
+| conmutada, tres posiciones | 1 372 | 1 296 | +76 |
+| conmutada, seis posiciones | 1 582 | 1 348 | +234 |
+| conmutada, rotor girando libre | 1 636 | 1 636 | 0 |
+| repartida, 500 W cada una | 1 052 | 906 | +146 |
+| de ellas hasta 500 km | 902 | 843 | +59 |
+
+**Hasta 300 kilómetros ambas son iguales** — 429 frente a 432 estaciones. Allí la ganancia basta en cualquier
+caso y el haz más ancho ahorra giros. La diferencia aparece más allá de 500 kilómetros: allí la pila de
+12JXX2 consigue 390 estaciones y la de cuads 297. La razón está en la regla de alcance: 6 dBi hasta 300 km y
+después 3 dB por cada 100 km más. Con eso la pila de 12JXX2 llega a 693 kilómetros a plena potencia y la de
+cuads a 583 — y a media potencia solo a 483, ni siquiera más allá del ámbito cercano.
+
+Dos reservas honestas. Primera: **con un rotor que gira libremente ambas son equivalentes** (1 636
+estaciones) — la anchura solo sustituye al giro, y girar el rotor puede de todos modos. Segunda, el
+resultado depende de la regla: si se fija más suave — 3 dB por 150 en vez de por 100 kilómetros — la pila de
+cuads va por delante, 1 636 frente a 1 579. La regla es una suposición, no una medición.
+
+Para la forma de operar aquí sigue ganando la segunda pila de 12JXX2: se trabaja con posiciones fijas, no
+con un rotor girando sin parar, y con la potencia repartida la pila de cuads se queda por detrás de la marca
+de los 500 kilómetros.
+
 ## Mástiles y vientos
 
 
