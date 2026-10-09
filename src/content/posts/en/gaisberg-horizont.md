@@ -13,7 +13,9 @@ The Gaisberg is the most convenient mountain around. A road runs all the way to 
 
 The result first: the horizon towards Germany is as clear as you could wish for. And it still comes to nothing.
 
+
 ## How
+
 
 The same method as for the sites before: SRTM terrain model, one ray per degree, 4/3 earth, 700 kilometres out, ten metres of antenna. On top of that — and on a summit plateau this is the decisive part — the **BEV surface model from the laser scan**, one metre grid, for everything within three hundred metres: buildings, transmitter towers, trees, the dome itself. Far field and near field are combined, the higher of the two wins.
 
@@ -23,7 +25,9 @@ I calculated three spots on the plateau: the **car park at the end of the road**
 
 ![Polar diagram of the radio horizon from the Gaisberg summit car park: clear from west over north to just short of north, the summit dome towards north-east and east, the Alps towards south](../../../assets/karten/gaisberg-horizont-rundum-karte.png)
 
-## The car park
+
+## All the way round
+
 
 From 273° to 359° everything is clear, −0.4 to −0.8 degrees. Munich, Stuttgart, Frankfurt, Cologne, Hanover, Hamburg — nothing in the way until the earth curves away. That is the best German sector any site with a road has to offer around here.
 
@@ -42,7 +46,26 @@ Height helps, but only slowly. What stays clear at the car park:
 
 Thirteen and a half metres of mast, only to see over a dome two hundred metres away — and Nuremberg is still +1.4 degrees above it.
 
+
+## The site
+
+![Site plan at the Gaisberg from the lidar survey with orthophoto: contour lines every two metres, the three mast positions and the beam headings](../../../assets/karten/gaisberg-lageplan.png)
+
+The terrain of the first 136 metres around the site comes from the **Austrian lidar survey** on a four-metre grid — trees, buildings and knolls included. The ground at the mast is at **1275.7 metres**.
+
+| Antenna height | Directions blocked by the near field |
+|---|---|
+| 6 m | 73° |
+| 8 m | 31° |
+| 10 m | 13° |
+| 12 m | 6° |
+| 15 m | 2° |
+
+Even with ten metres of mast the near field still blocks **13 degrees** — on top of whatever the far horizon closes off anyway.
+
+
 ## A hundred and forty metres further
+
 
 Walk north-west from the car park, to the area **at the repeater** (47.80393 N / 13.10985 E, 1,277 m), and the picture turns around: the dome is then behind you, not in the way. 1,200 stations are clear at ten metres, 1,253 at 11.8, 1,295 at 13.5 — and of the DARC list **1,325 of 1,327 are clear, at any height**. Closed instead is the sector 44° to 68°, so Poland and Czechia, which from there lie behind the dome.
 
@@ -52,7 +75,15 @@ Better still is the **summit meadow north of the transmitter** (ground 1,284 m):
 
 For the planned setup — one Yagi stack and one quad stack, each on three rotor positions, power split — that means, at the car park: **827 reachable stations, 506 of them in Germany**, with the Yagi stack on 312°, 342° and 60° and the quad stack on 88°, 282° and 284°. Counting only the German stations and only the two quads, 300° and 340° together bring 852 of 1,327 — from the summit meadow the same directions would give 1,319.
 
+
+## The map
+
+![Relief map 180 kilometres around the Gaisberg, one stroke per bearing out to the terrain that forms the horizon — green far into Bavaria, amber to the east and south](../../../assets/karten/gaisberg-horizont-zoom-karte.png)
+
+Every stroke is one degree. To the west and north-west they run out into the Bavarian lowlands, because that is where the terrain forming the horizon begins; to the east and south they stop at the site's own knoll and at the rim of the Alps.
+
 ## Out to 700 kilometres
+
 
 <figure class="zoomkarte" data-basis="/karten/horizont/gaisberg-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/gaisberg-horizont-200km.webp" width="1800" height="1200" alt="Map around the Gaisberg with national borders, between 200 and 700 kilometres radius: the lines to the west and north run far out, to the north-east they end at the summit dome, to the south at the Alps" loading="lazy" decoding="async">
@@ -95,7 +126,95 @@ For the planned setup — one Yagi stack and one quad stack, each on three rotor
 
 Both maps as PDF: [zoom 180 km](/karten/gaisberg-horizont-zoom-180km.pdf) and [overview 800 km](/karten/gaisberg-horizont-uebersicht-800km.pdf). To the south the Watzmann (31 km, 208°, +2.6°), the Großglockner (87 km, +1.4°) and the Hochalmspitze rise above the horizontal — to the north and west nothing does, out to eight hundred kilometres.
 
-## Why it still comes to nothing
+
+## The stations
+
+![Dark map 700 kilometres around Gaisberg, every contest station a dot: bright where the horizon is clear, amber behind terrain; plus the six rotator headings of the array](../../../assets/karten/gaisberg-stationen.png)
+
+Of the 2 133 stations that appear in the logs within 700 kilometres, **1 055 are above the horizon** — Germany 628 of 703. That is the ceiling: no antenna, however large, gets past it.
+
+The figure has two halves. **Genuinely clear** — horizon more than three tenths of a degree below the horizontal — are 1 005 stations, 610 of them in Germany. The other 50 are **marginal**: between −0.3° and zero, in the grazing shadow of an edge. Something works there, but at a loss of three to eight decibels depending on the day. Both numbers are given, because only both together describe the site. Of the 127 degrees that are clear, 15 marginal degrees come on top.
+
+
+## The antennas
+
+![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Gaisberg, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/gaisberg-anlage.png)
+
+The same array is computed everywhere as the one on the Stuhleck, with **three masts**:
+
+- **Mast 2**, 7 metres, rotator: two 12JXX2 stacked at 3.9 and 6.7 m — the stack that looks at Germany.
+- **Mast 1**, 10 metres, rotator: two 12JXX2 stacked at 6.9 and 9.7 m, 34° wide, 17.8 dBi.
+- **Mast 3**, 7 metres, no rotator: two stacked 9-element Tonnas at 3.9 and 6.7 m, 44° wide, 14.3 dBi — fixed on one heading.
+
+The headings are not guessed but searched: for Gaisberg they come out at **312° / 342° / 290°** for the DL stack, **60° / 46° / 78°** for the rotator stack and **0°** for the fixed Tonnas.
+
+Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 036 stations** (Germany 620, by the DARC list 1 199). Split across the two rotator stacks, 500 watts each, it is 821; spread over all three systems at once only 664 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 0 stations that would otherwise be missing.
+
+
+## In three dimensions
+
+<figure class="szene">
+  <iframe src="/standort-3d.html?ort=gaisberg&v=1" title="Gaisberg in 3D: lidar terrain with orthophoto, the two masts and the beam headings" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, wheel to zoom. The sliders turn the two stacks, the buttons jump to the computed headings. <a href="/standort-3d.html?ort=gaisberg">Open full screen</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+The same view for every site: the terrain comes from the Austrian lidar survey, the orthophoto lies on top, and the two masts stand on it at their computed heights. The labels around the rim are cities — bright means above the horizon, grey means behind it.
+
+
+## The comparison
+
+![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
+
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
+
+The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
+
+| Site | reached | Germany | DARC list | ≤ 500 km | Access |
+|---|---:|---:|---:|---:|---|
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
+| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
+| **Gaisberg** · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
+| Loser · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
+
+Gaisberg therefore comes **6 of 8**.
+
+Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
+
+
+## The data
+
+| | |
+|---|---|
+| Site | Gaisberg — Gipfelparkplatz am Straßenende |
+| Coordinates | 47,80336 N / 13,11151 O · 1 272 m · JN67NT |
+| Access | road all the way up |
+| Horizon clear | 266°–0°, 40°–81° |
+| Degrees clear / marginal / blocked | 127° / 15° / 218° |
+| Stations ≤ 700 km | 1 005 clear, 50 marginal, of 2 133 |
+| Germany (IARU) | 610 clear, 18 marginal, of 703 |
+| Germany (DARC list) | 1 217 below the horizontal of 1 327 |
+| Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
+| Headings | DL-Stack 312° / 342° / 290° · Rotor-Stack 60° / 46° / 78° · Tonna fest 0° |
+| switched · 1 000 W | 1 036 · ≤ 500 km 618 · DL 620 · DARC 1 199 |
+| split · 500 W each | 821 · ≤ 500 km 615 · DL 492 |
+| all three at once · 333 W each | 664 · ≤ 500 km 612 · DL 380 |
+| without the Tonna mast | 1 036 instead of 1 036 |
+| Σ kilometres | 452 888 km |
+| strict count | only directions below −0.3°: 788 · ≤ 500 km 578 · DL 483 |
+
+
+## What it means
+
 
 The Gaisberg is not an empty mountain. A transmitter park has stood on the summit for decades, and you do not simply drive into the middle of it with a contest station:
 
@@ -106,30 +225,9 @@ The Gaisberg is not an empty mountain. A transmitter park has stood on the summi
 
 That is the real answer to the question “Gaisberg?”: not the geography, but the neighbourhood.
 
-## Five sites side by side
 
-Because the question keeps coming up, here are the five calculated sites with **the same setup** that is planned for the Stuhleck: a stack of two 12-element Yagis (17.8 dBi, 34° beamwidth) and a stack of two quad arrays (14.5 dBi, 69°), each on three rotor positions, and the power on both at once — that is **half per stack**. Reachable here does not only mean “horizon clear”, but also: enough gain for the distance — 6 dBi out to 300 kilometres, then 3 dB per further hundred, referred to full power on one antenna. The SRTM horizon and the contest logs are the same for all five. The bracket at the Stuhleck shows what is left once the **no-go sector towards the cable car** is respected (237°–248° and the same turned by 180°, each with half the antenna's beamwidth as a safety margin). Near field and station size are left out — the figures compare with each other, but not with those in the [Stuhleck article](/en/blog/stuhleck-horizont/), which calculates more finely.
+## Caveat
 
-![Comparison of five sites with the same setup: horizontal bars of reachable stations by country for Stuhleck 1,068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1,015 and Traisner Hütte 1,015, next to each a sector rose with the clear directions and the home position of the Yagi stack; at the Stuhleck a red line with the figures under the no-go sector](../../../assets/karten/standorte-vergleich.png)
+A calculation, not a measurement. The SRTM grid is thirty metres, the lidar four; the far field knows neither trees nor buildings, only terrain. Propagation assumes a standard atmosphere — a tropo evening computes differently, and in the marginal directions it decides more than any tenth of a degree in this table. The station count is a model calculation with antenna patterns from manufacturer data, not a prediction of contacts.
 
-| Site | reachable ≤ 700 km | Germany | ≤ 500 km | Yagi stack | Quad stack | Access |
-|---|---|---|---|---|---|---|
-| **Stuhleck** · 1,779 m | **1,068** (1,032) | 141 (145) | **946 (925)** | 306° · 34° · 230° | 22° · 66° · 156° | drive to the top |
-| **Grünberg** · 989 m | 1,015 | 473 | 861 | 346° · 292° · 42° | 18° · 62° · 290° | cable car, inn |
-| **Traisner Hütte** · 1,304 m | 1,015 | 305 | 902 | 322° · 20° · 74° | 10° · 114° · 276° | on foot only |
-| **Feuerkogelhaus** · 1,591 m | 945 | 407 | 772 | 346° · 308° · 40° | 8° · 70° · 88° | cable car, inn |
-| **Gaisberg, car park** · 1,272 m | 827 | **506** | 652 | 312° · 342° · 60° | 88° · 282° · 284° | drive to the top |
-
-Five sites, five characters — and the power shifts the picture once more. Half power per stack is three decibels less than all of it on one antenna; the long contacts drop out first, the close range stays.
-
-The **Stuhleck** reaches the most overall and in the close range as well: 946 stations inside 500 kilometres. It sits in the densest corner of Europe, with Hungary, Croatia, Slovenia, Slovakia and Czechia within reach. The no-go sector towards the cable car costs little — 1,032 instead of 1,068, so 36 contacts — because it points south-west, where the Alps stand anyway; with the permitted positions (Yagi 306°/34°/218°, quad 106°/156°/354°) four more German stations are left than without it. Towards Germany, though, there are only 141: from there it is 400 to 700 kilometres to the German contest sites, and half power on one stack rarely covers that.
-
-The **Gaisberg** is its exact opposite: the weakest overall, but **the strongest towards Germany** with 506 stations — its clear western sector is precisely the one that counts there, with Munich 145 kilometres away instead of 500.
-
-The other three sit in between. The **Grünberg** is the most balanced: 473 German stations, 388 of them in the close range, more than anyone else, and that from 989 metres. The **Traisner Hütte** lives off the east — Poland, Czechia, Slovakia — and is the second weakest towards Germany. The **Feuerkogelhaus** is mid-field in everything and the only site with a roof, a cable car and a kitchen.
-
-What stands out is how little the altitude decides: the lowest of the five, the Grünberg at 989 metres, comes second for Germany; the highest, the Feuerkogelhaus at 1,591, is mid-field everywhere. What counts is where the horizon is open and how far away the stations are, not how far up you drove.
-
-What the figures do not contain is the near field and the station size. At the Gaisberg, of the 1,112 stations with a clear far horizon only **803** are really clear once the laser scan is included — its own dome costs a quarter. And on top comes what cannot be calculated: the repeater 139 metres away, the transmitter at 210 and OE2M on the same plateau.
-
-The Feuerkogel stays.
+The rest gets measured — up there, with an antenna.

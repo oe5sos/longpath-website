@@ -13,9 +13,16 @@ The **Traisner Hütte** stands on the Hinteralm, a kilometre south of the Mucken
 
 There is no public road up. Wikipedia names the chairlift to the Muckenkogel and then 45 minutes on foot, or two and a half hours from Lilienfeld. OpenStreetMap knows only forest roads: gravel to within sixty metres of the hut, one stretch by the lift explicitly closed. Whether a car may go up is not a question for the terrain model.
 
-The method as for the [Feuerkogel](/en/blog/feuerkogel-horizont/#how), the [Grünberg](/en/blog/gruenberg-horizont/), the [Loser](/en/blog/loser-horizont/) and the [Hochkar](/en/blog/hochkar-horizont/): SRTM terrain model, one ray per degree, ten-metre antenna, 4/3 earth, names from Wikipedia. Plus a 400-metre grid around the hut.
+## How
+
+The method is the same for every site in this series: **SRTM terrain model**, one ray per degree out to 500 kilometres, ten metres of antenna height, earth curvature with the 4/3 radius, obstacle names from Wikipedia. It is set out in full in the [Feuerkogel article](/en/blog/feuerkogel-horizont/#how). Added to it: the **Austrian lidar survey** for the first 140 metres around the site, and the contest logs laid over the result.
+
+Three classes: **clear** means more than three tenths of a degree below the horizontal, **marginal** between −0.3° and zero, **blocked** means terrain above the horizontal.
+
+Plus a 400-metre grid around the hut.
 
 ## All the way round
+
 
 ![Polar diagram of the radio horizon from the Traisner Hütte: green from west over north to east, to the south a red rim that nowhere exceeds one and a half degrees](../../../assets/karten/traisnerhuette-horizont-rundum-karte.png)
 
@@ -44,17 +51,40 @@ The picture is unlike the four sites before it: nothing all the way round rises 
 
 The grid around the hut confirms what the knoll suggests: the hut itself is the highest point, every one of the 289 grid points within 400 metres lies level with it or lower. In the whole sector from 270° over north to 30° **not a single bearing is closed** from the hut — zero of 41.
 
+
+## The site
+
+![Site plan at the Traisner Hütte from the lidar survey with orthophoto: contour lines every two metres, the three mast positions and the beam headings](../../../assets/karten/traisnerhuette-lageplan.png)
+
+The terrain of the first 136 metres around the site comes from the **Austrian lidar survey** on a four-metre grid — trees, buildings and knolls included. The ground at the mast is at **1312.9 metres**.
+
+| Antenna height | Directions blocked by the near field |
+|---|---|
+| 6 m | 82° |
+| 8 m | 25° |
+| 10 m | none |
+| 12 m | none |
+| 15 m | none |
+
+With ten metres of mast the site is **free of its own near field in all 360 directions**. Whatever is blocked from here is blocked by distant terrain, not by the site.
+
+
+## Top station and Muckenkogel
+
+
+Whoever takes the lift and does not walk on to the hut loses less than you might think. The **top station of the Muckenkogel chairlift**, 1,114 metres, 1.4 kilometres to the north: Munich −0.49°, Nuremberg −0.50°, Cologne −0.47°, Erfurt −0.34°, Berlin −0.61°, Stuttgart −0.75°, one of 41 bearings in the Germany sector closed. The **Muckenkogel summit**, 1,248 metres: Munich −0.71°, Nuremberg −0.57°, Cologne −0.53°, Berlin −0.67°, all clear. The whole ridge works; the hut is its best point.
+
+
 ## The map
+
 
 ![Relief map 180 kilometres around the Traisner Hütte, for every bearing a ray out to the terrain that forms the horizon — green from west over north to east far into Upper Austria, Bohemia, Moravia and Slovakia, red to the south as far as Schneeberg, Rax, Hochschwab and Ötscher](../../../assets/karten/traisnerhuette-horizont-zoom-karte.png)
 
 Two details at the western edge. At 264° the **Höllengebirge** forms the horizon, 145 to 148 kilometres out, −0.3° — and on exactly that bearing, 142 kilometres away, stands the [Feuerkogelhaus](/en/blog/feuerkogel-horizont/): seen from the Traisner Hütte it sits right on the line of sight, −0.37°. And at 241° the [Hochkar](/en/blog/hochkar-horizont/) rises above the horizontal, 60 kilometres, +0.23°: you can see the summit, not the car park.
 
-## Top station and Muckenkogel
-
-Whoever takes the lift and does not walk on to the hut loses less than you might think. The **top station of the Muckenkogel chairlift**, 1,114 metres, 1.4 kilometres to the north: Munich −0.49°, Nuremberg −0.50°, Cologne −0.47°, Erfurt −0.34°, Berlin −0.61°, Stuttgart −0.75°, one of 41 bearings in the Germany sector closed. The **Muckenkogel summit**, 1,248 metres: Munich −0.71°, Nuremberg −0.57°, Cologne −0.53°, Berlin −0.67°, all clear. The whole ridge works; the hut is its best point.
 
 ## Out to 700 kilometres
+
 
 <figure class="zoomkarte" data-basis="/karten/horizont/traisnerhuette-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/traisnerhuette-horizont-200km.webp" width="1800" height="1200" alt="Map around the Traisner Hütte with national borders, between 200 and 700 kilometres radius: a wide green fan from west over north to east, amber only to the south as far as the Limestone Alps" loading="lazy" decoding="async">
@@ -97,7 +127,95 @@ Whoever takes the lift and does not walk on to the hut loses less than you might
 
 Of the 78 ranges on the [overview out to 800 kilometres](/karten/traisnerhuette-horizont-uebersicht-800km.pdf) four rise above the horizontal, all in the south: Schneeberg +1.53°, Ötscher +0.91°, Hochschwab +0.87°, Hochwechsel +0.26°. To the north the Bohemian-Moravian Highlands form the horizon (Javořice, 131 km, −0.65°), to the north-east even the Altvater — the Praděd at 262 kilometres, −0.85°. Everything else lies below: Giant Mountains −0.98°, High Tatras −0.99°, Ore Mountains −1.15°, Harz −1.89°, Eifel −2.34°. Both maps as PDF: [zoom 180 km](/karten/traisnerhuette-horizont-zoom-180km.pdf) and [overview 800 km](/karten/traisnerhuette-horizont-uebersicht-800km.pdf).
 
+
+## The stations
+
+![Dark map 700 kilometres around Traisner Hütte, every contest station a dot: bright where the horizon is clear, amber behind terrain; plus the six rotator headings of the array](../../../assets/karten/traisnerhuette-stationen.png)
+
+Of the 2 045 stations that appear in the logs within 700 kilometres, **1 482 are above the horizon** — Germany 569 of 569. That is the ceiling: no antenna, however large, gets past it.
+
+The figure has two halves. **Genuinely clear** — horizon more than three tenths of a degree below the horizontal — are 1 460 stations, 569 of them in Germany. The other 22 are **marginal**: between −0.3° and zero, in the grazing shadow of an edge. Something works there, but at a loss of three to eight decibels depending on the day. Both numbers are given, because only both together describe the site. Of the 217 degrees that are clear, 14 marginal degrees come on top.
+
+
+## The antennas
+
+![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Traisner Hütte, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/traisnerhuette-anlage.png)
+
+The same array is computed everywhere as the one on the Stuhleck, with **three masts**:
+
+- **Mast 2**, 7 metres, rotator: two 12JXX2 stacked at 3.9 and 6.7 m — the stack that looks at Germany.
+- **Mast 1**, 10 metres, rotator: two 12JXX2 stacked at 6.9 and 9.7 m, 34° wide, 17.8 dBi.
+- **Mast 3**, 7 metres, no rotator: two stacked 9-element Tonnas at 3.9 and 6.7 m, 44° wide, 14.3 dBi — fixed on one heading.
+
+The headings are not guessed but searched: for Traisner Hütte they come out at **298° / 336° / 280°** for the DL stack, **34° / 74° / 122°** for the rotator stack and **4°** for the fixed Tonnas.
+
+Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 378 stations** (Germany 543, by the DARC list 988). Split across the two rotator stacks, 500 watts each, it is 1 022; spread over all three systems at once only 923 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 15 stations that would otherwise be missing.
+
+
+## In three dimensions
+
+<figure class="szene">
+  <iframe src="/standort-3d.html?ort=traisnerhuette&v=1" title="Traisner Hütte in 3D: lidar terrain with orthophoto, the two masts and the beam headings" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, wheel to zoom. The sliders turn the two stacks, the buttons jump to the computed headings. <a href="/standort-3d.html?ort=traisnerhuette">Open full screen</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+The same view for every site: the terrain comes from the Austrian lidar survey, the orthophoto lies on top, and the two masts stand on it at their computed heights. The labels around the rim are cities — bright means above the horizon, grey means behind it.
+
+
+## The comparison
+
+![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
+
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
+
+The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
+
+| Site | reached | Germany | DARC list | ≤ 500 km | Access |
+|---|---:|---:|---:|---:|---|
+| **Traisner Hütte** · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
+| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
+| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
+| Loser · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
+
+Traisner Hütte therefore comes **1 of 8**.
+
+Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
+
+
+## The data
+
+| | |
+|---|---|
+| Site | Traisner Hütte — Hinteralm bei Lilienfeld |
+| Coordinates | 47,97192 N / 15,61055 O · 1 304 m · JN77TX |
+| Access | chairlift, then on foot |
+| Horizon clear | 258°–108°, 122°–140° |
+| Degrees clear / marginal / blocked | 217° / 14° / 129° |
+| Stations ≤ 700 km | 1 460 clear, 22 marginal, of 2 045 |
+| Germany (IARU) | 569 clear, 0 marginal, of 569 |
+| Germany (DARC list) | 1 045 below the horizontal of 1 045 |
+| Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
+| Headings | DL-Stack 298° / 336° / 280° · Rotor-Stack 34° / 74° / 122° · Tonna fest 4° |
+| switched · 1 000 W | 1 378 · ≤ 500 km 875 · DL 543 · DARC 988 |
+| split · 500 W each | 1 022 · ≤ 500 km 840 · DL 384 |
+| all three at once · 333 W each | 923 · ≤ 500 km 844 · DL 284 |
+| without the Tonna mast | 1 363 instead of 1 378 |
+| Σ kilometres | 572 997 km |
+| strict count | only directions below −0.3°: 1 026 · ≤ 500 km 827 · DL 384 |
+
+
 ## What it means
+
 
 For the first time in this series **every one of the thirty German cities** is below the horizontal: Stuttgart −0.82°, Munich −0.75°, Passau −0.73°, Berlin −0.70°, Dresden −0.70°, Hamburg −0.63°, Leipzig −0.62°, Frankfurt −0.62°, Nuremberg −0.61°, Cologne −0.59°, Rosenheim −0.56°, Hanover −0.50°, Erfurt −0.49°, Kassel −0.47°. The Feuerkogel looks deeper to the north-west — it stands 280 metres higher — but has its hole towards Munich and Stuttgart. The Grünberg is flat, the Hochkar a window, the Loser closed. The Traisner Hütte has no hole.
 
@@ -105,7 +223,9 @@ Add the east, which none of the other four had: Vienna −1.2°, Bratislava −0
 
 For a contest this is the site you wish for: towards Germany, Czechia, Poland, Slovakia and Hungary not one sector to write off. What is missing is the south — Slovenia, Croatia and the Po valley stand behind the Hochschwab and the Totes Gebirge. The price is the altitude, 1,311 metres instead of 1,591, and the way up.
 
+
 ## Caveat
+
 
 A calculation, not a measurement. The terrain model knows neither trees nor the hut itself nor the lift, it has a thirty-metre grid, and the propagation assumes a standard atmosphere. The Reisalpe at four kilometres is the only near-field obstacle; everything else is far enough away for the individual degree to hold. The Wikipedia names on the maps are the nearest entry in each case — in the south often a hut rather than the mountain.
 

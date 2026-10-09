@@ -11,13 +11,17 @@ schlagworte: ["2026", "Fischbacher Alpen", "Concurso", "Emplazamiento", "Antenas
 
 Cinco emplazamientos están calculados, y los cinco tenían la misma pregunta: hasta dónde llega Alemania. El **Stuhleck** le da la vuelta a la pregunta. Con **1782 metros** es la cumbre más alta de los Fischbacher Alpen, está en el borde oriental de los Alpes, y al este de él, hasta los Tatras, no hay nada más alto. En la cima está el **Alois-Günther-Haus**, al lado un aparcamiento de grava al que sube una carretera — el emplazamiento al que no hay que ir andando, esta vez en lo más alto. En el concurso IARU de 2025 una estación hizo desde aquí 155 contactos con cinco vatios y una Yagi de diez elementos. Ese fue el motivo para calcularlo.
 
+
 ## Cómo
+
 
 El método es el mismo que en los [cinco emplazamientos anteriores](/es/blog/feuerkogel-horizont/#cómo): modelo del terreno SRTM, un rayo por grado, antena a diez metros, tierra 4/3, hasta 500 kilómetros, los nombres de los obstáculos de la Wikipedia; más el segundo paso de la [entrada del Feuerkogel](/es/blog/feuerkogel-stationen/), los 3215 logs de concurso de los concursos IARU de 2024 y 2025 recalculados para este emplazamiento. Lo nuevo es el tercer paso: para los últimos cien metros — el refugio, el aparcamiento, la cruz de la cumbre — el modelo de superficie por escaneo láser de la Oficina Federal austríaca de Metrología y Topografía, malla de un metro, medio metro de precisión. El modelo del terreno no conoce ningún tejado; el escaneo láser los conoce todos.
 
 El punto de referencia es el aparcamiento junto al refugio, 47,57444 N / 15,79055 E, locator JN77VN. El escaneo láser da 1779 metros para el aparcamiento y 1786 para la cumbrera del refugio.
 
-## El horizonte
+
+## Alrededor
+
 
 ![Diagrama polar del horizonte radioeléctrico desde el Stuhleck: verde sin interrupción desde 11° por el este y el sur hasta 226° y por debajo de −0,3°, ámbar hacia el oeste, picos rojos cortos hasta +0,8° al noroeste y al norte](../../../assets/karten/stuhleck-horizont-rundum-karte.png)
 
@@ -37,44 +41,32 @@ El punto de referencia es el aparcamiento junto al refugio, 47,57444 N / 15,7905
 
 La otra mitad no está cerrada, solo no está libre. Cuatro montañas están al noroeste y al norte apenas por encima de la horizontal: el Hochschwab con +0,4°, la Veitsch con +0,2°, la Schneealpe con +0,2° y la Rax con +0,8° — y el Schneeberg con +0,6° al norte. Detrás quedan Salzburgo (+0,25°), Stuttgart (+0,1°), Budweis, Praga y Dresde (+0,4° cada una), Leipzig (+0,5°), Berlín (+0,2°), Poznań (+0,1°). Son pérdidas por difracción de tres a ocho decibelios, no un muro — en el Feuerkogel el Traunstein con +0,27° era el mismo caso. En medio queda la única ventana alemana: **291° a 305°**, entre la Veitsch y la Schneealpe, Núremberg −0,46°, Ratisbona −0,54°, Wurzburgo −0,53°, Passau −0,49°. Múnich queda a 283° y −0,20°, libre por poco.
 
+
+## El sitio
+
+![Plano del emplazamiento en Stuhleck a partir del escaneo láser con ortofoto: curvas de nivel cada dos metros, las tres posiciones de mástil y las direcciones de radiación](../../../assets/karten/stuhleck-lageplan.png)
+
+El terreno de los primeros 136 metros alrededor del sitio procede del **escaneo láser del BEV** con retícula de cuatro metros — árboles, edificios y lomas incluidos. El suelo en el mástil está a **1777,9 metros**.
+
+| Altura de antena | Direcciones que bloquea el campo cercano |
+|---|---|
+| 6 m | 65° |
+| 8 m | 56° |
+| 10 m | ninguna |
+| 12 m | ninguna |
+| 15 m | ninguna |
+
+Con diez metros de mástil el sitio está **libre de su propio campo cercano en las 360 direcciones**. Lo que queda cerrado desde aquí lo cierra el terreno lejano, no el sitio.
+
+
 ## Dentro de 500 kilómetros
+
 
 Quien quiera saber qué funciona en VHF sin restricciones tiene aquí una lista corta. Libre, por debajo de −0,3°: todo de **11° a 117°** — Breslavia, Brno, Ostrava, Cracovia, Žilina, Bratislava, Košice, Győr, Budapest, Debrecen, Szeged, es decir Moravia, el sur de Polonia, Eslovaquia, Hungría y el oeste de Ucrania; todo de **119° a 226°** — Timișoara, Novi Sad, Belgrado, Pécs, Sarajevo, Split, Zagreb, Rijeka, Ancona, Graz, Liubliana, Bolonia; la ventana **291° a 305°** hacia Franconia; y **352° a 1°** hacia Szczecin. Justo, entre −0,3° y 0°: la llanura del Po de 227° a 242° (Trieste, Klagenfurt, Venecia, Verona), Múnich, Linz, Erfurt, Pilsen. No libre, pero por debajo de +0,8°: Salzburgo, Stuttgart, Budweis, Praga, Dresde, Leipzig, Berlín, Poznań. Por encima de +0,8° no hay nada. De los 1274 logs dentro de 500 kilómetros, 1035 tienen el horizonte bajo la horizontal, 215 quedan entre 0° y +0,5°, 24 entre +0,5° y +0,8°, ni uno solo por encima.
 
-## Las estaciones
-
-![Mapa oscuro de 700 kilómetros alrededor del Stuhleck, cada estación de concurso un punto, casi todos claros; en ámbar solo un abanico hacia el noroeste y el norte detrás de Rax, Schneeberg, Hochschwab y Veitsch; dos cuñas para los mejores sectores fijos a 19° y 216°](../../../assets/karten/stuhleck-stationen.png)
-
-Dentro de 700 kilómetros hay 2127 estaciones de concurso con log. **El Stuhleck alcanza 1741 de ellas con horizonte libre** — más que cualquier emplazamiento anterior, y de 18 países en vez de diez: SP 347, DL 343, I 340, OK 152, 9A 151, OM 87, S5 64, OE 53, UR 46, YO 41, HA 38, YU 30. Las 386 restantes quedan en la sombra de difracción de las cuatro montañas, DL 196, OK 87, SP 56 — todas por debajo de +0,8°. Ningún emplazamiento de la serie tiene tantas estaciones, y ninguno un reparto tan uniforme: el Feuerkogel tenía dos bloques, Alemania y Polonia; el Stuhleck los tiene en todo el contorno.
-
-Eso tiene un precio, y se llama Alemania. 343 logs alemanes libres, 196 detrás de la Rax — el Feuerkogelhaus tiene 622, la Traisner Hütte 596. Quien quiera sumar kilómetros alemanes en el concurso está mejor allí. Quien quiera Italia, Croacia, Serbia, Eslovaquia y Ucrania está en el sitio correcto, y los kilómetros no son más cortos: la suma de las distancias de todas las estaciones alcanzables es de 754 000 en el Stuhleck y de 627 000 en el Feuerkogelhaus.
-
-## Las antenas
-
-![Mapa oscuro de 700 kilómetros alrededor del Stuhleck con las estaciones como puntos: dos cuñas anchas para los cuadros fijos a 20° y 216°, tres cuñas estrechas discontinuas para la Yagi a 312°, 72° y 280°, una punteada a 150°; al lado las cifras de cada posición](../../../assets/karten/stuhleck-antennenplan.png)
-
-El plan del Feuerkogel — dos cuadros fijos hacia Alemania, la Yagi para el resto — aquí no encaja. Dos cuadros mirando ambos a Alemania darían 360 estaciones. Los dos bloques más grandes quedan exactamente enfrentados: Moravia y el sur de Polonia a 20°, la llanura del Po a 216°. **Cuadro 1 a 20°**, abajo a ocho metros: Brno, Ostrava, Cracovia, Viena, Žilina, 546 estaciones. **Cuadro 2 a 216°**, arriba a 11,8 metros: Liubliana, Trieste, Venecia, Bolonia, Rijeka, Graz, 434 estaciones — Italia recibe el puesto de arriba porque la llanura del Po, a −0,1° hasta −0,3°, necesita cada metro de altura y el este, a −1,0°, ninguno. Juntos 980, el 56 por ciento.
-
-En el mástil 2 van dos Yagis de 12 elementos una sobre otra, a 6,4 y 9,7 metros, montadas por el centro del boom y girando juntas sobre el tubo del rotor — aquí no hay ningún tejado que estorbe a la de abajo. El stack tiene tres posiciones. **312°** es la que no se puede omitir: la ventana alemana, Núremberg, Ratisbona, Passau, Linz, Erfurt, 225 estaciones a 509 kilómetros de media — y desde ahí veinte grados más allá, hacia 335° a 345° a través de la Rax, donde esperan Praga, Dresde y Berlín con cuatro a ocho decibelios. **72°** es el hueco entre los cuadros: Bratislava, Košice, Leópolis, 132 estaciones, entre ellas 46 logs ucranianos. **280°** trae Múnich, Innsbruck y Suiza, 136. Quien prefiera coleccionar países antes que Baviera toma **150°** en vez de 280°: Sarajevo, Split, el norte de Bosnia, 95. Con las tres posiciones son 1473 de las 1741 estaciones alcanzables, el 85 por ciento, 663 000 kilómetros en suma — más de lo que tiene el Feuerkogelhaus en total.
-
-El escaneo láser decide dónde van los mástiles. La cumbre es una loma plana; aparcamiento, cruz y refugio quedan dentro de cinco metros de desnivel; el refugio está al sureste del aparcamiento, la cumbrera siete metros por encima. Desde el centro del aparcamiento una antena a diez metros paga hasta ocho decibelios entre 121° y 175° — el norte de Croacia, Bosnia. Treinta metros más al oeste, sobre la loma entre el aparcamiento y la cruz, el refugio ha pasado a 100° y ya no hace nada: los dos cuadros están libres en sus sectores, también el de abajo a ocho metros, y el stack solo pierde entre 96° y 119° — Budapest, Szeged — cuatro decibelios arriba y siete abajo, una dirección que ninguna de sus tres posiciones necesita. Ahí van los mástiles, a doce metros uno de otro, el mástil 1 a doce metros de la cruz y 42 del refugio, el mástil 2 a diecinueve y 51. El coche se queda en el aparcamiento. El Stuhleck es el primer emplazamiento de la serie en el que ningún tejado importa. Hasta aquí el primer plan; cómo queda la instalación hoy —tres mástiles, los tendidos de coaxial calculados y el coche— lo muestra el plano de situación más abajo.
-
-## En tres dimensiones
-
-<figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=20" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con tres mástiles — dos pares de 12JXX2 apiladas en rotor y dos Tonna de 9 elementos fijas a 24° — el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Arrastrar gira, la rueda acerca. Arriba a la izquierda se cambia entre el emplazamiento A (hoy), C (propuesta) y el prado sur — mástiles, sector prohibido y cifras se mueven con él. Los botones fijan las direcciones fijas — stack DL 302° / 18° / 86°, stack del rotor 18° / 158° / 216° —, los deslizadores cualquier otra; debajo, por stack, las estaciones, países y ciudades en el haz principal y un aviso si una dirección cae en el sector prohibido. «Drehen» hace girar la vista lentamente, «Stopp» la detiene; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
-</figure>
-
-<style>
-.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
-@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
-.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
-</style>
-
-La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena muestra la instalación tal como queda planeada al final — dos stacks en dos rotores, el stack de Yagis en reposo hacia Alemania, más el sector rojo; cómo se llegó a eso está en las dos secciones siguientes.
 
 ## Dos sitios, una prohibición
+
 
 Tras la primera hoja llegó una segunda marca: no la loma, sino el prado al sur del refugio, a 34 metros de su esquina sur y 153 de la estación superior — el **emplazamiento B**. Y una condición que antes no estaba en el cálculo: **hacia el telesilla no se transmite**, ni tampoco girado 180 grados, porque el lóbulo trasero de una Yagi no debe apuntar al remonte. Así que se calcularon los dos de nuevo, con el mismo escaneo láser y la misma regla.
 
@@ -92,7 +84,9 @@ Al calcular surgió una segunda pregunta: Alemania es el país con más estacion
 
 El [plano de situación con los dos emplazamientos](/karten/stuhleck-lageplan-standorte-a-b.pdf) tiene las distancias al refugio, a la estación superior y a las pilonas para el mástil 1, el mástil 2 y el punto del prado.
 
+
 ## La elección
+
 
 La consigna era clara: todo contacto lejano vale más que uno cercano, pero la mayoría de los QSO están en Alemania, y allí hay muchas estaciones pequeñas — poder alcanzarlas importa más que el último kilómetro. Así que un cálculo más, con una regla de recuento que lo refleje: una estación cuenta si una antena la tiene por encima del horizonte lejano, con menos de tres decibelios de pérdida en el campo cercano y con la ganancia necesaria en el haz — seis dBi hasta 300 kilómetros, desde ahí tres decibelios por cada cien kilómetros. Las estaciones pequeñas, menos de cincuenta QSO en su mejor concurso, necesitan cuatro decibelios más; las grandes, tres menos. Para Alemania se sumaron a los logs de la IARU las listas de concursos del DARC: 1070 estaciones hasta 750 kilómetros, 567 de ellas pequeñas. Luego 42 combinaciones: dos cuadros o dos Yagis fijas, un stack fijo, cuadro y Yagi mezclados — contra un stack de Yagis, un stack de cuadros o una antena sola en el rotor, también la Yagi de 14 elementos de ANJO como candidata.
 
@@ -110,7 +104,9 @@ El [plano de situación en PDF, revisión 5](/karten/stuhleck-lageplan-antennena
 
 **Añadido, 29 de septiembre: también dos Yagis en el mástil 1.** En lugar del stack de cuadros, un segundo stack de 12JXX2 va en el rotor del mástil 1, a 6,4 y 9,7 metros, como en el Feuerkogel. El lóbulo se estrecha, 34 en vez de 69 grados, con 3,3 decibelios más. Las tres posiciones, calculadas con la misma regla y fuera del sector prohibido: **18°** Breslavia, Brno, Viena, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopie; **216°** Liubliana, Rijeka, Trieste, Venecia, Bolonia. Repartida entre los dos stacks son **948 estaciones en vez de 894**, Alemania 316 como antes, y 330 000 en vez de 270 000 kilómetros — la ganancia llega más lejos. Conmutado son 1308 en vez de 1331: a corta distancia el cuadro ancho consigue más, 1006 frente a 869 hasta 500 kilómetros; las Yagis consiguen a cambio la distancia. La hoja de arriba y la escena 3D ya muestran los dos stacks de Yagis; el texto de arriba describe todavía el plan con los cuadros.
 
+
 ## Mástiles y vientos
+
 
 ![Plano de situación de la cumbre del Stuhleck a partir del escaneo láser: aparcamiento, cruz de la cumbre y tres mástiles al oeste — el mástil 1 con el anillo que muestra grado a grado la pérdida de la Yagi inferior y sus tres posiciones de rotor a trazos en 18°, 158° y 216°, el mástil 2 con la cuña verde hacia 302° y el mástil 3 con la azul hacia 24°; desde el coche en el borde oeste del aparcamiento tres tendidos de coaxial punteados llegan a los mástiles, rotulados con 40, 35 y 50 metros](../../../assets/karten/stuhleck-lageplan.png)
 
@@ -125,33 +121,9 @@ El **mástil 3** lleva dos Tonna de 9 elementos fijas en **24°** — Breslavia,
 
 Los mástiles 1 y 2 están a 11,7 metros, el mástil 3 a unos 21 metros del mástil 1. Ningún viento se acerca a menos de 0,4 metros de una Yagi en ninguna posición de los dos rotores, y los vientos de los mástiles quedan a más de seis metros entre sí. Los vientos son de cuerda sintética para no perturbar el diagrama. El coche con los equipos está en el borde oeste del aparcamiento; por el suelo, subiendo el mástil y con bucle y reserva son 40 metros de coaxial desde el mástil 1, 35 desde el mástil 2 y 50 desde el mástil 3, con Ecoflex 15 entre 1,0 y 1,5 dB.
 
-## Los datos
-
-| | |
-|---|---|
-| Emplazamiento | aparcamiento de la cumbre junto al Alois-Günther-Haus, municipio de Spital am Semmering, JN77VN |
-| Mástil 1 | 47,574278 N / 15,790072 E · 10 m · 2 × 12JXX2 apiladas a 6,9 y 9,7 m, rotor · 18° / 158° / 216° (hasta el 28/09: 2 × cuadro, 20° / 108° / 200°) |
-| Mástil 2 | 47,574368 N / 15,789992 E · 7 m · 2 × 12JXX2 apiladas a 3,9 y 6,7 m, rotor · 302° (reposo) / 330° / 266° |
-| Mástil 3 | unos 21 m al oeste del mástil 1 · 7 m · 2 × Tonna de 9 elementos apiladas a 3,9 y 6,7 m, fijas a 24°, sin rotor, un solo nivel de vientos |
-| Suelo | 1780 m (escaneo láser), cruz de la cumbre 1782 m, cumbrera del refugio 1786,9 m |
-| Distancias | refugio 42 / 51 m · cruz 12 / 19 m · estación superior del Steinbachalmbahn 120 / 121 m · coche 45 m |
-| Emplazamiento B | 47,573805 N / 15,790728 E · prado al sur del refugio, suelo 1778 m · refugio 34 m · estación superior 153 m · cruz 72 m |
-| Prohibición hacia el telesilla | desde el mástil del rotor 220°–265° y 40°–85° (estación superior y línea ± 17°, hacia delante y girado 180°); desde el emplazamiento B 244°–288° y 64°–108° |
-| Horizonte | libre 11°–226°, 291°–305°, 352°–1°; justo 227°–273°, 281°–284°, 306°–327°; sobre la horizontal 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, como máximo +0,8° |
-| Estaciones ≤ 700 km | 1741 libres de 2127, 386 en la sombra de difracción, 18 países, Σ 754 000 km |
-| Primer plan | cuadros fijos 20° / 216°, stack de Yagis 312° / 72° / 280°: 1473 de 1741 en el haz principal (85 %), Σ 663 000 km; con prohibición 20° / 294° y 138° / 172° / 212°: 1342 |
-| Instalación | stack de Yagis 302° / 330° / 266°, stack de cuadros 20° / 108° / 200°, transmitiendo por un sistema a la vez: 994 estaciones hasta 500 km, 1351 hasta 750 km (regla de recuento con alcance y tamaño); Alemania 419 de 1070, 130 de ellas pequeñas — stack de Yagis fijo 968 / 1205 y 349 / 107, primer plan 872 / 987 y 159 / 49 |
-| Transmitir por todas a la vez | dos sistemas a media potencia, posiciones reoptimizadas: Yagi 302° / 18° / 86°, cuadros 20° / 136° / 200° → 854 / 950, Alemania 226 / 64 · divisor 2:1 para el stack de Yagis: 830 / 1010, Alemania 262 / 80 · tres sistemas a un tercio con cuadros en dos direcciones: 520 / 520 — por eso nada de espalda con espalda |
-
-El [plano de situación en PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) lo tiene todo en una hoja, vista general y detalle, con coordenadas, alturas de mástil, distancias y fuentes — tal como se puede presentar.
-
-## La comparación
-
-![Diagrama de barras de las estaciones de concurso alcanzables para seis emplazamientos, apiladas por Alemania, Chequia y Polonia, Italia, Croacia-Eslovenia-Serbia y otros: Stuhleck 1741, Traisner Hütte 1573, pradera de la cumbre del Gaisberg 1513, aparcamiento del Gaisberg 803, Feuerkogelhaus 1388, cumbre del Loser 853](../../../assets/karten/stuhleck-vergleich.png)
-
-Seis emplazamientos, una cifra. El Stuhleck va delante, pero las barras también dicen con qué: su parte alemana es la más pequeña de la serie, la italiana y la del sureste de Europa las más grandes. La Traisner Hütte y el Feuerkogelhaus son los emplazamientos para Alemania; el Stuhleck es el emplazamiento para Europa. Lo que uno quiere hay que saberlo antes.
 
 ## Stuhleck y Feuerkogel
+
 
 ![Hoja comparativa «Dos sitios, dos direcciones»: para el Feuerkogelhaus y el Stuhleck una barra cada uno con las estaciones visibles por país — Feuerkogel 1388 con una gran parte alemana, polaca y checa, Stuhleck 1741 con Italia, Croacia y Eslovenia además —, al lado Alemania libre, las cifras de la instalación prevista, conmutada y repartida, y la suma de kilómetros](../../../assets/karten/feuerkogel-stuhleck-vergleich.png)
 
@@ -171,7 +143,9 @@ La instalación del Feuerkogel también está calculada ya, [dos veces dos Yagis
 
 El Stuhleck tiene más estaciones, más países y la mejor corta distancia. Con su instalación, el Feuerkogel llega a casi el doble de estaciones alemanas, porque allí ninguna montaña se interpone ante el norte de Alemania. Repartida entre los dos apilamientos, el Stuhleck va ligeramente delante, 948 frente a 895. Las dos instalaciones son ahora dos veces dos 12JXX2. Quien reúne estaciones alemanas va al Feuerkogel; quien reúne países y kilómetros en el sur y el este, al Stuhleck.
 
+
 ## La elección
+
 
 Al final, en un concurso cuentan los kilómetros. Así que una vez más los dos sitios con la misma instalación, dos veces dos 12JXX2, los dos stacks transmitiendo a la vez, uno fijo hacia Alemania (Feuerkogel 328°, Stuhleck 302°). Se cuenta la suma de kilómetros de todas las estaciones alcanzadas hasta 700 km, una vez con el stack del rotor en sus tres mejores posiciones y otra girándolo libremente, como se gira en un concurso según el cluster y los skeds. Para el Stuhleck también la variante sin sector prohibido, por si la empresa del teleférico permite transmitir hacia el telesilla.
 
@@ -184,11 +158,15 @@ Al final, en un concurso cuentan los kilómetros. Así que una vez más los dos 
 
 El Feuerkogel solo gana mientras el rotor se quede en pocas posiciones; entonces Alemania lo lleva todo. Cuando se gira, el Stuhleck va delante, entre un 5 y un 10 por ciento con el sector prohibido y algo más de un 20 por ciento sin él, y la diferencia crece con la potencia, porque desde el Stuhleck se ven libres muchas más estaciones. Además está el montaje: una loma abierta con el coche al lado, frente a mástiles apretados junto a la casa entre el camino, la rampa y el precipicio. Y el Plöckenstein, donde opera OE5BGN, está a 107 kilómetros del Feuerkogel justo en la dirección de Praga y Berlín, y a 195 kilómetros del Stuhleck detrás del Rax. La elección es el Stuhleck.
 
-## Los mapas
+
+## El mapa
+
 
 ![Mapa de relieve de 180 kilómetros alrededor del Stuhleck, para cada rumbo un trazo hasta el terreno que forma el horizonte — trazos verdes largos hacia el este y el sur hasta el borde del mapa, rojos cortos hacia el noroeste hasta Rax, Schneealpe, Veitsch y Hochschwab](../../../assets/karten/stuhleck-horizont-zoom-karte.png)
 
 En el zoom se ve lo desiguales que son los trazos: hacia el este y el sur salen del mapa, hacia el noroeste terminan a quince o cincuenta kilómetros en la Rax, la Schneealpe, la Veitsch, el Hochschwab.
+
+## Hasta 700 kilómetros
 
 <figure class="zoomkarte" data-basis="/karten/horizont/stuhleck-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/stuhleck-horizont-200km.webp" width="1800" height="1200" alt="Mapa alrededor del Stuhleck con fronteras nacionales, entre 200 y 700 kilómetros de radio: los trazos hacia el este y el sur llegan al horizonte a trescientos kilómetros, el arco del borde es verde de 11° a 226°" loading="lazy" decoding="async">
@@ -231,7 +209,101 @@ En el zoom se ve lo desiguales que son los trazos: hacia el este y el sur salen 
 
 Los dos mapas en PDF: [zoom 180 km](/karten/stuhleck-horizont-zoom-180km.pdf) con los nombres de las montañas y [vista general 800 km](/karten/stuhleck-horizont-uebersicht-800km.pdf) con la lista numerada — de los macizos del contorno solo el Schneeberg y el Hochschwab asoman por encima de la horizontal, todos los demás forman el horizonte desde abajo.
 
+## Las estaciones
+
+![Mapa oscuro de 700 kilómetros alrededor de Stuhleck, cada estación de concurso un punto: claro donde el horizonte está libre, ámbar detrás del terreno; además las seis posiciones del rotor](../../../assets/karten/stuhleck-stationen.png)
+
+De las 2 003 estaciones que aparecen en los registros hasta 700 kilómetros, **1 647 están por encima del horizonte** — Alemania 326 de 513. Ese es el techo: ninguna antena, por grande que sea, lo supera.
+
+La cifra tiene dos mitades. **Realmente libres** — el horizonte más de tres décimas de grado por debajo de la horizontal — son 1 256 estaciones, 146 de ellas en Alemania. Las otras 391 quedan **justas**: entre −0,3° y cero, en la sombra rasante de un borde. Algo se hace, pero con pérdida de tres a ocho decibelios según el día. Se dan ambas cifras porque solo juntas describen el emplazamiento. A los 248 grados libres se suman 64 grados justos.
+
+
+## Las antenas
+
+![Lámina «La instalación de antenas»: diagrama polar de las estaciones hasta 500 kilómetros alrededor de Stuhleck, apiladas por país cada diez grados, con las tres posiciones de la pila DL y las tres de la pila del rotor](../../../assets/karten/stuhleck-anlage.png)
+
+En todos los emplazamientos se calcula la misma instalación que en el Stuhleck, con **tres mástiles**:
+
+- **Mástil 2**, 7 metros, rotor: dos 12JXX2 apiladas a 3,9 y 6,7 m — la pila que mira a Alemania.
+- **Mástil 1**, 10 metros, rotor: dos 12JXX2 apiladas a 6,9 y 9,7 m, 34° de ancho, 17,8 dBi.
+- **Mástil 3**, 7 metros, sin rotor: dos Tonna de 9 elementos apiladas a 3,9 y 6,7 m, 44° de ancho, 14,3 dBi — fijas en una dirección.
+
+Las posiciones no están supuestas, sino buscadas: para Stuhleck salen **300° / 340° / 290°** en la pila DL, **32° / 218° / 158°** en la pila del rotor y **90°** para las Tonna fijas.
+
+La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja, la instalación alcanza **1 298 estaciones** (Alemania 307, según la lista DARC 569). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 935; repartida entre los tres sistemas a la vez, solo 804 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 75 estaciones que de otro modo faltarían.
+
+
+## En tres dimensiones
+
+
+<figure class="szene">
+  <iframe src="/stuhleck-3d.html?v=20" title="Cumbre del Stuhleck en 3D: ortofoto sobre el terreno del escaneo láser con tres mástiles — dos pares de 12JXX2 apiladas en rotor y dos Tonna de 9 elementos fijas a 24° — el coche, la estación superior del Steinbachalmbahn y el sector prohibido hacia el telesilla" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Arrastrar gira, la rueda acerca. Arriba a la izquierda se cambia entre el emplazamiento A (hoy), C (propuesta) y el prado sur — mástiles, sector prohibido y cifras se mueven con él. Los botones fijan las direcciones fijas — stack DL 302° / 18° / 86°, stack del rotor 18° / 158° / 216° —, los deslizadores cualquier otra; debajo, por stack, las estaciones, países y ciudades en el haz principal y un aviso si una dirección cae en el sector prohibido. «Drehen» hace girar la vista lentamente, «Stopp» la detiene; «Bergstation» gira hacia el telesilla. <a href="/stuhleck-3d.html">Abrir a pantalla completa</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un píxel son veinte centímetros, los mástiles, los cuadros y el stack están a escala. Lo que muestra la escena no es la vista — esa sale del modelo del terreno —, sino lo que hay en los primeros ciento cincuenta metros: el refugio, el aparcamiento, la cruz, la loma — y a 120 metros al suroeste la estación superior del Steinbachalmbahn, una nave con techo de dieciocho por siete metros sobre pilares, ocho metros de alto, con los dos ramales del cable que bajan al valle por dos pilonas. Vista desde las antenas, su cubierta queda entre cinco y ocho grados por debajo de la horizontal; no estorba en ningún sector, y el botón «Bergstation» lo muestra desde los mástiles. Nada de eso estorba. La escena muestra la instalación tal como queda planeada al final — dos stacks en dos rotores, el stack de Yagis en reposo hacia Alemania, más el sector rojo; cómo se llegó a eso está en las dos secciones siguientes.
+
+
+## La comparación
+
+![Diagrama de barras de todos los emplazamientos de la serie con la misma instalación: una barra por emplazamiento con las estaciones alcanzables, apiladas por país](../../../assets/karten/standorte-vergleich-serie.png)
+
+Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja.
+
+El recuento se hace sobre los **registros IARU 2024/2025 y el Marconi 2025**: registran todos los países por igual. La lista DARC cubre solo Alemania — va en columna aparte, si no, cualquier emplazamiento que mire al oeste gana solo por los datos.
+
+| Emplazamiento | alcanzadas | Alemania | lista DARC | ≤ 500 km | Acceso |
+|---|---:|---:|---:|---:|---|
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | telesilla y luego a pie |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | teleférico, posada |
+| **Stuhleck** · 1 770 m | 1 298 | 307 | 569 | 921 | coche hasta arriba |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | teleférico, posada |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | coche hasta arriba |
+| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | coche hasta arriba |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | coche hasta arriba |
+| Loser · 1 585 m | 0 | 0 | 0 | 0 | coche hasta arriba |
+
+Stuhleck ocupa así el **puesto 3 de 8**.
+
+Quien conozca los artículos anteriores de la serie encontrará allí otras cifras: se calcularon con la primera configuración — una pila Yagi y una pila de cuads con 69° de anchura de haz. Desde que la elección recayó en dos pilas estrechas de 12JXX2, el orden cambia: más ganancia y menos anchura favorece a los sitios cuyas estaciones se concentran en una dirección y perjudica a los que están abiertos en todo el horizonte. Las Tonna fijas del mástil 3 recuperan parte de esa anchura.
+
+
+## Los datos
+
+| | |
+|---|---|
+| Emplazamiento | Stuhleck — Gipfelparkplatz beim Alois-Günther-Haus |
+| Coordenadas | 47,57444 N / 15,79055 O · 1 770 m · JN77VN |
+| Acceso | carretera hasta arriba |
+| Horizonte libre | 345°–1°, 9°–251°, 264°–273°, 289°–310° … |
+| Grados libres / justos / cerrados | 248° / 64° / 48° |
+| Estaciones ≤ 700 km | 1 256 libres, 391 justas, de 2 003 |
+| Alemania (IARU) | 146 libres, 180 justas, de 513 |
+| Alemania (lista DARC) | 605 por debajo de la horizontal de 943 |
+| Instalación | tres mástiles · mástil 1 10 m (2 × 12JXX2 a 6,9/9,7 m, rotor) · mástil 2 7 m (2 × 12JXX2 a 3,9/6,7 m, rotor) · mástil 3 7 m (2 × Tonna 9 el a 3,9/6,7 m, fijo) |
+| Posiciones | DL-Stack 300° / 340° / 290° · Rotor-Stack 32° / 218° / 158° · Tonna fest 90° |
+| conmutada · 1 000 W | 1 298 · ≤ 500 km 921 · DL 307 · DARC 569 |
+| repartida · 500 W cada una | 935 · ≤ 500 km 792 · DL 181 |
+| las tres a la vez · 333 W | 804 · ≤ 500 km 768 · DL 131 |
+| sin el mástil de las Tonna | 1 223 en vez de 1 298 |
+| Σ kilómetros | 511 695 km |
+| recuento estricto | solo direcciones por debajo de −0,3°: 737 · ≤ 500 km 611 · DL 71 |
+
+
+## Qué significa
+
+El Stuhleck es el emplazamiento de la serie con el horizonte más amplio: 248 de 360 grados están más de tres décimas de grado por debajo de la horizontal, dieciocho países quedan libres y se llega en coche. Lo que falta es Alemania: Rax, Schneeberg, Schneealpe y Hochschwab se interponen entre 274° y 344° con hasta +0,8°, y detrás está la masa de estaciones alemanas.
+
+Para un concurso eso significa: el Stuhleck gana por la suma — Italia, Croacia, Eslovenia, Hungría, Eslovaquia, Polonia, Chequia — y pierde frente a [Grünberg](/es/blog/gruenberg-horizont/), [Gaisberg](/es/blog/gaisberg-horizont/) y [Feuerkogel](/es/blog/feuerkogel-horizont/) en cuanto solo cuenta Alemania. Con la instalación de tres mástiles y 1 000 vatios en el sistema con el que se trabaja alcanza 1 298 estaciones, 921 de ellas dentro de 500 kilómetros.
+
 ## Reserva
+
 
 El modelo del terreno tiene una malla de treinta metros; para la cumbre misma está el escaneo láser a un metro, para el resto la atmósfera estándar. Las cifras de estaciones son logs, no estaciones, y tienen dos años. Si se puede subir en coche hasta el refugio no lo dice ningún mapa; la carretera es una pista forestal y el refugio pertenece al Club Alpino. Y el Steinbachalmbahn termina 120 metros al suroeste de la cruz de la cumbre — si funciona en septiembre es una pregunta para la empresa del remonte, no para el modelo del terreno.
 

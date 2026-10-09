@@ -13,7 +13,9 @@ Der Gaisberg ist der bequemste Berg der Gegend. Eine Straße führt bis ganz hin
 
 Das Ergebnis vorweg: Der Horizont nach Deutschland ist so frei, wie man es sich wünscht. Und trotzdem wird es nichts.
 
+
 ## Wie
+
 
 Dieselbe Methode wie bei den Standorten davor: SRTM-Geländemodell, ein Strahl je Grad, 4/3-Erde, 700 Kilometer weit, zehn Meter Antenne. Dazu — und das ist auf einem Gipfelplateau der entscheidende Teil — das **Oberflächenmodell des BEV aus dem Laserscan**, ein Meter Raster, für alles im Umkreis von dreihundert Metern: Gebäude, Sendetürme, Bäume, die Kuppe selbst. Fernfeld und Nahfeld werden zusammengelegt, das höhere von beiden gewinnt.
 
@@ -23,7 +25,9 @@ Gerechnet habe ich drei Plätze auf dem Plateau: den **Parkplatz am Straßenende
 
 ![Polardiagramm des Radiohorizonts vom Gaisberg-Gipfelparkplatz: von West über Nord bis kurz vor Nord frei, nach Nordosten und Osten die Gipfelkuppe, nach Süden die Alpen](../../assets/karten/gaisberg-horizont-rundum-karte.png)
 
-## Der Parkplatz
+
+## Rundum
+
 
 Von 273° bis 359° ist alles frei, −0,4 bis −0,8 Grad. München, Stuttgart, Frankfurt, Köln, Hannover, Hamburg — nichts im Weg bis zur Erdkrümmung. Das ist der beste Deutschland-Sektor, den ein Platz mit Straße in dieser Gegend zu bieten hat.
 
@@ -42,7 +46,26 @@ Höhe hilft, aber nur langsam. Was am Parkplatz frei bleibt:
 
 Dreizehneinhalb Meter Mast, nur um über eine Kuppe zu schauen, die zweihundert Meter weg ist — und Nürnberg liegt immer noch +1,4 Grad darüber.
 
+
+## Der Platz
+
+![Lageplan des Platzes am Gaisberg aus dem Laserscan mit Orthofoto: Höhenlinien alle zwei Meter, die drei Mastplätze und die Strahlrichtungen](../../assets/karten/gaisberg-lageplan.png)
+
+Das Gelände der ersten 136 Meter rund um den Platz kommt aus dem **Laserscan des BEV** mit vier Meter Raster — Bäume, Gebäude und Kuppen inbegriffen. Der Boden am Mast liegt bei **1275,7 Metern**.
+
+| Antennenhöhe | Richtungen, die das Nahfeld sperrt |
+|---|---|
+| 6 m | 73° |
+| 8 m | 31° |
+| 10 m | 13° |
+| 12 m | 6° |
+| 15 m | 2° |
+
+Auch mit zehn Metern Mast sperrt das Nahfeld noch **13 Grad** — das ist zusätzlich zu dem, was der Fernhorizont ohnehin zumacht.
+
+
 ## Hundertvierzig Meter weiter
+
 
 Geht man vom Parkplatz nach Nordwesten, zur Fläche **beim Relais** (47,80393 N / 13,10985 O, 1 277 m), dreht sich das Bild: Die Kuppe steht dann im Rücken, nicht im Weg. Frei sind 1 200 Stationen bei zehn Metern, 1 253 bei 11,8, 1 295 bei 13,5 — und von der DARC-Liste sind **1 325 von 1 327 frei, in jeder Höhe**. Zu ist dafür der Sektor 44° bis 68°, also Polen und Tschechien, die von dort hinter der Kuppe liegen.
 
@@ -52,7 +75,15 @@ Noch besser ist die **Gipfelwiese nördlich vom Sender** (Boden 1 284 m): **1 51
 
 Für die geplante Anlage — ein Yagi-Stack und ein Quad-Stack, jeder auf drei Rotorstellungen, die Leistung geteilt — heißt das am Parkplatz: **827 erreichbare Stationen, 506 davon in Deutschland**, mit dem Yagi-Stack auf 312°, 342° und 60° und dem Quad-Stack auf 88°, 282° und 284°. Rechnet man nur die deutschen Stationen und nur die beiden Quads, bringen 300° und 340° zusammen 852 von 1 327 — von der Gipfelwiese aus wären es mit denselben Richtungen 1 319.
 
+
+## Die Karte
+
+![Reliefkarte 180 Kilometer um den Gaisberg, für jede Peilung ein Strich bis zu dem Gelände, das den Horizont bildet — grün weit nach Bayern hinein, bernstein nach Osten und Süden](../../assets/karten/gaisberg-horizont-zoom-karte.png)
+
+Jeder Strich ist ein Grad. Nach Westen und Nordwesten laufen sie bis ins bayerische Flachland, weil dort erst das Gelände kommt, das den Horizont bildet; nach Osten und Süden enden sie an der eigenen Kuppe und am Alpenrand.
+
 ## Bis 700 Kilometer
+
 
 <figure class="zoomkarte" data-basis="/karten/horizont/gaisberg-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/gaisberg-horizont-200km.webp" width="1800" height="1200" alt="Karte um den Gaisberg mit Staatsgrenzen, zwischen 200 und 700 Kilometer Radius: die Striche nach Westen und Norden laufen weit hinaus, nach Nordosten enden sie an der Gipfelkuppe, nach Süden an den Alpen" loading="lazy" decoding="async">
@@ -95,7 +126,95 @@ Für die geplante Anlage — ein Yagi-Stack und ein Quad-Stack, jeder auf drei R
 
 Beide Karten als PDF: [Zoom 180 km](/karten/gaisberg-horizont-zoom-180km.pdf) und [Übersicht 800 km](/karten/gaisberg-horizont-uebersicht-800km.pdf). Nach Süden ragen der Watzmann (31 km, 208°, +2,6°), der Großglockner (87 km, +1,4°) und die Hochalmspitze über die Waagrechte — nach Norden und Westen bis achthundert Kilometer nichts.
 
-## Warum es trotzdem nichts wird
+
+## Die Stationen
+
+![Dunkle Karte 700 Kilometer um Gaisberg, jede Contest-Station ein Punkt: hell, wo der Horizont frei ist, bernstein dahinter; dazu die sechs Rotorstellungen der Anlage](../../assets/karten/gaisberg-stationen.png)
+
+Von den 2 133 Stationen, die in den Logs bis 700 Kilometer auftauchen, stehen **1 055 über dem Horizont** — Deutschland 628 von 703. Das ist die Obergrenze: mehr kann keine Antenne herausholen, egal wie groß sie ist.
+
+Die Zahl hat aber zwei Hälften. **Wirklich frei** — der Horizont liegt mehr als drei Zehntelgrad unter der Waagrechten — sind 1 005 Stationen, davon 610 in Deutschland. Die übrigen 50 liegen **knapp**: zwischen −0,3° und null, also im Streifschatten einer Kante. Dort geht etwas, aber mit Verlust — drei bis acht Dezibel, je nach Tag. Der Beitrag nennt beide Zahlen, weil nur beide zusammen den Platz beschreiben. Von den 127 Grad, die frei sind, kommen 15 Grad knappe dazu.
+
+
+## Die Anlage
+
+![Blatt „Die Antennenanlage“: Polardiagramm der Stationen bis 500 Kilometer um Gaisberg, je zehn Grad als Balken nach Land gestapelt, dazu die drei Stellungen des DL-Stacks und die drei des Rotor-Stacks](../../assets/karten/gaisberg-anlage.png)
+
+Gerechnet ist überall dieselbe Anlage wie am Stuhleck, mit **drei Masten**:
+
+- **Mast 2**, 7 Meter, Rotor: zwei 12JXX2 gestockt auf 3,9 und 6,7 m — der Stack, der nach Deutschland schaut.
+- **Mast 1**, 10 Meter, Rotor: zwei 12JXX2 gestockt auf 6,9 und 9,7 m, 34° breit, 17,8 dBi.
+- **Mast 3**, 7 Meter, ohne Rotor: zwei gestockte 9-Element-Tonna auf 3,9 und 6,7 m, 44° breit, 14,3 dBi — fest auf eine Richtung.
+
+Die Stellungen sind nicht geraten, sondern gesucht: Für Gaisberg fallen sie auf **312° / 342° / 290°** am DL-Stack, **60° / 46° / 78°** am Rotor-Stack und **0°** für die festen Tonnas.
+
+Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, kommt die Anlage auf **1 036 Stationen** (Deutschland 620, nach der DARC-Liste 1 199). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 821; auf alle drei Systeme zugleich verteilt nur noch 664 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 0 Stationen bei, die ohne ihn fehlen würden.
+
+
+## In drei Dimensionen
+
+<figure class="szene">
+  <iframe src="/standort-3d.html?ort=gaisberg&v=1" title="Gaisberg in 3D: Laserscan-Gelände mit Orthofoto, die beiden Masten und die Strahlrichtungen" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt. Die Regler drehen die beiden Stacks, die Knöpfe springen auf die gerechneten Stellungen. <a href="/standort-3d.html?ort=gaisberg">Im Vollbild öffnen</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+Derselbe Blick für jeden Standort: das Gelände kommt aus dem Laserscan des BEV, darüber liegt das Orthofoto, die beiden Masten stehen mit ihren gerechneten Höhen darauf. Die Schilder am Rand sind Städte — hell heißt über dem Horizont, grau dahinter.
+
+
+## Der Vergleich
+
+![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
+
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+
+Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
+
+| Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
+|---|---:|---:|---:|---:|---|
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
+| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
+| **Gaisberg** · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
+| Loser · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
+
+Gaisberg steht damit auf **Platz 6 von 8**.
+
+Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wurden mit der ersten Bestückung gerechnet — ein Yagi-Stack und ein Vierfachquad-Stack mit 69° Keulenbreite. Seit die Wahl auf zwei schmale 12JXX2-Stacks gefallen ist, verschiebt sich die Reihenfolge: Mehr Gewinn, weniger Breite bevorzugt die Standorte, deren Stationen in einer Richtung gebündelt liegen, und kostet die, die rundum offen sind. Die festen Tonnas auf Mast 3 holen einen Teil dieser Breite zurück.
+
+
+## Die Daten
+
+| | |
+|---|---|
+| Standort | Gaisberg — Gipfelparkplatz am Straßenende |
+| Koordinaten | 47,80336 N / 13,11151 O · 1 272 m · JN67NT |
+| Zugang | Straße bis zum Platz |
+| Horizont frei | 266°–0°, 40°–81° |
+| Grad frei / knapp / zu | 127° / 15° / 218° |
+| Stationen ≤ 700 km | 1 005 frei, 50 knapp, von 2 133 |
+| Deutschland (IARU) | 610 frei, 18 knapp, von 703 |
+| Deutschland (DARC-Liste) | 1 217 unter der Waagrechten von 1 327 |
+| Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
+| Stellungen | DL-Stack 312° / 342° / 290° · Rotor-Stack 60° / 46° / 78° · Tonna fest 0° |
+| umgeschaltet · 1 000 W | 1 036 · ≤ 500 km 618 · DL 620 · DARC 1 199 |
+| geteilt · je 500 W | 821 · ≤ 500 km 615 · DL 492 |
+| alle drei zugleich · je 333 W | 664 · ≤ 500 km 612 · DL 380 |
+| ohne den Tonna-Mast | 1 036 statt 1 036 |
+| Σ Kilometer | 452 888 km |
+| mit strengem Maß | nur Richtungen unter −0,3°: 788 · ≤ 500 km 578 · DL 483 |
+
+
+## Was das heißt
+
 
 Der Gaisberg ist kein leerer Berg. Auf dem Gipfel steht seit Jahrzehnten ein Senderpark, und in dessen Mitte fährt man mit einer Contestanlage nicht einfach hinein:
 
@@ -106,30 +225,9 @@ Der Gaisberg ist kein leerer Berg. Auf dem Gipfel steht seit Jahrzehnten ein Sen
 
 Das ist die eigentliche Antwort auf die Frage „Gaisberg?": nicht die Geografie, sondern die Nachbarschaft.
 
-## Fünf Standorte nebeneinander
 
-Weil die Frage immer wieder auftaucht, hier die fünf gerechneten Plätze mit **derselben Anlage**, die auch am Stuhleck geplant ist: ein Stack aus zwei 12-Element-Yagis (17,8 dBi, 34° Öffnung) und ein Stack aus zwei Vierfachquads (14,5 dBi, 69°), jeder auf drei Rotorstellungen, und die Leistung auf beide zugleich — also **die Hälfte je Stack**. Erreichbar heißt hier nicht nur „Horizont frei", sondern auch: genug Gewinn für die Entfernung — 6 dBi bis 300 Kilometer, danach 3 dB je weitere hundert, bezogen auf volle Leistung an einer Antenne. Der SRTM-Horizont und die Contestlogs sind für alle fünf dieselben. In Klammern steht beim Stuhleck, was übrig bleibt, wenn der **Tabu-Sektor Richtung Seilbahn** (237°–248° und 180° gedreht, jeweils mit der halben Öffnung der Antenne als Sicherheitsabstand) eingehalten wird. Nahfeld und Stationsgröße bleiben außen vor — die Zahlen sind untereinander vergleichbar, aber nicht mit denen aus dem [Stuhleck-Beitrag](/blog/stuhleck-horizont/), der feiner rechnet.
+## Vorbehalt
 
-![Vergleich von fünf Standorten mit derselben Anlage: waagrechte Balken der erreichbaren Stationen nach Ländern für Stuhleck 1 068, Gaisberg 827, Feuerkogelhaus 945, Grünberg 1 015 und Traisner Hütte 1 015, daneben je eine Sektorrose mit den freien Richtungen und der Grundstellung des Yagi-Stacks; beim Stuhleck eine rote Zeile mit den Zahlen unter dem Tabu-Sektor](../../assets/karten/standorte-vergleich.png)
+Rechnung, keine Messung. Das SRTM-Raster hat dreißig Meter, der Laserscan vier; das Fernfeld kennt weder Bäume noch Gebäude, nur das Gelände. Die Ausbreitung nimmt die Standardatmosphäre an — ein Tropo-Abend rechnet anders, und gerade bei den knappen Richtungen entscheidet er mehr als jedes Zehntelgrad in dieser Tabelle. Die Zählung der Stationen ist eine Modellrechnung mit Antennendiagrammen aus Herstellerdaten, keine Vorhersage von Verbindungen.
 
-| Standort | erreichbar ≤ 700 km | Deutschland | ≤ 500 km | Yagi-Stack | Quad-Stack | Zugang |
-|---|---|---|---|---|---|---|
-| **Stuhleck** · 1 779 m | **1 068** (1 032) | 141 (145) | **946 (925)** | 306° · 34° · 230° | 22° · 66° · 156° | Auto bis oben |
-| **Grünberg** · 989 m | 1 015 | 473 | 861 | 346° · 292° · 42° | 18° · 62° · 290° | Seilbahn, Gasthaus |
-| **Traisner Hütte** · 1 304 m | 1 015 | 305 | 902 | 322° · 20° · 74° | 10° · 114° · 276° | nur zu Fuß |
-| **Feuerkogelhaus** · 1 591 m | 945 | 407 | 772 | 346° · 308° · 40° | 8° · 70° · 88° | Seilbahn, Gasthaus |
-| **Gaisberg, Parkplatz** · 1 272 m | 827 | **506** | 652 | 312° · 342° · 60° | 88° · 282° · 284° | Auto bis oben |
-
-Fünf Plätze, fünf Charaktere — und mit der Leistung verschiebt sich das Bild noch einmal. Die halbe Leistung je Stack sind drei Dezibel weniger als die ganze auf einer Antenne; die weiten Verbindungen fallen als Erste heraus, der Nahbereich bleibt.
-
-Das **Stuhleck** erreicht insgesamt die meisten und im Nahbereich ebenfalls: 946 Stationen unter 500 Kilometern. Es sitzt mitten in der dichtesten Ecke Europas, mit Ungarn, Kroatien, Slowenien, der Slowakei und Tschechien in Reichweite. Der Tabu-Sektor Richtung Seilbahn kostet davon wenig — 1 032 statt 1 068, also 36 Verbindungen —, weil er nach Südwesten zeigt, wo ohnehin die Alpen stehen; mit den erlaubten Stellungen (Yagi 306°/34°/218°, Quad 106°/156°/354°) bleiben bei Deutschland sogar vier Stationen mehr übrig. Nach Deutschland sind es allerdings nur 141: Von dort sind es 400 bis 700 Kilometer bis zu den deutschen Contestplätzen, und dafür reicht die halbe Leistung an einem Stack selten.
-
-Der **Gaisberg** ist das genaue Gegenteil: insgesamt der schwächste, aber **nach Deutschland der stärkste** mit 506 Stationen — sein freier Westsektor ist genau der, der dort zählt, München liegt 145 Kilometer weg statt 500.
-
-Dazwischen liegen die drei anderen. Der **Grünberg** ist der ausgewogenste: 473 deutsche Stationen und 388 davon im Nahbereich, mehr als jeder andere, und das aus 989 Metern. Die **Traisner Hütte** lebt vom Osten — Polen, Tschechien, die Slowakei —, nach Deutschland ist sie die zweitschwächste. Das **Feuerkogelhaus** liegt in allem im Mittelfeld und ist der einzige Platz mit Dach, Bahn und Küche.
-
-Auffällig ist, wie wenig die Höhe entscheidet: Der niedrigste Platz der fünf, der Grünberg mit 989 Metern, holt bei Deutschland den zweiten Rang; der höchste, das Feuerkogelhaus mit 1 591, liegt überall im Mittelfeld. Es zählt, wohin der Horizont offen ist und wie weit die Stationen weg sind, nicht wie weit man hinaufgefahren ist.
-
-Nicht in den Zahlen stecken das Nahfeld und die Stationsgröße. Am Gaisberg sind von den 1 112 Stationen mit freiem Fernhorizont nach dem Laserscan nur **803** wirklich frei — die eigene Kuppe kostet ein Viertel. Und dazu kommt, was sich nicht rechnen lässt: das Relais 139 Meter daneben, der Sender in 210 und OE2M auf demselben Plateau.
-
-Der Feuerkogel bleibt.
+Der Rest wird gemessen — oben, mit Antenne.

@@ -13,11 +13,15 @@ Der dritte Standort nach [Feuerkogel](/blog/feuerkogel-horizont/) und [Grünberg
 
 Auf den Loser führt aber nicht nur die Straße. Die **Panoramabahn** fährt von Altaussee auf **1 604 Meter**, darüber endet der **Sessellift Loserfenster** auf **1 757 Metern** — eine Bergstation steht meist ein Stück höher und freier als der Parkplatz. Also alles gerechnet: Parkplätze, Straße, beide Bergstationen und den Gipfel.
 
+
 ## Wie
+
 
 Die Methode ist dieselbe wie bei den [fünf Standorten davor](/blog/feuerkogel-horizont/#wie): SRTM-Geländemodell, ein Strahl je Grad, zehn Meter Antenne, 4/3-Erde, 500 Kilometer weit, die Namen der Hindernisse aus der Wikipedia. Neu ist der zweite Schritt aus dem [letzten Beitrag](/blog/feuerkogel-stationen/): die 3 215 Contestlogs der IARU-Conteste 2024 und 2025 auf den Standort umgerechnet — für jede Station Peilung, Entfernung und die Frage, ob der Horizont in ihre Richtung frei ist. Diesmal nicht nur für einen Punkt, sondern für **die ganze Straße**, Stützpunkt für Stützpunkt, dazu beide Bergstationen und den Gipfel.
 
-## Der Parkplatz
+
+## Rundum
+
 
 ![Polardiagramm des Radiohorizonts vom Loser-Parkplatz: rundum rot, nach Norden und Westen bis über zwanzig Grad, nach Südosten am flachsten](../../assets/karten/loser-horizont-rundum-karte.png)
 
@@ -32,13 +36,34 @@ Vom Parkplatz Loserhütte, achtzig Meter tiefer, ist es dasselbe Bild: 360 Peilu
 | 120–⁠180° | Wölzer Tauern, Sölkpass, Hochwildstelle | 36–50 km | +0,4…⁠+1,5° |
 | 180–⁠240° | Elendberg, Koppenkarstein, Dachstein | 22–41 km | +1,0…⁠+2,5° |
 
+
+## Der Platz
+
+![Lageplan des Platzes am Loser aus dem Laserscan mit Orthofoto: Höhenlinien alle zwei Meter, die drei Mastplätze und die Strahlrichtungen](../../assets/karten/loser-lageplan.png)
+
+Das Gelände der ersten 136 Meter rund um den Platz kommt aus dem **Laserscan des BEV** mit vier Meter Raster — Bäume, Gebäude und Kuppen inbegriffen. Der Boden am Mast liegt bei **1594,7 Metern**.
+
+| Antennenhöhe | Richtungen, die das Nahfeld sperrt |
+|---|---|
+| 6 m | 196° |
+| 8 m | 178° |
+| 10 m | 164° |
+| 12 m | 152° |
+| 15 m | 145° |
+
+Auch mit zehn Metern Mast sperrt das Nahfeld noch **164 Grad** — das ist zusätzlich zu dem, was der Fernhorizont ohnehin zumacht.
+
+
 ## Die Straße
+
 
 ![Reliefkarte des Losers mit der Panoramastraße: jeder Straßenpunkt als Kreis, gefärbt nach dem Horizontwinkel Richtung Deutschland; alle gelb bis dunkelrot, keiner grün; dazu beide Parkplätze, beide Bergstationen, das Loserfenster und der Gipfel mit ihren Werten](../../assets/karten/loser-strasse-karte.png)
 
 Die Frage war, ob es irgendwo an der Straße besser geht. Also für **157 Straßenpunkte** aus OpenStreetMap je 41 Peilungen von 270° über Nord bis 30° und die Winkel zu dreißig deutschen Städten gerechnet. Die Antwort ist eindeutig: **nirgends.** Die ganze Straße liegt an der Süd- und Ostflanke des Berges, und der Berg steht immer im Norden. Die am wenigsten schlechte Stelle liegt auf 1 238 Metern in den Kehren unterhalb der Loserhütte — dort kommen Nürnberg und Köln auf +0,8° herunter, München auf +2,7°, Berlin bleibt bei +17°. Immer noch alles über der Waagrechten.
 
+
 ## Die Bergstationen
+
 
 Zwei Bahnen enden oben am Loser, beide knapp unter dem Kamm. Die Koordinaten der Bergstationen stammen aus OpenStreetMap, die Höhen aus dem Geländemodell: Panoramabahn 47,66137 N / 13,78712 O, Sessellift 47,66389 N / 13,78130 O.
 
@@ -68,7 +93,9 @@ Hundertfünfzig Meter höher, und nach Norden ändert sich nichts: der Hochanger
 
 Was sich ändert, ist der Südosten. Von 110° bis 170° liegt der Horizont nur noch **+0,1° bis +1,0°** über der Waagrechten: Graz +0,4°, Zagreb +0,4°, Ljubljana +0,6°, Wien +1,0°. Immer noch zu, aber so knapp, dass es mit Beugung geht. In Stationen: mit freiem Horizont wieder **null**; bis +0,5° dann **188** (Kroatien 73, Slowenien 29, Slowakei 24); bis +1,0° **436**, darunter 137 Kroaten, 65 Italiener, 62 Slowenen. Das wäre, wenn man will, ein Südost-Standort für den Adria-Raum — mit einigen Dezibel Handicap in jede Richtung und ohne ein einziges deutsches Log in Reichweite. Und ob der Sessellift im September fährt, muss man vorher fragen.
 
+
 ## Der Gipfel
+
 
 ![Polardiagramm des Radiohorizonts vom Loser-Gipfel: von West über Nord bis kurz vor Nord frei, nach Nordosten das Tote Gebirge, nach Süden Dachstein und Tauern](../../assets/karten/loser-gipfel-rundum-karte.png)
 
@@ -76,7 +103,9 @@ Erst ganz oben ändert sich das Bild. Vom **Loser-Gipfel**, 1 838 Meter, eine ha
 
 Das Loserfenster auf 1 781 Metern, ein paar Minuten unter dem Gipfel, wäre der Kompromiss: Nürnberg, Köln, Berlin frei, München mit +2,4° hinter dem Kamm.
 
-## Die Stationen
+
+## Die vier Plätze am Loser
+
 
 ![Balkendiagramm der erreichbaren Contest-Stationen für vier Standorte: Bergstation Panoramabahn null frei, Sessellift null frei, Loser-Gipfel 853 frei, Feuerkogelhaus 1 388 frei; daneben die Zahlen bis +0,5° und bis +1° Horizontwinkel](../../assets/karten/loser-bergstation-stationen.png)
 
@@ -84,7 +113,10 @@ Das Diagramm sagt, was die Karten sagen, nur in einer Zahl. Die zwei Bergstation
 
 Die Bergstation, die nach Deutschland schaut, steht nicht am Loser. Sie steht am Feuerkogel.
 
-## Die Karten
+
+## Die Karte
+
+## Bis 700 Kilometer
 
 <figure class="zoomkarte" data-basis="/karten/horizont/loser-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/loser-horizont-200km.webp" width="1800" height="1200" alt="Karte um den Loser-Parkplatz mit Staatsgrenzen, zwischen 200 und 700 Kilometer Radius: die Striche vom Parkplatz aus enden alle nach wenigen Kilometern, der Randbogen ist rundum bernstein" loading="lazy" decoding="async">
@@ -135,24 +167,90 @@ Auf dem Zoom sieht man, wie kurz die Striche sind: nach Norden und Westen enden 
 
 Verdeckte Richtungen sind auf mindestens sechs Prozent des Radius gezogen, damit man sie sieht — die echten Striche wären hundert Meter lang. Beide Karten als PDF: [Zoom 180 km](/karten/loser-bergstation-zoom-180km.pdf) mit den Bergnamen und [Übersicht 800 km](/karten/loser-bergstation-uebersicht-800km.pdf) mit der nummerierten Liste — 78 Gebirge und Gipfel, von denen ein einziger, der Hochgolling bei 183°, tatsächlich über die Waagrechte ragt. Alle anderen sind hinter dem Rücken neben der Station verschwunden, bevor sie überhaupt zählen.
 
+## Die Stationen
+
+![Dunkle Karte 700 Kilometer um Loser, jede Contest-Station ein Punkt: hell, wo der Horizont frei ist, bernstein dahinter; dazu die sechs Rotorstellungen der Anlage](../../assets/karten/loser-stationen.png)
+
+Von den 2 120 Stationen in den Logs steht **keine einzige über dem Horizont**. Das ist kein Rundungsfehler: in allen 360 Richtungen liegt Gelände über der Waagrechten.
+
+
+## Die Anlage
+
+![Blatt „Die Antennenanlage“: Polardiagramm der Stationen bis 500 Kilometer um Loser, je zehn Grad als Balken nach Land gestapelt, dazu die drei Stellungen des DL-Stacks und die drei des Rotor-Stacks](../../assets/karten/loser-anlage.png)
+
+Die Anlage, die am Stuhleck steht, bringt hier nichts: drei Masten, zwei Rotoren, 1 000 Watt — und keine einzige Station, weil der Horizont in jeder Richtung über der Waagrechten liegt. Die Rechnung steht trotzdem hier, damit der Vergleich ehrlich bleibt.
+
+
+## In drei Dimensionen
+
+<figure class="szene">
+  <iframe src="/standort-3d.html?ort=loser&v=1" title="Loser in 3D: Laserscan-Gelände mit Orthofoto, die beiden Masten und die Strahlrichtungen" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt. Die Regler drehen die beiden Stacks, die Knöpfe springen auf die gerechneten Stellungen. <a href="/standort-3d.html?ort=loser">Im Vollbild öffnen</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+Derselbe Blick für jeden Standort: das Gelände kommt aus dem Laserscan des BEV, darüber liegt das Orthofoto, die beiden Masten stehen mit ihren gerechneten Höhen darauf. Die Schilder am Rand sind Städte — hell heißt über dem Horizont, grau dahinter.
+
+
+## Der Vergleich
+
+![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
+
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+
+Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
+
+| Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
+|---|---:|---:|---:|---:|---|
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
+| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
+| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
+| **Loser** · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
+
+Loser steht damit auf **Platz 8 von 8**.
+
+Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wurden mit der ersten Bestückung gerechnet — ein Yagi-Stack und ein Vierfachquad-Stack mit 69° Keulenbreite. Seit die Wahl auf zwei schmale 12JXX2-Stacks gefallen ist, verschiebt sich die Reihenfolge: Mehr Gewinn, weniger Breite bevorzugt die Standorte, deren Stationen in einer Richtung gebündelt liegen, und kostet die, die rundum offen sind. Die festen Tonnas auf Mast 3 holen einen Teil dieser Breite zurück.
+
+
 ## Die Daten
 
 | | |
 |---|---|
-| Parkplatz Panoramastraße | 47,66047 N / 13,78493 O · 1 585 m · JN67VP · alle 360° zu, nach Deutschland +15…+27° |
-| Parkplatz Loserhütte | 1 506 m · alle 360° zu, nach Deutschland +15…+22° |
-| Straße | 157 Punkte gerechnet, beste Stelle 1 238 m: Nürnberg, Köln +0,8°, München +2,7° |
-| Bergstation Panoramabahn | 47,66137 N / 13,78712 O · 1 604 m · alle 360° zu, nach Deutschland +14…+19° |
-| Bergstation Sessellift Loserfenster | 47,66389 N / 13,78130 O · 1 757 m · nach Deutschland +9…+20°, Südosten +0,1…+1,0° |
-| Loser-Gipfel | 47,6633 N / 13,7780 O · 1 838 m · frei 269°–359°, −0,3…−1,0° |
-| Stationen ≤ 700 km frei | Panoramabahn 0 · Sessellift 0 · Gipfel 853, davon 696 in Deutschland · Feuerkogelhaus 1 388 |
-| bis +0,5° / +1,0° Horizont | Panoramabahn 22 / 120 · Sessellift 188 / 436, fast alle Kroatien, Slowenien, Italien |
+| Standort | Loser — Parkplatz am Ende der Panoramastraße |
+| Koordinaten | 47,66047 N / 13,78493 O · 1 585 m · JN67VP |
+| Zugang | Straße bis zum Platz |
+| Horizont frei | keine Richtung |
+| Grad frei / knapp / zu | 0° / 0° / 360° |
+| Stationen ≤ 700 km | 0 frei, 0 knapp, von 2 120 |
+| Deutschland (IARU) | 0 frei, 0 knapp, von 689 |
+| Deutschland (DARC-Liste) | 0 unter der Waagrechten von 1 287 |
+| Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
+| Stellungen | — |
+| umgeschaltet · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · DARC 0 |
+| geteilt · je 500 W | 0 · ≤ 500 km 0 · DL 0 |
+| alle drei zugleich · je 333 W | 0 · ≤ 500 km 0 · DL 0 |
+| ohne den Tonna-Mast | 0 statt 0 |
+| Σ Kilometer | 0 km |
+| mit strengem Maß | nur Richtungen unter −0,3°: 0 · ≤ 500 km 0 · DL 0 |
+
 
 ## Was das heißt
 
+
 Vom Auto aus ist der Loser kein Contest-Standort — in keine Richtung, am wenigsten nach Deutschland. Die Panoramastraße hat keine bessere Stelle, die Bahnen enden unter dem Kamm. Wer hier nach Norden funken will, trägt die Station auf den Gipfel und bekommt dafür einen Horizont, der von München bis Dresden −0,75 bis −1,0° tief liegt. Für alles andere sind [Grünberg](/blog/gruenberg-horizont/) und [Feuerkogel](/blog/feuerkogel-horizont/) die besseren Adressen.
 
+
 ## Vorbehalt
+
 
 Rechnung, keine Messung. Gerade im Nahbereich — die Kuppe hundert Meter neben dem Parkplatz — hängt das Ergebnis am Dreißig-Meter-Raster des Geländemodells; die Größenordnung stimmt, das einzelne Grad nicht. Ob am Parkplatz noch eine Ecke ist, die um die Kuppe herumschaut, sieht man vor Ort besser als in der Rechnung.
 

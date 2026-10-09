@@ -11,13 +11,17 @@ schlagworte: ["2026", "Fischbacher Alpen", "Contest", "Standort", "Antennen"]
 
 Fünf Standorte sind gerechnet, und alle fünf hatten dieselbe Frage: wie weit nach Deutschland. Das **Stuhleck** dreht die Frage um. Es ist mit **1 782 Metern** der höchste Berg der Fischbacher Alpen, steht am Ostrand der Alpen, und östlich von ihm kommt bis zur Tatra nichts mehr, das höher wäre. Auf dem Gipfel steht das **Alois-Günther-Haus**, daneben ein Schotterparkplatz, zu dem eine Straße hinaufführt — der Standort, zu dem man nicht gehen muss, diesmal ganz oben. Im IARU-Contest 2025 hat von hier eine Station mit fünf Watt und einer Zehn-Element-Yagi 155 Verbindungen gemacht. Das war der Anlass, ihn zu rechnen.
 
+
 ## Wie
+
 
 Die Methode ist dieselbe wie bei den [fünf Standorten davor](/blog/feuerkogel-horizont/#wie): SRTM-Geländemodell, ein Strahl je Grad, zehn Meter Antenne, 4/3-Erde, 500 Kilometer weit, die Namen der Hindernisse aus der Wikipedia; dazu der zweite Schritt aus dem [Feuerkogel-Beitrag](/blog/feuerkogel-stationen/), die 3 215 Contestlogs der IARU-Conteste 2024 und 2025 auf den Standort umgerechnet. Neu ist der dritte Schritt: für die letzten hundert Meter — das Haus, den Parkplatz, das Gipfelkreuz — das Laserscan-Oberflächenmodell des Bundesamts für Eich- und Vermessungswesen, ein Meter Raster, ein halber Meter genau. Das Geländemodell kennt kein Dach; der Laserscan kennt jedes.
 
 Der Standpunkt ist der Parkplatz beim Haus, 47,57444 N / 15,79055 O, Locator JN77VN. Der Laserscan sagt 1 779 Meter für den Parkplatz und 1 786 für den First des Hauses.
 
-## Der Horizont
+
+## Rundum
+
 
 ![Polardiagramm des Radiohorizonts vom Stuhleck: von 11° über Osten und Süden bis 226° durchgehend grün und unter −0,3°, nach Westen bernstein, nach Nordwesten und Norden kurze rote Zacken bis +0,8°](../../assets/karten/stuhleck-horizont-rundum-karte.png)
 
@@ -37,44 +41,32 @@ Der Standpunkt ist der Parkplatz beim Haus, 47,57444 N / 15,79055 O, Locator JN7
 
 Die andere Hälfte ist nicht zu, sie ist nur nicht frei. Vier Berge stehen im Nordwesten und Norden knapp über der Waagrechten: der Hochschwab mit +0,4°, die Veitsch mit +0,2°, die Schneealpe mit +0,2° und die Rax mit +0,8° — und der Schneeberg mit +0,6° im Norden. Dahinter liegen Salzburg (+0,25°), Stuttgart (+0,1°), Budweis, Prag und Dresden (je +0,4°), Leipzig (+0,5°), Berlin (+0,2°), Poznań (+0,1°). Das sind Beugungsverluste von drei bis acht Dezibel, keine Mauer — am Feuerkogel war der Traunstein mit +0,27° derselbe Fall. Dazwischen bleibt das eine deutsche Fenster: **291° bis 305°**, zwischen Veitsch und Schneealpe hindurch, Nürnberg −0,46°, Regensburg −0,54°, Würzburg −0,53°, Passau −0,49°. München liegt bei 283° und −0,20°, knapp frei.
 
+
+## Der Platz
+
+![Lageplan des Platzes am Stuhleck aus dem Laserscan mit Orthofoto: Höhenlinien alle zwei Meter, die drei Mastplätze und die Strahlrichtungen](../../assets/karten/stuhleck-lageplan.png)
+
+Das Gelände der ersten 136 Meter rund um den Platz kommt aus dem **Laserscan des BEV** mit vier Meter Raster — Bäume, Gebäude und Kuppen inbegriffen. Der Boden am Mast liegt bei **1777,9 Metern**.
+
+| Antennenhöhe | Richtungen, die das Nahfeld sperrt |
+|---|---|
+| 6 m | 65° |
+| 8 m | 56° |
+| 10 m | keine |
+| 12 m | keine |
+| 15 m | keine |
+
+Mit zehn Metern Mast ist der Platz **in allen 360 Richtungen frei vom eigenen Nahfeld**. Was von hier aus zu ist, macht das Gelände in der Ferne zu, nicht der Platz selbst.
+
+
 ## Innerhalb von 500 Kilometern
+
 
 Wer wissen will, was auf UKW ohne Einschränkung geht, bekommt hier eine kurze Liste. Frei, unter −0,3°: alles von **11° bis 117°** — Breslau, Brünn, Ostrava, Kraków, Žilina, Bratislava, Košice, Győr, Budapest, Debrecen, Szeged, also Mähren, Südpolen, die Slowakei, Ungarn und die Westukraine; alles von **119° bis 226°** — Timișoara, Novi Sad, Belgrad, Pécs, Sarajevo, Split, Zagreb, Rijeka, Ancona, Graz, Ljubljana, Bologna; das Fenster **291° bis 305°** nach Franken; und **352° bis 1°** nach Szczecin. Knapp, zwischen −0,3° und 0°: die Po-Ebene von 227° bis 242° (Triest, Klagenfurt, Venedig, Verona), München, Linz, Erfurt, Pilsen. Nicht frei, aber unter +0,8°: Salzburg, Stuttgart, Budweis, Prag, Dresden, Leipzig, Berlin, Poznań. Über +0,8° ist nichts. Von den 1 274 Logs innerhalb von 500 Kilometern haben 1 035 den Horizont unter der Waagrechten, 215 liegen bei 0° bis +0,5°, 24 bei +0,5° bis +0,8°, kein einziger darüber.
 
-## Die Stationen
-
-![Dunkle Karte 700 Kilometer um das Stuhleck, jede Contest-Station ein Punkt, fast alle hell; bernsteinfarben nur ein Fächer nach Nordwesten und Norden hinter Rax, Schneeberg, Hochschwab und Veitsch; zwei Keile für die besten festen Sektoren bei 19° und 216°](../../assets/karten/stuhleck-stationen.png)
-
-Innerhalb von 700 Kilometern stehen 2 127 Contest-Stationen mit Log. **1 741 davon erreicht das Stuhleck mit freiem Horizont** — mehr als jeder Standort davor, und aus 18 Ländern statt aus zehn: SP 347, DL 343, I 340, OK 152, 9A 151, OM 87, S5 64, OE 53, UR 46, YO 41, HA 38, YU 30. Die 386 übrigen liegen im Beugungsschatten der vier Berge, DL 196, OK 87, SP 56 — und zwar alle unter +0,8°. Kein Standort der Reihe hat so viele Stationen, und keiner hat eine so gleichmäßige Verteilung: Der Feuerkogel hatte zwei Blöcke, Deutschland und Polen; das Stuhleck hat rundum welche.
-
-Das hat einen Preis, und er heißt Deutschland. 343 deutsche Logs frei, 196 hinter der Rax — das Feuerkogelhaus hat 622, die Traisner Hütte 596. Wer im Contest deutsche Kilometer sammeln will, ist dort besser. Wer Italien, Kroatien, Serbien, die Slowakei und die Ukraine will, ist hier richtig, und die Kilometer sind nicht kürzer: die Summe der Entfernungen aller erreichbaren Stationen ist am Stuhleck 754 000, am Feuerkogelhaus 627 000.
-
-## Die Antennen
-
-![Dunkle Karte 700 Kilometer um das Stuhleck mit den Stationen als Punkte: zwei breite Keile für die festen Quads bei 20° und 216°, drei schmale gestrichelte Keile für die Yagi bei 312°, 72° und 280°, ein gepunkteter bei 150°; daneben die Zahlen zu jeder Stellung](../../assets/karten/stuhleck-antennenplan.png)
-
-Der Plan vom Feuerkogel — zwei feste Quads nach Deutschland, die Yagi für den Rest — passt hier nicht. Zwei Quads, die beide nach Deutschland schauen, brächten 360 Stationen. Die zwei größten Blöcke liegen genau gegenüber: Mähren und Südpolen bei 20°, die Po-Ebene bei 216°. **Quad 1 auf 20°**, unten auf acht Metern: Brünn, Ostrava, Kraków, Wien, Žilina, 546 Stationen. **Quad 2 auf 216°**, oben auf 11,8 Metern: Ljubljana, Triest, Venedig, Bologna, Rijeka, Graz, 434 Stationen — Italien bekommt den oberen Platz, weil die Po-Ebene bei −0,1° bis −0,3° jeden Meter Höhe braucht und der Osten bei −1,0° keinen. Zusammen 980, 56 Prozent.
-
-Auf Mast 2 sitzen zwei 12-Element-Yagis übereinander, auf 6,4 und 9,7 Metern, mittig am Boom und gemeinsam auf dem Drehrohr — hier gibt es kein Dach, das der unteren im Weg stünde. Der Stack hat drei Stellungen. **312°** ist die, die man nicht weglassen kann: das deutsche Fenster, Nürnberg, Regensburg, Passau, Linz, Erfurt, 225 Stationen mit 509 Kilometern im Schnitt — und von dort aus zwanzig Grad weiter nach 335° bis 345° durch die Rax, wo Prag, Dresden und Berlin mit vier bis acht Dezibel warten. **72°** ist die Lücke zwischen den Quads: Bratislava, Košice, Lwiw, 132 Stationen, darunter 46 ukrainische Logs. **280°** bringt München, Innsbruck und die Schweiz, 136. Wer lieber Länder sammelt als Bayern, nimmt statt 280° die **150°**: Sarajevo, Split, Nordbosnien, 95. Mit den drei Stellungen sind es 1 473 der 1 741 erreichbaren Stationen, 85 Prozent, 663 000 Summenkilometer — mehr, als das Feuerkogelhaus insgesamt hat.
-
-Der Laserscan entscheidet, wo die Masten stehen. Der Gipfel ist eine flache Kuppe, Parkplatz, Gipfelkreuz und Haus liegen innerhalb von fünf Höhenmetern; das Haus steht südöstlich vom Parkplatz, der First sieben Meter darüber. Von der Parkplatzmitte aus kostet es eine Antenne auf zehn Metern zwischen 121° und 175° bis zu acht Dezibel — Nordkroatien, Bosnien. Dreißig Meter weiter westlich, auf der Kuppe zwischen Parkplatz und Gipfelkreuz, ist das Haus auf 100° gerückt und tut nichts mehr: beide Quads sind in ihren Sektoren frei, auch der untere auf acht Metern, und der Stack verliert nur zwischen 96° und 119° — Budapest, Szeged — vier Dezibel oben und sieben unten, eine Richtung, die keine seiner drei Stellungen braucht. Dort stehen die Masten, zwölf Meter auseinander, Mast 1 zwölf Meter vom Gipfelkreuz und 42 vom Haus, Mast 2 neunzehn und 51. Das Auto bleibt am Parkplatz. Das Stuhleck ist der erste Standort der Reihe, an dem kein Dach eine Rolle spielt. So weit der erste Plan; wie die Anlage heute aussteht — drei Masten, die gerechneten Kabelwege und das Auto — zeigt der Lageplan weiter unten.
-
-## In drei Dimensionen
-
-<figure class="szene">
-  <iframe src="/stuhleck-3d.html?v=20" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit drei Masten — zweimal zwei gestockte 12JXX2 auf Rotor und zwei 9-Element-Tonnas fest auf 24° — dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
-  <figcaption>Ziehen dreht, das Rad zoomt. Oben links schaltest du zwischen den Standorten A (heute), C (Vorschlag) und der Südwiese um — Masten, Tabu-Sektor und Zahlen wandern mit. Die Knöpfe stellen die festen Richtungen — DL-Stack 302° / 18° / 86°, Rotor-Stack 18° / 158° / 216° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
-</figure>
-
-<style>
-.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
-@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
-.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
-</style>
-
-Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene zeigt die Anlage, wie sie am Ende geplant ist — zwei Stacks auf zwei Rotoren, der Yagi-Stack in Grundstellung nach Deutschland, dazu der rote Sektor; wie es dazu kam, steht in den nächsten beiden Abschnitten.
 
 ## Zwei Plätze, ein Tabu
+
 
 Nach dem ersten Blatt kam eine zweite Markierung: nicht die Kuppe, sondern die Wiese südlich des Hauses, 34 Meter von seiner Südecke, 153 von der Bergstation — **Standort B**. Und eine Bedingung dazu, die vorher nicht in der Rechnung war: **Richtung Seilbahn wird nicht gesendet**, und auch nicht 180 Grad gedreht, weil die Rückkeule einer Yagi nicht auf die Bahn zeigen soll. Also noch einmal beides gerechnet, mit demselben Laserscan und derselben Regel.
 
@@ -92,7 +84,9 @@ Beim Rechnen kam eine zweite Frage auf: Deutschland ist das Land mit den meisten
 
 Der [Lageplan mit beiden Standorten](/karten/stuhleck-lageplan-standorte-a-b.pdf) hat die Entfernungen zu Haus, Bergstation und Stützen für Mast 1, Mast 2 und den Punkt auf der Wiese.
 
+
 ## Die Wahl
+
 
 Die Vorgabe war klar: Jede weite Verbindung ist besser als eine nahe, aber die meisten QSOs sind in Deutschland zu holen, und dort sitzen viele kleine Stationen — die erreichen zu können ist wichtiger als der letzte Kilometer. Also noch einmal gerechnet, mit einer Zählregel, die das abbildet: Eine Station zählt, wenn eine Antenne sie über dem Fernhorizont, unter drei Dezibel Nahfeldverlust und mit dem nötigen Gewinn im Strahl hat — sechs dBi bis 300 Kilometer, ab da drei Dezibel je hundert Kilometer. Kleine Stationen, unter fünfzig QSO im besten Contest, brauchen vier Dezibel mehr, große drei weniger. Für Deutschland kamen zu den IARU-Logs die DARC-Contestlisten dazu: 1 070 Stationen bis 750 Kilometer, 567 davon klein. Dann 42 Kombinationen: zwei Quads oder zwei Yagis fest, ein Stack fest, Quad und Yagi gemischt — gegen Yagi-Stack, Quad-Stack oder eine einzelne Antenne auf dem Rotor, auch die 14-Element-Yagi von ANJO als Kandidat.
 
@@ -110,7 +104,9 @@ Der [Lageplan als PDF, Stand 5](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 
 **Nachtrag, 29. September: auch auf Mast 1 zwei Yagis.** Statt des Quad-Stacks kommt ein zweiter 12JXX2-Stack auf den Rotor von Mast 1, auf 6,4 und 9,7 Metern, wie am Feuerkogel. Die Keule wird schmaler, 34 statt 69 Grad, und hat 3,3 Dezibel mehr. Die drei Stellungen, nach derselben Regel gerechnet und außerhalb des Tabus: **18°** Breslau, Brünn, Wien, Poznań; **158°** Sarajevo, Split, Banja Luka, Skopje; **216°** Ljubljana, Rijeka, Triest, Venedig, Bologna. Geteilt auf beide Stacks sind es **948 Stationen statt 894**, Deutschland 316 wie vorher, und 330 000 statt 270 000 Kilometer — der Gewinn trägt weiter. Umgeschaltet sind es 1 308 statt 1 331: Im Nahbereich holt die breite Quad mehr, 1 006 gegen 869 bis 500 Kilometer, die Yagis holen dafür die Ferne. Das Blatt oben und die 3D-Szene zeigen schon beide Yagi-Stacks; der Text darüber beschreibt noch den Plan mit den Quads.
 
+
 ## Masten und Abspannung
+
 
 ![Lageplan des Stuhleck-Gipfels aus dem Laserscan: Parkplatz, Gipfelkreuz und drei Masten westlich davon — Mast 1 mit dem Ring, der je Grad den Verlust der unteren Yagi zeigt, und seinen drei gestrichelten Rotorstellungen bei 18°, 158° und 216°, Mast 2 mit dem grünen Keil nach 302° und Mast 3 mit dem blauen nach 24°; vom Auto am Westrand des Parkplatzes laufen drei gepunktete Koaxwege zu den Masten, beschriftet mit 40, 35 und 50 Metern](../../assets/karten/stuhleck-lageplan.png)
 
@@ -125,33 +121,9 @@ Die Anlage steht auf drei Masten. **Mast 1** und **Mast 2** tragen je zwei 12JXX
 
 Mast 1 und Mast 2 stehen 11,7 Meter auseinander, Mast 3 gut 21 Meter von Mast 1. Kein Seil kommt einer Yagi näher als 0,4 Meter, in jeder Stellung der beiden Rotoren, und die Seile der Masten bleiben mehr als sechs Meter voneinander weg. Die Seile sind aus Kunststoff, damit sie das Diagramm nicht stören. Das Auto mit den Geräten steht am Westrand des Parkplatzes; dorthin sind es am Boden entlang, den Mast hinauf und mit Schleife und Reserve 40 Meter Koax von Mast 1, 35 von Mast 2 und 50 von Mast 3, mit Ecoflex 15 also 1,0 bis 1,5 dB.
 
-## Die Daten
-
-| | |
-|---|---|
-| Standort | Gipfelparkplatz beim Alois-Günther-Haus, Gemeinde Spital am Semmering, JN77VN |
-| Mast 1 | 47,574278 N / 15,790072 O · 10 m · 2 × 12JXX2 gestockt auf 6,9 und 9,7 m, Rotor · 18° / 158° / 216° (bis 28. 09.: 2 × Vierfachquad, 20° / 108° / 200°) |
-| Mast 2 | 47,574368 N / 15,789992 O · 7 m · 2 × 12JXX2 gestockt auf 3,9 und 6,7 m, Rotor · 302° (Grundstellung) / 330° / 266° |
-| Mast 3 | rund 21 m westlich von Mast 1 · 7 m · 2 × 9-Element-Tonna gestockt auf 3,9 und 6,7 m, fest auf 24°, ohne Rotor, einmal abgespannt |
-| Boden | 1 780 m (Laserscan), Gipfelkreuz 1 782 m, First des Hauses 1 786,9 m |
-| Entfernungen | Haus 42 / 51 m · Gipfelkreuz 12 / 19 m · Bergstation Steinbachalmbahn 120 / 121 m · Auto 45 m |
-| Standort B | 47,573805 N / 15,790728 O · Wiese südlich des Hauses, Boden 1 778 m · Haus 34 m · Bergstation 153 m · Gipfelkreuz 72 m |
-| Tabu Richtung Seilbahn | vom Rotormast 220°–265° und 40°–85° (Bergstation und Trasse ± 17°, vorwärts und 180° gedreht); von Standort B 244°–288° und 64°–108° |
-| Horizont | frei 11°–226°, 291°–305°, 352°–1°; knapp 227°–273°, 281°–284°, 306°–327°; über der Waagrechten 274°–280°, 285°–290°, 311°–316°, 328°–344°, 2°–8°, höchstens +0,8° |
-| Stationen ≤ 700 km | 1 741 frei von 2 127, 386 im Beugungsschatten, 18 Länder, Σ 754 000 km |
-| Erster Plan | Quads fest 20° / 216°, Yagi-Stack 312° / 72° / 280°: 1 473 von 1 741 im Hauptstrahl (85 %), Σ 663 000 km; mit Tabu 20° / 294° und 138° / 172° / 212°: 1 342 |
-| Anlage | Yagi-Stack 302° / 330° / 266°, Quad-Stack 20° / 108° / 200°, gesendet wird auf ein System zugleich: 994 Stationen bis 500 km, 1 351 bis 750 km (Zählregel mit Reichweite und Größe); Deutschland 419 von 1 070, davon 130 kleine — Yagi-Stack fest 968 / 1 205 und 349 / 107, erster Plan 872 / 987 und 159 / 49 |
-| Senden auf alle zugleich | zwei Systeme je halbe Leistung, Stellungen dafür neu: Yagi 302° / 18° / 86°, Quads 20° / 136° / 200° → 854 / 950, Deutschland 226 / 64 · Teiler 2:1 für den Yagi-Stack: 830 / 1 010, Deutschland 262 / 80 · drei Systeme je ein Drittel mit Quads in zwei Richtungen: 520 / 520 — darum kein Rücken an Rücken |
-
-Der [Lageplan als PDF](/karten/stuhleck-lageplan-antennenanlage.pdf) hat alles auf einem Blatt, Übersicht und Detail, mit Koordinaten, Masthöhen, Entfernungen und Quellen — so, wie man ihn vorlegen kann.
-
-## Der Vergleich
-
-![Balkendiagramm der erreichbaren Contest-Stationen für sechs Standorte, gestapelt nach Deutschland, Tschechien und Polen, Italien, Kroatien-Slowenien-Serbien und übrigen: Stuhleck 1 741, Traisner Hütte 1 573, Gaisberg-Gipfelwiese 1 513, Gaisberg-Parkplatz 803, Feuerkogelhaus 1 388, Loser-Gipfel 853](../../assets/karten/stuhleck-vergleich.png)
-
-Sechs Standorte, eine Zahl. Das Stuhleck führt, aber die Balken sagen auch, womit: der deutsche Anteil ist der kleinste der Reihe, der italienische und der südosteuropäische die größten. Die Traisner Hütte und das Feuerkogelhaus sind die Deutschland-Standorte, das Stuhleck ist der Europa-Standort. Was man will, muss man vorher wissen.
 
 ## Stuhleck und Feuerkogel
+
 
 ![Vergleichsblatt „Zwei Standorte, zwei Richtungen“: für Feuerkogelhaus und Stuhleck je ein Balken der frei sichtbaren Stationen nach Land — Feuerkogel 1 388 mit großem deutschem, polnischem und tschechischem Anteil, Stuhleck 1 741 mit Italien, Kroatien und Slowenien dazu —, daneben Deutschland frei, die Zahlen der geplanten Anlage, umgeschaltet und geteilt, und die Summe der Kilometer](../../assets/karten/feuerkogel-stuhleck-vergleich.png)
 
@@ -171,7 +143,9 @@ Für den Feuerkogel ist die Anlage inzwischen auch gerechnet, [zweimal zwei Yagi
 
 Das Stuhleck hat mehr Stationen, mehr Länder und den besseren Nahbereich. Der Feuerkogel erreicht mit seiner Anlage fast doppelt so viele deutsche Stationen, weil vor dem deutschen Norden dort kein Berg steht. Geteilt auf beide Stacks liegt das Stuhleck knapp vorn, 948 gegen 895. Beide Anlagen sind jetzt zweimal zwei 12JXX2. Wer deutsche Stationen sammelt, fährt auf den Feuerkogel, wer Länder und Kilometer im Süden und Osten sammelt, aufs Stuhleck.
 
+
 ## Die Standortwahl
+
 
 Am Ende zählen im Contest Kilometer. Darum noch einmal beide Standorte mit derselben Anlage, zweimal zwei 12JXX2, beide Stacks senden gleichzeitig, einer steht auf Deutschland (Feuerkogel 328°, Stuhleck 302°). Gezählt ist die Summe der Kilometer aller erreichten Stationen bis 700 km, einmal mit dem Rotor-Stack auf seinen drei besten Stellungen, einmal frei gedreht, so wie im Contest nach Cluster und Sked gedreht wird. Beim Stuhleck dazu die Variante ohne Tabu, falls die Bergbahn das Senden Richtung Seilbahn erlaubt.
 
@@ -184,11 +158,15 @@ Am Ende zählen im Contest Kilometer. Darum noch einmal beide Standorte mit ders
 
 Der Feuerkogel gewinnt nur, solange der Rotor auf wenigen Stellungen bleibt; dann trägt Deutschland alles. Wird gedreht, liegt das Stuhleck vorn, mit Tabu um 5 bis 10 Prozent, ohne Tabu um gut 20 Prozent, und der Abstand wächst mit der Leistung, weil am Stuhleck viel mehr Stationen frei zu sehen sind. Dazu kommt der Aufbau: freie Kuppe, Auto daneben, gegen Masten eng am Haus zwischen Weg, Rampe und Abbruch. Und der Plöckenstein, wo OE5BGN funkt, liegt vom Feuerkogel 107 Kilometer genau in der Richtung Prag–Berlin, vom Stuhleck 195 Kilometer hinter der Rax. Die Wahl fällt aufs Stuhleck.
 
-## Die Karten
+
+## Die Karte
+
 
 ![Reliefkarte 180 Kilometer um das Stuhleck, für jede Peilung ein Strich bis zu dem Gelände, das den Horizont bildet — nach Osten und Süden lange grüne Striche bis an den Kartenrand, nach Nordwesten kurze rote zu Rax, Schneealpe, Veitsch und Hochschwab](../../assets/karten/stuhleck-horizont-zoom-karte.png)
 
 Auf dem Zoom sieht man, wie ungleich die Striche sind: nach Osten und Süden laufen sie aus der Karte hinaus, nach Nordwesten enden sie nach fünfzehn bis fünfzig Kilometern an der Rax, der Schneealpe, der Veitsch, dem Hochschwab.
+
+## Bis 700 Kilometer
 
 <figure class="zoomkarte" data-basis="/karten/horizont/stuhleck-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/stuhleck-horizont-200km.webp" width="1800" height="1200" alt="Karte um das Stuhleck mit Staatsgrenzen, zwischen 200 und 700 Kilometer Radius: die Striche nach Osten und Süden reichen bis an den Horizont in dreihundert Kilometern, der Randbogen ist von 11° bis 226° grün" loading="lazy" decoding="async">
@@ -199,9 +177,133 @@ Auf dem Zoom sieht man, wie ungleich die Striche sind: nach Osten und Süden lau
   </figcaption>
 </figure>
 
+<style>
+.zoomkarte img { border: 1px solid var(--border-fine); border-radius: var(--radius); background: var(--panel); max-height: none; }
+.zoomkarte figcaption { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin-top: .8rem; font-size: 11px; color: var(--t3); font-variant-numeric: tabular-nums; }
+.zoomkarte figcaption span { min-width: 9ch; text-align: center; }
+.zoomkarte button { width: 2.5rem; height: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--btn); color: var(--t1); font: 20px/1 var(--ff-body); cursor: pointer; transition: border-color var(--ease), background var(--ease); }
+.zoomkarte button:hover { background: var(--btn-hover); border-color: var(--sel-border); }
+.zoomkarte button:disabled { opacity: .35; cursor: default; border-color: var(--border); background: var(--btn); }
+</style>
+
+<script>
+(function () {
+  document.querySelectorAll("figure.zoomkarte").forEach(function (fig) {
+    if (fig.dataset.bereit) return; fig.dataset.bereit = "1";
+    var img = fig.querySelector("img"), label = fig.querySelector("[data-radius]");
+    var minus = fig.querySelector('[data-zoom="-1"]'), plus = fig.querySelector('[data-zoom="+1"]');
+    var min = +fig.dataset.min, max = +fig.dataset.max, step = +fig.dataset.schritt, r = +fig.dataset.start, basis = fig.dataset.basis;
+    var wort = label.textContent.replace(/\s*\d+\s*km\s*$/, "");
+    function zeige() {
+      img.src = basis + r + "km.webp";
+      label.textContent = (wort ? wort + " " : "") + r + " km";
+      minus.disabled = r <= min; plus.disabled = r >= max;
+      [r - step, r + step].forEach(function (k) { if (k >= min && k <= max) { var v = new Image(); v.src = basis + k + "km.webp"; } });
+    }
+    minus.addEventListener("click", function () { if (r > min) { r -= step; zeige(); } });
+    plus.addEventListener("click", function () { if (r < max) { r += step; zeige(); } });
+    zeige();
+  });
+})();
+</script>
+
 Beide Karten als PDF: [Zoom 180 km](/karten/stuhleck-horizont-zoom-180km.pdf) mit den Bergnamen und [Übersicht 800 km](/karten/stuhleck-horizont-uebersicht-800km.pdf) mit der nummerierten Liste — von den Gebirgen rundum ragen nur Schneeberg und Hochschwab über die Waagrechte, alle anderen bilden den Horizont von unten.
 
+## Die Stationen
+
+![Dunkle Karte 700 Kilometer um Stuhleck, jede Contest-Station ein Punkt: hell, wo der Horizont frei ist, bernstein dahinter; dazu die sechs Rotorstellungen der Anlage](../../assets/karten/stuhleck-stationen.png)
+
+Von den 2 003 Stationen, die in den Logs bis 700 Kilometer auftauchen, stehen **1 647 über dem Horizont** — Deutschland 326 von 513. Das ist die Obergrenze: mehr kann keine Antenne herausholen, egal wie groß sie ist.
+
+Die Zahl hat aber zwei Hälften. **Wirklich frei** — der Horizont liegt mehr als drei Zehntelgrad unter der Waagrechten — sind 1 256 Stationen, davon 146 in Deutschland. Die übrigen 391 liegen **knapp**: zwischen −0,3° und null, also im Streifschatten einer Kante. Dort geht etwas, aber mit Verlust — drei bis acht Dezibel, je nach Tag. Der Beitrag nennt beide Zahlen, weil nur beide zusammen den Platz beschreiben. Von den 248 Grad, die frei sind, kommen 64 Grad knappe dazu.
+
+
+## Die Anlage
+
+![Blatt „Die Antennenanlage“: Polardiagramm der Stationen bis 500 Kilometer um Stuhleck, je zehn Grad als Balken nach Land gestapelt, dazu die drei Stellungen des DL-Stacks und die drei des Rotor-Stacks](../../assets/karten/stuhleck-anlage.png)
+
+Gerechnet ist überall dieselbe Anlage wie am Stuhleck, mit **drei Masten**:
+
+- **Mast 2**, 7 Meter, Rotor: zwei 12JXX2 gestockt auf 3,9 und 6,7 m — der Stack, der nach Deutschland schaut.
+- **Mast 1**, 10 Meter, Rotor: zwei 12JXX2 gestockt auf 6,9 und 9,7 m, 34° breit, 17,8 dBi.
+- **Mast 3**, 7 Meter, ohne Rotor: zwei gestockte 9-Element-Tonna auf 3,9 und 6,7 m, 44° breit, 14,3 dBi — fest auf eine Richtung.
+
+Die Stellungen sind nicht geraten, sondern gesucht: Für Stuhleck fallen sie auf **300° / 340° / 290°** am DL-Stack, **32° / 218° / 158°** am Rotor-Stack und **90°** für die festen Tonnas.
+
+Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, kommt die Anlage auf **1 298 Stationen** (Deutschland 307, nach der DARC-Liste 569). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 935; auf alle drei Systeme zugleich verteilt nur noch 804 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 75 Stationen bei, die ohne ihn fehlen würden.
+
+
+## In drei Dimensionen
+
+
+<figure class="szene">
+  <iframe src="/stuhleck-3d.html?v=20" title="Stuhleck-Gipfel in 3D: Orthofoto auf dem Laserscan-Gelände mit drei Masten — zweimal zwei gestockte 12JXX2 auf Rotor und zwei 9-Element-Tonnas fest auf 24° — dem Auto, der Bergstation der Steinbachalmbahn und dem Tabu-Sektor Richtung Seilbahn" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Ziehen dreht, das Rad zoomt. Oben links schaltest du zwischen den Standorten A (heute), C (Vorschlag) und der Südwiese um — Masten, Tabu-Sektor und Zahlen wandern mit. Die Knöpfe stellen die festen Richtungen — DL-Stack 302° / 18° / 86°, Rotor-Stack 18° / 158° / 216° —, die Regler jede andere; darunter je Stack die Stationen, Länder und Städte im Hauptstrahl und eine Warnung, wenn eine Richtung im Tabu liegt. „Drehen“ lässt die Ansicht langsam kreisen, „Stopp“ hält sie an; „Bergstation“ schwenkt zur Seilbahn. <a href="/stuhleck-3d.html">Im Vollbild öffnen</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwanzig Zentimeter, die Masten, die Quads und der Stack sind maßstäblich. Was die Szene zeigt, ist nicht die Aussicht — die kommt aus dem Geländemodell —, sondern das, was in den ersten hundertfünfzig Metern steht: das Haus, der Parkplatz, das Gipfelkreuz, die Kuppe — und 120 Meter südwestlich die Bergstation der Steinbachalmbahn, ein Dachbau von achtzehn mal sieben Metern auf Stützen, acht Meter hoch, mit den beiden Seilsträngen, die über zwei Stützen ins Tal gehen. Von den Antennen aus liegt ihr Dach fünf bis acht Grad unter der Waagrechten; sie steht in keinem Sektor im Weg, und der Knopf „Bergstation“ zeigt das aus der Sicht der Masten. Nichts davon ist im Weg. Die Szene zeigt die Anlage, wie sie am Ende geplant ist — zwei Stacks auf zwei Rotoren, der Yagi-Stack in Grundstellung nach Deutschland, dazu der rote Sektor; wie es dazu kam, steht in den nächsten beiden Abschnitten.
+
+
+## Der Vergleich
+
+![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
+
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+
+Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
+
+| Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
+|---|---:|---:|---:|---:|---|
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
+| **Stuhleck** · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
+| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
+| Loser · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
+
+Stuhleck steht damit auf **Platz 3 von 8**.
+
+Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wurden mit der ersten Bestückung gerechnet — ein Yagi-Stack und ein Vierfachquad-Stack mit 69° Keulenbreite. Seit die Wahl auf zwei schmale 12JXX2-Stacks gefallen ist, verschiebt sich die Reihenfolge: Mehr Gewinn, weniger Breite bevorzugt die Standorte, deren Stationen in einer Richtung gebündelt liegen, und kostet die, die rundum offen sind. Die festen Tonnas auf Mast 3 holen einen Teil dieser Breite zurück.
+
+
+## Die Daten
+
+| | |
+|---|---|
+| Standort | Stuhleck — Gipfelparkplatz beim Alois-Günther-Haus |
+| Koordinaten | 47,57444 N / 15,79055 O · 1 770 m · JN77VN |
+| Zugang | Straße bis zum Platz |
+| Horizont frei | 345°–1°, 9°–251°, 264°–273°, 289°–310° … |
+| Grad frei / knapp / zu | 248° / 64° / 48° |
+| Stationen ≤ 700 km | 1 256 frei, 391 knapp, von 2 003 |
+| Deutschland (IARU) | 146 frei, 180 knapp, von 513 |
+| Deutschland (DARC-Liste) | 605 unter der Waagrechten von 943 |
+| Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
+| Stellungen | DL-Stack 300° / 340° / 290° · Rotor-Stack 32° / 218° / 158° · Tonna fest 90° |
+| umgeschaltet · 1 000 W | 1 298 · ≤ 500 km 921 · DL 307 · DARC 569 |
+| geteilt · je 500 W | 935 · ≤ 500 km 792 · DL 181 |
+| alle drei zugleich · je 333 W | 804 · ≤ 500 km 768 · DL 131 |
+| ohne den Tonna-Mast | 1 223 statt 1 298 |
+| Σ Kilometer | 511 695 km |
+| mit strengem Maß | nur Richtungen unter −0,3°: 737 · ≤ 500 km 611 · DL 71 |
+
+
+## Was das heißt
+
+Das Stuhleck ist der Standort dieser Reihe mit dem breitesten Horizont: 248 von 360 Grad liegen mehr als drei Zehntelgrad unter der Waagrechten, achtzehn Länder sind frei erreichbar, und der Platz ist mit dem Auto erreichbar. Was fehlt, ist Deutschland: Rax, Schneeberg, Schneealpe und Hochschwab stehen zwischen 274° und 344° mit bis zu +0,8° im Weg, und dahinter liegt die Masse der deutschen Stationen.
+
+Für einen Contest heißt das: Der Stuhleck gewinnt über die Summe — Italien, Kroatien, Slowenien, Ungarn, Slowakei, Polen, Tschechien — und verliert gegen [Grünberg](/blog/gruenberg-horizont/), [Gaisberg](/blog/gaisberg-horizont/) und [Feuerkogel](/blog/feuerkogel-horizont/), sobald nur Deutschland zählt. Mit der Anlage aus drei Masten und 1 000 Watt auf dem jeweils arbeitenden System sind es 1 298 Stationen, davon 921 innerhalb von 500 Kilometern.
+
 ## Vorbehalt
+
 
 Das Geländemodell hat dreißig Meter Raster; für den Gipfel selbst steht der Laserscan mit einem Meter dagegen, für den Rest die Standardatmosphäre. Die Stationszahlen sind Logs, keine Stationen, und zwei Jahre alt. Ob man mit dem Auto bis zum Haus darf, sagt keine Karte; die Straße ist eine Forststraße, und das Haus gehört dem Alpenverein. Und die Steinbachalmbahn endet 120 Meter südwestlich vom Gipfelkreuz — ob sie im September fährt, ist eine Frage an die Bergbahnen, nicht an das Geländemodell.
 

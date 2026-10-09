@@ -13,11 +13,15 @@ The third site after the [Feuerkogel](/en/blog/feuerkogel-horizont/) and the [Gr
 
 But the road is not the only way up the Loser. The **Panoramabahn** gondola runs from Altaussee to **1,604 metres**, and above it the **Loserfenster chairlift** ends at **1,757 metres** — a top station usually stands a little higher and clearer than the car park. So everything was calculated: car parks, road, both top stations and the summit.
 
+
 ## How
+
 
 The method is the same as for the [five sites before](/en/blog/feuerkogel-horizont/#how): SRTM terrain model, one ray per degree, ten-metre antenna, 4/3 earth, 500 kilometres out, the names of the obstacles from Wikipedia. New is the second step from the [last post](/en/blog/feuerkogel-stationen/): the 3,215 contest logs of the IARU contests 2024 and 2025 recalculated for this site — for every station bearing, distance and the question whether the horizon in its direction is clear. This time not just for one point but for **the whole road**, point by point, plus both top stations and the summit.
 
-## The car park
+
+## All the way round
+
 
 ![Polar diagram of the radio horizon from the Loser car park: red all the way round, more than twenty degrees to the north and west, flattest to the south-east](../../../assets/karten/loser-horizont-rundum-karte.png)
 
@@ -32,13 +36,34 @@ From the Loserhütte car park, eighty metres lower, the picture is the same: 360
 | 120–⁠180° | Wölz Tauern, Sölk pass, Hochwildstelle | 36–50 km | +0.4…⁠+1.5° |
 | 180–⁠240° | Elendberg, Koppenkarstein, Dachstein | 22–41 km | +1.0…⁠+2.5° |
 
+
+## The site
+
+![Site plan at the Loser from the lidar survey with orthophoto: contour lines every two metres, the three mast positions and the beam headings](../../../assets/karten/loser-lageplan.png)
+
+The terrain of the first 136 metres around the site comes from the **Austrian lidar survey** on a four-metre grid — trees, buildings and knolls included. The ground at the mast is at **1594.7 metres**.
+
+| Antenna height | Directions blocked by the near field |
+|---|---|
+| 6 m | 196° |
+| 8 m | 178° |
+| 10 m | 164° |
+| 12 m | 152° |
+| 15 m | 145° |
+
+Even with ten metres of mast the near field still blocks **164 degrees** — on top of whatever the far horizon closes off anyway.
+
+
 ## The road
+
 
 ![Relief map of the Loser with the Panoramastraße: every road point as a circle coloured by its horizon angle towards Germany; all yellow to dark red, none green; plus both car parks, both top stations, the Loserfenster and the summit with their values](../../../assets/karten/loser-strasse-karte.png)
 
 The question was whether anywhere along the road does better. So for **157 road points** from OpenStreetMap I calculated 41 bearings each from 270° over north to 30°, plus the angles to thirty German cities. The answer is unambiguous: **nowhere.** The whole road lies on the south and east flank of the mountain, and the mountain is always to the north. The least bad spot lies at 1,238 metres in the hairpins below the Loserhütte — there Nuremberg and Cologne come down to +0.8°, Munich to +2.7°, Berlin stays at +17°. Still everything above the horizontal.
 
+
 ## The top stations
+
 
 Two lifts end high on the Loser, both just below the ridge. The coordinates of the top stations come from OpenStreetMap, the heights from the terrain model: gondola 47.66137 N / 13.78712 E, chairlift 47.66389 N / 13.78130 E.
 
@@ -68,7 +93,9 @@ A hundred and fifty metres higher, and to the north nothing changes: the Hochang
 
 What changes is the south-east. From 110° to 170° the horizon lies only **+0.1° to +1.0°** above the horizontal: Graz +0.4°, Zagreb +0.4°, Ljubljana +0.6°, Vienna +1.0°. Still closed, but so close that it works with diffraction. In stations: with a clear horizon again **zero**; up to +0.5° then **188** (Croatia 73, Slovenia 29, Slovakia 24); up to +1.0° **436**, among them 137 Croats, 65 Italians, 62 Slovenes. That would be, if you want it, a south-east site for the Adriatic region — with a handicap of several decibels in every direction and without a single German log within reach. And whether the chairlift runs in September you have to ask beforehand.
 
+
 ## The summit
+
 
 ![Polar diagram of the radio horizon from the Loser summit: clear from west over north to just before north, the Totes Gebirge to the north-east, Dachstein and Tauern to the south](../../../assets/karten/loser-gipfel-rundum-karte.png)
 
@@ -76,7 +103,9 @@ Only at the very top does the picture change. From the **Loser summit**, 1,838 m
 
 The Loserfenster at 1,781 metres, a few minutes below the summit, would be the compromise: Nuremberg, Cologne, Berlin clear, Munich at +2.4° behind the ridge.
 
-## The stations
+
+## The four spots on the Loser
+
 
 ![Bar chart of reachable contest stations for four sites: gondola top station zero clear, chairlift zero clear, Loser summit 853 clear, Feuerkogelhaus 1,388 clear; beside them the counts up to +0.5° and up to +1° of horizon angle](../../../assets/karten/loser-bergstation-stationen.png)
 
@@ -84,7 +113,10 @@ The chart says what the maps say, only in one number. The two top stations: zero
 
 The top station that looks at Germany is not on the Loser. It is on the Feuerkogel.
 
-## The maps
+
+## The map
+
+## Out to 700 kilometres
 
 <figure class="zoomkarte" data-basis="/karten/horizont/loser-horizont-" data-min="200" data-max="700" data-schritt="100" data-start="200">
   <img src="/karten/horizont/loser-horizont-200km.webp" width="1800" height="1200" alt="Map around the Loser car park with national borders, between 200 and 700 kilometres radius: the lines from the car park all end after a few kilometres, the rim arc is amber all the way round" loading="lazy" decoding="async">
@@ -135,24 +167,90 @@ On the zoom you can see how short the lines are: to the north and west they end 
 
 Obstructed directions are drawn to at least six percent of the radius so that they can be seen — the real lines would be a hundred metres long. Both maps as PDF: [zoom 180 km](/karten/loser-bergstation-zoom-180km.pdf) with the mountain names and [overview 800 km](/karten/loser-bergstation-uebersicht-800km.pdf) with the numbered list — 78 ranges and peaks, of which exactly one, the Hochgolling at 183°, actually rises above the horizontal. All the others have disappeared behind the ridge next to the station before they even count.
 
+## The stations
+
+![Dark map 700 kilometres around Loser, every contest station a dot: bright where the horizon is clear, amber behind terrain; plus the six rotator headings of the array](../../../assets/karten/loser-stationen.png)
+
+Of the 2 120 stations in the logs, **not a single one is above the horizon**. That is not a rounding error: in all 360 directions terrain stands above the horizontal.
+
+
+## The antennas
+
+![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Loser, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/loser-anlage.png)
+
+The array that stands on the Stuhleck gets nowhere here: three masts, two rotators, 1 000 watts — and not one station, because the horizon is above the horizontal in every direction. The figure is shown anyway so the comparison stays honest.
+
+
+## In three dimensions
+
+<figure class="szene">
+  <iframe src="/standort-3d.html?ort=loser&v=1" title="Loser in 3D: lidar terrain with orthophoto, the two masts and the beam headings" loading="lazy" allowfullscreen></iframe>
+  <figcaption>Drag to turn, wheel to zoom. The sliders turn the two stacks, the buttons jump to the computed headings. <a href="/standort-3d.html?ort=loser">Open full screen</a></figcaption>
+</figure>
+
+<style>
+.szene iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--border-fine); border-radius: var(--radius); background: #0c0c0e; }
+@media (max-width: 720px) { .szene iframe { aspect-ratio: 2 / 3; } }
+.szene figcaption { margin-top: .8rem; font-size: 11px; color: var(--t3); text-align: center; }
+</style>
+
+The same view for every site: the terrain comes from the Austrian lidar survey, the orthophoto lies on top, and the two masts stand on it at their computed heights. The labels around the rim are cities — bright means above the horizon, grey means behind it.
+
+
+## The comparison
+
+![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
+
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
+
+The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
+
+| Site | reached | Germany | DARC list | ≤ 500 km | Access |
+|---|---:|---:|---:|---:|---|
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
+| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
+| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
+| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
+| **Loser** · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
+
+Loser therefore comes **8 of 8**.
+
+Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
+
+
 ## The data
 
 | | |
 |---|---|
-| Car park Panoramastraße | 47.66047 N / 13.78493 E · 1,585 m · JN67VP · all 360° closed, towards Germany +15…+27° |
-| Car park Loserhütte | 1,506 m · all 360° closed, towards Germany +15…+22° |
-| Road | 157 points calculated, best spot at 1,238 m: Nuremberg, Cologne +0.8°, Munich +2.7° |
-| Top station Panoramabahn | 47.66137 N / 13.78712 E · 1,604 m · all 360° closed, towards Germany +14…+19° |
-| Top station Loserfenster chairlift | 47.66389 N / 13.78130 E · 1,757 m · towards Germany +9…+20°, south-east +0.1…+1.0° |
-| Loser summit | 47.6633 N / 13.7780 E · 1,838 m · clear 269°–359°, −0.3…−1.0° |
-| Stations ≤ 700 km clear | gondola 0 · chairlift 0 · summit 853, 696 of them in Germany · Feuerkogelhaus 1,388 |
-| up to +0.5° / +1.0° horizon | gondola 22 / 120 · chairlift 188 / 436, almost all Croatia, Slovenia, Italy |
+| Site | Loser — Parkplatz am Ende der Panoramastraße |
+| Coordinates | 47,66047 N / 13,78493 O · 1 585 m · JN67VP |
+| Access | road all the way up |
+| Horizon clear | no direction |
+| Degrees clear / marginal / blocked | 0° / 0° / 360° |
+| Stations ≤ 700 km | 0 clear, 0 marginal, of 2 120 |
+| Germany (IARU) | 0 clear, 0 marginal, of 689 |
+| Germany (DARC list) | 0 below the horizontal of 1 287 |
+| Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
+| Headings | — |
+| switched · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · DARC 0 |
+| split · 500 W each | 0 · ≤ 500 km 0 · DL 0 |
+| all three at once · 333 W each | 0 · ≤ 500 km 0 · DL 0 |
+| without the Tonna mast | 0 instead of 0 |
+| Σ kilometres | 0 km |
+| strict count | only directions below −0.3°: 0 · ≤ 500 km 0 · DL 0 |
+
 
 ## What it means
 
+
 From the car the Loser is not a contest site — in no direction, least of all towards Germany. The Panoramastraße has no better spot, the lifts end below the ridge. Whoever wants to work north from here carries the station to the summit and gets in return a horizon that lies −0.75 to −1.0° deep from Munich to Dresden. For everything else the [Grünberg](/en/blog/gruenberg-horizont/) and the [Feuerkogel](/en/blog/feuerkogel-horizont/) are the better addresses.
 
+
 ## Caveat
+
 
 A calculation, not a measurement. Especially at close range — the knoll a hundred metres from the car park — the result hangs on the thirty-metre grid of the terrain model; the order of magnitude is right, the single degree is not. Whether there is still a corner of the car park that looks around the knoll is better judged on the spot than in the calculation.
 
