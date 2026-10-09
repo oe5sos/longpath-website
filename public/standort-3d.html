@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Standort in 3D — longpath.at</title>
+<style>
+  :root{
+    --bg:#0c0c0e; --panel:#141417; --border:#26262b; --t1:#dcdce1; --t3:#a6a6ac; --t5:#7e7e85;
+    --amb:#d8a55f; --ok:#6fa384; --warn:#a86b6d;
+    --ff:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Segoe UI,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--t1);font-family:var(--ff);overflow:hidden}
+  #buehne{position:absolute;inset:0}
+  .leiste{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;gap:.65rem 1.1rem;
+    align-items:center;padding:.7rem .9rem;background:rgba(12,12,14,.82);
+    border-top:1px solid var(--border);backdrop-filter:blur(8px);font-size:12px}
+  .leiste button{border:1px solid var(--border);background:#17171b;color:var(--t1);border-radius:6px;
+    padding:.35rem .62rem;font:inherit;cursor:pointer}
+  .leiste button:hover{border-color:#3a3a42;background:#1e1e23}
+  .leiste button.an{border-color:var(--amb);color:var(--amb)}
+  .gruppe{display:flex;align-items:center;gap:.45rem}
+  .gruppe label{color:var(--t5)}
+  .gruppe input[type=range]{width:120px;accent-color:var(--amb)}
+  .gruppe .grad{min-width:4.2ch;text-align:right;font-variant-numeric:tabular-nums}
+  .m1 .grad,.m1 label{color:var(--ok)} .m2 .grad,.m2 label{color:var(--amb)}
+  #hud{position:absolute;top:0;left:0;padding:.75rem .9rem;font-size:12px;line-height:1.55;
+    background:linear-gradient(180deg,rgba(12,12,14,.85),rgba(12,12,14,0));max-width:min(27rem,72vw)}
+  #hud h1{margin:0 0 .15rem;font-size:15px;font-weight:600}
+  #hud .z{color:var(--t3)} #hud b{color:var(--t1);font-weight:600}
+  #hud .warnung{color:var(--warn)}
+  #info{position:absolute;top:.6rem;right:.6rem;width:2rem;height:2rem;border-radius:50%;
+    border:1px solid var(--border);background:rgba(20,20,23,.9);color:var(--t3);display:none;
+    align-items:center;justify-content:center;font-size:13px;cursor:pointer}
+  @media (max-width:640px){
+    #hud{display:none;max-width:none;right:0;background:rgba(12,12,14,.94);border-bottom:1px solid var(--border)}
+    #hud.offen{display:block} #info{display:flex}
+    .leiste{font-size:11px;padding:.5rem .6rem;gap:.45rem .7rem}
+    .gruppe input[type=range]{width:88px}
+  }
+  @media (max-height:560px){ .leiste{padding:.4rem .6rem} }
+</style>
+</head>
+<body>
+<div id="buehne"></div>
+<div id="hud"><h1>…</h1><div class="z">Szene wird geladen</div></div>
+<button id="info" title="Erklärung">i</button>
+<div class="leiste">
+  <button id="dreh">Drehen</button>
+  <div class="gruppe m2"><label>DL-Stack</label><input type="range" id="r2" min="0" max="359" step="1"><span class="grad" id="g2">—</span></div>
+  <div class="gruppe m1"><label>Rotor-Stack</label><input type="range" id="r1" min="0" max="359" step="1"><span class="grad" id="g1">—</span></div>
+  <div class="gruppe" id="presets"></div>
+  <div class="gruppe"><button id="nah">Anlage</button><button id="weit">Berg</button></div>
+</div>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const ORT = new URLSearchParams(location.search).get("ort") || "stuhleck";
+const AMB = 0xd8a55f, OK = 0x6fa384, WARN = 0xa86b6d, ROT = 0xc0392b;
+const RAD = Math.PI / 180;
+
+const D = await (await fetch(`/karten/3d/${ORT}.json`)).json();
+document.title = `${D.name} in 3D — longpath.at`;
+
+const szene = new THREE.Scene();
+szene.background = new THREE.Color(0x0c0c0e);
+szene.fog = new THREE.Fog(0x0c0c0e, 300, 620);
+const kamera = new THREE.PerspectiveCamera(42, innerWidth / innerHeight, 0.5, 4000);
+const rend = new THREE.WebGLRenderer({ antialias: true });
+rend.setPixelRatio(Math.min(devicePixelRatio, 2));
+rend.setSize(innerWidth, innerHeight);
+document.getElementById("buehne").appendChild(rend.domElement);
+const steuer = new OrbitControls(kamera, rend.domElement);
+steuer.enableDamping = true; steuer.maxPolarAngle = Math.PI / 2 - 0.03;
+steuer.minDistance = 25; steuer.maxDistance = 900;
+
+szene.add(new THREE.HemisphereLight(0x9fb0c0, 0x25211c, 1.25));
+const sonne = new THREE.DirectionalLight(0xffe9cc, 1.0); sonne.position.set(-120, 150, 90); szene.add(sonne);
+
+// ───────── Gelände (Laserscan) mit Orthofoto
+const { x0, y0, st, nx, ny, z } = D;
+const breite = (nx - 1) * st, tiefe = (ny - 1) * st;
+const geo = new THREE.PlaneGeometry(breite, tiefe, nx - 1, ny - 1);
+const pos = geo.attributes.position;
+for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+  // PlaneGeometry läuft von oben-links; y des Rasters wächst nach Norden
+  pos.setZ(j * nx + i, z[ny - 1 - j][i]);
+}
+geo.computeVertexNormals();
+const tex = new THREE.TextureLoader().load(`/karten/3d/${ORT}.jpg`);
+tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+const boden = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex, roughness: .96, metalness: 0 }));
+boden.rotation.x = -Math.PI / 2;
+boden.position.set(x0 + breite / 2, 0, -(y0 + tiefe / 2));
+szene.add(boden);
+
+function hoehe(x, y) {                       // Gelände an (x, y) in Metern über Bezugshöhe
+  const fi = (x - x0) / st, fj = (y - y0) / st;
+  const i = Math.max(0, Math.min(nx - 2, Math.floor(fi))), j = Math.max(0, Math.min(ny - 2, Math.floor(fj)));
+  const a = fi - i, b = fj - j;
+  return z[j][i] * (1 - a) * (1 - b) + z[j][i + 1] * a * (1 - b) + z[j + 1][i] * (1 - a) * b + z[j + 1][i + 1] * a * b;
+}
+const V = (x, y, h) => new THREE.Vector3(x, hoehe(x, y) + h, -y);     // Szene: x Ost, y Höhe, −z Nord
+
+// ───────── Horizontwall: zeigt, wie hoch das Gelände rundum steht
+{
+  const R = 170, ringG = [], ringF = [];
+  for (let b = 0; b <= 360; b++) {
+    const a = D.horizont[b % 360], hh = Math.tan(a * RAD) * R + 10;
+    const p = new THREE.Vector3(Math.sin(b * RAD) * R, hh, -Math.cos(b * RAD) * R);
+    (a < 0 ? ringG : ringF).push(p);
+  }
+  for (const [pts, col, op] of [[ringG, OK, .75], [ringF, WARN, .85]]) {
+    if (!pts.length) continue;
+    const g = new THREE.BufferGeometry().setFromPoints(pts);
+    szene.add(new THREE.Points(g, new THREE.PointsMaterial({ color: col, size: 1.6, opacity: op, transparent: true })));
+  }
+}
+
+// ───────── Masten mit gestockten Yagis
+function yagi(len) {                      // vereinfachte 12-Element-Yagi, Boom nach +x
+  const g = new THREE.Group();
+  const boomL = 6.0, mat = new THREE.MeshStandardMaterial({ color: 0xd2d6dc, roughness: .45, metalness: .55 });
+  const boom = new THREE.Mesh(new THREE.CylinderGeometry(.075, .075, boomL, 8), mat);
+  boom.rotation.z = Math.PI / 2; g.add(boom);
+  for (let k = 0; k < 12; k++) {
+    const t = -boomL / 2 + .25 + k * (boomL - .5) / 11;
+    const el = new THREE.Mesh(new THREE.CylinderGeometry(.05, .05, k === 0 ? 1.03 : (k === 1 ? .98 : .93 - k * .012), 6), mat);
+    el.position.x = t; g.add(el);
+  }
+  return g;
+}
+function mast(m) {
+  const g = new THREE.Group();
+  const grau = new THREE.MeshStandardMaterial({ color: 0x8d9298, roughness: .55, metalness: .5 });
+  const rohr = new THREE.Mesh(new THREE.CylinderGeometry(.16, .22, m.h, 10), grau);
+  rohr.position.y = m.h / 2; g.add(rohr);
+  const dreh = new THREE.Group();
+  for (const hh of m.stack) { const y = yagi(); y.position.y = hh; dreh.add(y); }
+  g.add(dreh);
+  const p = V(m.x, m.y, 0); g.position.copy(p);
+  szene.add(g);
+  return { g, dreh, m, basis: p };
+}
+const M1 = mast(D.masten.m1), M2 = mast(D.masten.m2);
+
+// ───────── Strahlfächer
+function faecher(col) {
+  const halb = 16.9 * RAD, R = 115, seg = 24;
+  const f = new THREE.Shape();
+  f.moveTo(0, 0);
+  for (let i = 0; i <= seg; i++) f.lineTo(Math.sin(-halb + 2 * halb * i / seg) * R, Math.cos(-halb + 2 * halb * i / seg) * R);
+  f.lineTo(0, 0);
+  const g = new THREE.ShapeGeometry(f);
+  const m = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: .26, side: THREE.DoubleSide, depthWrite: false });
+  const mesh = new THREE.Mesh(g, m);
+  mesh.rotation.x = -Math.PI / 2;
+  szene.add(mesh);
+  return mesh;
+}
+const F1 = faecher(OK), F2 = faecher(AMB);
+
+// ───────── Tabu-Sektor
+if (D.tabu) {
+  const [lo, hi] = D.tabu, R = 165;
+  for (const [a0, op] of [[lo, .3], [(lo + 180) % 360, .15]]) {
+    const w = ((hi - lo) % 360 + 360) % 360;
+    const f = new THREE.Shape(); f.moveTo(0, 0);
+    for (let i = 0; i <= 20; i++) { const b = (a0 + w * i / 20) * RAD; f.lineTo(Math.sin(b) * R, Math.cos(b) * R); }
+    f.lineTo(0, 0);
+    const mesh = new THREE.Mesh(new THREE.ShapeGeometry(f),
+      new THREE.MeshBasicMaterial({ color: ROT, transparent: true, opacity: op, side: THREE.DoubleSide, depthWrite: false }));
+    mesh.rotation.x = -Math.PI / 2; mesh.position.copy(V(0, 0, 1.2)); szene.add(mesh);
+  }
+}
+
+// ───────── Kompassring am Boden
+{
+  const R = 132, pts = [];
+  for (let b = 0; b <= 360; b += 2) pts.push(V(Math.sin(b * RAD) * R, Math.cos(b * RAD) * R, 1.0));
+  szene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+            new THREE.LineBasicMaterial({ color: 0x4a4a52, transparent: true, opacity: .8 })));
+  for (const [n, b] of [["N", 0], ["O", 90], ["S", 180], ["W", 270]]) {
+    const p = V(Math.sin(b * RAD) * (R + 9), Math.cos(b * RAD) * (R + 9), 4);
+    const sp = schild(n, true); sp.position.copy(p); szene.add(sp);
+  }
+}
+
+// ───────── Städte auf einem Ring in Antennenhöhe
+function schild(text, hell) {
+  const c = document.createElement("canvas"), s = 2;
+  const ctx = c.getContext("2d");
+  ctx.font = `${12 * s}px -apple-system, Helvetica Neue, sans-serif`;
+  c.width = Math.ceil(ctx.measureText(text).width) + 12 * s; c.height = 20 * s;
+  const k = c.getContext("2d");
+  k.font = `${12 * s}px -apple-system, Helvetica Neue, sans-serif`;
+  k.fillStyle = "rgba(12,12,14,.72)"; k.fillRect(0, 0, c.width, c.height);
+  k.fillStyle = hell ? "#dcdce1" : "#7e7e85"; k.textBaseline = "middle";
+  k.fillText(text, 6 * s, c.height / 2);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, depthTest: false }));
+  sp.scale.set(c.width / s * .26, c.height / s * .26, 1);
+  return sp;
+}
+const RSTADT = 168;
+for (const s of D.staedte) {
+  const p = new THREE.Vector3(Math.sin(s.b * RAD) * RSTADT, 14 + (s.frei ? 3 : 0), -Math.cos(s.b * RAD) * RSTADT);
+  const sp = schild(`${s.n} ${s.d} km`, s.frei);
+  sp.position.copy(p); szene.add(sp);
+  const g = new THREE.BufferGeometry().setFromPoints([p.clone().setY(2), p]);
+  szene.add(new THREE.Line(g, new THREE.LineBasicMaterial({ color: s.frei ? OK : WARN, transparent: true, opacity: .35 })));
+}
+
+// ───────── Bedienung
+const r1 = document.getElementById("r1"), r2 = document.getElementById("r2");
+const g1 = document.getElementById("g1"), g2 = document.getElementById("g2");
+const hud = document.getElementById("hud");
+let h1 = D.stellungen.mast1[0] ?? 0, h2 = D.stellungen.mast2[0] ?? 0;
+r1.value = h1; r2.value = h2;
+
+function imTabu(h) {
+  if (!D.tabu) return false;
+  const [lo, hi] = D.tabu, HALB = 16.9;
+  const drin = (b, a, zz) => ((b - a) % 360 + 360) % 360 <= ((zz - a) % 360 + 360) % 360;
+  return drin(h, lo - HALB - 2, hi + HALB + 2) || drin(h, (lo + 178) % 360, (hi + 182) % 360);
+}
+function zeige() {
+  M1.dreh.rotation.y = -h1 * RAD + Math.PI / 2;
+  M2.dreh.rotation.y = -h2 * RAD + Math.PI / 2;
+  F1.position.copy(V(D.masten.m1.x, D.masten.m1.y, D.masten.m1.stack[1] - 1));
+  F2.position.copy(V(D.masten.m2.x, D.masten.m2.y, D.masten.m2.stack[1] - 1));
+  F1.rotation.z = -h1 * RAD; F2.rotation.z = -h2 * RAD;
+  g1.textContent = h1 + "°"; g2.textContent = h2 + "°";
+  const c1 = D.cnt[h1], c2 = D.cnt[h2], d1 = D.cntdl[h1], d2 = D.cntdl[h2];
+  const warn = (D.tabu && (imTabu(h1) || imTabu(h2)))
+    ? `<div class="warnung">Achtung: eine Stellung liegt im Tabu-Sektor der Seilbahn.</div>` : "";
+  hud.innerHTML = `<h1>${D.name} — ${D.ort}</h1>
+    <div class="z">${D.boden} m · ${D.loc} · Laserscan mit Orthofoto, zwei Stacks aus je zwei 12JXX2</div>
+    <div class="z" style="margin-top:.4rem">
+      <span style="color:#d8a55f">DL-Stack ${h2}°</span>: <b>${c2}</b> Stationen im Strahl, davon <b>${d2}</b> in Deutschland<br>
+      <span style="color:#6fa384">Rotor-Stack ${h1}°</span>: <b>${c1}</b> Stationen, davon <b>${d1}</b> in Deutschland
+    </div>
+    <div class="z" style="margin-top:.4rem">Horizont frei: <b>${D.frei}</b> von ${D.stationen} Stationen ·
+      Deutschland <b>${D.dl_frei}</b> von ${D.dl_gesamt}<br>
+      Mit der ganzen Anlage: ${D.stellungen.erreicht} geteilt, ${D.um.erreicht} umgeschaltet</div>
+    ${warn}
+    <div class="z" style="margin-top:.4rem;color:#58585e">Ziehen dreht, Rad zoomt. Helle Schilder: Stadt über dem Horizont.</div>`;
+}
+r1.addEventListener("input", () => { h1 = +r1.value; zeige(); });
+r2.addEventListener("input", () => { h2 = +r2.value; zeige(); });
+
+const pres = document.getElementById("presets");
+for (const h of D.stellungen.mast2) {
+  const b = document.createElement("button"); b.textContent = `DL ${h}°`;
+  b.style.borderColor = "#3a3027"; b.onclick = () => { h2 = h; r2.value = h; zeige(); }; pres.appendChild(b);
+}
+for (const h of D.stellungen.mast1) {
+  const b = document.createElement("button"); b.textContent = `${h}°`;
+  b.style.borderColor = "#27332c"; b.onclick = () => { h1 = h; r1.value = h; zeige(); }; pres.appendChild(b);
+}
+document.getElementById("info").onclick = () => hud.classList.toggle("offen");
+
+let dreht = false;
+const knopf = document.getElementById("dreh");
+knopf.onclick = () => { dreht = !dreht; knopf.classList.toggle("an", dreht); knopf.textContent = dreht ? "Stopp" : "Drehen"; };
+rend.domElement.addEventListener("pointerdown", () => { if (dreht) knopf.onclick(); });
+
+function kameraSetzen(nah) {
+  const hoch = innerHeight > innerWidth;
+  const d = nah ? (hoch ? 62 : 46) : (hoch ? 215 : 155);
+  const h0 = hoehe(0, 0);
+  kamera.position.set(Math.sin(2.3) * d, h0 + (nah ? 16 : (hoch ? 95 : 78)), Math.cos(2.3) * d);
+  steuer.target.set(0, h0 + (nah ? 7 : 9), 0); steuer.update();
+}
+kameraSetzen(false);
+document.getElementById("nah").onclick = () => kameraSetzen(true);
+document.getElementById("weit").onclick = () => kameraSetzen(false);
+addEventListener("resize", () => {
+  kamera.aspect = innerWidth / innerHeight; kamera.updateProjectionMatrix();
+  rend.setSize(innerWidth, innerHeight);
+});
+zeige();
+(function schleife() {
+  requestAnimationFrame(schleife);
+  if (dreht) {
+    const a = 0.0016, p = kamera.position;
+    const x = p.x * Math.cos(a) - p.z * Math.sin(a), zz = p.x * Math.sin(a) + p.z * Math.cos(a);
+    p.set(x, p.y, zz);
+  }
+  steuer.update(); rend.render(szene, kamera);
+})();
+</script>
+</body>
+</html>
