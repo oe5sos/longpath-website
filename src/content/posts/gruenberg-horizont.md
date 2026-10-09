@@ -120,7 +120,6 @@ Von den 2 134 Stationen, die in den Logs bis 700 Kilometer auftauchen, stehen 
 
 Die Zahl hat aber zwei Hälften. **Wirklich frei** — der Horizont liegt mehr als drei Zehntelgrad unter der Waagrechten — sind 1 103 Stationen, davon 590 in Deutschland. Die übrigen 314 liegen **knapp**: zwischen −0,3° und null, also im Streifschatten einer Kante. Dort geht etwas, aber mit Verlust — drei bis acht Dezibel, je nach Tag. Der Beitrag nennt beide Zahlen, weil nur beide zusammen den Platz beschreiben. Von den 137 Grad, die frei sind, kommen 44 Grad knappe dazu.
 
-
 ## Die Anlage
 
 ![Blatt „Die Antennenanlage“: Polardiagramm der Stationen bis 500 Kilometer um Grünberg, je zehn Grad als Balken nach Land gestapelt, dazu die drei Stellungen des DL-Stacks und die drei des Rotor-Stacks](../../assets/karten/gruenberg-anlage.png)
@@ -133,8 +132,7 @@ Gerechnet ist überall dieselbe Anlage wie am Stuhleck, mit **drei Masten**:
 
 Die Stellungen sind nicht geraten, sondern gesucht: Für Grünberg fallen sie auf **304° / 346° / 286°** am DL-Stack, **42° / 70° / 16°** am Rotor-Stack und **250°** für die festen Tonnas.
 
-Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, kommt die Anlage auf **1 376 Stationen** (Deutschland 672, nach der DARC-Liste 1 271). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 1 072; auf alle drei Systeme zugleich verteilt nur noch 869 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 3 Stationen bei, die ohne ihn fehlen würden.
-
+Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, und drehen die beiden Rotoren über den Contest, kommt die Anlage auf **1 417 Stationen** (Deutschland 700, nach der DARC-Liste 1 271). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 1 132; mit nur drei festen Stellungen je Rotor 1 376; auf alle drei Systeme zugleich verteilt nur noch 869 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 3 Stationen bei, die ohne ihn fehlen würden.
 
 ## In drei Dimensionen
 
@@ -156,25 +154,24 @@ Derselbe Blick für jeden Standort: das Gelände kommt aus dem Laserscan des BEV
 
 ![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
 
-Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird. **Beide großen Antennen hängen am Rotor** — gezählt wird deshalb, was über den ganzen Contest erreichbar ist, nicht was eine feste Stellung gerade abdeckt.
 
 Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
 
 | Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
-| **Grünberg** · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | Auto bis oben |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | Sessellift, dann zu Fuß |
+| **Grünberg** · 989 m | 1 417 | 700 | 1 271 | 826 | Seilbahn, Gasthaus |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | Seilbahn, Gasthaus |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | Auto bis oben |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | Auto bis oben |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
 
-Grünberg steht damit auf **Platz 2 von 8**.
+Grünberg steht damit auf **Platz 3 von 8**.
 
 Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wurden mit der ersten Bestückung gerechnet — ein Yagi-Stack und ein Vierfachquad-Stack mit 69° Keulenbreite. Seit die Wahl auf zwei schmale 12JXX2-Stacks gefallen ist, verschiebt sich die Reihenfolge: Mehr Gewinn, weniger Breite bevorzugt die Standorte, deren Stationen in einer Richtung gebündelt liegen, und kostet die, die rundum offen sind. Die festen Tonnas auf Mast 3 holen einen Teil dieser Breite zurück.
-
 
 ## Die Daten
 
@@ -190,13 +187,12 @@ Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wu
 | Deutschland (DARC-Liste) | 1 324 unter der Waagrechten von 1 325 |
 | Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
 | Stellungen | DL-Stack 304° / 346° / 286° · Rotor-Stack 42° / 70° / 16° · Tonna fest 250° |
-| umgeschaltet · 1 000 W | 1 376 · ≤ 500 km 826 · DL 672 · DARC 1 271 |
-| geteilt · je 500 W | 1 072 · ≤ 500 km 820 · DL 501 |
+| umgeschaltet · 1 000 W | 1 417 · ≤ 500 km 826 · DL 700 · mit drei festen Stellungen je Rotor 1 376 |
+| geteilt · je 500 W | 1 132 · ≤ 500 km 826 · DL 544 |
 | alle drei zugleich · je 333 W | 869 · ≤ 500 km 809 · DL 407 |
 | ohne den Tonna-Mast | 1 373 statt 1 376 |
-| Σ Kilometer | 595 729 km |
+| Σ Kilometer | 623 181 km |
 | mit strengem Maß | nur Richtungen unter −0,3°: 836 · ≤ 500 km 634 · DL 416 |
-
 
 ## Was das heißt
 

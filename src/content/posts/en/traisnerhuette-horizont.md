@@ -136,7 +136,6 @@ Of the 2 045 stations that appear in the logs within 700 kilometres, **1 482
 
 The figure has two halves. **Genuinely clear** — horizon more than three tenths of a degree below the horizontal — are 1 460 stations, 569 of them in Germany. The other 22 are **marginal**: between −0.3° and zero, in the grazing shadow of an edge. Something works there, but at a loss of three to eight decibels depending on the day. Both numbers are given, because only both together describe the site. Of the 217 degrees that are clear, 14 marginal degrees come on top.
 
-
 ## The antennas
 
 ![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Traisner Hütte, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/traisnerhuette-anlage.png)
@@ -149,8 +148,7 @@ The same array is computed everywhere as the one on the Stuhleck, with **three m
 
 The headings are not guessed but searched: for Traisner Hütte they come out at **298° / 336° / 280°** for the DL stack, **34° / 74° / 122°** for the rotator stack and **4°** for the fixed Tonnas.
 
-Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 378 stations** (Germany 543, by the DARC list 988). Split across the two rotator stacks, 500 watts each, it is 1 022; spread over all three systems at once only 923 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 15 stations that would otherwise be missing.
-
+Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 482 stations** across the contest (Germany 569, by the DARC list 988). Split across the two rotator stacks, 500 watts each, it is 1 153; with only three fixed headings per rotator 1 378; spread over all three systems at once only 923 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 15 stations that would otherwise be missing.
 
 ## In three dimensions
 
@@ -172,25 +170,24 @@ The same view for every site: the terrain comes from the Austrian lidar survey, 
 
 ![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
 
-Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked. **Both large antennas sit on rotators** — so the count is what is reachable across the whole contest, not what one fixed heading covers.
 
 The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
 
 | Site | reached | Germany | DARC list | ≤ 500 km | Access |
 |---|---:|---:|---:|---:|---|
-| **Traisner Hütte** · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | drive to the top |
+| **Traisner Hütte** · 1 304 m | 1 482 | 569 | 988 | 877 | chairlift, then on foot |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | cable car, inn |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | cable car, inn |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | drive to the top |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | drive to the top |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
 
-Traisner Hütte therefore comes **1 of 8**.
+Traisner Hütte therefore comes **2 of 8**.
 
 Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
-
 
 ## The data
 
@@ -206,13 +203,12 @@ Anyone who knows the earlier articles in this series will find different numbers
 | Germany (DARC list) | 1 045 below the horizontal of 1 045 |
 | Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
 | Headings | DL-Stack 298° / 336° / 280° · Rotor-Stack 34° / 74° / 122° · Tonna fest 4° |
-| switched · 1 000 W | 1 378 · ≤ 500 km 875 · DL 543 · DARC 988 |
-| split · 500 W each | 1 022 · ≤ 500 km 840 · DL 384 |
+| switched · 1 000 W | 1 482 · ≤ 500 km 877 · DL 569 · with three fixed headings per rotator 1 378 |
+| split · 500 W each | 1 153 · ≤ 500 km 877 · DL 420 |
 | all three at once · 333 W each | 923 · ≤ 500 km 844 · DL 284 |
 | without the Tonna mast | 1 363 instead of 1 378 |
-| Σ kilometres | 572 997 km |
+| Σ kilometres | 639 312 km |
 | strict count | only directions below −0.3°: 1 026 · ≤ 500 km 827 · DL 384 |
-
 
 ## What it means
 

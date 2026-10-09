@@ -173,13 +173,11 @@ Las direcciones obstruidas se dibujan al menos hasta el seis por ciento del radi
 
 De las 2 120 estaciones de los registros, **ninguna está por encima del horizonte**. No es un error de redondeo: en las 360 direcciones hay terreno por encima de la horizontal.
 
-
 ## Las antenas
 
 ![Lámina «La instalación de antenas»: diagrama polar de las estaciones hasta 500 kilómetros alrededor de Loser, apiladas por país cada diez grados, con las tres posiciones de la pila DL y las tres de la pila del rotor](../../../assets/karten/loser-anlage.png)
 
 La instalación del Stuhleck no sirve de nada aquí: tres mástiles, dos rotores, 1 000 vatios — y ni una sola estación, porque el horizonte está por encima de la horizontal en todas las direcciones. El cálculo se muestra igualmente para que la comparación sea honesta.
-
 
 ## En tres dimensiones
 
@@ -201,25 +199,24 @@ La misma vista para cada emplazamiento: el terreno procede del escaneo láser de
 
 ![Diagrama de barras de todos los emplazamientos de la serie con la misma instalación: una barra por emplazamiento con las estaciones alcanzables, apiladas por país](../../../assets/karten/standorte-vergleich-serie.png)
 
-Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja.
+Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja. **Las dos antenas grandes van sobre rotor** — por eso se cuenta lo alcanzable a lo largo de todo el concurso, no lo que cubre una posición fija.
 
 El recuento se hace sobre los **registros IARU 2024/2025 y el Marconi 2025**: registran todos los países por igual. La lista DARC cubre solo Alemania — va en columna aparte, si no, cualquier emplazamiento que mire al oeste gana solo por los datos.
 
 | Emplazamiento | alcanzadas | Alemania | lista DARC | ≤ 500 km | Acceso |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | telesilla y luego a pie |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | teleférico, posada |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | coche hasta arriba |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | teleférico, posada |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | coche hasta arriba |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | coche hasta arriba |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | coche hasta arriba |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | telesilla y luego a pie |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | teleférico, posada |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | teleférico, posada |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | coche hasta arriba |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | coche hasta arriba |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | coche hasta arriba |
 | **Loser** · 1 585 m | 0 | 0 | 0 | 0 | coche hasta arriba |
 
 Loser ocupa así el **puesto 8 de 8**.
 
 Quien conozca los artículos anteriores de la serie encontrará allí otras cifras: se calcularon con la primera configuración — una pila Yagi y una pila de cuads con 69° de anchura de haz. Desde que la elección recayó en dos pilas estrechas de 12JXX2, el orden cambia: más ganancia y menos anchura favorece a los sitios cuyas estaciones se concentran en una dirección y perjudica a los que están abiertos en todo el horizonte. Las Tonna fijas del mástil 3 recuperan parte de esa anchura.
-
 
 ## Los datos
 
@@ -235,13 +232,12 @@ Quien conozca los artículos anteriores de la serie encontrará allí otras cifr
 | Alemania (lista DARC) | 0 por debajo de la horizontal de 1 287 |
 | Instalación | tres mástiles · mástil 1 10 m (2 × 12JXX2 a 6,9/9,7 m, rotor) · mástil 2 7 m (2 × 12JXX2 a 3,9/6,7 m, rotor) · mástil 3 7 m (2 × Tonna 9 el a 3,9/6,7 m, fijo) |
 | Posiciones | — |
-| conmutada · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · DARC 0 |
+| conmutada · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · con tres posiciones fijas por rotor 0 |
 | repartida · 500 W cada una | 0 · ≤ 500 km 0 · DL 0 |
 | las tres a la vez · 333 W | 0 · ≤ 500 km 0 · DL 0 |
 | sin el mástil de las Tonna | 0 en vez de 0 |
 | Σ kilómetros | 0 km |
 | recuento estricto | solo direcciones por debajo de −0,3°: 0 · ≤ 500 km 0 · DL 0 |
-
 
 ## Qué significa
 

@@ -167,7 +167,7 @@ En todos los emplazamientos se calcula la misma instalación que en el Stuhleck,
 
 Las posiciones no están supuestas, sino buscadas: para Braunsberg salen **308° / 280° / 326°** en la pila DL, **4° / 156° / 106°** en la pila del rotor y **168°** para las Tonna fijas.
 
-La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja, la instalación alcanza **1 124 estaciones** (Alemania 443, según la lista DARC 814). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 900; repartida entre los tres sistemas a la vez, solo 757 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 20 estaciones que de otro modo faltarían.
+La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja y girando ambos rotores a lo largo del concurso, la instalación alcanza **1 172 estaciones** (Alemania 454, según la lista DARC 814). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 947; con solo tres posiciones fijas por rotor 1 124; repartida entre los tres sistemas a la vez, solo 757 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 20 estaciones que de otro modo faltarían.
 
 ## En tres dimensiones
 
@@ -188,18 +188,18 @@ La misma vista para cada emplazamiento: el terreno procede del escaneo láser de
 
 ![Diagrama de barras de todos los emplazamientos de la serie con la misma instalación: una barra por emplazamiento con las estaciones alcanzables, apiladas por país](../../../assets/karten/standorte-vergleich-serie.png)
 
-Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja.
+Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja. **Las dos antenas grandes van sobre rotor** — por eso se cuenta lo alcanzable a lo largo de todo el concurso, no lo que cubre una posición fija.
 
 El recuento se hace sobre los **registros IARU 2024/2025 y el Marconi 2025**: registran todos los países por igual. La lista DARC cubre solo Alemania — va en columna aparte, si no, cualquier emplazamiento que mire al oeste gana solo por los datos.
 
 | Emplazamiento | alcanzadas | Alemania | lista DARC | ≤ 500 km | Acceso |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | telesilla y luego a pie |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | teleférico, posada |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | coche hasta arriba |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | teleférico, posada |
-| **Braunsberg** · 337 m | 1 124 | 443 | 814 | 740 | coche hasta arriba |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | coche hasta arriba |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | coche hasta arriba |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | telesilla y luego a pie |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | teleférico, posada |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | teleférico, posada |
+| **Braunsberg** · 337 m | 1 172 | 454 | 814 | 740 | coche hasta arriba |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | coche hasta arriba |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | coche hasta arriba |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | coche hasta arriba |
 
@@ -221,13 +221,12 @@ Quien conozca los artículos anteriores de la serie encontrará allí otras cifr
 | Alemania (lista DARC) | 842 por debajo de la horizontal de 882 |
 | Instalación | tres mástiles · mástil 1 10 m (2 × 12JXX2 a 6,9/9,7 m, rotor) · mástil 2 7 m (2 × 12JXX2 a 3,9/6,7 m, rotor) · mástil 3 7 m (2 × Tonna 9 el a 3,9/6,7 m, fijo) |
 | Posiciones | DL-Stack 308° / 280° / 326° · Rotor-Stack 4° / 156° / 106° · Tonna fest 168° |
-| conmutada · 1 000 W | 1 124 · ≤ 500 km 740 · DL 443 · DARC 814 |
-| repartida · 500 W cada una | 900 · ≤ 500 km 730 · DL 286 |
+| conmutada · 1 000 W | 1 172 · ≤ 500 km 740 · DL 454 · con tres posiciones fijas por rotor 1 124 |
+| repartida · 500 W cada una | 947 · ≤ 500 km 740 · DL 300 |
 | las tres a la vez · 333 W | 757 · ≤ 500 km 713 · DL 207 |
 | sin el mástil de las Tonna | 1 104 en vez de 1 124 |
-| Σ kilómetros | 473 581 km |
+| Σ kilómetros | 505 452 km |
 | recuento estricto | solo direcciones por debajo de −0,3°: 297 · ≤ 500 km 240 · DL 0 |
-
 
 ## Qué significa
 
@@ -244,7 +243,7 @@ treinta ciudades alemanas está realmente libre:** Múnich −0,05°, Passau −
 Berlín −0,24°, Colonia −0,23°. Todas entre cero y un cuarto de grado por debajo — el Bosque
 de Viena roza cada uno de esos caminos. Eso no significa que no funcione nada: un borde a
 cincuenta kilómetros cuesta de tres a ocho decibelios según el día, y con 1 000 vatios en
-una pila entran en el cálculo 443 estaciones alemanas (814 según la lista DARC) que serían alcanzables en otro sitio. Pero nunca llegan limpias, y una noche de tropo ayuda aquí menos que en una
+una pila entran en el cálculo 454 estaciones alemanas (814 según la lista DARC) que serían alcanzables en otro sitio. Pero nunca llegan limpias, y una noche de tropo ayuda aquí menos que en una
 montaña despejada.
 
 **La altura del mástil no cambia nada.** Cinco metros más de antena desplazan el ángulo

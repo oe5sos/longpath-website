@@ -166,7 +166,7 @@ Gerechnet ist überall dieselbe Anlage wie am Stuhleck, mit **drei Masten**:
 
 Die Stellungen sind nicht geraten, sondern gesucht: Für Braunsberg fallen sie auf **308° / 280° / 326°** am DL-Stack, **4° / 156° / 106°** am Rotor-Stack und **168°** für die festen Tonnas.
 
-Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, kommt die Anlage auf **1 124 Stationen** (Deutschland 443, nach der DARC-Liste 814). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 900; auf alle drei Systeme zugleich verteilt nur noch 757 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 20 Stationen bei, die ohne ihn fehlen würden.
+Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, und drehen die beiden Rotoren über den Contest, kommt die Anlage auf **1 172 Stationen** (Deutschland 454, nach der DARC-Liste 814). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 947; mit nur drei festen Stellungen je Rotor 1 124; auf alle drei Systeme zugleich verteilt nur noch 757 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 20 Stationen bei, die ohne ihn fehlen würden.
 
 ## In drei Dimensionen
 
@@ -187,18 +187,18 @@ Derselbe Blick für jeden Standort: das Gelände kommt aus dem Laserscan des BEV
 
 ![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
 
-Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird. **Beide großen Antennen hängen am Rotor** — gezählt wird deshalb, was über den ganzen Contest erreichbar ist, nicht was eine feste Stellung gerade abdeckt.
 
 Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
 
 | Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
-| **Braunsberg** · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | Auto bis oben |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | Sessellift, dann zu Fuß |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | Seilbahn, Gasthaus |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | Seilbahn, Gasthaus |
+| **Braunsberg** · 337 m | 1 172 | 454 | 814 | 740 | Auto bis oben |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | Auto bis oben |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
 
@@ -220,13 +220,12 @@ Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wu
 | Deutschland (DARC-Liste) | 842 unter der Waagrechten von 882 |
 | Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
 | Stellungen | DL-Stack 308° / 280° / 326° · Rotor-Stack 4° / 156° / 106° · Tonna fest 168° |
-| umgeschaltet · 1 000 W | 1 124 · ≤ 500 km 740 · DL 443 · DARC 814 |
-| geteilt · je 500 W | 900 · ≤ 500 km 730 · DL 286 |
+| umgeschaltet · 1 000 W | 1 172 · ≤ 500 km 740 · DL 454 · mit drei festen Stellungen je Rotor 1 124 |
+| geteilt · je 500 W | 947 · ≤ 500 km 740 · DL 300 |
 | alle drei zugleich · je 333 W | 757 · ≤ 500 km 713 · DL 207 |
 | ohne den Tonna-Mast | 1 104 statt 1 124 |
-| Σ Kilometer | 473 581 km |
+| Σ Kilometer | 505 452 km |
 | mit strengem Maß | nur Richtungen unter −0,3°: 297 · ≤ 500 km 240 · DL 0 |
-
 
 ## Was das heißt
 
@@ -242,7 +241,7 @@ Passau −0,02°, Stuttgart −0,07°, Nürnberg −0,12°, Frankfurt −0,09°,
 Dresden −0,20°, Hamburg −0,21°, Berlin −0,24°, Köln −0,23°. Alle zwischen null und einem
 Viertelgrad darunter — der Wienerwald schneidet jede dieser Verbindungen an. Das bedeutet
 nicht, dass nichts geht: Eine Kante in fünfzig Kilometern kostet je nach Tag drei bis acht
-Dezibel, und mit 1 000 Watt auf einem Stack sind 443 deutsche Stationen in der Rechnung (nach der
+Dezibel, und mit 1 000 Watt auf einem Stack sind 454 deutsche Stationen in der Rechnung (nach der
 DARC-Liste 814), die auch anderswo erreichbar wären. Aber sie kommen nie sauber an, und ein
 Tropo-Abend hilft hier weniger als auf einem Berg, der frei steht.
 

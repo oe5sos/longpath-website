@@ -108,36 +108,32 @@ The [site plan as PDF, revision 5](/karten/stuhleck-lageplan-antennenanlage.pdf)
 
 
 That leaves the question the swap raises: **would the quad stack on mast 1 not have brought more?** At 69
-degrees it is twice as wide as the 12JXX2 stack with 34 — one rotator heading covers twice as much sky. In
-exchange it has 3.3 decibels less gain.
+degrees it is twice as wide as the 12JXX2 stack with 34 — in exchange it has 3.3 decibels less gain. Because
+both large antennas sit on rotators and only the Tonnas are fixed, what counts is not what one heading covers
+at a given moment but what the antenna reaches across the whole contest.
 
-![Sheet “Gain versus width”: bars of reachable stations per distance band for both line-ups of mast 1, with the figures for three and six rotator headings, for a freely turning rotator and for split power](../../../assets/karten/stuhleck-quadfrage.png)
+![Sheet “Gain versus width”: bars of reachable stations per distance band for both line-ups of mast 1, with stations and kilometres at full and half power](../../../assets/karten/stuhleck-quadfrage.png)
 
-Computed with everything else equal — mast 2 stays the 12JXX2 stack towards Germany, mast 3 the fixed
-Tonnas, the no-go sector applies — it looks like this:
-
-| | 2 × 12JXX2 | quad stack | difference |
+| Mast 1, rotator turning | 2 × 12JXX2 | quad stack | difference |
 |---|---:|---:|---:|
-| switched, three headings | 1 372 | 1 296 | +76 |
-| switched, six headings | 1 582 | 1 348 | +234 |
-| switched, rotator turns freely | 1 636 | 1 636 | 0 |
-| split, 500 W each | 1 052 | 906 | +146 |
-| of that within 500 km | 902 | 843 | +59 |
+| 1 000 W · stations | 1 636 | 1 178 | +458 |
+| 1 000 W · Σ kilometres | 691 031 | 408 844 | +282 187 |
+| 500 W · stations | 1 224 | 859 | +365 |
+| 500 W · Σ kilometres | 438 146 | 250 058 | +188 088 |
+| 500 W · beyond 500 km | 233 | 0 | +233 |
 
-**Out to 300 kilometres the two are equal** — 429 against 432 stations. There the gain is enough either way,
-and the wider beam saves turning. The difference appears beyond 500 kilometres: there the 12JXX2 stack
-brings in 390 stations, the quad 297. The reason is in the range rule: 6 dBi to 300 km, then 3 dB per
-further 100 km. That takes the 12JXX2 stack to 693 kilometres at full power, the quad to 583 — and at half
-power only to 483, not even past the near range.
+**Out to 300 kilometres the two are equal** — 432 stations either way. There the gain is enough regardless.
+Beyond that the gain pulls ahead: the range rule asks for 6 dBi to 300 km and then 3 dB per further 100 km.
+That takes the 12JXX2 stack to 693 kilometres at full power, the quad to 583 — and at half power only to 483.
+**At 500 watts the quad stack reaches not a single station beyond 500 kilometres**, the 12JXX2 stack still 233.
 
-Two honest caveats. First: **with a rotator that turns freely the two are equivalent** (1 636 stations) —
-width only replaces turning, and the rotator can turn anyway. Second, the result hangs on the rule: set it
-more gently — 3 dB per 150 instead of per 100 kilometres — and the quad leads with 1 636 against 1 579. The
-rule is an assumption, not a measurement.
+Looked at one heading at a time it reads differently: averaged over all heading pairs the quad has 493
+stations open, the 12JXX2 471 — the wider beam wins. In kilometres it is 145 833 against 146 474, level:
+the twenty-two extra stations are the near ones, and a VHF contest counts kilometres.
 
-For the operating style here it still comes out in favour of the second 12JXX2 stack: work is done on fixed
-headings, not with a constantly turning rotator, and with split power the quad stack drops back behind the
-500-kilometre mark.
+One caveat belongs with this: set the range rule more gently — 3 dB per 150 instead of per 100 kilometres —
+and the picture turns in favour of the quad. The rule is an assumption, not a measurement. For this site it
+changes little: what scores here are the long paths, and those the gain brings in.
 
 ## Masts and guying
 
@@ -251,7 +247,6 @@ Of the 2 003 stations that appear in the logs within 700 kilometres, **1 647
 
 The figure has two halves. **Genuinely clear** — horizon more than three tenths of a degree below the horizontal — are 1 256 stations, 146 of them in Germany. The other 391 are **marginal**: between −0.3° and zero, in the grazing shadow of an edge. Something works there, but at a loss of three to eight decibels depending on the day. Both numbers are given, because only both together describe the site. Of the 248 degrees that are clear, 64 marginal degrees come on top.
 
-
 ## The antennas
 
 ![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Stuhleck, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/stuhleck-anlage.png)
@@ -264,8 +259,7 @@ The same array is computed everywhere as the one on the Stuhleck, with **three m
 
 The headings are not guessed but searched: for Stuhleck they come out at **300° / 340° / 290°** for the DL stack, **32° / 218° / 158°** for the rotator stack and **90°** for the fixed Tonnas.
 
-Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 298 stations** (Germany 307, by the DARC list 569). Split across the two rotator stacks, 500 watts each, it is 935; spread over all three systems at once only 804 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 75 stations that would otherwise be missing.
-
+Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 549 stations** across the contest (Germany 326, by the DARC list 569). Split across the two rotator stacks, 500 watts each, it is 1 157; with only three fixed headings per rotator 1 298; spread over all three systems at once only 804 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 75 stations that would otherwise be missing.
 
 ## In three dimensions
 
@@ -288,25 +282,24 @@ The orthophoto from basemap.at lies on the laser-scan terrain, one pixel is twen
 
 ![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
 
-Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked. **Both large antennas sit on rotators** — so the count is what is reachable across the whole contest, not what one fixed heading covers.
 
 The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
 
 | Site | reached | Germany | DARC list | ≤ 500 km | Access |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
-| **Stuhleck** · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| **Stuhleck** · 1 770 m | 1 549 | 326 | 569 | 962 | drive to the top |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | chairlift, then on foot |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | cable car, inn |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | cable car, inn |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | drive to the top |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | drive to the top |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
 
-Stuhleck therefore comes **3 of 8**.
+Stuhleck therefore comes **1 of 8**.
 
 Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
-
 
 ## The data
 
@@ -322,19 +315,18 @@ Anyone who knows the earlier articles in this series will find different numbers
 | Germany (DARC list) | 605 below the horizontal of 943 |
 | Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
 | Headings | DL-Stack 300° / 340° / 290° · Rotor-Stack 32° / 218° / 158° · Tonna fest 90° |
-| switched · 1 000 W | 1 298 · ≤ 500 km 921 · DL 307 · DARC 569 |
-| split · 500 W each | 935 · ≤ 500 km 792 · DL 181 |
+| switched · 1 000 W | 1 549 · ≤ 500 km 962 · DL 326 · with three fixed headings per rotator 1 298 |
+| split · 500 W each | 1 157 · ≤ 500 km 932 · DL 202 |
 | all three at once · 333 W each | 804 · ≤ 500 km 768 · DL 131 |
 | without the Tonna mast | 1 223 instead of 1 298 |
-| Σ kilometres | 511 695 km |
+| Σ kilometres | 656 878 km |
 | strict count | only directions below −0.3°: 737 · ≤ 500 km 611 · DL 71 |
-
 
 ## What it means
 
 The Stuhleck has the widest horizon of any site in this series: 248 of 360 degrees lie more than three tenths of a degree below the horizontal, eighteen countries are clear, and you can drive to the spot. What is missing is Germany: Rax, Schneeberg, Schneealpe and Hochschwab stand between 274° and 344° at up to +0.8°, and behind them sits the mass of German stations.
 
-For a contest that means: the Stuhleck wins on the sum — Italy, Croatia, Slovenia, Hungary, Slovakia, Poland, Czechia — and loses to [Grünberg](/en/blog/gruenberg-horizont/), [Gaisberg](/en/blog/gaisberg-horizont/) and [Feuerkogel](/en/blog/feuerkogel-horizont/) as soon as only Germany counts. With the three-mast array and 1 000 watts on whichever system is being worked it reaches 1 298 stations, 921 of them within 500 kilometres.
+For a contest that means: the Stuhleck wins on the sum — Italy, Croatia, Slovenia, Hungary, Slovakia, Poland, Czechia — and loses to [Grünberg](/en/blog/gruenberg-horizont/), [Gaisberg](/en/blog/gaisberg-horizont/) and [Feuerkogel](/en/blog/feuerkogel-horizont/) as soon as only Germany counts. With the three-mast array and 1 000 watts on whichever system is being worked it reaches 1 549 stations, 962 of them within 500 kilometres — with only three fixed headings per rotator it would be 1 298.
 
 ## Caveat
 

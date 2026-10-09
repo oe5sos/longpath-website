@@ -173,13 +173,11 @@ Verdeckte Richtungen sind auf mindestens sechs Prozent des Radius gezogen, damit
 
 Von den 2 120 Stationen in den Logs steht **keine einzige über dem Horizont**. Das ist kein Rundungsfehler: in allen 360 Richtungen liegt Gelände über der Waagrechten.
 
-
 ## Die Anlage
 
 ![Blatt „Die Antennenanlage“: Polardiagramm der Stationen bis 500 Kilometer um Loser, je zehn Grad als Balken nach Land gestapelt, dazu die drei Stellungen des DL-Stacks und die drei des Rotor-Stacks](../../assets/karten/loser-anlage.png)
 
 Die Anlage, die am Stuhleck steht, bringt hier nichts: drei Masten, zwei Rotoren, 1 000 Watt — und keine einzige Station, weil der Horizont in jeder Richtung über der Waagrechten liegt. Die Rechnung steht trotzdem hier, damit der Vergleich ehrlich bleibt.
-
 
 ## In drei Dimensionen
 
@@ -201,25 +199,24 @@ Derselbe Blick für jeden Standort: das Gelände kommt aus dem Laserscan des BEV
 
 ![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
 
-Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird. **Beide großen Antennen hängen am Rotor** — gezählt wird deshalb, was über den ganzen Contest erreichbar ist, nicht was eine feste Stellung gerade abdeckt.
 
 Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
 
 | Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | Auto bis oben |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | Sessellift, dann zu Fuß |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | Seilbahn, Gasthaus |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | Seilbahn, Gasthaus |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | Auto bis oben |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | Auto bis oben |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
 | **Loser** · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
 
 Loser steht damit auf **Platz 8 von 8**.
 
 Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wurden mit der ersten Bestückung gerechnet — ein Yagi-Stack und ein Vierfachquad-Stack mit 69° Keulenbreite. Seit die Wahl auf zwei schmale 12JXX2-Stacks gefallen ist, verschiebt sich die Reihenfolge: Mehr Gewinn, weniger Breite bevorzugt die Standorte, deren Stationen in einer Richtung gebündelt liegen, und kostet die, die rundum offen sind. Die festen Tonnas auf Mast 3 holen einen Teil dieser Breite zurück.
-
 
 ## Die Daten
 
@@ -235,13 +232,12 @@ Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wu
 | Deutschland (DARC-Liste) | 0 unter der Waagrechten von 1 287 |
 | Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
 | Stellungen | — |
-| umgeschaltet · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · DARC 0 |
+| umgeschaltet · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · mit drei festen Stellungen je Rotor 0 |
 | geteilt · je 500 W | 0 · ≤ 500 km 0 · DL 0 |
 | alle drei zugleich · je 333 W | 0 · ≤ 500 km 0 · DL 0 |
 | ohne den Tonna-Mast | 0 statt 0 |
 | Σ Kilometer | 0 km |
 | mit strengem Maß | nur Richtungen unter −0,3°: 0 · ≤ 500 km 0 · DL 0 |
-
 
 ## Was das heißt
 

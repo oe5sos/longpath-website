@@ -108,36 +108,35 @@ Der [Lageplan als PDF, Stand 5](/karten/stuhleck-lageplan-antennenanlage.pdf) ha
 
 
 Bleibt die Frage, die der Tausch aufwirft: **Hätte der Vierfachquad-Stack auf Mast 1 nicht mehr gebracht?**
-Er ist mit 69 Grad doppelt so breit wie der 12JXX2-Stack mit 34 — eine Rotorstellung deckt also doppelt so
-viel Himmel ab. Dafür hat er 3,3 Dezibel weniger Gewinn.
+Er ist mit 69 Grad doppelt so breit wie der 12JXX2-Stack mit 34 — dafür hat er 3,3 Dezibel weniger Gewinn.
+Weil beide großen Antennen am Rotor hängen und nur die Tonnas fest stehen, zählt nicht, was eine Stellung
+gerade abdeckt, sondern was die Antenne über den ganzen Contest erreicht.
 
-![Blatt „Gewinn gegen Breite“: Balken der erreichbaren Stationen je Entfernungsband für beide Bestückungen von Mast 1, dazu die Zahlen für drei und sechs Rotorstellungen, für frei drehenden Rotor und für geteilte Leistung](../../assets/karten/stuhleck-quadfrage.png)
+![Blatt „Gewinn gegen Breite“: Balken der erreichbaren Stationen je Entfernungsband für beide Bestückungen von Mast 1, dazu Stationen und Kilometer bei voller und halber Leistung](../../assets/karten/stuhleck-quadfrage.png)
 
-Gerechnet mit allem anderen gleich — Mast 2 bleibt der 12JXX2-Stack nach Deutschland, Mast 3 die festen
-Tonnas, der Tabu-Sektor gilt — sieht es so aus:
-
-| | 2 × 12JXX2 | Vierfachquad | Unterschied |
+| Mast 1, Rotor dreht | 2 × 12JXX2 | Vierfachquad | Unterschied |
 |---|---:|---:|---:|
-| umgeschaltet, drei Stellungen | 1 372 | 1 296 | +76 |
-| umgeschaltet, sechs Stellungen | 1 582 | 1 348 | +234 |
-| umgeschaltet, Rotor dreht frei | 1 636 | 1 636 | 0 |
-| geteilt, je 500 W | 1 052 | 906 | +146 |
-| davon bis 500 km | 902 | 843 | +59 |
+| 1 000 W · Stationen | 1 636 | 1 178 | +458 |
+| 1 000 W · Σ Kilometer | 691 031 | 408 844 | +282 187 |
+| 500 W · Stationen | 1 224 | 859 | +365 |
+| 500 W · Σ Kilometer | 438 146 | 250 058 | +188 088 |
+| 500 W · jenseits 500 km | 233 | 0 | +233 |
 
-**Bis 300 Kilometer sind beide gleich** — 429 gegen 432 Stationen. Dort reicht der Gewinn so oder so, und
-die breitere Keule spart Drehen. Der Unterschied entsteht jenseits von 500 Kilometern: dort holt der
-12JXX2-Stack 390 Stationen, der Quad 297. Der Grund steht in der Reichweitenregel: 6 dBi bis 300 km, danach
-3 dB je weitere 100 km. Damit reicht der 12JXX2-Stack mit voller Leistung bis 693 Kilometer, der Quad bis
-583 — und mit halber Leistung nur noch bis 483, also nicht einmal über den Nahbereich hinaus.
+**Bis 300 Kilometer sind beide gleich** — 432 Stationen hier wie dort. Dort reicht der Gewinn so oder so.
+Darüber zieht der Gewinn davon: Die Reichweitenregel verlangt 6 dBi bis 300 km und danach 3 dB je weitere
+100 km. Damit trägt der 12JXX2-Stack mit voller Leistung bis 693 Kilometer, der Quad bis 583 — und mit
+halber Leistung nur bis 483. **Mit 500 Watt erreicht der Quad-Stack jenseits von 500 Kilometern keine einzige
+Station mehr**, der 12JXX2-Stack dort noch 233.
 
-Zwei Einschränkungen, die ehrlich dazugehören. Erstens: **Mit einem Rotor, der frei dreht, sind beide
-gleichwertig** (1 636 Stationen) — die Breite ersetzt nur das Drehen, und drehen kann der Rotor ohnehin.
-Zweitens hängt das Ergebnis an der Regel: Wäre sie milder angesetzt — 3 dB je 150 statt je 100 Kilometer —,
-läge der Quad mit 1 636 gegen 1 579 vorn. Die Regel ist eine Annahme, keine Messung.
+Eine Stellung für sich betrachtet sieht es anders aus: Über alle Stellungspaare gemittelt hat der Quad
+493 Stationen offen, der 12JXX2 471 — die breite Keule gewinnt. An Kilometern sind es 145 833 gegen
+146 474, also gleichauf: Die zweiundzwanzig Stationen mehr sind die nahen, und im UKW-Contest zählen
+Kilometer.
 
-Für den Betrieb hier bleibt es trotzdem beim zweiten 12JXX2-Stack: Es wird mit festen Stellungen gearbeitet,
-nicht mit dauernd drehendem Rotor, und bei geteilter Leistung fällt der Quad-Stack hinter die 500-Kilometer-
-Marke zurück.
+Eine Einschränkung, die dazugehört: Wäre die Reichweitenregel milder angesetzt — 3 dB je 150 statt je
+100 Kilometer —, drehte sich das Bild zugunsten des Quads. Die Regel ist eine Annahme, keine Messung.
+Am Ergebnis für diesen Platz ändert das wenig: Was hier Punkte bringt, sind die weiten Verbindungen, und
+die holt der Gewinn.
 
 ## Masten und Abspannung
 
@@ -251,7 +250,6 @@ Von den 2 003 Stationen, die in den Logs bis 700 Kilometer auftauchen, stehen 
 
 Die Zahl hat aber zwei Hälften. **Wirklich frei** — der Horizont liegt mehr als drei Zehntelgrad unter der Waagrechten — sind 1 256 Stationen, davon 146 in Deutschland. Die übrigen 391 liegen **knapp**: zwischen −0,3° und null, also im Streifschatten einer Kante. Dort geht etwas, aber mit Verlust — drei bis acht Dezibel, je nach Tag. Der Beitrag nennt beide Zahlen, weil nur beide zusammen den Platz beschreiben. Von den 248 Grad, die frei sind, kommen 64 Grad knappe dazu.
 
-
 ## Die Anlage
 
 ![Blatt „Die Antennenanlage“: Polardiagramm der Stationen bis 500 Kilometer um Stuhleck, je zehn Grad als Balken nach Land gestapelt, dazu die drei Stellungen des DL-Stacks und die drei des Rotor-Stacks](../../assets/karten/stuhleck-anlage.png)
@@ -264,8 +262,7 @@ Gerechnet ist überall dieselbe Anlage wie am Stuhleck, mit **drei Masten**:
 
 Die Stellungen sind nicht geraten, sondern gesucht: Für Stuhleck fallen sie auf **300° / 340° / 290°** am DL-Stack, **32° / 218° / 158°** am Rotor-Stack und **90°** für die festen Tonnas.
 
-Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, kommt die Anlage auf **1 298 Stationen** (Deutschland 307, nach der DARC-Liste 569). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 935; auf alle drei Systeme zugleich verteilt nur noch 804 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 75 Stationen bei, die ohne ihn fehlen würden.
-
+Gespeist wird über einen Umschalter. Liegen die vollen 1 000 Watt auf dem System, auf dem gerade gearbeitet wird, und drehen die beiden Rotoren über den Contest, kommt die Anlage auf **1 549 Stationen** (Deutschland 326, nach der DARC-Liste 569). Teilt man die Leistung auf die beiden Rotor-Stacks, also 500 Watt je Stack, sind es 1 157; mit nur drei festen Stellungen je Rotor 1 298; auf alle drei Systeme zugleich verteilt nur noch 804 — drei Richtungen kosten mehr Leistung, als sie an Fläche bringen. Der Tonna-Mast allein steuert 75 Stationen bei, die ohne ihn fehlen würden.
 
 ## In drei Dimensionen
 
@@ -288,25 +285,24 @@ Das Orthofoto von basemap.at liegt auf dem Laserscan-Gelände, ein Pixel ist zwa
 
 ![Balkendiagramm aller Standorte der Reihe mit derselben Anlage: je Standort ein Balken der erreichbaren Stationen, nach Ländern gestapelt](../../assets/karten/standorte-vergleich-serie.png)
 
-Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird.
+Alle Standorte dieser Reihe mit **derselben Anlage, derselben Zählregel und denselben Logs** — nur so sind die Zahlen vergleichbar. Erreichbar heißt: Horizont unter der Waagrechten und genug Gewinn für die Entfernung (6 dBi bis 300 km, danach 3 dB je weitere 100 km), bei 1 000 Watt auf dem System, mit dem gerade gearbeitet wird. **Beide großen Antennen hängen am Rotor** — gezählt wird deshalb, was über den ganzen Contest erreichbar ist, nicht was eine feste Stellung gerade abdeckt.
 
 Gezählt wird auf den **IARU-Logs 2024/2025 und dem Marconi 2025**: die erfassen jedes Land gleich. Die DARC-Liste deckt nur Deutschland ab — sie steht als eigene Spalte daneben, sonst gewinnt jeder Standort, der nach Westen schaut, allein durch die Datenlage.
 
 | Standort | erreichbar | Deutschland | DARC-Liste | ≤ 500 km | Zugang |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | Sessellift, dann zu Fuß |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | Seilbahn, Gasthaus |
-| **Stuhleck** · 1 770 m | 1 298 | 307 | 569 | 921 | Auto bis oben |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | Seilbahn, Gasthaus |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | Auto bis oben |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | Auto bis oben |
+| **Stuhleck** · 1 770 m | 1 549 | 326 | 569 | 962 | Auto bis oben |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | Sessellift, dann zu Fuß |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | Seilbahn, Gasthaus |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | Seilbahn, Gasthaus |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | Auto bis oben |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | Auto bis oben |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | Auto bis oben |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | Auto bis oben |
 
-Stuhleck steht damit auf **Platz 3 von 8**.
+Stuhleck steht damit auf **Platz 1 von 8**.
 
 Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wurden mit der ersten Bestückung gerechnet — ein Yagi-Stack und ein Vierfachquad-Stack mit 69° Keulenbreite. Seit die Wahl auf zwei schmale 12JXX2-Stacks gefallen ist, verschiebt sich die Reihenfolge: Mehr Gewinn, weniger Breite bevorzugt die Standorte, deren Stationen in einer Richtung gebündelt liegen, und kostet die, die rundum offen sind. Die festen Tonnas auf Mast 3 holen einen Teil dieser Breite zurück.
-
 
 ## Die Daten
 
@@ -322,19 +318,18 @@ Wer die älteren Beiträge dieser Reihe kennt, findet dort andere Zahlen: Die wu
 | Deutschland (DARC-Liste) | 605 unter der Waagrechten von 943 |
 | Anlage | drei Masten · Mast 1 10 m (2 × 12JXX2 auf 6,9/9,7 m, Rotor) · Mast 2 7 m (2 × 12JXX2 auf 3,9/6,7 m, Rotor) · Mast 3 7 m (2 × 9-el-Tonna auf 3,9/6,7 m, fest) |
 | Stellungen | DL-Stack 300° / 340° / 290° · Rotor-Stack 32° / 218° / 158° · Tonna fest 90° |
-| umgeschaltet · 1 000 W | 1 298 · ≤ 500 km 921 · DL 307 · DARC 569 |
-| geteilt · je 500 W | 935 · ≤ 500 km 792 · DL 181 |
+| umgeschaltet · 1 000 W | 1 549 · ≤ 500 km 962 · DL 326 · mit drei festen Stellungen je Rotor 1 298 |
+| geteilt · je 500 W | 1 157 · ≤ 500 km 932 · DL 202 |
 | alle drei zugleich · je 333 W | 804 · ≤ 500 km 768 · DL 131 |
 | ohne den Tonna-Mast | 1 223 statt 1 298 |
-| Σ Kilometer | 511 695 km |
+| Σ Kilometer | 656 878 km |
 | mit strengem Maß | nur Richtungen unter −0,3°: 737 · ≤ 500 km 611 · DL 71 |
-
 
 ## Was das heißt
 
 Das Stuhleck ist der Standort dieser Reihe mit dem breitesten Horizont: 248 von 360 Grad liegen mehr als drei Zehntelgrad unter der Waagrechten, achtzehn Länder sind frei erreichbar, und der Platz ist mit dem Auto erreichbar. Was fehlt, ist Deutschland: Rax, Schneeberg, Schneealpe und Hochschwab stehen zwischen 274° und 344° mit bis zu +0,8° im Weg, und dahinter liegt die Masse der deutschen Stationen.
 
-Für einen Contest heißt das: Der Stuhleck gewinnt über die Summe — Italien, Kroatien, Slowenien, Ungarn, Slowakei, Polen, Tschechien — und verliert gegen [Grünberg](/blog/gruenberg-horizont/), [Gaisberg](/blog/gaisberg-horizont/) und [Feuerkogel](/blog/feuerkogel-horizont/), sobald nur Deutschland zählt. Mit der Anlage aus drei Masten und 1 000 Watt auf dem jeweils arbeitenden System sind es 1 298 Stationen, davon 921 innerhalb von 500 Kilometern.
+Für einen Contest heißt das: Der Stuhleck gewinnt über die Summe — Italien, Kroatien, Slowenien, Ungarn, Slowakei, Polen, Tschechien — und verliert gegen [Grünberg](/blog/gruenberg-horizont/), [Gaisberg](/blog/gaisberg-horizont/) und [Feuerkogel](/blog/feuerkogel-horizont/), sobald nur Deutschland zählt. Mit der Anlage aus drei Masten und 1 000 Watt auf dem jeweils arbeitenden System sind es 1 549 Stationen, davon 962 innerhalb von 500 Kilometern — mit nur drei festen Stellungen je Rotor wären es 1 298.
 
 ## Vorbehalt
 

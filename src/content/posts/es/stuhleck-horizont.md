@@ -108,36 +108,33 @@ El [plano de situación en PDF, revisión 5](/karten/stuhleck-lageplan-antennena
 
 
 Queda la pregunta que plantea el cambio: **¿no habría rendido más la pila de cuads en el mástil 1?** Con 69
-grados es el doble de ancha que la pila de 12JXX2 con 34 — una posición del rotor cubre el doble de cielo. A
-cambio tiene 3,3 decibelios menos de ganancia.
+grados es el doble de ancha que la pila de 12JXX2 con 34 — a cambio tiene 3,3 decibelios menos de ganancia.
+Como las dos antenas grandes van sobre rotor y solo las Tonna están fijas, no cuenta lo que cubre una
+posición en un momento dado, sino lo que la antena alcanza a lo largo de todo el concurso.
 
-![Lámina «Ganancia frente a anchura»: barras de estaciones alcanzables por banda de distancia para ambas configuraciones del mástil 1, con las cifras para tres y seis posiciones del rotor, para rotor girando libremente y para potencia repartida](../../../assets/karten/stuhleck-quadfrage.png)
+![Lámina «Ganancia frente a anchura»: barras de estaciones alcanzables por banda de distancia para ambas configuraciones del mástil 1, con estaciones y kilómetros a plena y media potencia](../../../assets/karten/stuhleck-quadfrage.png)
 
-Calculado con todo lo demás igual — el mástil 2 sigue siendo la pila de 12JXX2 hacia Alemania, el mástil 3
-las Tonna fijas, con el sector prohibido vigente — queda así:
-
-| | 2 × 12JXX2 | pila de cuads | diferencia |
+| Mástil 1, rotor girando | 2 × 12JXX2 | pila de cuads | diferencia |
 |---|---:|---:|---:|
-| conmutada, tres posiciones | 1 372 | 1 296 | +76 |
-| conmutada, seis posiciones | 1 582 | 1 348 | +234 |
-| conmutada, rotor girando libre | 1 636 | 1 636 | 0 |
-| repartida, 500 W cada una | 1 052 | 906 | +146 |
-| de ellas hasta 500 km | 902 | 843 | +59 |
+| 1 000 W · estaciones | 1 636 | 1 178 | +458 |
+| 1 000 W · Σ kilómetros | 691 031 | 408 844 | +282 187 |
+| 500 W · estaciones | 1 224 | 859 | +365 |
+| 500 W · Σ kilómetros | 438 146 | 250 058 | +188 088 |
+| 500 W · más allá de 500 km | 233 | 0 | +233 |
 
-**Hasta 300 kilómetros ambas son iguales** — 429 frente a 432 estaciones. Allí la ganancia basta en cualquier
-caso y el haz más ancho ahorra giros. La diferencia aparece más allá de 500 kilómetros: allí la pila de
-12JXX2 consigue 390 estaciones y la de cuads 297. La razón está en la regla de alcance: 6 dBi hasta 300 km y
-después 3 dB por cada 100 km más. Con eso la pila de 12JXX2 llega a 693 kilómetros a plena potencia y la de
-cuads a 583 — y a media potencia solo a 483, ni siquiera más allá del ámbito cercano.
+**Hasta 300 kilómetros ambas son iguales** — 432 estaciones en los dos casos. Allí la ganancia basta de todos
+modos. Más allá, la ganancia se impone: la regla de alcance exige 6 dBi hasta 300 km y después 3 dB por cada
+100 km más. Con eso la pila de 12JXX2 llega a 693 kilómetros a plena potencia y la de cuads a 583 — y a media
+potencia solo a 483. **Con 500 vatios la pila de cuads no alcanza ni una sola estación más allá de 500
+kilómetros**, la de 12JXX2 todavía 233.
 
-Dos reservas honestas. Primera: **con un rotor que gira libremente ambas son equivalentes** (1 636
-estaciones) — la anchura solo sustituye al giro, y girar el rotor puede de todos modos. Segunda, el
-resultado depende de la regla: si se fija más suave — 3 dB por 150 en vez de por 100 kilómetros — la pila de
-cuads va por delante, 1 636 frente a 1 579. La regla es una suposición, no una medición.
+Mirando una sola posición la cosa cambia: promediando todos los pares de posiciones, la pila de cuads tiene
+493 estaciones abiertas y la de 12JXX2, 471 — gana el haz ancho. En kilómetros son 145 833 frente a 146 474,
+empate: las veintidós estaciones de más son las cercanas, y en un concurso de VHF cuentan los kilómetros.
 
-Para la forma de operar aquí sigue ganando la segunda pila de 12JXX2: se trabaja con posiciones fijas, no
-con un rotor girando sin parar, y con la potencia repartida la pila de cuads se queda por detrás de la marca
-de los 500 kilómetros.
+Una reserva que corresponde: si la regla de alcance fuera más suave — 3 dB por 150 en vez de por 100
+kilómetros — el cuadro se volvería a favor de los cuads. La regla es una suposición, no una medición. Para
+este emplazamiento cambia poco: lo que puntúa aquí son los trayectos largos, y esos los consigue la ganancia.
 
 ## Mástiles y vientos
 
@@ -251,7 +248,6 @@ De las 2 003 estaciones que aparecen en los registros hasta 700 kilómetros, *
 
 La cifra tiene dos mitades. **Realmente libres** — el horizonte más de tres décimas de grado por debajo de la horizontal — son 1 256 estaciones, 146 de ellas en Alemania. Las otras 391 quedan **justas**: entre −0,3° y cero, en la sombra rasante de un borde. Algo se hace, pero con pérdida de tres a ocho decibelios según el día. Se dan ambas cifras porque solo juntas describen el emplazamiento. A los 248 grados libres se suman 64 grados justos.
 
-
 ## Las antenas
 
 ![Lámina «La instalación de antenas»: diagrama polar de las estaciones hasta 500 kilómetros alrededor de Stuhleck, apiladas por país cada diez grados, con las tres posiciones de la pila DL y las tres de la pila del rotor](../../../assets/karten/stuhleck-anlage.png)
@@ -264,8 +260,7 @@ En todos los emplazamientos se calcula la misma instalación que en el Stuhleck,
 
 Las posiciones no están supuestas, sino buscadas: para Stuhleck salen **300° / 340° / 290°** en la pila DL, **32° / 218° / 158°** en la pila del rotor y **90°** para las Tonna fijas.
 
-La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja, la instalación alcanza **1 298 estaciones** (Alemania 307, según la lista DARC 569). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 935; repartida entre los tres sistemas a la vez, solo 804 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 75 estaciones que de otro modo faltarían.
-
+La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja y girando ambos rotores a lo largo del concurso, la instalación alcanza **1 549 estaciones** (Alemania 326, según la lista DARC 569). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 1 157; con solo tres posiciones fijas por rotor 1 298; repartida entre los tres sistemas a la vez, solo 804 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 75 estaciones que de otro modo faltarían.
 
 ## En tres dimensiones
 
@@ -288,25 +283,24 @@ La ortofoto de basemap.at está tendida sobre el terreno del escaneo láser, un 
 
 ![Diagrama de barras de todos los emplazamientos de la serie con la misma instalación: una barra por emplazamiento con las estaciones alcanzables, apiladas por país](../../../assets/karten/standorte-vergleich-serie.png)
 
-Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja.
+Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja. **Las dos antenas grandes van sobre rotor** — por eso se cuenta lo alcanzable a lo largo de todo el concurso, no lo que cubre una posición fija.
 
 El recuento se hace sobre los **registros IARU 2024/2025 y el Marconi 2025**: registran todos los países por igual. La lista DARC cubre solo Alemania — va en columna aparte, si no, cualquier emplazamiento que mire al oeste gana solo por los datos.
 
 | Emplazamiento | alcanzadas | Alemania | lista DARC | ≤ 500 km | Acceso |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | telesilla y luego a pie |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | teleférico, posada |
-| **Stuhleck** · 1 770 m | 1 298 | 307 | 569 | 921 | coche hasta arriba |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | teleférico, posada |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | coche hasta arriba |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | coche hasta arriba |
+| **Stuhleck** · 1 770 m | 1 549 | 326 | 569 | 962 | coche hasta arriba |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | telesilla y luego a pie |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | teleférico, posada |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | teleférico, posada |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | coche hasta arriba |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | coche hasta arriba |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | coche hasta arriba |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | coche hasta arriba |
 
-Stuhleck ocupa así el **puesto 3 de 8**.
+Stuhleck ocupa así el **puesto 1 de 8**.
 
 Quien conozca los artículos anteriores de la serie encontrará allí otras cifras: se calcularon con la primera configuración — una pila Yagi y una pila de cuads con 69° de anchura de haz. Desde que la elección recayó en dos pilas estrechas de 12JXX2, el orden cambia: más ganancia y menos anchura favorece a los sitios cuyas estaciones se concentran en una dirección y perjudica a los que están abiertos en todo el horizonte. Las Tonna fijas del mástil 3 recuperan parte de esa anchura.
-
 
 ## Los datos
 
@@ -322,19 +316,18 @@ Quien conozca los artículos anteriores de la serie encontrará allí otras cifr
 | Alemania (lista DARC) | 605 por debajo de la horizontal de 943 |
 | Instalación | tres mástiles · mástil 1 10 m (2 × 12JXX2 a 6,9/9,7 m, rotor) · mástil 2 7 m (2 × 12JXX2 a 3,9/6,7 m, rotor) · mástil 3 7 m (2 × Tonna 9 el a 3,9/6,7 m, fijo) |
 | Posiciones | DL-Stack 300° / 340° / 290° · Rotor-Stack 32° / 218° / 158° · Tonna fest 90° |
-| conmutada · 1 000 W | 1 298 · ≤ 500 km 921 · DL 307 · DARC 569 |
-| repartida · 500 W cada una | 935 · ≤ 500 km 792 · DL 181 |
+| conmutada · 1 000 W | 1 549 · ≤ 500 km 962 · DL 326 · con tres posiciones fijas por rotor 1 298 |
+| repartida · 500 W cada una | 1 157 · ≤ 500 km 932 · DL 202 |
 | las tres a la vez · 333 W | 804 · ≤ 500 km 768 · DL 131 |
 | sin el mástil de las Tonna | 1 223 en vez de 1 298 |
-| Σ kilómetros | 511 695 km |
+| Σ kilómetros | 656 878 km |
 | recuento estricto | solo direcciones por debajo de −0,3°: 737 · ≤ 500 km 611 · DL 71 |
-
 
 ## Qué significa
 
 El Stuhleck es el emplazamiento de la serie con el horizonte más amplio: 248 de 360 grados están más de tres décimas de grado por debajo de la horizontal, dieciocho países quedan libres y se llega en coche. Lo que falta es Alemania: Rax, Schneeberg, Schneealpe y Hochschwab se interponen entre 274° y 344° con hasta +0,8°, y detrás está la masa de estaciones alemanas.
 
-Para un concurso eso significa: el Stuhleck gana por la suma — Italia, Croacia, Eslovenia, Hungría, Eslovaquia, Polonia, Chequia — y pierde frente a [Grünberg](/es/blog/gruenberg-horizont/), [Gaisberg](/es/blog/gaisberg-horizont/) y [Feuerkogel](/es/blog/feuerkogel-horizont/) en cuanto solo cuenta Alemania. Con la instalación de tres mástiles y 1 000 vatios en el sistema con el que se trabaja alcanza 1 298 estaciones, 921 de ellas dentro de 500 kilómetros.
+Para un concurso eso significa: el Stuhleck gana por la suma — Italia, Croacia, Eslovenia, Hungría, Eslovaquia, Polonia, Chequia — y pierde frente a [Grünberg](/es/blog/gruenberg-horizont/), [Gaisberg](/es/blog/gaisberg-horizont/) y [Feuerkogel](/es/blog/feuerkogel-horizont/) en cuanto solo cuenta Alemania. Con la instalación de tres mástiles y 1 000 vatios en el sistema con el que se trabaja alcanza 1 549 estaciones, 962 de ellas dentro de 500 kilómetros — con solo tres posiciones fijas por rotor serían 1 298.
 
 ## Reserva
 

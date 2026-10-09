@@ -136,7 +136,6 @@ De las 2 045 estaciones que aparecen en los registros hasta 700 kilómetros, *
 
 La cifra tiene dos mitades. **Realmente libres** — el horizonte más de tres décimas de grado por debajo de la horizontal — son 1 460 estaciones, 569 de ellas en Alemania. Las otras 22 quedan **justas**: entre −0,3° y cero, en la sombra rasante de un borde. Algo se hace, pero con pérdida de tres a ocho decibelios según el día. Se dan ambas cifras porque solo juntas describen el emplazamiento. A los 217 grados libres se suman 14 grados justos.
 
-
 ## Las antenas
 
 ![Lámina «La instalación de antenas»: diagrama polar de las estaciones hasta 500 kilómetros alrededor de Traisner Hütte, apiladas por país cada diez grados, con las tres posiciones de la pila DL y las tres de la pila del rotor](../../../assets/karten/traisnerhuette-anlage.png)
@@ -149,8 +148,7 @@ En todos los emplazamientos se calcula la misma instalación que en el Stuhleck,
 
 Las posiciones no están supuestas, sino buscadas: para Traisner Hütte salen **298° / 336° / 280°** en la pila DL, **34° / 74° / 122°** en la pila del rotor y **4°** para las Tonna fijas.
 
-La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja, la instalación alcanza **1 378 estaciones** (Alemania 543, según la lista DARC 988). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 1 022; repartida entre los tres sistemas a la vez, solo 923 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 15 estaciones que de otro modo faltarían.
-
+La alimentación pasa por un conmutador. Con los 1 000 vatios completos en el sistema con el que se trabaja y girando ambos rotores a lo largo del concurso, la instalación alcanza **1 482 estaciones** (Alemania 569, según la lista DARC 988). Repartida entre las dos pilas con rotor, 500 vatios cada una, son 1 153; con solo tres posiciones fijas por rotor 1 378; repartida entre los tres sistemas a la vez, solo 923 — tres direcciones cuestan más potencia de la que aportan en cobertura. El mástil con las Tonna aporta por sí solo 15 estaciones que de otro modo faltarían.
 
 ## En tres dimensiones
 
@@ -172,25 +170,24 @@ La misma vista para cada emplazamiento: el terreno procede del escaneo láser de
 
 ![Diagrama de barras de todos los emplazamientos de la serie con la misma instalación: una barra por emplazamiento con las estaciones alcanzables, apiladas por país](../../../assets/karten/standorte-vergleich-serie.png)
 
-Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja.
+Todos los emplazamientos de la serie con **la misma instalación, la misma regla de recuento y los mismos registros** — solo así las cifras son comparables. Alcanzable significa: horizonte por debajo de la horizontal y ganancia suficiente para la distancia (6 dBi hasta 300 km, después 3 dB por cada 100 km), con 1 000 vatios en el sistema con el que se trabaja. **Las dos antenas grandes van sobre rotor** — por eso se cuenta lo alcanzable a lo largo de todo el concurso, no lo que cubre una posición fija.
 
 El recuento se hace sobre los **registros IARU 2024/2025 y el Marconi 2025**: registran todos los países por igual. La lista DARC cubre solo Alemania — va en columna aparte, si no, cualquier emplazamiento que mire al oeste gana solo por los datos.
 
 | Emplazamiento | alcanzadas | Alemania | lista DARC | ≤ 500 km | Acceso |
 |---|---:|---:|---:|---:|---|
-| **Traisner Hütte** · 1 304 m | 1 378 | 543 | 988 | 875 | telesilla y luego a pie |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | teleférico, posada |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | coche hasta arriba |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | teleférico, posada |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | coche hasta arriba |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | coche hasta arriba |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | coche hasta arriba |
+| **Traisner Hütte** · 1 304 m | 1 482 | 569 | 988 | 877 | telesilla y luego a pie |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | teleférico, posada |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | teleférico, posada |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | coche hasta arriba |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | coche hasta arriba |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | coche hasta arriba |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | coche hasta arriba |
 
-Traisner Hütte ocupa así el **puesto 1 de 8**.
+Traisner Hütte ocupa así el **puesto 2 de 8**.
 
 Quien conozca los artículos anteriores de la serie encontrará allí otras cifras: se calcularon con la primera configuración — una pila Yagi y una pila de cuads con 69° de anchura de haz. Desde que la elección recayó en dos pilas estrechas de 12JXX2, el orden cambia: más ganancia y menos anchura favorece a los sitios cuyas estaciones se concentran en una dirección y perjudica a los que están abiertos en todo el horizonte. Las Tonna fijas del mástil 3 recuperan parte de esa anchura.
-
 
 ## Los datos
 
@@ -206,13 +203,12 @@ Quien conozca los artículos anteriores de la serie encontrará allí otras cifr
 | Alemania (lista DARC) | 1 045 por debajo de la horizontal de 1 045 |
 | Instalación | tres mástiles · mástil 1 10 m (2 × 12JXX2 a 6,9/9,7 m, rotor) · mástil 2 7 m (2 × 12JXX2 a 3,9/6,7 m, rotor) · mástil 3 7 m (2 × Tonna 9 el a 3,9/6,7 m, fijo) |
 | Posiciones | DL-Stack 298° / 336° / 280° · Rotor-Stack 34° / 74° / 122° · Tonna fest 4° |
-| conmutada · 1 000 W | 1 378 · ≤ 500 km 875 · DL 543 · DARC 988 |
-| repartida · 500 W cada una | 1 022 · ≤ 500 km 840 · DL 384 |
+| conmutada · 1 000 W | 1 482 · ≤ 500 km 877 · DL 569 · con tres posiciones fijas por rotor 1 378 |
+| repartida · 500 W cada una | 1 153 · ≤ 500 km 877 · DL 420 |
 | las tres a la vez · 333 W | 923 · ≤ 500 km 844 · DL 284 |
 | sin el mástil de las Tonna | 1 363 en vez de 1 378 |
-| Σ kilómetros | 572 997 km |
+| Σ kilómetros | 639 312 km |
 | recuento estricto | solo direcciones por debajo de −0,3°: 1 026 · ≤ 500 km 827 · DL 384 |
-
 
 ## Qué significa
 

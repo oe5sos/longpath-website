@@ -173,13 +173,11 @@ Obstructed directions are drawn to at least six percent of the radius so that th
 
 Of the 2 120 stations in the logs, **not a single one is above the horizon**. That is not a rounding error: in all 360 directions terrain stands above the horizontal.
 
-
 ## The antennas
 
 ![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Loser, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/loser-anlage.png)
 
 The array that stands on the Stuhleck gets nowhere here: three masts, two rotators, 1 000 watts — and not one station, because the horizon is above the horizontal in every direction. The figure is shown anyway so the comparison stays honest.
-
 
 ## In three dimensions
 
@@ -201,25 +199,24 @@ The same view for every site: the terrain comes from the Austrian lidar survey, 
 
 ![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
 
-Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked. **Both large antennas sit on rotators** — so the count is what is reachable across the whole contest, not what one fixed heading covers.
 
 The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
 
 | Site | reached | Germany | DARC list | ≤ 500 km | Access |
 |---|---:|---:|---:|---:|---|
-| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
-| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
-| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
-| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
-| Braunsberg · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
-| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| Stuhleck · 1 770 m | 1 549 | 326 | 569 | 962 | drive to the top |
+| Traisner Hütte · 1 304 m | 1 482 | 569 | 988 | 877 | chairlift, then on foot |
+| Grünberg · 989 m | 1 417 | 700 | 1 271 | 826 | cable car, inn |
+| Feuerkogelhaus · 1 591 m | 1 302 | 588 | 1 056 | 726 | cable car, inn |
+| Braunsberg · 337 m | 1 172 | 454 | 814 | 740 | drive to the top |
+| Gaisberg · 1 272 m | 1 055 | 628 | 1 199 | 618 | drive to the top |
 | Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
 | **Loser** · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
 
 Loser therefore comes **8 of 8**.
 
 Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
-
 
 ## The data
 
@@ -235,13 +232,12 @@ Anyone who knows the earlier articles in this series will find different numbers
 | Germany (DARC list) | 0 below the horizontal of 1 287 |
 | Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
 | Headings | — |
-| switched · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · DARC 0 |
+| switched · 1 000 W | 0 · ≤ 500 km 0 · DL 0 · with three fixed headings per rotator 0 |
 | split · 500 W each | 0 · ≤ 500 km 0 · DL 0 |
 | all three at once · 333 W each | 0 · ≤ 500 km 0 · DL 0 |
 | without the Tonna mast | 0 instead of 0 |
 | Σ kilometres | 0 km |
 | strict count | only directions below −0.3°: 0 · ≤ 500 km 0 · DL 0 |
-
 
 ## What it means
 
