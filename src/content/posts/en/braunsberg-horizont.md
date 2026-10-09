@@ -150,17 +150,23 @@ the numbered list.
 
 ![Dark map 700 kilometres around Braunsberg, every contest station a dot: bright where the horizon is clear, amber behind terrain; plus the six rotator headings of the array](../../../assets/karten/braunsberg-stationen.png)
 
-Of the 2 272 stations that appear in the logs within 700 kilometres, **1 541 are above the horizon** — Germany 823 of 865. That is the ceiling: no antenna, however large, gets past it.
+Of the 1 887 stations that appear in the logs within 700 kilometres, **1 172 are above the horizon** — Germany 454 of 480. That is the ceiling: no antenna, however large, gets past it.
 
-The figure has two halves. **Genuinely clear** — horizon more than three tenths of a degree below the horizontal — are 341 stations, 0 of them in Germany. The other 1 200 are **marginal**: between −0.3° and zero, in the grazing shadow of an edge. Something works there, but at a loss of three to eight decibels depending on the day. Both numbers are given, because only both together describe the site. Of the 107 degrees that are clear, 113 marginal degrees come on top.
+The figure has two halves. **Genuinely clear** — horizon more than three tenths of a degree below the horizontal — are 341 stations, 0 of them in Germany. The other 831 are **marginal**: between −0.3° and zero, in the grazing shadow of an edge. Something works there, but at a loss of three to eight decibels depending on the day. Both numbers are given, because only both together describe the site. Of the 107 degrees that are clear, 113 marginal degrees come on top.
 
 ## The antennas
 
 ![Sheet “The antenna array”: polar chart of the stations within 500 kilometres of Braunsberg, stacked by country in ten-degree bins, with the three headings of the DL stack and the three of the rotator stack](../../../assets/karten/braunsberg-anlage.png)
 
-The same array is computed everywhere as the one on the Stuhleck: **two stacks of two 12JXX2 each**, both on rotators. Mast 2 (7 metres, stack at 3.9 and 6.7 m) points at Germany, mast 1 (10 metres, stack at 6.9 and 9.7 m) takes the rest. The three headings per rotator are not guessed but searched: together they bring in the most.
+The same array is computed everywhere as the one on the Stuhleck, with **three masts**:
 
-For Braunsberg the search lands on **292° / 326° / 282°** for the DL stack and **4° / 156° / 106°** for the rotator stack. That gives **1 102 stations** with the power on both stacks at once (500 watts each), and **1 457** when switching, with the full 1 000 watts on one stack. Towards Germany it is 488 and 796 stations respectively.
+- **Mast 2**, 7 metres, rotator: two 12JXX2 stacked at 3.9 and 6.7 m — the stack that looks at Germany.
+- **Mast 1**, 10 metres, rotator: two 12JXX2 stacked at 6.9 and 9.7 m, 34° wide, 17.8 dBi.
+- **Mast 3**, 7 metres, no rotator: two stacked 9-element Tonnas at 3.9 and 6.7 m, 44° wide, 14.3 dBi — fixed on one heading.
+
+The headings are not guessed but searched: for Braunsberg they come out at **308° / 280° / 326°** for the DL stack, **4° / 156° / 106°** for the rotator stack and **168°** for the fixed Tonnas.
+
+Feeding goes through a switch. With the full 1 000 watts on whichever system is being worked, the array reaches **1 124 stations** (Germany 443, by the DARC list 814). Split across the two rotator stacks, 500 watts each, it is 900; spread over all three systems at once only 757 — three directions cost more power than they gain in coverage. The Tonna mast alone adds 20 stations that would otherwise be missing.
 
 ## In three dimensions
 
@@ -181,20 +187,24 @@ The same view for every site: the terrain comes from the Austrian lidar survey, 
 
 ![Bar chart of every site in the series with the same array: one bar per site of the stations it reaches, stacked by country](../../../assets/karten/standorte-vergleich-serie.png)
 
-Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reachable means: horizon clear and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km). *Split* is 1 000 watts across both stacks at once, *switched* is full power on one.
+Every site in this series with **the same array, the same counting rule and the same logs** — only then are the numbers comparable. Reached means: horizon below the horizontal and enough gain for the distance (6 dBi to 300 km, then 3 dB per further 100 km), with 1 000 watts on whichever system is being worked.
 
-| Site | split | Germany | ≤ 500 km | switched | Access |
+The count runs on the **IARU logs 2024/2025 and the Marconi 2025**: they record every country alike. The DARC list covers Germany only — it sits in its own column, otherwise every site that looks west wins on the data alone.
+
+| Site | reached | Germany | DARC list | ≤ 500 km | Access |
 |---|---:|---:|---:|---:|---|
-| Grünberg · 989 m | 1 459 | 888 | 1 126 | 1 944 | cable car, inn |
-| Traisner Hütte · 1 304 m | 1 349 | 688 | 1 053 | 1 791 | chairlift, then on foot |
-| Gaisberg · 1 272 m | 1 257 | 935 | 910 | 1 582 | drive to the top |
-| Feuerkogelhaus · 1 591 m | 1 229 | 674 | 914 | 1 708 | cable car, inn |
-| **Braunsberg** · 337 m | 1 102 | 488 | 863 | 1 457 | drive to the top |
-| Stuhleck · 1 770 m | 1 093 | 339 | 896 | 1 482 | drive to the top |
-| Hochkar · 1 478 m | 473 | 365 | 332 | 660 | drive to the top |
+| Traisner Hütte · 1 304 m | 1 378 | 543 | 988 | 875 | chairlift, then on foot |
+| Grünberg · 989 m | 1 376 | 672 | 1 271 | 826 | cable car, inn |
+| Stuhleck · 1 770 m | 1 298 | 307 | 569 | 921 | drive to the top |
+| Feuerkogelhaus · 1 591 m | 1 258 | 571 | 1 056 | 726 | cable car, inn |
+| **Braunsberg** · 337 m | 1 124 | 443 | 814 | 740 | drive to the top |
+| Gaisberg · 1 272 m | 1 036 | 620 | 1 199 | 618 | drive to the top |
+| Hochkar · 1 478 m | 438 | 321 | 559 | 247 | drive to the top |
 | Loser · 1 585 m | 0 | 0 | 0 | 0 | drive to the top |
 
-Braunsberg comes **5 of 8** in this series.
+Braunsberg therefore comes **5 of 8**.
+
+Anyone who knows the earlier articles in this series will find different numbers there: those were computed with the first line-up — one Yagi stack and one quad stack with a 69° beamwidth. Since the choice fell on two narrow 12JXX2 stacks, the order shifts: more gain and less width favours the sites whose stations bunch in one direction, and costs the ones that stand open all round. The fixed Tonnas on mast 3 win part of that width back.
 
 ## The data
 
@@ -204,14 +214,17 @@ Braunsberg comes **5 of 8** in this series.
 | Coordinates | 48,15348 N / 16,95733 O · 337 m · JN88LD |
 | Access | road all the way up |
 | Horizon clear | 287°–23°, 78°–182°, 269°–284° |
-| Stations ≤ 700 km | 341 clear, 1 200 marginal, of 2 272 |
-| Germany | 0 clear, 823 marginal, of 865 |
-| Array | two stacks of two 12JXX2 each · mast 1 10 m (6.9/9.7 m), mast 2 7 m (3.9/6.7 m), both on rotators |
-| Headings | DL-Stack 292° / 326° / 282° · Rotor-Stack 4° / 156° / 106° |
-| split · 500 W each | 1 102 · ≤ 500 km 863 · DL 488 |
-| switched · 1 000 W | 1 457 · ≤ 500 km 858 · DL 796 |
-| Σ kilometres | 429 774 km / 655 807 km |
 | Degrees clear / marginal / blocked | 107° / 113° / 140° |
+| Stations ≤ 700 km | 341 clear, 831 marginal, of 1 887 |
+| Germany (IARU) | 0 clear, 454 marginal, of 480 |
+| Germany (DARC list) | 842 below the horizontal of 882 |
+| Array | three masts · mast 1 10 m (2 × 12JXX2 at 6.9/9.7 m, rotator) · mast 2 7 m (2 × 12JXX2 at 3.9/6.7 m, rotator) · mast 3 7 m (2 × 9-el Tonna at 3.9/6.7 m, fixed) |
+| Headings | DL-Stack 308° / 280° / 326° · Rotor-Stack 4° / 156° / 106° · Tonna fest 168° |
+| switched · 1 000 W | 1 124 · ≤ 500 km 740 · DL 443 · DARC 814 |
+| split · 500 W each | 900 · ≤ 500 km 730 · DL 286 |
+| all three at once · 333 W each | 757 · ≤ 500 km 713 · DL 207 |
+| without the Tonna mast | 1 104 instead of 1 124 |
+| Σ kilometres | 473 581 km |
 | strict count | only directions below −0.3°: 297 · ≤ 500 km 240 · DL 0 |
 
 
@@ -229,8 +242,7 @@ the thirty German cities stands genuinely clear:** Munich −0.05°, Passau −0
 Berlin −0.24°, Cologne −0.23°. All of them between zero and a quarter of a degree below —
 the Vienna Woods clip every one of those paths. That does not mean nothing works: an edge
 at fifty kilometres costs three to eight decibels depending on the day, and with 1 000 watts
-on one stack the same 796 German stations are in the calculation that would be reachable
-elsewhere. But they never arrive cleanly, and a tropo evening helps less here than on a
+on one stack 443 German stations are in the calculation (814 by the DARC list) that would be reachable elsewhere. But they never arrive cleanly, and a tropo evening helps less here than on a
 mountain that stands free.
 
 **Mast height changes nothing about this.** Five metres more antenna shifts the angle to an
