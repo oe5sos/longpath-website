@@ -1919,9 +1919,166 @@ const LOCATOR_BY_PREFIX={
   'W':['EM50','EM60','EN51','FM07','FM18','FN20'],'K':['EM50','EN51','FN20','FN42'],
   'JA':['PM74','PM85','PM95','QM05'],
 };
+// ── VHF/UHF: NUR Europa, Call und Locator passen zueinander ──
+// t = Stufe: 1 = Nachbarn (easy), 2 = ganz Europa (medium), 3 = selten/weit (ck)
+const VHF_EU=[
+  // ── Stufe 1: Nachbarn, die im UKW-Contest ständig im Lautsprecher sind ──
+  // OE: Ziffer = Bundesland, Locator folgt dem Rufgebiet
+  {p:['OE1'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN88']},
+  {p:['OE2'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN67','JN68']},
+  {p:['OE3'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN77','JN78','JN87','JN88']},
+  {p:['OE4'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN86','JN87']},
+  {p:['OE5'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN67','JN68','JN77','JN78']},
+  {p:['OE6'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN76','JN77','JN87']},
+  {p:['OE7'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN57','JN66','JN67']},
+  {p:['OE8'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN66','JN76']},
+  {p:['OE9'],d:[''],s:[2,3],z:15,t:1,w:0.33,loc:['JN47']},
+  // DL: Ziffer ist seit 1990 nicht mehr an die Gegend gebunden
+  {p:['DL','DK','DJ','DB','DC','DD','DF','DG','DH','DM','DO'],d:[1,9],s:[2,3],z:14,t:1,w:3,
+   loc:['JN39','JN47','JN48','JN49','JN57','JN58','JN59','JN68','JN69','JO30','JO31','JO32','JO33',
+        'JO40','JO41','JO42','JO43','JO44','JO50','JO51','JO52','JO53','JO54','JO60','JO61','JO62','JO63','JO64']},
+  {p:['HB9'],d:[''],s:[2,3],z:14,t:1,w:1,loc:['JN36','JN37','JN46','JN47']},
+  {p:['OK1','OL1'],d:[''],s:[2,3],z:15,t:1,w:0.5,loc:['JN69','JN78','JN79','JO60','JO70']},
+  {p:['OK2','OL2'],d:[''],s:[2,3],z:15,t:1,w:0.5,loc:['JN88','JN89','JN99','JO80']},
+  {p:['OK5','OK6','OK7','OL5','OL8','OL9'],d:[''],s:[2,3],z:15,t:1,w:0.4,
+   loc:['JN69','JN78','JN79','JN88','JN89','JN99','JO60','JO70','JO80']},
+  {p:['OM'],d:[1,8],s:[2,3],z:15,t:1,w:1.2,loc:['JN88','JN98','JN99','KN08','KN09']},
+  {p:['HA1','HA2','HG1','HG2'],d:[''],s:[2,3],z:15,t:1,w:0.3,loc:['JN86','JN87','JN97']},
+  {p:['HA3','HA4','HA5','HA6','HA7','HG3','HG5','HG6','HG7'],d:[''],s:[2,3],z:15,t:1,w:0.3,
+   loc:['JN96','JN97','JN98','KN07']},
+  {p:['HA8','HG8'],d:[''],s:[2,3],z:15,t:1,w:0.3,loc:['JN96','KN06']},
+  {p:['HA9','HG9'],d:[''],s:[2,3],z:15,t:1,w:0.3,loc:['KN07','KN08']},
+  {p:['S5'],d:[0,9],s:[2,3],z:15,t:1,w:1,loc:['JN65','JN66','JN75','JN76','JN86']},
+  {p:['9A'],d:[1,9],s:[2,3],z:15,t:1,w:1,loc:['JN65','JN74','JN75','JN83','JN85','JN86','JN95']},
+  // I: Ziffer = Region
+  {p:['I0','IK0','IZ0','IW0','IQ0'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN61','JN62','JN63']},
+  {p:['I1','IK1','IZ1','IW1','IQ1'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN34','JN35','JN44','JN45']},
+  {p:['I2','IK2','IZ2','IW2','IQ2'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN45','JN55']},
+  {p:['I3','IK3','IZ3','IW3','IQ3'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN55','JN65','JN66']},
+  {p:['I4','IK4','IZ4','IW4','IQ4'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN44','JN54','JN64']},
+  {p:['I5','IK5','IZ5','IW5','IQ5'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN52','JN53','JN54']},
+  {p:['I6','IK6','IZ6','IW6','IQ6'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN62','JN63','JN72']},
+  {p:['I7','IK7','IZ7','IW7','IQ7'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN71','JN80','JN81','JN90']},
+  {p:['I8','IK8','IZ8','IW8','IQ8'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JM78','JM89','JN70','JN80']},
+  {p:['IN3'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN55','JN56','JN66']},
+  {p:['IV3'],d:[''],s:[2,3],z:15,t:1,w:0.22,loc:['JN65','JN66']},
+  // SP: Ziffer = Woiwodschaft
+  {p:['SP1','SQ1','SN1','SO1'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JO73','JO83','JO84']},
+  {p:['SP2','SQ2','SN2','SO2'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JO83','JO93','JO94']},
+  {p:['SP3','SQ3','SN3','SO3'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JO71','JO72','JO82','JO92']},
+  {p:['SP4','SQ4','SN4','SO4'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['KO03','KO04','KO13','KO14']},
+  {p:['SP5','SQ5','SN5','SO5'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JO92','KO01','KO02']},
+  {p:['SP6','SQ6','SN6','SO6'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JO70','JO80','JO81','JO90']},
+  {p:['SP7','SQ7','SN7','SO7'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JO91','JO92','KO00','KO01']},
+  {p:['SP8','SQ8','SN8','SO8'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['KN19','KO01','KO10','KO11']},
+  {p:['SP9','SQ9','SN9','SO9','3Z9'],d:[''],s:[2,3],z:15,t:1,w:0.17,loc:['JN99','JO80','JO90','KN09']},
+  {p:['YU','YT'],d:[1,7],s:[2,3],z:15,t:1,w:0.8,loc:['JN95','KN02','KN03','KN04','KN05','KN13','KN14']},
+  // ── Stufe 2: restliches Europa ──
+  {p:['F','TM'],d:[1,8],s:[2,3],z:14,t:2,w:1.2,
+   loc:['IN78','IN88','IN97','IN99','JN03','JN05','JN18','JN19','JN23','JN25','JN33','JN38','JO10','JO20']},
+  {p:['G','2E'],d:[0,8],s:[2,3],z:14,t:2,w:1,
+   loc:['IO70','IO80','IO81','IO82','IO83','IO84','IO90','IO91','IO92','IO93','JO01','JO02']},
+  {p:['M'],d:[0,7],s:[2,3],z:14,t:2,w:0.8,
+   loc:['IO70','IO80','IO81','IO82','IO83','IO90','IO91','IO92','IO93','JO01','JO02']},
+  {p:['GM','MM','2M'],d:[0,7],s:[2,3],z:14,t:2,w:0.4,loc:['IO75','IO76','IO77','IO85','IO86','IO87','IO88']},
+  {p:['GW','MW','2W'],d:[0,7],s:[2,3],z:14,t:2,w:0.4,loc:['IO71','IO72','IO73','IO81','IO82']},
+  {p:['GI','MI','2I'],d:[0,7],s:[2,3],z:14,t:2,w:0.3,loc:['IO64','IO65','IO74']},
+  {p:['EI','EJ'],d:[1,9],s:[2,3],z:14,t:2,w:0.5,loc:['IO51','IO52','IO53','IO61','IO62','IO63']},
+  {p:['ON','OO','OR','OT'],d:[1,9],s:[2,3],z:14,t:2,w:0.8,loc:['JO10','JO20','JO21','JO30']},
+  {p:['PA','PD','PE','PH','PB','PC'],d:[0,9],s:[2,3],z:14,t:2,w:1,loc:['JO20','JO21','JO22','JO31','JO32','JO33']},
+  {p:['LX'],d:[1,3],s:[2,3],z:14,t:2,w:0.3,loc:['JN39']},
+  {p:['OZ','OV','OU'],d:[1,9],s:[2,3],z:14,t:2,w:0.7,loc:['JO44','JO45','JO46','JO54','JO55','JO56','JO57','JO65']},
+  // SM: Ziffer = Distrikt (SM0 Stockholm … SM7 Skåne)
+  {p:['SM0','SA0','SK0'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JO99']},
+  {p:['SM1','SA1','SK1'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JO97']},
+  {p:['SM2','SA2','SK2'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['KP03','KP07','KP15']},
+  {p:['SM3','SA3','SK3'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JP80','JP81','JP82']},
+  {p:['SM4','SA4','SK4'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JO69','JO79','JP70']},
+  {p:['SM5','SA5','SK5'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JO78','JO88','JO89']},
+  {p:['SM6','SA6','SK6'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JO57','JO67','JO68']},
+  {p:['SM7','SA7','SK7'],d:[''],s:[2,3],z:14,t:2,w:0.1,loc:['JO65','JO66','JO76','JO86']},
+  {p:['LA','LB','LC'],d:[1,9],s:[2,3],z:14,t:2,w:0.5,
+   loc:['JO28','JO29','JO38','JO39','JO49','JO59','JP20','JP30','JP40','JP50','JP99']},
+  // OH: Ziffer = Distrikt (OH1 Südwest … OH9 Lappland)
+  {p:['OH1','OF1','OG1'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP00','KP01','KP10']},
+  {p:['OH2','OF2','OG2'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP10','KP20','KP21']},
+  {p:['OH3','OF3','OG3'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP11','KP21']},
+  {p:['OH4','OF4','OG4'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP21','KP22','KP30']},
+  {p:['OH5','OF5','OG5'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP20','KP30','KP31']},
+  {p:['OH6','OF6','OG6'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP02','KP03','KP12']},
+  {p:['OH7','OF7','OG7'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP32','KP33','KP42']},
+  {p:['OH8','OF8','OG8'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP24','KP25','KP34']},
+  {p:['OH9','OF9','OG9'],d:[''],s:[2,3],z:15,t:2,w:0.08,loc:['KP26','KP36','KP38']},
+  {p:['ES'],d:[1,9],s:[2,3],z:15,t:2,w:0.3,loc:['KO18','KO19','KO28','KO29','KO38','KO39']},
+  {p:['YL'],d:[1,9],s:[2,3],z:15,t:2,w:0.3,loc:['KO06','KO16','KO26','KO27','KO36','KO37']},
+  {p:['LY'],d:[1,9],s:[2,3],z:15,t:2,w:0.4,loc:['KO04','KO05','KO14','KO15','KO24','KO25','KO26']},
+  {p:['UR','UT','UX','UY','UZ','US','UW'],d:[1,9],s:[2,3],z:16,t:2,w:0.8,
+   loc:['KN18','KN29','KN39','KN48','KN56','KN58','KN68','KN78','KN87','KO40','KO50','KO60','KO70','KO80']},
+  {p:['EM','EN','EO'],d:[0,9],s:[2,3],z:16,t:2,w:0.4,
+   loc:['KN18','KN29','KN39','KN48','KN56','KN68','KN78','KO50','KO60','KO70','KO80']},
+  {p:['EW','EU','EV'],d:[1,8],s:[2,3],z:16,t:2,w:0.4,loc:['KO12','KO22','KO23','KO33','KO43','KO44','KO54']},
+  {p:['YO','YP','YR','YQ'],d:[2,9],s:[2,3],z:20,t:2,w:0.8,
+   loc:['KN05','KN06','KN15','KN16','KN25','KN26','KN27','KN34','KN35','KN37','KN44']},
+  {p:['LZ'],d:[1,9],s:[2,3],z:20,t:2,w:0.5,loc:['KN12','KN13','KN22','KN23','KN32','KN33']},
+  {p:['SV'],d:[1,9],s:[2,3],z:20,t:2,w:0.5,loc:['KM07','KM09','KM17','KM18','KM25','KM27','KN00','KN10','KN20']},
+  // EA1–EA5 Festland, EA7 Andalusien, EA6 Balearen (Stufe 3)
+  {p:['EA','EB','EC','ED'],d:[1,5],s:[2,3],z:14,t:2,w:0.8,
+   loc:['IM78','IM98','IM99','IN52','IN53','IN62','IN63','IN70','IN73','IN80','IN81','IN83','IN91','JN01','JN11']},
+  {p:['EA7','EB7','EC7'],d:[''],s:[2,3],z:14,t:2,w:0.3,loc:['IM66','IM76','IM86','IM87','IM88','IM97']},
+  {p:['CT'],d:[1,7],s:[2,3],z:14,t:2,w:0.4,loc:['IM57','IM58','IM59','IM68','IM69','IN50','IN51','IN61']},
+  {p:['E7'],d:[0,9],s:[2,3],z:15,t:2,w:0.5,loc:['JN83','JN84','JN92','JN93','JN94']},
+  {p:['IS0','IM0'],d:[''],s:[2,3],z:15,t:2,w:0.3,loc:['JM48','JM49','JN40','JN41']},
+  {p:['IT9'],d:[''],s:[2,3],z:15,t:2,w:0.3,loc:['JM67','JM68','JM76','JM77','JM78','JM88']},
+  {p:['UA1','RA1','RN1','RW1','RZ1','RK1','R1'],d:[''],s:[2,3],z:16,t:2,w:0.2,
+   loc:['KO59','KO69','KO79','KP40','KP50','KP68','LP04']},
+  {p:['UA3','RA3','RN3','RW3','RZ3','RK3','R3'],d:[''],s:[2,3],z:16,t:2,w:0.2,
+   loc:['KO76','KO84','KO85','KO86','KO94','KO95','KO96']},
+  {p:['UA4','RA4','RN4','RW4','RZ4','RK4','R4'],d:[''],s:[2,3],z:16,t:2,w:0.15,
+   loc:['LO13','LO26','LO31','LO36','LO44','LO45','LO53']},
+  {p:['UA6','RA6','RN6','RW6','RZ6','RK6','R6'],d:[''],s:[2,3],z:16,t:2,w:0.15,
+   loc:['KN93','KN95','KN96','KN97','LN04','LN05']},
+  // ── Stufe 3: kleine und weit entfernte Länder (Contest King) ──
+  {p:['UA2','RA2','RN2'],d:[''],s:[2,3],z:15,t:3,w:0.2,loc:['KO04','KO05']},
+  {p:['ER'],d:[1,9],s:[2,3],z:16,t:3,w:0.2,loc:['KN36','KN46','KN47']},
+  {p:['Z3'],d:[0,9],s:[2,3],z:20,t:3,w:0.25,loc:['KN01','KN02','KN11','KN12']},
+  {p:['ZA'],d:[1,5],s:[2,3],z:15,t:3,w:0.2,loc:['JN91','KN00','KN01']},
+  {p:['4O'],d:[3,7],s:[2,3],z:15,t:3,w:0.2,loc:['JN92','JN93','KN02']},
+  {p:['T7'],d:[0,9],s:[2,3],z:15,t:3,w:0.2,loc:['JN63']},
+  {p:['3A'],d:[2,2],s:[2,3],z:14,t:3,w:0.15,loc:['JN33']},
+  {p:['C3'],d:[0,9],s:[2,3],z:14,t:3,w:0.15,loc:['JN02']},
+  {p:['9H'],d:[1,5],s:[2,3],z:15,t:3,w:0.2,loc:['JM75']},
+  {p:['HB0'],d:[''],s:[2,3],z:14,t:3,w:0.15,loc:['JN47']},
+  {p:['ZB2'],d:[''],s:[2,3],z:14,t:3,w:0.15,loc:['IM76']},
+  {p:['EA6','EB6','EC6'],d:[''],s:[2,3],z:14,t:3,w:0.2,loc:['JM08','JM19','JN00']},
+  {p:['GD','MD'],d:[0,7],s:[2,3],z:14,t:3,w:0.15,loc:['IO74']},
+  {p:['GJ','MJ'],d:[0,7],s:[2,3],z:14,t:3,w:0.15,loc:['IN89']},
+  {p:['GU','MU'],d:[0,7],s:[2,3],z:14,t:3,w:0.15,loc:['IN89']},
+  {p:['TA1'],d:[''],s:[2,3],z:20,t:3,w:0.2,loc:['KN40','KN41']},
+  {p:['TF'],d:[1,8],s:[2,3],z:40,t:3,w:0.2,loc:['HP84','HP85','HP94','IP05']},
+  {p:['OY'],d:[1,9],s:[2,3],z:14,t:3,w:0.15,loc:['IP61','IP62']},
+  {p:['JW'],d:[0,9],s:[2,3],z:40,t:3,w:0.15,loc:['JQ68','JQ78']},
+];
+// Prefix → Locator-Liste (längste Übereinstimmung gewinnt)
+const VHF_LOC_BY_PREFIX=(function(){const m={};VHF_EU.forEach(e=>e.p.forEach(p=>{m[p]=e.loc;}));return m;})();
+const VHF_LOC_PREFIXES=Object.keys(VHF_LOC_BY_PREFIX).sort((a,b)=>b.length-a.length);
+// Ein europäischer Anrufer mit passendem Locator
+function genCallVHF(){
+  const maxT=difficulty==='easy'?1:(difficulty==='ck'?3:2);
+  const pool=VHF_EU.filter(e=>e.t<=maxT);
+  let tot=0; pool.forEach(x=>tot+=(x.w||1));
+  let r=Math.random()*tot, e=pool[pool.length-1];
+  for(const x of pool){ r-=(x.w||1); if(r<=0){ e=x; break; } }
+  const p=rE(e.p);
+  const d=(e.d[0]==='')?'':(typeof e.d[0]==='string'?e.d[0]:String(rI(e.d[0],e.d[1])));
+  const suf=mkS(e.s[0],difficulty==='easy'?2:e.s[1]);
+  const call=/\d$/.test(p)?p+suf:p+d+suf;
+  return{call,zone:e.z,loc:rE(e.loc),cat:classifyCall(call)};
+}
 function getLocatorForCall(call){
+  const c=(call||'').toUpperCase();
+  for(const p of VHF_LOC_PREFIXES){ if(c.startsWith(p)) return rE(VHF_LOC_BY_PREFIX[p]); }
   const pref=Object.keys(LOCATOR_BY_PREFIX).sort((a,b)=>b.length-a.length);
-  for(const p of pref){ if(call.startsWith(p)) return rE(LOCATOR_BY_PREFIX[p]); }
+  for(const p of pref){ if(c.startsWith(p)) return rE(LOCATOR_BY_PREFIX[p]); }
   return rE(['JN47','JN58','JO31','JO21','JN79','IO91','JO44']);
 }
 // JN67 → "Juliet November Six Seven"
@@ -2045,7 +2202,7 @@ const CONTESTS={
     getMult: function(f){ return f.hq ? 'HQ_'+f.hq.call : f.ituzone; }
   },
   vhf:{name:'VHF/UHF Contest',exInfo:'Exchange: 59 + Serial (100–999) + Locator (4 chars)',
-    genEx:(z,call)=>({rst:'59',serial:rI(100,999),loc:getLocatorForCall(call||'DL1ABC')}),
+    genEx:(z,call,g)=>({rst:'59',serial:rI(100,999),loc:(g&&g.loc)||getLocatorForCall(call||'DL1ABC')}),
     getMult:f=>f.loc},
 };
 
@@ -6621,6 +6778,9 @@ function nextQSO(){
         const suf=mkS(e.s[0],e.s[1]);
         const call=/\d$/.test(p)?p+suf:p+d+suf;
         g={call,zone:rE(e.z),cat:classifyCall(call)};
+      } else if(contest==='vhf'){
+        // UKW/SHF: nur Europa, Locator passt zum Call
+        g=genCallVHF();
       } else {
         g=genCallAdaptive();
       }
@@ -6632,7 +6792,7 @@ function nextQSO(){
   // so that whichever call the user picks, the correct exchange is available
   const callerDataMap = {};
   callers.forEach(c => {
-    const exc = (CONTESTS[contest]||CONTESTS.onlycall).genEx(c.zone, c.call);
+    const exc = (CONTESTS[contest]||CONTESTS.onlycall).genEx(c.zone, c.call, c);
     // IARU: if exchange is an HQ station, override the call with the HQ callsign
     let effectiveCall = c.call;
     if(contest==='iaru' && exc.hq){
