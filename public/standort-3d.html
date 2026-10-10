@@ -184,6 +184,34 @@ if (D.tabu) {
   }
 }
 
+// ───────── Auto am Platzrand
+if (D.auto) {
+  const g = new THREE.Group();
+  const lack = new THREE.MeshStandardMaterial({ color: 0x8a9099, roughness: .45, metalness: .35 });
+  const glas = new THREE.MeshStandardMaterial({ color: 0x2a3138, roughness: .25, metalness: .2 });
+  const unten = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.85, 1.85), lack);
+  unten.position.y = 0.75; g.add(unten);
+  const kabine = new THREE.Mesh(new THREE.BoxGeometry(2.3, 0.75, 1.72), glas);
+  kabine.position.set(-0.2, 1.52, 0); g.add(kabine);
+  for (const [dx, dz] of [[1.45, 0.95], [1.45, -0.95], [-1.45, 0.95], [-1.45, -0.95]]) {
+    const rad = new THREE.Mesh(new THREE.CylinderGeometry(.33, .33, .22, 12),
+      new THREE.MeshStandardMaterial({ color: 0x1b1d20, roughness: .9 }));
+    rad.rotation.x = Math.PI / 2; rad.position.set(dx, 0.33, dz); g.add(rad);
+  }
+  g.position.copy(V(D.auto.x, D.auto.y, 0));
+  g.rotation.y = Math.PI / 4;
+  szene.add(g);
+  const sp = schild("Auto", true);
+  sp.scale.multiplyScalar(0.42);
+  sp.position.copy(V(D.auto.x, D.auto.y, 3.0)); szene.add(sp);
+  // Kabelwege
+  for (const k of ["m1", "m2", "m3"]) {
+    const m = D.masten[k]; if (!m) continue;
+    const g2 = new THREE.BufferGeometry().setFromPoints([V(D.auto.x, D.auto.y, 0.4), V(m.x, m.y, 0.4)]);
+    szene.add(new THREE.Line(g2, new THREE.LineBasicMaterial({ color: 0x5a6068, transparent: true, opacity: .55 })));
+  }
+}
+
 // ───────── Kompassring am Boden
 {
   const R = 132, pts = [];
@@ -251,7 +279,7 @@ function zeige() {
   const warn = (D.tabu && (imTabu(h1) || imTabu(h2)))
     ? `<div class="warnung">Achtung: eine Stellung liegt im Tabu-Sektor der Seilbahn.</div>` : "";
   hud.innerHTML = `<h1>${D.name} — ${D.ort}</h1>
-    <div class="z">${D.boden} m · ${D.loc} · Laserscan mit Orthofoto · drei Masten: zwei Rotor-Stacks aus je zwei 12JXX2 und, fest, zwei gestockte 9-Element-Tonna</div>
+    <div class="z">${D.boden} m · ${D.loc} · Laserscan mit Orthofoto · drei Masten: zwei Rotor-Stacks aus je zwei 12JXX2 und, fest, zwei gestockte 9-Element-Tonna${D.auto ? " · Auto am Platzrand" : ""}</div>
     <div class="z" style="margin-top:.4rem">
       <span style="color:#d8a55f">DL-Stack ${h2}°</span>: <b>${c2}</b> Stationen im Strahl, davon <b>${d2}</b> in Deutschland<br>
       <span style="color:#6fa384">Rotor-Stack ${h1}°</span>: <b>${c1}</b> Stationen, davon <b>${d1}</b> in Deutschland
@@ -286,12 +314,14 @@ const knopf = document.getElementById("dreh");
 knopf.onclick = () => { dreht = !dreht; knopf.classList.toggle("an", dreht); knopf.textContent = dreht ? "Stopp" : "Drehen"; };
 rend.domElement.addEventListener("pointerdown", () => { if (dreht) knopf.onclick(); });
 
+const ZENTRUM = D.masten.m1 ? { x: D.masten.m1.x, y: D.masten.m1.y } : { x: 0, y: 0 };
 function kameraSetzen(nah) {
   const hoch = innerHeight > innerWidth;
   const d = nah ? (hoch ? 62 : 46) : (hoch ? 215 : 155);
-  const h0 = hoehe(0, 0);
-  kamera.position.set(Math.sin(2.3) * d, h0 + (nah ? 16 : (hoch ? 95 : 78)), Math.cos(2.3) * d);
-  steuer.target.set(0, h0 + (nah ? 7 : 9), 0); steuer.update();
+  const zx = nah ? ZENTRUM.x : 0, zy = nah ? ZENTRUM.y : 0;
+  const h0 = hoehe(zx, zy);
+  kamera.position.set(zx + Math.sin(2.3) * d, h0 + (nah ? 16 : (hoch ? 95 : 78)), -zy + Math.cos(2.3) * d);
+  steuer.target.set(zx, h0 + (nah ? 7 : 9), -zy); steuer.update();
 }
 kameraSetzen(false);
 document.getElementById("nah").onclick = () => kameraSetzen(true);

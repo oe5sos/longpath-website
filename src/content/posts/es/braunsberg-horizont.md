@@ -62,7 +62,7 @@ se mantiene entre **−0,27° y −0,01°**. Ni libre ni cerrado: es el Bosque d
 
 ## El sitio
 
-![Plano del aparcamiento del Braunsberg a partir del escaneo láser con ortofoto: la superficie asfaltada, curvas de nivel cada dos metros, las dos posiciones de mástil y las seis direcciones de radiación](../../../assets/karten/braunsberg-lageplan.png)
+![Plano del aparcamiento del Braunsberg a partir del escaneo láser con ortofoto: la superficie asfaltada como contorno discontinuo, al lado en el prado los tres mástiles con sus círculos de vientos, el coche en el borde y las direcciones de radiación](../../../assets/karten/braunsberg-lageplan.png)
 
 El escaneo láser solo dice cosas buenas del sitio en sí. El asfalto está a **343 metros**
 (el SRTM calcula 337, el escaneo mide con más precisión), es llano, y en los primeros 140
@@ -70,21 +70,33 @@ metros apenas hay nada alrededor:
 
 | Altura de antena | Direcciones que bloquea el campo cercano |
 |---|---|
-| 6 m | 8° |
-| 8 m | 3° |
+| 6 m | 6° |
+| 8 m | 1° |
 | 10 m | ninguna |
 | 12 m y más | ninguna |
 
-Con diez metros de mástil el sitio está **libre de su propio campo cercano en las 360
-direcciones** — ni un árbol, ni una loma, ni un edificio. La cima de 346 metros queda
-cuarenta metros al este y está arbolada, pero está justo donde la Devínska Kobyla cierra
-de todos modos. Hacia el oeste, donde importaría, el terreno baja como prado abierto.
+**Pero no se monta sobre el asfalto**: las piquetas y los vientos necesitan prado. El
+terreno lo ofrece — al noroeste del aparcamiento hay una superficie de hierba abierta,
+lisa en el escaneo láser y sin árboles en la ortofoto. Los tres mástiles van allí,
+transversales a la posición base de la pila DL para que ninguno quede en el haz del otro,
+y el coche al borde del aparcamiento:
 
-Dos cosas que no están en el modelo del terreno: el Braunsberg es un **oppidum celta** —
-a ciento setenta metros al oeste del aparcamiento hay un yacimiento arqueológico
-registrado, y en la cima hay varios monumentos. Quien clave mástiles en este suelo, aunque
-sea con piquetas, lo aclara antes. Y los Hundsheimer Berge son zona Natura 2000; el
-aparcamiento queda en su borde.
+| | posición desde el centro del sitio | al coche | coaxial |
+|---|---|---:|---:|
+| mástil 1 · 10 m · pila del rotor | 32 m oeste, 14 m norte | 11 m | 25 m |
+| mástil 2 · 7 m · pila DL | 25 m oeste, 23 m norte | 19 m | 35 m |
+| mástil 3 · 7 m · Tonna fijas | 45 m oeste, 3 m sur | 20 m | 35 m |
+
+El suelo en las posiciones de los mástiles está a 340,7 metros, unos dos metros por debajo
+del asfalto. El radio de los vientos — unos cuatro metros y medio — se mantiene sobre la
+hierba en los tres. En esta disposición el campo cercano cuesta dos de 1 080 direcciones
+en total; un sitio más al noroeste estaría del todo libre, pero habría veintitrés metros
+más de cable entre el coche y el mástil.
+
+Dos cosas que no están en el modelo del terreno: el Braunsberg es un **oppidum celta** — a
+ciento setenta metros al oeste del aparcamiento hay un yacimiento arqueológico registrado,
+y en la cima hay varios monumentos. Quien clave piquetas en este suelo lo aclara antes. Y
+los Hundsheimer Berge son zona Natura 2000; el aparcamiento queda en su borde.
 
 ## El mapa
 

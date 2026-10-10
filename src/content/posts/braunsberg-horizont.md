@@ -62,7 +62,7 @@ steht.
 
 ## Der Platz
 
-![Lageplan des Braunsberg-Parkplatzes aus dem Laserscan mit Orthofoto: die asphaltierte Fläche, Höhenlinien alle zwei Meter, die beiden Mastplätze und die sechs Strahlrichtungen](../../assets/karten/braunsberg-lageplan.png)
+![Lageplan des Braunsberg-Parkplatzes aus dem Laserscan mit Orthofoto: der asphaltierte Platz als gestrichelter Umriss, daneben in der Wiese die drei Masten mit ihren Abspannkreisen, das Auto am Platzrand und die Strahlrichtungen](../../assets/karten/braunsberg-lageplan.png)
 
 Der Laserscan sagt zum Platz selbst nur Gutes. Der Asphalt liegt auf **343 Metern**
 (SRTM rechnet mit 337, der Scan misst genauer), er ist eben, und rundherum steht
@@ -70,21 +70,34 @@ in den ersten 140 Metern fast nichts:
 
 | Antennenhöhe | Richtungen, die das Nahfeld sperrt |
 |---|---|
-| 6 m | 8° |
-| 8 m | 3° |
+| 6 m | 6° |
+| 8 m | 1° |
 | 10 m | keine |
 | 12 m und mehr | keine |
 
-Mit zehn Metern Mast ist der Platz **in allen 360 Richtungen frei vom eigenen Nahfeld** —
-kein Baum, keine Kuppe, kein Gebäude. Der Gipfel mit 346 Metern liegt vierzig Meter
-östlich und ist bewaldet, aber er steht genau dort, wo die Devínska Kobyla ohnehin
-zumacht. Nach Westen, wohin es ankäme, fällt das Gelände als offene Wiese ab.
+**Aufgestellt wird aber nicht auf dem Asphalt**, sondern daneben: Erdnägel und Abspannung
+brauchen Wiese. Das Gelände gibt sie her — nordwestlich schließt an den Platz eine offene
+Grasfläche an, die im Laserscan glatt und im Orthofoto baumfrei ist. Die drei Masten
+stehen dort quer zur Grundstellung des DL-Stacks, damit keiner im Strahl des anderen
+steht, und das Auto am Platzrand daneben:
+
+| | Lage zum Platzmittelpunkt | zum Auto | Koax |
+|---|---|---:|---:|
+| Mast 1 · 10 m · Rotor-Stack | 32 m west, 14 m nord | 11 m | 25 m |
+| Mast 2 · 7 m · DL-Stack | 25 m west, 23 m nord | 19 m | 35 m |
+| Mast 3 · 7 m · Tonna fest | 45 m west, 3 m süd | 20 m | 35 m |
+
+Boden an den Mastplätzen 340,7 Meter, gut zwei Meter unter dem Asphalt. Der Radius der
+Abspannung — rund viereinhalb Meter — bleibt bei allen dreien auf der Wiese. Das Nahfeld
+kostet in dieser Aufstellung zusammen zwei von 1 080 Richtungen; ein Platz weiter
+nordwestlich wäre ganz frei, dafür lägen dreiundzwanzig Meter mehr Kabel zwischen Auto
+und Mast.
 
 Zwei Dinge, die nicht im Geländemodell stehen: Der Braunsberg ist ein **keltisches
 Oppidum** — hundertsiebzig Meter westlich des Parkplatzes liegt eine eingetragene
-archäologische Stätte, und am Gipfel stehen mehrere Denkmäler. Wer hier Masten in den
-Boden bringt, auch nur mit Erdnägeln, klärt das vorher. Und die Hundsheimer Berge sind
-Natura-2000-Gebiet; der Parkplatz selbst liegt am Rand davon.
+archäologische Stätte, und am Gipfel stehen mehrere Denkmäler. Wer hier Erdnägel in den
+Boden bringt, klärt das vorher. Und die Hundsheimer Berge sind Natura-2000-Gebiet; der
+Parkplatz selbst liegt am Rand davon.
 
 ## Die Karte
 

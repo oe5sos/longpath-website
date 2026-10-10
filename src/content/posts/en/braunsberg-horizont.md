@@ -62,7 +62,7 @@ the Vienna Woods, 34 to 99 kilometres out, sitting almost exactly on the line of
 
 ## The site
 
-![Site plan of the Braunsberg car park from the lidar survey with orthophoto: the paved surface, contour lines every two metres, the two mast positions and the six beam headings](../../../assets/karten/braunsberg-lageplan.png)
+![Site plan of the Braunsberg car park from the lidar survey with orthophoto: the paved area as a dashed outline, beside it in the meadow the three masts with their guy circles, the car at the edge of the parking area and the beam headings](../../../assets/karten/braunsberg-lageplan.png)
 
 The lidar has nothing but good to say about the site itself. The asphalt lies at
 **343 metres** (SRTM works with 337, the scan measures more precisely), it is level, and
@@ -70,21 +70,33 @@ within the first 140 metres almost nothing stands around it:
 
 | Antenna height | Directions blocked by the near field |
 |---|---|
-| 6 m | 8° |
-| 8 m | 3° |
+| 6 m | 6° |
+| 8 m | 1° |
 | 10 m | none |
 | 12 m and above | none |
 
-With ten metres of mast the site is **free of its own near field in all 360 directions** —
-no tree, no knoll, no building. The summit at 346 metres lies forty metres east and is
-wooded, but it stands exactly where the Devínska Kobyla closes things off anyway. To the
-west, where it would matter, the ground falls away as open meadow.
+**But nothing gets set up on the asphalt** — pegs and guy ropes need grass. The ground
+provides it: an open meadow adjoins the car park to the north-west, smooth in the lidar
+and free of trees in the orthophoto. The three masts stand there across the base heading
+of the DL stack, so that none is in another's beam, with the car at the edge of the
+parking area beside them:
+
+| | position from the centre of the site | to the car | coax |
+|---|---|---:|---:|
+| mast 1 · 10 m · rotator stack | 32 m west, 14 m north | 11 m | 25 m |
+| mast 2 · 7 m · DL stack | 25 m west, 23 m north | 19 m | 35 m |
+| mast 3 · 7 m · Tonnas, fixed | 45 m west, 3 m south | 20 m | 35 m |
+
+The ground at the mast positions is 340.7 metres, a good two metres below the asphalt.
+The guying radius — about four and a half metres — stays on grass at all three. In this
+arrangement the near field costs two of 1 080 directions in total; a spot further
+north-west would be completely clear, but would put twenty-three more metres of cable
+between car and mast.
 
 Two things that are not in the terrain model: the Braunsberg is a **Celtic oppidum** — a
 registered archaeological site lies a hundred and seventy metres west of the car park, and
-there are several memorials at the summit. Anyone putting masts into this ground, even with
-pegs, clears that first. And the Hundsheimer Berge are a Natura 2000 area; the car park
-itself lies at its edge.
+there are several memorials at the summit. Anyone driving pegs into this ground clears that
+first. And the Hundsheimer Berge are a Natura 2000 area; the car park itself lies at its edge.
 
 ## The map
 
