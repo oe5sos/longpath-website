@@ -10,8 +10,9 @@ import { DEFAULT_LOCALE, type Locale } from "../../i18n/ui";
 const lang = (Astro.currentLocale as Locale | undefined) ?? DEFAULT_LOCALE;
 const c = longpathContent[lang];
 
-/* Inhalte aus ../NereusSDR/README.md. Wenn dort eine Version steigt,
-   gehoert sie hier mitgezogen — es gibt bisher keine Automatik dafuer. */
+/* Inhalte aus ../Longpath/README.md (der Ordner hiess bis 14.10.2026
+   NereusSDR). Wenn dort eine Version steigt, gehoert sie hier
+   mitgezogen — es gibt bisher keine Automatik dafuer. */
 const VERSION = "0.6.9";
 const DATUM = "14. Oktober 2026";
 
@@ -21,7 +22,7 @@ const hardware = c.hardware.map((h, i) => ({ ...h, ok: i < 3 }));
 /* Was am Tisch sonst noch steht. Quellen: CHANGELOG.md und
    docs/architecture/ im Longpath-Baum. `neu: true` heisst: gebaut,
    aber noch nicht in einer Veroeffentlichung — steht im CHANGELOG
-   unter [Unreleased]. */
+   unter [Unreleased] oder liegt noch auf einem Ast vor main. */
 const werkzeuge = c.werkzeuge.map((w) => ({ ...w, neu: w.neu === true }));
 
 const REL = `https://github.com/oe5sos/Longpath/releases/download/v${VERSION}`;
