@@ -235,6 +235,7 @@ const pakete = [
         </div>
       </div>
 
+      <p class="herkunft" set:html={c.download.erststartHtml} />
       <p class="herkunft" set:html={c.download.herkunftHtml} />
     </section>
   </main>
@@ -389,5 +390,14 @@ const pakete = [
     margin-top: 2.2rem; font-size: .95rem; color: var(--t5); max-width: 66ch;
     border-left: 1px solid var(--border); padding-left: 1.1rem;
   }
-  .herkunft strong { color: var(--t4); font-weight: 400; }
+  /* :global, weil die Auszeichnungen aus set:html kommen und darum
+     Astros Scope-Marke nicht tragen — ohne das greift keine der Regeln. */
+  .herkunft :global(strong) { color: var(--t4); font-weight: 400; }
+  .herkunft :global(em) { color: var(--t4); font-style: normal; }
+  /* Der Befehl ist zum Abtippen da, nicht zum Hervorheben: gleiche
+     Helligkeit wie der Text, nur die Laufweite verraet ihn. */
+  .herkunft :global(code) {
+    font-family: var(--ff-mono);
+    font-size: .92em; color: var(--t4); overflow-wrap: anywhere;
+  }
 </style>
