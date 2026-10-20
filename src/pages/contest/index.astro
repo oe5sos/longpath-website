@@ -15,21 +15,30 @@ import arbeitsplatz from "../../assets/contest/01-arbeitsplatz.png";
 import karte from "../../assets/contest/02-karte.png";
 import rotoren from "../../assets/contest/03-rotoren.png";
 
-const STAND = "21. September 2026";
-const VERSION = "0.1.1";
+const STAND = "20. Oktober 2026";
+const VERSION = "0.1.2";
 const GITHUB = "https://github.com/oe5sos/Contestprogramm";
 const REL = `${GITHUB}/releases/download/v${VERSION}`;
 const RELTAG = `${GITHUB}/releases/tag/v${VERSION}`;
 
-/* Die Pakete — dieselbe Tafel wie auf der App-Seite. Windows und Linux
-   sind Qt-Baeume wie macOS auch, nur baut sie noch niemand: die CI dafuer
-   ist die naechste Arbeit, die Zeilen stehen schon. */
+/* Die Pakete — dieselbe Tafel wie auf der App-Seite. Seit 0.1.2 gibt es
+   macOS zweimal: Apple Silicon und Intel. Mindestsystem ist beidemal
+   macOS 12 (Monterey), damit auch aeltere Rechner starten — gegen das
+   ganze Paket geprueft, nicht nur gegen das Programm (eine App ist nur
+   so alt wie das neueste Qt-Framework darin). */
 const pakete = [
   {
-    os: "macOS · Apple Silicon", datei: `Contestprogramm-${VERSION}-macOS-apple-silicon.dmg · SHA256`, empfohlen: true, da: true,
+    os: "macOS · Apple Silicon", datei: `DMG · SHA256 · ab macOS 12`, empfohlen: true, da: true,
     links: [
       { label: "DMG", href: `${REL}/Contestprogramm-${VERSION}-macOS-apple-silicon.dmg` },
       { label: "SHA256", href: `${REL}/Contestprogramm-${VERSION}-macOS-apple-silicon.dmg.sha256` },
+    ],
+  },
+  {
+    os: "macOS · Intel", datei: `DMG · SHA256 · ab macOS 12`, empfohlen: false, da: true,
+    links: [
+      { label: "DMG", href: `${REL}/Contestprogramm-${VERSION}-macOS-intel.dmg` },
+      { label: "SHA256", href: `${REL}/Contestprogramm-${VERSION}-macOS-intel.dmg.sha256` },
     ],
   },
   {
