@@ -97,7 +97,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
         text: "Die vollständige Sendekette — zehnbandiger EQ, Leveler, ALC, CFC, CPDR, CESSB und Phasendreher — mit 21 unverändert übernommenen Mikrofonprofilen. PureSignal linearisiert die ganze ANAN-Reihe samt Hermes und HL2, mit Zweiton-IMD über dem Spektrum, wo man das Einrasten tatsächlich zusehen kann.",
         marken: ["PureSignal", "Zweiton-IMD", "DEXP / VOX"] },
       { stufe: "Der Tisch", titel: "Alles, was bisher ein eigenes Programm war",
-        text: "Ein TCI-v2.0-Server bedient WSJT-X, JTDX, N1MM und Log4OM ohne virtuelles Kabel. Sieben Spot-Quellen — Cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — landen gestapelt auf dem Bandbild, anklickbar zum Abstimmen. RADE ist eine echte Betriebsart, sendend wie empfangend. Endstufe und Tuner von 4O3A und RF-Kit hängen mit dran.",
+        text: "Ein TCI-v2.0-Server bedient WSJT-X, JTDX, N1MM und Log4OM ohne virtuelles Kabel. Sieben Spot-Quellen — Cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — landen gestapelt auf dem Bandbild, anklickbar zum Abstimmen. RADE ist eine echte Betriebsart, sendend wie empfangend. Endstufen und Tuner hängen mit dran — 4O3A und RF-Kit, dazu SPE Expert, Elecraft KPA500 und die ACOM-S-Serie.",
         marken: ["TCI v2.0", "Spot-Zentrale", "RADE", "VAX-Audio"] },
     ],
     werkzeugeKopf: {
@@ -262,7 +262,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
         text: "The full transmit chain — ten-band EQ, leveler, ALC, CFC, CPDR, CESSB and phase rotator — with 21 microphone profiles carried over unchanged. PureSignal linearises the whole ANAN line plus Hermes and HL2, with two-tone IMD shown right over the spectrum, where you can actually watch it lock in.",
         marken: ["PureSignal", "Two-tone IMD", "DEXP / VOX"] },
       { stufe: "The desk", titel: "Everything that used to be its own program",
-        text: "A TCI v2.0 server serves WSJT-X, JTDX, N1MM and Log4OM without a virtual cable. Seven spot sources — cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — land stacked on the panadapter, clickable to tune. RADE is a real mode, transmit as well as receive. Amplifier and tuner from 4O3A and RF-Kit are wired in too.",
+        text: "A TCI v2.0 server serves WSJT-X, JTDX, N1MM and Log4OM without a virtual cable. Seven spot sources — cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — land stacked on the panadapter, clickable to tune. RADE is a real mode, transmit as well as receive. Amplifiers and tuners are wired in too — 4O3A and RF-Kit, plus SPE Expert, Elecraft KPA500 and the ACOM S series.",
         marken: ["TCI v2.0", "Spot hub", "RADE", "VAX audio"] },
     ],
     werkzeugeKopf: {
@@ -427,7 +427,7 @@ export const longpathContent: Record<Locale, LongpathContent> = {
         text: "La cadena de transmisión completa — ecualizador de diez bandas, leveler, ALC, CFC, CPDR, CESSB y rotador de fase — con 21 perfiles de micrófono trasladados sin cambios. PureSignal linealiza toda la serie ANAN además de Hermes y HL2, con IMD de dos tonos mostrado justo sobre el espectro, donde de verdad se puede ver cómo engancha.",
         marken: ["PureSignal", "IMD de dos tonos", "DEXP / VOX"] },
       { stufe: "La mesa", titel: "Todo lo que antes era un programa aparte",
-        text: "Un servidor TCI v2.0 sirve a WSJT-X, JTDX, N1MM y Log4OM sin cable virtual. Siete fuentes de spots — cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — llegan apiladas sobre el panadaptador, con clic para sintonizar. RADE es un modo real, tanto en transmisión como en recepción. El amplificador y el sintonizador de 4O3A y RF-Kit también están conectados.",
+        text: "Un servidor TCI v2.0 sirve a WSJT-X, JTDX, N1MM y Log4OM sin cable virtual. Siete fuentes de spots — cluster, RBN, WSJT-X, DXLab, POTA, FreeDV Reporter, PSK Reporter — llegan apiladas sobre el panadaptador, con clic para sintonizar. RADE es un modo real, tanto en transmisión como en recepción. Los amplificadores y sintonizadores también están conectados — 4O3A y RF-Kit, además de SPE Expert, Elecraft KPA500 y la serie S de ACOM.",
         marken: ["TCI v2.0", "Centro de spots", "RADE", "Audio VAX"] },
     ],
     werkzeugeKopf: {
