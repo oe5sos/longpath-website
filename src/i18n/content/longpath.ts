@@ -182,6 +182,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Oberfläche", titel: "Englisch als Quelle, Deutsch als Option",
         text: "Die Oberfläche ist durchgehend englisch — MOX, VOX, BW und S-Meter sind es ohnehin —, und das Deutsch steht als Übersetzung daneben. Setup → General Options → „Language“ schaltet zwischen English und Deutsch um; wirksam wird es beim nächsten Start. Dafür laufen alle sichtbaren Texte durch Qts Übersetzungsweg, statt zweimal geschrieben zu werden.",
         marken: ["English / Deutsch", "Nach dem Neustart"] },
+      { bereich: "Fremde Geräte", titel: "Die FLEX-8400 am Netz",
+        text: "Eine weitere Gerätefamilie: die 8400 steht in der Geräteliste, Longpath meldet sich als Bedienstelle an und liest die Frequenz — am echten Gerät 14.100000 MHz nachgemessen, nicht an einem Nachbau. Hier rechnet das Radio und nicht Longpath; Ton und Bildpunkte kommen fertig herein und laufen durch dieselbe Naht wie bei KiwiSDR und SunSDR. Eine Scheibe gibt es bei Flex erst, wenn ein Bedienprogramm sie angelegt hat — die Scheibenliste kommt sonst leer zurück —, also legt Longpath Pan und Scheibe bei Bedarf selbst an. Und weil ein bestellter Tonstrom die Lautsprecher am Gerät stummschaltet, schaltet Longpath das vorher ab und stellt den alten Wert beim Abbau wieder her. Gesendet wird mit der 8400 nicht: Stufe 1 und 2 sind Empfang.",
+        marken: ["FLEX-8400", "Nur Empfang", "Am Gerät gemessen"] },
     ],
     hardwareKopf: { kicker: "Am Gerät geprüft", h2: "Auf echter Hardware freigefahren, nicht angenommen." },
     hardware: [
@@ -347,6 +350,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Interface", titel: "English as the source, German as an option",
         text: "The interface is English throughout — MOX, VOX, BW and S-meter are anyway — with the German standing alongside it as a translation. Setup → General Options → \"Language\" switches between English and Deutsch; it takes effect at the next start. Every visible string runs through Qt's translation path for that, rather than being written twice.",
         marken: ["English / Deutsch", "After a restart"] },
+      { bereich: "Foreign radios", titel: "The FLEX-8400 on the network",
+        text: "Another radio family: the 8400 appears in the radio list, Longpath registers as a GUI client and reads the frequency — 14.100000 MHz measured off the real machine, not off a mock. Here the radio does the computing, not Longpath; audio and spectrum points arrive finished and run through the same seam as KiwiSDR and SunSDR. On Flex a slice only exists once a client program has created one — the slice list comes back empty otherwise — so Longpath creates pan and slice itself when needed. And because requesting an audio stream mutes the speakers on the radio, Longpath switches that off beforehand and restores the old value on teardown. The 8400 does not transmit: stages 1 and 2 are receive.",
+        marken: ["FLEX-8400", "Receive only", "Measured on hardware"] },
     ],
     hardwareKopf: { kicker: "Verified on hardware", h2: "Cleared on real hardware, not assumed." },
     hardware: [
