@@ -12,8 +12,8 @@ const c = longpathContent[lang];
 
 /* Inhalte aus ../NereusSDR/README.md. Wenn dort eine Version steigt,
    gehoert sie hier mitgezogen — es gibt bisher keine Automatik dafuer. */
-const VERSION = "0.8.0";
-const DATUM = "20 October 2026";
+const VERSION = "0.8.1";
+const DATUM = "22 October 2026";
 
 const kette = c.kette.map((s, i) => ({ nr: String(i + 1).padStart(2, "0"), ...s }));
 const hardware = c.hardware.map((h, i) => ({ ...h, ok: i < 3 }));
@@ -47,6 +47,13 @@ const pakete = [
     links: [
       { label: "x86_64", href: `${REL}/Longpath-${VERSION}-x86_64.AppImage` },
       { label: "aarch64", href: `${REL}/Longpath-${VERSION}-aarch64.AppImage` },
+    ],
+  },
+  {
+    os: "Windows", datei: "Installer · portable ZIP · x64 · GPG-signed", empfohlen: false, stand: c.download.standWindows,
+    links: [
+      { label: "Installer", href: `${REL}/Longpath-${VERSION}-Windows-x64-setup.exe` },
+      { label: "ZIP", href: `${REL}/Longpath-${VERSION}-Windows-x64-portable.zip` },
     ],
   },
   {
