@@ -51,6 +51,13 @@ const pakete = [
     ],
   },
   {
+    os: "Windows", datei: "Installer · portable ZIP · x64 · GPG-signiert", empfohlen: false, stand: c.download.standWindows,
+    links: [
+      { label: "Installer", href: `${REL}/Longpath-${VERSION}-Windows-x64-setup.exe` },
+      { label: "ZIP", href: `${REL}/Longpath-${VERSION}-Windows-x64-portable.zip` },
+    ],
+  },
+  {
     os: c.download.alleAlternativ, datei: "SHA256SUMS.txt · GPG-signiert", empfohlen: false,
     links: [{ label: c.download.alleAlternativ, href: RELTAG }],
   },
