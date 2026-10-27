@@ -1150,10 +1150,17 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <button class="noise-btn" id="nb-real" onclick="toggleNoise('real')" title="Eigener Mitschnitt: CQ WW SSB, 25.10.2026">Echtes Band</button>
     </div>
     <div class="sr-row" style="margin-top:5px">
-      <span class="sr-lbl" style="font-size:9px;color:var(--acc3)" title="Lautstärke des echten Mitschnitts">MITSCHN.</span>
+      <span class="sr-lbl" style="font-size:9px;color:var(--acc3)" title="Lautstärke des eigenen Mitschnitts">MITSCHN.</span>
       <input type="range" min="0" max="100" value="30" id="s-realband" oninput="setRealBandVol(this.value)">
       <span class="sr-val" id="v-realband">30</span>
     </div>
+    <div style="display:flex;align-items:center;gap:6px;margin-top:3px">
+      <div style="font-size:9px;color:var(--acc3);font-family:var(--fui);letter-spacing:.5px;flex:1;min-height:12px" id="realband-lbl">● Aus</div>
+      <button onclick="nextRealBand()" title="Nächste Aufnahme" style="font-family:var(--fui);font-size:9px;padding:2px 8px;border-radius:7px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--txt3);cursor:pointer">▸</button>
+    </div>
+    <input type="file" id="realband-datei" accept="audio/*" multiple style="display:none" onchange="addOwnRecordings(this)">
+    <button onclick="document.getElementById('realband-datei').click()" title="Eigene Aufnahmen öffnen — sie bleiben auf diesem Rechner und werden nicht hochgeladen" style="width:100%;margin-top:4px;font-family:var(--fui);font-size:9px;letter-spacing:.8px;padding:4px 8px;border-radius:7px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--txt2);cursor:pointer">Eigene Aufnahmen öffnen …</button>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin-top:3px;min-height:12px" id="realband-eigen">bleiben auf diesem Rechner</div>
     <div style="font-size:9px;color:var(--acc3);margin-top:4px;font-family:var(--fui);min-height:13px" id="noise-lbl">● Band active</div>
     <div class="sr-row" style="margin-top:5px">
       <span class="sr-lbl">QRN</span>
@@ -3355,41 +3362,108 @@ function stopContestNoise(){
 // aufgenommen). Statt synthetischem Rauschen liegt echtes
 // Contestgewuesel unter dem Betrieb.
 // ═══════════════════════════════════════════════════════════════════
-const REAL_BAND_FILES = [1,2,3,4,5,6,7,8].map(i => 'audio/band-cqww-'+i+'.m4a');
-const realBandCache = new Map();
-let realBandSrc = null, realBandGain = null, realBandVol = 30;
+// Die Mitschnitte laufen in voller Laenge, eine nach der anderen —
+// gestreamt ueber ein <audio>-Element, damit nichts vorab geladen
+// werden muss. Zusammen rund eine Stunde echter Contestbetrieb.
+const REAL_BAND_TRACKS = [
+  {f:'audio/mitschnitt/mitschnitt-01-21.292MHz-1538Z.m4a', b:'15 m', q:'21,292 MHz USB', z:'15:38Z', d:635},
+  {f:'audio/mitschnitt/mitschnitt-02-21.292MHz-1549Z.m4a', b:'15 m', q:'21,292 MHz USB', z:'15:49Z', d:184},
+  {f:'audio/mitschnitt/mitschnitt-03-21.295MHz-1552Z.m4a', b:'15 m', q:'21,295 MHz USB', z:'15:52Z', d:774},
+  {f:'audio/mitschnitt/mitschnitt-04-21.247MHz-1606Z.m4a', b:'15 m', q:'21,247 MHz USB', z:'16:06Z', d:291},
+  {f:'audio/mitschnitt/mitschnitt-05-21.444MHz-1610Z.m4a', b:'15 m', q:'21,444 MHz USB', z:'16:10Z', d:58},
+  {f:'audio/mitschnitt/mitschnitt-06-21.425MHz-1620Z.m4a', b:'15 m', q:'21,425 MHz USB', z:'16:20Z', d:452},
+  {f:'audio/mitschnitt/mitschnitt-07-28.424MHz-1628Z.m4a', b:'10 m', q:'28,424 MHz USB', z:'16:28Z', d:37},
+  {f:'audio/mitschnitt/mitschnitt-08-7.173MHz-1630Z.m4a', b:'40 m', q:'7,173 MHz LSB', z:'16:30Z', d:356},
+  {f:'audio/mitschnitt/mitschnitt-09-21.425MHz-1639Z.m4a', b:'15 m', q:'21,425 MHz USB', z:'16:39Z', d:342},
+  {f:'audio/mitschnitt/mitschnitt-10-21.416MHz-1645Z.m4a', b:'15 m', q:'21,416 MHz USB', z:'16:45Z', d:344},
+];
+let realBandVol = 30;
+let realIdx  = Math.floor(Math.random() * 10);
+let realEl   = null, realNode = null, realGain = null;
 
-async function startRealBand(){
+function realBandTrack(){ return REAL_BAND_TRACKS[realIdx % REAL_BAND_TRACKS.length]; }
+
+function realBandLabel(){
+  const el = document.getElementById('realband-lbl');
+  if(!el) return;
+  if(!activeNoiseModes.has('real')){ el.textContent = '● Aus'; return; }
+  const tr = realBandTrack();
+  el.textContent = tr.b === 'eigen'
+    ? ('● eigene Aufnahme · ' + tr.q)
+    : ('● ' + tr.b + ' · ' + tr.q + ' · ' + tr.z + ' · CQ WW 25.10.');
+}
+
+function startRealBand(){
   if(!audioCtx) return;
   stopRealBand();
-  const f = REAL_BAND_FILES[Math.floor(Math.random()*REAL_BAND_FILES.length)];
+  const tr = realBandTrack();
   try{
-    let buf = realBandCache.get(f);
-    if(!buf){
-      const r = await fetch(f, {cache:'force-cache'});
-      if(!r.ok) throw new Error(f+' '+r.status);
-      buf = await audioCtx.decodeAudioData(await r.arrayBuffer());
-      realBandCache.set(f, buf);
-    }
-    if(!activeNoiseModes.has('real')) return;   // inzwischen wieder abgeschaltet
-    const src = audioCtx.createBufferSource();
-    src.buffer = buf; src.loop = true;
-    src.loopStart = 0.8; src.loopEnd = Math.max(1.5, buf.duration - 0.8);
+    const el = new Audio(tr.f);
+    el.preload = 'auto';
+    // Ist eine Aufnahme zu Ende, laeuft die naechste weiter.
+    el.addEventListener('ended', () => {
+      realIdx++;
+      if(activeNoiseModes.has('real')) startRealBand();
+    });
+    // Nicht immer an derselben Stelle einsteigen.
+    el.addEventListener('loadedmetadata', () => {
+      try{ if(el.duration > 40) el.currentTime = Math.random()*(el.duration - 30); }catch(e){}
+    }, {once:true});
+    const node = audioCtx.createMediaElementSource(el);
     const g = audioCtx.createGain();
     g.gain.value = (realBandVol/100) * 0.55;
-    src.connect(g); g.connect(masterGain);
-    src.start(0, Math.random()*Math.max(0.1, buf.duration - 3));
-    realBandSrc = src; realBandGain = g;
-  }catch(e){ console.warn('Echtes Band:', e); }
+    node.connect(g); g.connect(masterGain);
+    el.play().catch(e => console.warn('Mitschnitt:', e));
+    realEl = el; realNode = node; realGain = g;
+    realBandLabel();
+  }catch(e){ console.warn('Mitschnitt:', e); }
 }
+
 function stopRealBand(){
-  if(realBandSrc){ try{realBandSrc.stop();}catch(e){} try{realBandSrc.disconnect();}catch(e){} realBandSrc=null; }
-  realBandGain = null;
+  if(realEl){   try{ realEl.pause(); }catch(e){} }
+  if(realNode){ try{ realNode.disconnect(); }catch(e){} }
+  if(realGain){ try{ realGain.disconnect(); }catch(e){} }
+  realEl = null; realNode = null; realGain = null;
 }
+
+// Weiter zur naechsten Aufnahme
+function nextRealBand(){
+  realIdx++;
+  if(activeNoiseModes.has('real')) startRealBand(); else realBandLabel();
+}
+
+// Eigene Aufnahmen von der Platte — sie werden NICHT hochgeladen,
+// sondern nur im Browser geoeffnet (Objekt-URL). So laesst sich auch
+// Material verwenden, das nicht auf die Website gehoert.
+function addOwnRecordings(input){
+  const dateien = [...(input.files||[])];
+  if(!dateien.length) return;
+  let zahl = 0;
+  dateien.forEach(f => {
+    if(!/^audio\//.test(f.type) && !/\.(mp3|m4a|wav|ogg|opus|aac|flac)$/i.test(f.name)) return;
+    REAL_BAND_TRACKS.push({
+      f: URL.createObjectURL(f),
+      b: 'eigen',
+      q: f.name.replace(/\.[^.]+$/,'').slice(0, 42),
+      z: '',
+      d: 0
+    });
+    zahl++;
+  });
+  const el = document.getElementById('realband-eigen');
+  if(el) el.textContent = zahl ? (zahl + ' eigene dazu — ' + REAL_BAND_TRACKS.length + ' Aufnahmen') : 'keine Audiodatei dabei';
+  if(zahl){
+    // gleich zur ersten eigenen Aufnahme springen
+    realIdx = REAL_BAND_TRACKS.length - zahl;
+    if(!activeNoiseModes.has('real')) toggleNoise('real'); else startRealBand();
+  }
+  input.value = '';
+}
+
 function setRealBandVol(v){
   realBandVol = parseInt(v, 10);
   const e = document.getElementById('v-realband'); if(e) e.textContent = v;
-  if(realBandGain) realBandGain.gain.value = (realBandVol/100) * 0.55;
+  if(realGain) realGain.gain.value = (realBandVol/100) * 0.55;
 }
 
 function startNoise(type){
@@ -3580,6 +3654,7 @@ function toggleNoise(type){
     if(audioCtx) startNoise(type);
   }
   updateNoiseLabel();
+  if(type==='real' && typeof realBandLabel==='function') realBandLabel();
   if(typeof wfRebuildSignals==='function'){ wfRebuildSignals(); wfUpdateOverlay(); }
 }
 
