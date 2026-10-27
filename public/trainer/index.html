@@ -1147,6 +1147,12 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <button class="noise-btn" id="nb-storm" onclick="toggleNoise('storm')">QRN</button>
       <button class="noise-btn" id="nb-aurora" onclick="toggleNoise('aurora')">Aurora</button>
       <button class="noise-btn" id="nb-fading" onclick="toggleNoise('fading')">Fading</button>
+      <button class="noise-btn" id="nb-real" onclick="toggleNoise('real')" title="Eigener Mitschnitt: CQ WW SSB, 25.10.2026">Echtes Band</button>
+    </div>
+    <div class="sr-row" style="margin-top:5px">
+      <span class="sr-lbl" style="font-size:9px;color:var(--acc3)" title="Lautstärke des echten Mitschnitts">MITSCHN.</span>
+      <input type="range" min="0" max="100" value="30" id="s-realband" oninput="setRealBandVol(this.value)">
+      <span class="sr-val" id="v-realband">30</span>
     </div>
     <div style="font-size:9px;color:var(--acc3);margin-top:4px;font-family:var(--fui);min-height:13px" id="noise-lbl">● Band active</div>
     <div class="sr-row" style="margin-top:5px">
@@ -1191,6 +1197,18 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <span>nacheinander</span><span>gleichzeitig</span>
     </div>
 
+    <!-- DAUERPILE: es ruft durchgehend, nicht in Runden -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin:2px 0 3px">
+      <span style="font-family:var(--fui);font-size:9px;letter-spacing:.8px;color:var(--txt2)">DAUERPILE</span>
+      <button id="cpile-toggle" onclick="toggleContPile()" style="font-family:var(--fui);font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--txt3);cursor:pointer">OFF</button>
+    </div>
+    <div class="sr-row">
+      <span class="sr-lbl" style="width:46px" title="Lautstärke der durchlaufenden Rufe">DAUER L.</span>
+      <input type="range" min="0" max="100" value="45" id="s-cpile" oninput="setContPileVol(this.value)">
+      <span class="sr-val" id="v-cpile">45</span>
+    </div>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 6px 46px" id="cpile-status">● Aus</div>
+
     <!-- VOLUME -->
     <div class="sr-row">
       <span class="sr-lbl" style="width:46px">LAUTST.</span>
@@ -1211,6 +1229,22 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <span>kurz</span><span>lang</span>
     </div>
     <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);letter-spacing:.8px;min-height:12px" id="rpile-status">● Inaktiv</div>
+  </div>
+
+  <!-- BUCHSTABIEREN -->
+  <div class="psec" id="spell-sec">
+    <div class="plbl">Buchstabieren</div>
+    <div class="sr-row">
+      <span class="sr-lbl" style="width:46px" title="Jedes N-te Rufzeichen wird amerikanisch buchstabiert">JEDES</span>
+      <input type="range" min="0" max="8" value="4" id="s-usspell" oninput="setUsSpellEvery(this.value)">
+      <span class="sr-val" id="v-usspell">4</span>
+    </div>
+    <div style="font-size:9px;color:var(--txt3);font-family:var(--fui);margin:-3px 0 6px 46px" id="usspell-hint">jedes 4. Rufzeichen amerikanisch</div>
+    <div class="noise-grid" style="grid-template-columns:1fr 1fr">
+      <button class="noise-btn on" id="usmode-letters" onclick="setUsSpellMode('letters')" title="Die blanken Buchstabennamen: ay, bee, see, dee …">Buchstaben</button>
+      <button class="noise-btn" id="usmode-able" onclick="setUsSpellMode('able')" title="Das alte US-Alphabet: Able, Baker, Charlie, Dog …">Able Baker</button>
+    </div>
+    <div style="font-size:9px;color:var(--acc3);font-family:var(--fui);margin-top:5px;letter-spacing:.5px;min-height:12px" id="vox-status">● Lautarchiv noch nicht geladen</div>
   </div>
 
 </div>
@@ -1829,6 +1863,60 @@ const NATO_CK_VARIANTS = {
   'X': ['X-ray','X-ray','Xray','Exam'],
 };
 
+// ═══════════════════════════════════════════════════════════════════
+// AMERIKANISCHES BUCHSTABIEREN  (Martin, 2026-10-27)
+// Jedes vierte Rufzeichen wird NICHT im internationalen Alphabet
+// gerufen, sondern amerikanisch — damit auch die Buchstaben selbst
+// sitzen, nicht nur die Merkwoerter.
+//   'letters' : die blanken Buchstabennamen — ay, bee, see, dee …
+//   'able'    : das alte US-Alphabet — Able, Baker, Charlie, Dog …
+// Ziffern bleiben in beiden Faellen die normalen Zahlwoerter.
+// ═══════════════════════════════════════════════════════════════════
+const US_LETTERS = {
+  A:'ay', B:'bee', C:'see', D:'dee', E:'ee', F:'eff', G:'jee',
+  H:'aitch', I:'eye', J:'jay', K:'kay', L:'ell', M:'em', N:'en',
+  O:'oh', P:'pee', Q:'cue', R:'ar', S:'ess', T:'tee', U:'you',
+  V:'vee', W:'double you', X:'ex', Y:'why', Z:'zee'
+};
+const US_ABLE = {
+  A:'Able', B:'Baker', C:'Charlie', D:'Dog', E:'Easy', F:'Fox', G:'George',
+  H:'How', I:'Item', J:'Jig', K:'King', L:'Love', M:'Mike', N:'Nan',
+  O:'Oboe', P:'Peter', Q:'Queen', R:'Roger', S:'Sugar', T:'Tare',
+  U:'Uncle', V:'Victor', W:'William', X:'X-ray', Y:'Yoke', Z:'Zebra'
+};
+
+let usSpellEvery = 4;            // jedes N-te Rufzeichen amerikanisch (0 = aus)
+let usSpellMode  = 'letters';    // 'letters' | 'able'
+let mainSpellCount = 0;          // zaehlt nur die HAUPTrufe
+const spellStyleByCall = new Map();   // CALL → 'nato' | 'us'
+
+// Haupt-Rufzeichen: jeder N-te bekommt verbindlich den US-Stil.
+function assignMainSpell(call){
+  if(!call) return 'nato';
+  mainSpellCount++;
+  const st = (usSpellEvery > 0 && (mainSpellCount % usSpellEvery) === 0) ? 'us' : 'nato';
+  if(spellStyleByCall.size > 600) spellStyleByCall.clear();
+  spellStyleByCall.set(call.toUpperCase(), st);
+  return st;
+}
+// Rufer im Pile: unabhaengig davon mit Wahrscheinlichkeit 1/N amerikanisch.
+function assignPileSpell(call){
+  if(!call) return 'nato';
+  const u = call.toUpperCase();
+  if(spellStyleByCall.has(u)) return spellStyleByCall.get(u);
+  const st = (usSpellEvery > 0 && Math.random() < 1/usSpellEvery) ? 'us' : 'nato';
+  if(spellStyleByCall.size > 600) spellStyleByCall.clear();
+  spellStyleByCall.set(u, st);
+  return st;
+}
+function spellStyleFor(call){
+  return spellStyleByCall.get((call||'').toUpperCase()) || 'nato';
+}
+function usWord(c){
+  if(/\d/.test(c)) return NATO[c] || c;
+  return (usSpellMode === 'able' ? US_ABLE[c] : US_LETTERS[c]) || c.toLowerCase();
+}
+
 // Return NATO word for a char, with CK variants if applicable
 function natoWord(c, useCKVariants) {
   if(useCKVariants && NATO_CK_VARIANTS[c]){
@@ -1838,7 +1926,14 @@ function natoWord(c, useCKVariants) {
   return NATO[c] || c.toLowerCase();
 }
 
-function callToSpeech(call){
+function callToSpeech(call, _ckUnused, styleKey){
+  // Amerikanisch buchstabiert? Dann in einem Zug, genau so fluessig
+  // wie die anderen Rufe — nicht Buchstabe fuer Buchstabe abgehackt.
+  if(spellStyleFor(styleKey || call) === 'us'){
+    return call.toUpperCase().split('')
+      .map(c => c === '/' ? 'stroke' : usWord(c))
+      .join(' ').trim();
+  }
   // difficulty-aware fluency:
   // easy/medium: one smooth utterance, no inserted pauses — TTS flows naturally
   //   between phonetics. Digits just get their NATO word, no comma breaks.
@@ -3008,6 +3103,7 @@ const NOISE_CFG={
   storm:   {bvol:0.09, freq:1100,q:1.2,type:'storm',  label:'QRN Crashes'},
   aurora:  {bvol:0.07, freq:680, q:0.7,type:'aurora', label:'Aurora'},
   fading:  {bvol:0.04, freq:1400,q:2.0,type:'fading', label:'QSB Fading'},
+  real:    {bvol:0.0,  freq:1400,q:1.0,type:'real',   label:'Echtes Band'}, // Mitschnitt OE1W
 };
 
 // ── CONTEST BAND NOISE ENGINE ──
@@ -3253,8 +3349,52 @@ function stopContestNoise(){
   contestVolGain=null;
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// ECHTES BAND — Ausschnitte aus den eigenen Mitschnitten
+// (CQ WW SSB, 25.10.2026, 15 m / 10 m / 40 m — mit Longpath
+// aufgenommen). Statt synthetischem Rauschen liegt echtes
+// Contestgewuesel unter dem Betrieb.
+// ═══════════════════════════════════════════════════════════════════
+const REAL_BAND_FILES = [1,2,3,4,5,6,7,8].map(i => 'audio/band-cqww-'+i+'.m4a');
+const realBandCache = new Map();
+let realBandSrc = null, realBandGain = null, realBandVol = 30;
+
+async function startRealBand(){
+  if(!audioCtx) return;
+  stopRealBand();
+  const f = REAL_BAND_FILES[Math.floor(Math.random()*REAL_BAND_FILES.length)];
+  try{
+    let buf = realBandCache.get(f);
+    if(!buf){
+      const r = await fetch(f, {cache:'force-cache'});
+      if(!r.ok) throw new Error(f+' '+r.status);
+      buf = await audioCtx.decodeAudioData(await r.arrayBuffer());
+      realBandCache.set(f, buf);
+    }
+    if(!activeNoiseModes.has('real')) return;   // inzwischen wieder abgeschaltet
+    const src = audioCtx.createBufferSource();
+    src.buffer = buf; src.loop = true;
+    src.loopStart = 0.8; src.loopEnd = Math.max(1.5, buf.duration - 0.8);
+    const g = audioCtx.createGain();
+    g.gain.value = (realBandVol/100) * 0.55;
+    src.connect(g); g.connect(masterGain);
+    src.start(0, Math.random()*Math.max(0.1, buf.duration - 3));
+    realBandSrc = src; realBandGain = g;
+  }catch(e){ console.warn('Echtes Band:', e); }
+}
+function stopRealBand(){
+  if(realBandSrc){ try{realBandSrc.stop();}catch(e){} try{realBandSrc.disconnect();}catch(e){} realBandSrc=null; }
+  realBandGain = null;
+}
+function setRealBandVol(v){
+  realBandVol = parseInt(v, 10);
+  const e = document.getElementById('v-realband'); if(e) e.textContent = v;
+  if(realBandGain) realBandGain.gain.value = (realBandVol/100) * 0.55;
+}
+
 function startNoise(type){
   if(!audioCtx||type==='pileup') return;
+  if(type==='real'){ startRealBand(); return; }
   if(type==='contest'){ startContestNoise(); return; }
   stopNoise(type);
   const cfg=NOISE_CFG[type];if(!cfg||cfg.bvol===0) return;
@@ -3268,11 +3408,13 @@ function startNoise(type){
   }catch(e){}
 }
 function stopNoise(type){
+  if(type==='real'){ stopRealBand(); return; }
   if(type==='contest'){ stopContestNoise(); return; }
   if(noiseNodes[type]){try{noiseNodes[type].src.stop();}catch(e){}delete noiseNodes[type];}
 }
 function stopAllNoise(){
   stopContestNoise();
+  stopRealBand();
   Object.keys(noiseNodes).forEach(t=>stopNoise(t));
 }
 function updateNoiseGains(){
@@ -3537,7 +3679,9 @@ function endBandEvent(ev) {
   bandOpenStrength = 1.0;
   // Restore pileup to difficulty default
   const medCallers2 = parseInt((document.getElementById('s-medium-callers')||{value:'2'}).value)||2;
-  pileCount = {easy:1,medium:medCallers2,ck:5}[difficulty]||1;
+  // v23: zurueck auf den Levelwert (Gleichzeitigkeit), nicht auf einen Rufer.
+  pileCount = Math.max(1, Math.min(6, Math.round(1 + adaptCurrentLevel * 0.5)));
+  if(difficulty==='medium' && medCallers2>0) pileCount = medCallers2;
   setPile(pileCount);
   // Remove event-specific noises, keep band+contest+fading (CK baseline)
   if(activeNoiseModes.has('storm')){ activeNoiseModes.delete('storm'); if(audioCtx) stopNoise('storm'); }
@@ -3554,7 +3698,7 @@ function endBandEvent(ev) {
 // ── Speed overrides per difficulty ──
 function getDiffSpeedRate(){
   // CK: push speed slightly above slider
-  if(difficulty==='ck') return Math.min(1.6, (spd/100)*1.20);
+  if(difficulty==='ck') return Math.min(1.6, (spd/100)*1.06);   // v23: 1.20 → 1.06
   // Easy + Medium: slider as-is
   return Math.max(0.75,Math.min(1.6,spd/100));
 }
@@ -5147,8 +5291,8 @@ function speakPartialCall(call, voiceForCall, onComplete){
   const before = chars.slice(0, maskStart);
   const after  = chars.slice(maskStart + maskCount);
 
-  const beforePhrase = before.length ? callToSpeech(before.join('')) : '';
-  const afterPhrase  = after.length  ? callToSpeech(after.join(''))  : '';
+  const beforePhrase = before.length ? callToSpeech(before.join(''), false, call) : '';
+  const afterPhrase  = after.length  ? callToSpeech(after.join(''),  false, call) : '';
 
   // Estimate burst duration: ~350ms per masked char at normal TTS rate
   const burstDur = maskedLen * 380;
@@ -5563,7 +5707,7 @@ function setTime(m){
 }
 
 function setVol(v){vol=parseInt(v);try{if(masterGain)masterGain.gain.value=vol/100;}catch(e){}document.getElementById('v-vol').textContent=v;}
-function setSpd(v){spd=parseInt(v);document.getElementById('v-spd').textContent=v;}
+function setSpd(v){spd=parseInt(v);document.getElementById('v-spd').textContent=v;manuell.spd=true;}
 function setQRN(v){qrnLevel=parseInt(v);document.getElementById('v-qrn').textContent=v;if(audioCtx)updateNoiseGains();}
 // setAdjQRM removed - replaced by setAdjVol/setAdjClarity
 
@@ -5920,7 +6064,8 @@ function setMediumCallers(v){
   const hints = ['','1 Station ruft (sehr ruhig)','2 Stationen rufen gleichzeitig','3 Stationen rufen gleichzeitig','4 Stationen rufen gleichzeitig'];
   const hint = document.getElementById('medium-callers-hint');
   if(hint) hint.textContent = hints[v]||'';
-  if(difficulty==='medium') pileCount = v;
+  manuell.rufer = true;
+  if(difficulty!=='easy') pileCount = v;
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -5966,8 +6111,10 @@ function clearHeardCallsHistory() {
 function speakActivePile(pileCallsigns, opts) {
   stopActivePile();
   if(!pileCallsigns || !pileCallsigns.length) return;
-  if(!window.speechSynthesis) return;
   activePileRunning = true;
+  // Mit Lautarchiv laufen die Rufer wirklich gleichzeitig.
+  if(voxReady){ speakActivePileVox(pileCallsigns, opts); return; }
+  if(!window.speechSynthesis) return;
 
   // Optional:  opts.allowPreMain = true  → up to 1–2 callers may start
   // slightly BEFORE the main caller (used at medium for realism).
@@ -6074,6 +6221,294 @@ function stopActivePile() {
   activePileTimers.forEach(t => clearTimeout(t));
   activePileTimers = [];
   activePileCallsigns = [];
+  voxStop('pile');
+}
+
+
+// ═══════════════════════════════════════════════════════════════════
+// LAUTARCHIV ("VOX") — ECHTE GLEICHZEITIGKEIT      (Martin, 2026-10-27)
+// ───────────────────────────────────────────────────────────────────
+// speechSynthesis haengt jede Ansage in EINE Warteschlange: zwei Rufe
+// zur selben Zeit gibt es damit nicht, sie kommen hintereinander. Das
+// war der Grund, warum bisher nur das Tempo steigen konnte.
+// Deshalb liegt jedes Buchstabierwort als Audio bereit — eine
+// Sprite-Datei je Stimme, dazu index.json mit Beginn und Dauer jedes
+// Wortes. Ueber Web Audio laufen damit beliebig viele Rufzeichen
+// wirklich parallel, jedes mit eigener Lautstaerke, eigenem Klang und
+// eigenem Beginn. Fehlt das Archiv, bleibt alles beim Alten.
+// ═══════════════════════════════════════════════════════════════════
+const VOX_BASE = 'audio/vox/';
+let voxIndex    = null;
+let voxBuffers  = {};
+let voxVoiceKeys= [];
+let voxReady    = false;
+let voxLoading  = false;
+let voxEnabled  = true;
+var voxNodes    = [];      // Pile-Stimmen (werden je Runde abgeraeumt) — var: stopActivePile() kann frueher laufen
+var voxContNodes= [];      // Dauerpile (laeuft durch)
+const voxVoiceByCall = new Map();
+
+function voxStatus(txt){
+  const el = document.getElementById('vox-status');
+  if(el) el.textContent = txt;
+}
+
+async function voxLoad(){
+  if(voxReady || voxLoading || !voxEnabled) return;
+  voxLoading = true;
+  voxStatus('● Lautarchiv wird geladen …');
+  try{
+    const r = await fetch(VOX_BASE+'index.json', {cache:'force-cache'});
+    if(!r.ok) throw new Error('index.json '+r.status);
+    voxIndex = await r.json();
+    voxVoiceKeys = Object.keys(voxIndex.voices);
+    try{ initAudio(); }catch(e){}
+    if(!audioCtx) throw new Error('kein AudioContext');
+    await Promise.all(voxVoiceKeys.map(async k => {
+      const res = await fetch(voxIndex.voices[k].file, {cache:'force-cache'});
+      const ab  = await res.arrayBuffer();
+      voxBuffers[k] = await audioCtx.decodeAudioData(ab);
+    }));
+    voxReady = true;
+    voxStatus('● '+voxVoiceKeys.length+' Stimmen — Rufe laufen echt gleichzeitig');
+  }catch(e){
+    voxReady = false;
+    voxStatus('● Lautarchiv fehlt — Rufe laufen nacheinander');
+    console.warn('Lautarchiv:', e);
+  }
+  voxLoading = false;
+}
+
+// Stimme je Rufzeichen: zum Praefix passender Akzent, dann stabil.
+function voxVoiceFor(call){
+  const u = (call||'').toUpperCase();
+  if(voxVoiceByCall.has(u)) return voxVoiceByCall.get(u);
+  let acc = 'us';
+  try{ acc = accentForCall(call) || 'us'; }catch(e){}
+  const match = voxVoiceKeys.filter(k => voxIndex.voices[k].accent === acc);
+  const pool  = match.length ? match : voxVoiceKeys;
+  const k = pool[Math.floor(Math.random()*pool.length)];
+  if(voxVoiceByCall.size > 600) voxVoiceByCall.clear();
+  voxVoiceByCall.set(u, k);
+  return k;
+}
+
+// Rufzeichen → Wortfolge, in der fuer dieses Call gewaehlten Buchstabierweise
+function voxWordsForCall(call, offsets){
+  const style = spellStyleFor(call);
+  const out = [];
+  (call||'').toUpperCase().split('').forEach(c => {
+    let w;
+    if(c === '/')            w = 'stroke';
+    else if(style === 'us')  w = /\d/.test(c) ? NATO[c] : (usSpellMode === 'able' ? US_ABLE[c] : US_LETTERS[c]);
+    else                     w = NATO[c];
+    if(w && offsets[w]) out.push(w);
+  });
+  return out;
+}
+
+// Spielt EIN Rufzeichen. Mehrere Aufrufe ueberlagern sich wirklich.
+// opts: delay (s), gain (0–1), tone (Hz), voiceKey, rate, bucket
+function voxSpeakCall(call, opts){
+  if(!voxReady || !audioCtx) return 0;
+  const o    = opts || {};
+  const key  = o.voiceKey || voxVoiceFor(call);
+  const buf  = voxBuffers[key];
+  const meta = voxIndex.voices[key];
+  if(!buf || !meta) return 0;
+  const words = voxWordsForCall(call, meta.offsets);
+  if(!words.length) return 0;
+  try{
+    const g = audioCtx.createGain();
+    g.gain.value = Math.min(1.2, (vol/100) * (o.gain != null ? o.gain : 0.55));
+    // Jede Station bekommt ihre eigene Klangfarbe — so lassen sich
+    // zwei gleichzeitige Rufer ueberhaupt auseinanderhalten.
+    const bp = audioCtx.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.frequency.value = o.tone || (700 + Math.random()*1100);
+    bp.Q.value = 0.7;
+    const hp = audioCtx.createBiquadFilter();
+    hp.type='highpass'; hp.frequency.value = 280;
+    hp.connect(bp); bp.connect(g); g.connect(masterGain);
+
+    const rate = o.rate || (0.95 + Math.random()*0.12);
+    const gap  = o.wordGap != null ? o.wordGap : 0.015;   // fluessig, nicht abgehackt
+    let t  = audioCtx.currentTime + Math.max(0, o.delay || 0);
+    const t0 = t;
+    const bucket = (o.bucket === 'cont') ? voxContNodes : voxNodes;
+    words.forEach(w => {
+      const [start, dur] = meta.offsets[w];
+      const src = audioCtx.createBufferSource();
+      src.buffer = buf;
+      src.playbackRate.value = rate;
+      src.connect(hp);
+      src.start(t, start, dur);
+      bucket.push(src);
+      t += (dur / rate) + gap;
+    });
+    return t - t0;
+  }catch(e){ return 0; }
+}
+
+function voxStop(bucket){
+  const list = bucket === 'cont' ? voxContNodes : voxNodes;
+  list.forEach(n => { try{ n.stop(); }catch(e){} try{ n.disconnect(); }catch(e){} });
+  if(bucket === 'cont') voxContNodes = []; else voxNodes = [];
+}
+
+// Das ganze Pile ueber das Lautarchiv — echt gleichzeitig.
+function speakActivePileVox(callsigns, opts){
+  const allowPreMain = !!(opts && opts.allowPreMain);
+  const baseGap = Math.max(0.06, (620 - (pileDensity-1)*62) / 1000);
+  const repeats = pileDensity >= 7 ? 3 : 2;
+  const preMainIdx = new Set();
+  if(allowPreMain && callsigns.length){
+    const howMany = callsigns.length >= 3 ? 2 : 1;
+    const sh = callsigns.map((_,i)=>i).sort(()=>Math.random()-0.5);
+    for(let k=0;k<Math.min(howMany, sh.length);k++) preMainIdx.add(sh[k]);
+  }
+  callsigns.forEach((call, i) => {
+    const r0   = Math.random();
+    const tier = r0 < 0.25 ? (0.20 + Math.random()*0.12)    // leise
+               : r0 < 0.75 ? (0.36 + Math.random()*0.18)    // mittel
+               :             (0.56 + Math.random()*0.16);   // laut
+    const tone = 700 + Math.random()*1100;
+    const vkey = voxVoiceFor(call);
+    for(let r=0; r<repeats; r++){
+      let delay;
+      if(preMainIdx.has(i) && r === 0) delay = Math.random()*0.12;
+      else delay = 0.15 + i*baseGap + r*Math.max(0.7, baseGap*2.5) + Math.random()*baseGap*0.4;
+      voxSpeakCall(call, {delay:delay, gain:tier, tone:tone, voiceKey:vkey});
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// DAUERPILE — es ruft durchgehend, nicht in Runden
+// ───────────────────────────────────────────────────────────────────
+// Stationen rufen weiter, waehrend getippt und quittiert wird. Jede
+// bekommt vollstaendige QSO-Daten und landet in der Gehoert-Liste —
+// also kann man sich jederzeit eine beliebige davon herausgreifen.
+// ═══════════════════════════════════════════════════════════════════
+let contPileOn     = false;   // Vorgabe: aus — die Rufe kommen wie frueher
+let contPileVol    = 45;
+let contPileTimer  = null;
+let contPileSpTimers = [];
+
+// Ein vollstaendiger Rufer (Call + Rapport) nach den Regeln des
+// eingestellten Contests — dieselbe Quelle wie im Rundenbetrieb.
+function makeOneCaller(){
+  let g;
+  if(contest === 'arrldx'){
+    const naPool = PREFIXES.filter(e=>e.p.some(p=>/^(W|K|N|AA|AB|AC|AD|VE|VA)/.test(p)));
+    const e = rE(naPool.length ? naPool : PREFIXES), p = rE(e.p);
+    const d = (e.d[0]==='') ? '' : (typeof e.d[0]==='string' ? e.d[0] : String(rI(e.d[0], e.d[1])));
+    const suf = mkS(e.s[0], e.s[1]);
+    const call = /\d$/.test(p) ? p+suf : p+d+suf;
+    g = {call:call, zone:rE(e.z)};
+  } else if(contest === 'vhf'){
+    g = genCallVHF();
+  } else {
+    g = genCallAdaptive();
+  }
+  const exc = (CONTESTS[contest]||CONTESTS.onlycall).genEx(g.zone, g.call, g);
+  let call = g.call;
+  if(contest === 'iaru' && exc.hq) call = exc.hq.call;
+  return {call:call, exchange:exc, zone:g.zone, cat:classifyCall(call)};
+}
+
+// Rueckfallweg ohne Lautarchiv: eine Ansage ueber speechSynthesis.
+function speakBackgroundCallTTS(call, delayMs, loudness){
+  if(!call || !window.speechSynthesis) return;
+  const t = setTimeout(()=>{
+    if(!sessActive || paused) return;
+    try{
+      const u = new SpeechSynthesisUtterance(callToSpeech(call, false));
+      const v = getVoiceForCall(call);
+      if(v){ u.voice = v; if(v.lang) u.lang = v.lang; }
+      u.volume = Math.min(1.0, (vol/100) * loudness);
+      u.rate   = 0.92 + Math.random()*0.12;
+      u.pitch  = 0.95 + Math.random()*0.12;
+      speechSynthesis.speak(u);
+    }catch(e){}
+  }, Math.max(0, delayMs|0));
+  contPileSpTimers.push(t);
+}
+
+function contPileTick(){
+  if(!contPileOn || !sessActive || paused || appMode !== 'ssb') return;
+  const n = 1 + (Math.random() < 0.4 ? 1 : 0);
+  const map = {};
+  for(let i=0;i<n;i++){
+    const c = makeOneCaller();
+    const u = c.call.toUpperCase();
+    if(getHeardCallData(u)) continue;
+    assignPileSpell(c.call);
+    map[u] = c;
+    if(!activePileCallsigns.includes(u)) activePileCallsigns.push(u);
+    // laut und leise gemischt, jeder mit eigenem Beginn
+    const r0   = Math.random();
+    const tier = (r0 < 0.3 ? 0.30 : r0 < 0.75 ? 0.52 : 0.80) * (contPileVol/55);
+    const del  = rI(0, 1200);
+    if(voxReady) voxSpeakCall(c.call, {delay:del/1000, gain:tier, bucket:'cont'});
+    else         speakBackgroundCallTTS(c.call, del, tier);
+  }
+  if(Object.keys(map).length) recordHeardCalls(map);
+}
+
+function contPileLoop(){
+  contPileTimer = setTimeout(()=>{
+    try{ contPileTick(); }catch(e){}
+    if(contPileOn && sessActive) contPileLoop();
+  }, Math.max(800, 3400 - pileDensity*230) + rI(0, 700));
+}
+
+function startContPile(){
+  stopContPile();
+  if(!contPileOn || !sessActive) return;
+  contPileLoop();
+}
+
+function stopContPile(){
+  if(contPileTimer){ clearTimeout(contPileTimer); contPileTimer = null; }
+  contPileSpTimers.forEach(t=>clearTimeout(t)); contPileSpTimers = [];
+  voxStop('cont');
+}
+
+function toggleContPile(){
+  contPileOn = !contPileOn;
+  const b = document.getElementById('cpile-toggle');
+  if(b){
+    b.textContent = contPileOn ? 'ON' : 'OFF';
+    b.style.color = contPileOn ? 'var(--acc)' : 'var(--txt3)';
+    b.style.borderColor = contPileOn ? 'var(--acc)' : 'rgba(255,255,255,.15)';
+  }
+  const st = document.getElementById('cpile-status');
+  if(st) st.textContent = contPileOn ? '● Es ruft durchgehend' : '● Aus';
+  if(contPileOn && sessActive) startContPile(); else stopContPile();
+}
+
+function setContPileVol(v){
+  contPileVol = parseInt(v, 10);
+  const e = document.getElementById('v-cpile'); if(e) e.textContent = v;
+}
+
+// ── Buchstabierweise: Bedienung ──
+function setUsSpellEvery(v){
+  usSpellEvery = parseInt(v, 10) || 0;
+  const e = document.getElementById('v-usspell'); if(e) e.textContent = usSpellEvery ? usSpellEvery : 'aus';
+  const h = document.getElementById('usspell-hint');
+  if(h) h.textContent = usSpellEvery
+    ? ('jedes ' + usSpellEvery + '. Rufzeichen amerikanisch')
+    : 'immer internationales Alphabet';
+}
+function setUsSpellMode(m){
+  usSpellMode = m;
+  ['letters','able'].forEach(k=>{
+    const b = document.getElementById('usmode-'+k);
+    if(b) b.classList.toggle('on', k === m);
+  });
+  spellStyleByCall.clear();
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -6088,8 +6523,18 @@ function stopActivePile() {
 // if main is delayed by the caller, this runs earlier relative to main).
 // ═══════════════════════════════════════════════════════════════════
 function speakDualOverlap(secondCall, delayMs){
-  if(!secondCall || !window.speechSynthesis) return;
+  if(!secondCall) return;
   activePileRunning = true;
+  if(voxReady){
+    const upper0 = secondCall.toUpperCase();
+    if(!activePileCallsigns.includes(upper0)) activePileCallsigns.push(upper0);
+    // deutlich leiser als der Hauptruf, aber klar hoerbar — mal lauter,
+    // mal leiser, nie so laut, dass der Hauptruf untergeht.
+    voxSpeakCall(secondCall, {delay:Math.max(0,(delayMs|0))/1000,
+                              gain:0.28 + Math.random()*0.17});
+    return;
+  }
+  if(!window.speechSynthesis) return;
   // Track the second call as part of the "active pile" so any-call
   // acceptance / stop logic still works.
   const upper = secondCall.toUpperCase();
@@ -6117,6 +6562,7 @@ function speakDualOverlap(secondCall, delayMs){
 function setPileDensity(v) {
   pileDensity = parseInt(v, 10);
   document.getElementById('v-pile-density').textContent = v;
+  manuell.dichte = true;
 }
 
 // After logging a QSO in a pile-up, the remaining callers stay on
@@ -6765,7 +7211,9 @@ function nextQSO(){
   cancelMain();              // v22: haengende AGAIN-Wiederholung sofort abbrechen
   againRateOverride = null;  // v22: naechster Call wieder in normaler Rate
   const jitter=difficulty==='ck'?rI(0,2):difficulty==='medium'?rI(0,1):0;
-  const cnt=difficulty==='easy' ? 1 : Math.min(5,pileCount+jitter);
+  // Ohne Pile-Up ruft genau eine Station — wie frueher. Durcheinander
+  // gibt es nur, wenn Pile-Up gewaehlt ist.
+  const cnt=difficulty==='easy' ? 1 : Math.max(1, Math.min(6, pileCount+jitter));
   const used=new Set(),callers=[];
   // ARRL DX: callers are W/VE stations (you work NA from DX side)
   const naPool=PREFIXES.filter(e=>e.p.some(p=>/^(W|K|N|AA|AB|AC|AD|VE|VA)/.test(p)));
@@ -6802,6 +7250,10 @@ function nextQSO(){
     callerDataMap[effectiveCall.toUpperCase()] = {call:effectiveCall, exchange:exc, zone:c.zone, cat:c.cat||classifyCall(effectiveCall)};
   });
   const main=callers[0];
+  // Buchstabierweise festlegen: jeder vierte HAUPTruf amerikanisch,
+  // die Rufer im Pile unabhaengig davon mit 1/4 Wahrscheinlichkeit.
+  assignMainSpell(main.call);
+  callers.slice(1).forEach(c => assignPileSpell(c.call));
   const mainData = callerDataMap[main.call.toUpperCase()];
   curQSO={call:main.call, exchange:mainData.exchange, zone:main.zone, cat:mainData.cat};
   window._pileCallerDataMap = callerDataMap; // store for use when user picks a caller
@@ -6840,18 +7292,20 @@ function nextQSO(){
   let useDualOverlap = false;
   let allowPreMain   = false;
   let secondStartDelay = 0;
-  if(difficulty === 'medium'){
-    if(cnt === 2 && Math.random() < 0.35){
+  if(true){
+    // v23: Bei genau zwei Rufern IMMER das klare Zwei-Stimmen-Bild —
+    // einer laut, einer leise, versetzter Beginn. Auf jeder Stufe.
+    if(cnt === 2){
       useDualOverlap = true;
       const r = Math.random();
       if(r < 0.38){
-        mainStartDelay   = rI(260, 520); secondStartDelay = 0;
+        mainStartDelay   = rI(220, 420); secondStartDelay = 0;
       } else if(r < 0.76){
-        mainStartDelay   = 0;            secondStartDelay = rI(260, 520);
+        mainStartDelay   = 0;            secondStartDelay = rI(220, 420);
       } else {
-        mainStartDelay   = rI(0, 140);   secondStartDelay = rI(0, 140);
+        mainStartDelay   = rI(0, 120);   secondStartDelay = rI(0, 120);
       }
-    } else if(cnt >= 3 && Math.random() < 0.65){
+    } else if(cnt >= 3 && Math.random() < 0.80){
       allowPreMain   = true;
       mainStartDelay = rI(200, 420);
     }
@@ -6869,6 +7323,10 @@ function nextQSO(){
     } else {
       speakActivePile(callers.slice(1).map(c=>c.call), {allowPreMain: allowPreMain});
     }
+    // speakActivePile() ruft stopActivePile() und leert dabei die Liste —
+    // sie wird hier wiederhergestellt, sonst kennt die Annahme nur noch
+    // den Hauptruf.
+    activePileCallsigns = callers.map(c=>c.call.toUpperCase());
   }
   wfRebuildSignals(); wfUpdateOverlay();
   document.getElementById('cqst').textContent=blindMode?(cnt>1?'Pileup ×'+cnt+' · ???':'Calling: ???'):(cnt>1?'Pileup ×'+cnt+' · '+main.call:'Calling: '+main.call);
@@ -7197,6 +7655,9 @@ function updLog(){
 // speed (SSB rate), caller count, noise level, and internal difficulty.
 // ═══════════════════════════════════════════════════════════════════
 
+// Was der Operator selbst eingestellt hat, ruehrt die Automatik nicht
+// mehr an — die Schwierigkeit gehoert an den Regler.
+const manuell = {spd:false, rufer:false, dichte:false};
 let adaptMinuteTimer = null;
 let adaptLastMinuteQSO = 0;
 let adaptCurrentLevel = 0;   // 0–10 integer scale, starts low
@@ -7211,30 +7672,40 @@ function adaptLevelToDiff(lvl){
 
 // Apply a numeric level (0–10) to all engine parameters
 function adaptApplyLevel(lvl, reason){
-  adaptCurrentLevel = Math.max(0, Math.min(10, lvl));
+  let deckel = 10, boden = 0;
+  try{
+    if(DIFF_PRESET_MAXLEVEL[diffPreset] != null) deckel = DIFF_PRESET_MAXLEVEL[diffPreset];
+    if(DIFF_PRESET_MINLEVEL[diffPreset] != null) boden  = DIFF_PRESET_MINLEVEL[diffPreset];
+  }catch(e){}
+  adaptCurrentLevel = Math.max(boden, Math.min(deckel, lvl));
   const d = adaptLevelToDiff(adaptCurrentLevel);
 
   // --- Internal difficulty string (used throughout engine) ---
   difficulty = d;
 
-  // --- Pileup count: level 0=1 caller … level 10=4 callers (v22: flacherer Anstieg) ---
-  pileCount = Math.max(1, Math.round(1 + adaptCurrentLevel * 0.25));
-  // v19.2: Im MEDIUM-Modus hat der RUFER-Slider Vorrang (konsistent mit endBandEvent)
-  if(d==='medium'){
-    const mc = parseInt((document.getElementById('s-medium-callers')||{value:'0'}).value)||0;
-    if(mc>0) pileCount = mc;
+  // --- Pileup count: level 0=1 Rufer … level 10=5 Rufer ---
+  if(!manuell.rufer){
+    pileCount = Math.max(1, Math.min(5, Math.round(1 + adaptCurrentLevel * 0.4)));
+  }
+  // Der RUFER-Regler hat Vorrang, sobald er angefasst wurde
+  const mc = parseInt((document.getElementById('s-medium-callers')||{value:'0'}).value)||0;
+  if((d==='medium' || manuell.rufer) && mc>0) pileCount = mc;
+
+  // --- Pile density: level 0=1 … level 10=7 — massvoll, der Regler kann mehr ---
+  if(!manuell.dichte){
+    pileDensity = Math.max(1, Math.min(7, Math.round(1 + adaptCurrentLevel * 0.6)));
+    const ds = document.getElementById('s-pile-density');
+    if(ds){ ds.value = pileDensity; document.getElementById('v-pile-density').textContent = String(pileDensity); }
   }
 
-  // --- Pile density: level 0=1 … level 10=6 (v22: flacherer Anstieg) ---
-  pileDensity = Math.max(1, Math.round(1 + adaptCurrentLevel * 0.5));
-  const ds = document.getElementById('s-pile-density');
-  if(ds){ ds.value = pileDensity; document.getElementById('v-pile-density').textContent = String(pileDensity); }
-
-  // --- SSB speech speed (spd slider 50–200): level 0=70 … level 10=160 ---
-  const newSpd = Math.round(70 + adaptCurrentLevel * 9);
-  spd = newSpd;
-  const spdSlider = document.getElementById('s-spd');
-  if(spdSlider){ spdSlider.value = newSpd; document.getElementById('v-spd').textContent = String(newSpd); }
+  // --- SSB speech speed (spd slider 50–200): level 0=86 … level 10=108 ---
+  // v23 (Martin 2026-10-27): Das Tempo steigt nur noch minimal.
+  if(!manuell.spd){
+    const newSpd = Math.round(86 + adaptCurrentLevel * 2.2);
+    spd = newSpd;
+    const spdSlider = document.getElementById('s-spd');
+    if(spdSlider){ spdSlider.value = newSpd; document.getElementById('v-spd').textContent = String(newSpd); }
+  }
 
   // --- RF filter: easy→light, medium→medium, ck→heavy ---
   const autoFilt = {easy:3, medium:5, ck:8}[d];
@@ -7297,11 +7768,12 @@ function adaptMinuteTick(){
 
   let delta = 0;
   let reason = '';
-  if(avgQ >= 12){      delta = +2; reason = '<svg class="ic"><use href="#ic-flame"/></svg> Sehr gut! Schwieriger →'; }
+  // v23: nur noch Einerschritte — kein Sprung ueber zwei Stufen.
+  if(avgQ >= 12){      delta = +1; reason = '<svg class="ic"><use href="#ic-flame"/></svg> Sehr gut! Mehr gleichzeitig →'; }
   else if(avgQ >= 10){ delta = +1; reason = '↑ Gut! Level erhöht'; }
   else if(avgQ >= 7){  delta =  0; reason = '= Level gehalten ('+avgQ.toFixed(1)+' QSOs/min)'; }
   else if(avgQ >= 4){  delta = -1; reason = '↓ Level reduziert'; }
-  else {               delta = -2; reason = '<svg class="ic"><use href="#ic-arrdn"/></svg> Weniger Druck →'; }
+  else {               delta = -1; reason = '<svg class="ic"><use href="#ic-arrdn"/></svg> Weniger Druck →'; }
 
   const newLvl = adaptCurrentLevel + delta;
   adaptApplyLevel(newLvl, reason);
@@ -7391,11 +7863,12 @@ function autoAdaptTick45(){
   const qPerMin = (qIn45 / AA_INTERVAL) * 60;
 
   let delta = 0, reason = '';
-  if     (qPerMin >= 12){ delta = +2; reason = '<svg class="ic"><use href="#ic-flame"/></svg> Top-Rate! Schwieriger →'; }
-  else if(qPerMin >= 10){ delta = +1; reason = '↑ Gut! Speed erhöht ('+qIn45+' QSOs/45s)'; }
-  else if(qPerMin >=  7){ delta =  0; reason = '= Speed gehalten ('+qIn45+' QSOs/45s)'; }
-  else if(qPerMin >=  4){ delta = -1; reason = '↓ Speed reduziert ('+qIn45+' QSOs/45s)'; }
-  else                  { delta = -2; reason = '<svg class="ic"><use href="#ic-arrdn"/></svg> Viel langsamer → ('+qIn45+' QSOs/45s)'; }
+  // v23: nur noch Einerschritte.
+  if     (qPerMin >= 12){ delta = +1; reason = '<svg class="ic"><use href="#ic-flame"/></svg> Top-Rate! Mehr gleichzeitig →'; }
+  else if(qPerMin >= 10){ delta = +1; reason = '↑ Gut! Level erhöht ('+qIn45+' QSOs/45s)'; }
+  else if(qPerMin >=  7){ delta =  0; reason = '= Level gehalten ('+qIn45+' QSOs/45s)'; }
+  else if(qPerMin >=  4){ delta = -1; reason = '↓ Level reduziert ('+qIn45+' QSOs/45s)'; }
+  else                  { delta = -1; reason = '<svg class="ic"><use href="#ic-arrdn"/></svg> Ruhiger → ('+qIn45+' QSOs/45s)'; }
 
   adaptApplyLevel(adaptCurrentLevel + delta, reason);
 
@@ -7419,7 +7892,13 @@ const DIFF_PRESET_DESCS = {
   ck:       'Volles Pile-Up · starkes QRM · lösbar mit Technik'
 };
 
-const DIFF_PRESET_STARTLEVEL = { easy: 2, advanced: 3, ck: 8 };
+const DIFF_PRESET_STARTLEVEL = { easy: 2, advanced: 4, ck: 8 };
+// Die Voreinstellung setzt den Rahmen, die Automatik bewegt sich nur
+// darin (Martin 2026-10-27: "nicht sehr schwierig", Schwierigkeit am
+// Regler). Kein Pile-Up bleibt eine Station, Kleines Pile-Up bleibt
+// klein.
+const DIFF_PRESET_MAXLEVEL = { easy: 3, advanced: 7, ck: 10 };
+const DIFF_PRESET_MINLEVEL = { easy: 0, advanced: 4, ck: 8 };
 
 // Pile-Up OFF for easy, limited for advanced, full for ck
 const DIFF_PRESET_RPILE = { easy: false, advanced: true, ck: true };
@@ -7458,6 +7937,7 @@ function selectDiffPreset(preset){
 function startSess(){
   try{initAudio();}catch(e){}
   try{loadVoices();}catch(e){}
+  try{voxLoad();}catch(e){}   // Lautarchiv fuer echte Gleichzeitigkeit
   if(appMode==='cw') buildMorseVis();
   sessActive=true; paused=false; sessStart=Date.now(); totalPaused=0;
   // ── v19.1 FIX: Stats immer frisch starten (STOP→START ohne CLEAR
@@ -7512,6 +7992,7 @@ function startSess(){
   wfRebuildSignals(); wfUpdateOverlay();
   if(difficulty==='ck') startBandEvents();
   startBandSim();   // band opening simulation — all difficulties
+  startContPile();  // es ruft durchgehend, nicht nur in Runden
   startKA();
   setTimeout(nextQSO,600);
 }
@@ -7559,7 +8040,7 @@ function stopSess(){
   stopBandEvents();
   stopBandSim();
   stopChaos(); stopAllNoise();
-  stopActivePile(); stopResidualPile();
+  stopActivePile(); stopResidualPile(); stopContPile();
   lastPileCallers=[]; clearHeardCallsHistory();
   wfRebuildSignals(); wfUpdateOverlay();
   try{if(audioCtx) activeNoiseModes.forEach(m=>startNoise(m));}catch(e){}
