@@ -935,6 +935,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
         spellcheck="false" placeholder="JN67"
         onkeydown="if(event.key==='Enter')doLogin()">
 
+      <div id="login-fehler" style="display:none;font-family:var(--fui);font-size:10px;color:var(--red);margin:-2px 0 8px;letter-spacing:.4px"></div>
       <button class="login-btn" onclick="doLogin()">Station öffnen</button>
       <div class="login-hint">Das Rufzeichen erscheint in der Rangliste. Der Locator wird bei UKW-Wettbewerben gebraucht.</div>
     </div>
@@ -7281,13 +7282,50 @@ function hkeyVHF(e){ hkeyExchange(e); }
 // Saves the residual callers of last pile-up for Residual Pile feature
 let lastPileCallers = [];
 
+// ═══════════════════════════════════════════════════════════════════
+// WIEDERHOLUNG DES ANRUFS        (nach echtem Betrieb, 2026-10-27)
+// ───────────────────────────────────────────────────────────────────
+// Ausgezaehlt an rund einer Stunde Run-Betrieb (NT6X CQ WW SSB
+// 2024/2025/2026, ARRL 10 m, PJ2T): ein Anrufer nennt sein Rufzeichen
+// im Median ZWEIMAL, der CQ-Takt liegt bei 8,0 s, ein QSO dauert im
+// Median 11 s. Bisher kam jeder Ruf genau einmal — wer ihn verpasste,
+// musste AGAIN druecken. Jetzt ruft die Station weiter, bis sie
+// quittiert wird, so wie am echten Band.
+// ═══════════════════════════════════════════════════════════════════
+let wdhTimers = [];
+function stopWiederholungen(){
+  wdhTimers.forEach(t => clearTimeout(t));
+  wdhTimers = [];
+}
+function planeWiederholungen(call){
+  stopWiederholungen();
+  // Je schwerer die Stufe, desto weniger oft wiederholt er sich.
+  const wieOft = {easy:3, medium:2, ck:1}[difficulty];
+  let getan = 0;
+  const schritt = () => {
+    if(!sessActive || paused) return;
+    if(exPhase !== 1) return;                     // Rufzeichen schon bestaetigt
+    if(!curQSO || curQSO.call !== call) return;   // laengst der naechste dran
+    if(getan >= wieOft) return;
+    // Spricht noch jemand, wird nicht verworfen, sondern kurz gewartet.
+    if(mainSpeaking || (window.speechSynthesis && speechSynthesis.speaking)){
+      wdhTimers.push(setTimeout(schritt, 900));
+      return;
+    }
+    getan++;
+    try{ speakPartialCall(call, getVoiceForCall(call), ()=>{}); }catch(e){}
+    wdhTimers.push(setTimeout(schritt, 2800 + Math.random()*1600));
+  };
+  wdhTimers.push(setTimeout(schritt, 2800 + Math.random()*1600));  // 2,8–4,4 s
+}
+
 function nextQSO(){
   if(!sessActive||paused) return;
   if(appMode==='cw'){nextCWItem();return;}
   // ── RUNNING MODE (original) ──
   showExPanel(false);
   exPhase=0;
-  stopActivePile(); stopResidualPile();
+  stopActivePile(); stopResidualPile(); stopWiederholungen();
   cancelMain();              // v22: haengende AGAIN-Wiederholung sofort abbrechen
   againRateOverride = null;  // v22: naechster Call wieder in normaler Rate
   const jitter=difficulty==='ck'?rI(0,2):difficulty==='medium'?rI(0,1):0;
@@ -7395,6 +7433,7 @@ function nextQSO(){
   } else {
     speakPartialCall(main.call, voiceForMain, ()=>{ markRXStart(mainData.cat); });
   }
+  planeWiederholungen(main.call);
   // Pile-up background callers — speak simultaneously with main
   if(cnt > 1){
     if(useDualOverlap){
@@ -7800,9 +7839,18 @@ function adaptApplyLevel(lvl, reason){
   if(d==='easy')        noiseSet = ['band'];
   else if(d==='medium') noiseSet = ['band','contest'];
   else                  noiseSet = ['band','contest','fading'];
+  // Das echte Band ist eine Entscheidung des Operators — die Automatik
+  // wirft es nicht hinaus und startet es auch nicht neu (sonst springt
+  // die Aufnahme bei jeder Levelanpassung an eine andere Stelle).
+  const realLaeuft = activeNoiseModes.has('real');
+  if(realLaeuft) noiseSet.push('real');
   activeNoiseModes = new Set(noiseSet);
-  if(audioCtx){ try{ stopAllNoise(); noiseSet.forEach(m=>startNoise(m)); }catch(e){} }
-  ['band','contest','storm','aurora','fading'].forEach(t=>{
+  if(audioCtx){ try{
+    stopContestNoise();
+    Object.keys(noiseNodes).forEach(t=>stopNoise(t));
+    noiseSet.forEach(m=>{ if(m!=='real' || !realEl) startNoise(m); });
+  }catch(e){} }
+  ['band','contest','storm','aurora','fading','real'].forEach(t=>{
     const btn=document.getElementById('nb-'+t);
     if(btn) btn.classList.toggle('on', activeNoiseModes.has(t));
   });
@@ -8120,7 +8168,7 @@ function stopSess(){
   stopBandEvents();
   stopBandSim();
   stopChaos(); stopAllNoise();
-  stopActivePile(); stopResidualPile(); stopContPile();
+  stopActivePile(); stopResidualPile(); stopContPile(); stopWiederholungen();
   lastPileCallers=[]; clearHeardCallsHistory();
   wfRebuildSignals(); wfUpdateOverlay();
   try{if(audioCtx) activeNoiseModes.forEach(m=>startNoise(m));}catch(e){}
@@ -9130,8 +9178,14 @@ function doLogin(){
   try{
     const val=document.getElementById('login-call').value.trim().toUpperCase().replace(/[^A-Z0-9\/]/g,'');
     if(!val||val.length<3){
-      document.getElementById('login-call').style.borderColor='var(--red)';
-      setTimeout(()=>{document.getElementById('login-call').style.borderColor='';},1500);
+      // Der Platzhalter sieht aus wie ein eingetragener Wert — ohne
+      // Hinweis wirkt der Knopf, als taete er nichts.
+      const f=document.getElementById('login-call');
+      f.style.borderColor='var(--red)';
+      const h=document.getElementById('login-fehler');
+      if(h){ h.textContent='Bitte das eigene Rufzeichen eintragen — das Graue ist nur ein Beispiel.'; h.style.display='block'; }
+      f.focus();
+      setTimeout(()=>{ f.style.borderColor=''; },1500);
       return;
     }
     const locRaw=document.getElementById('login-loc').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
