@@ -11,3 +11,7 @@ src/assets/photos/*.png
 
 # Video-Rohdateien: gross und nicht noetig, das fertige MP4 liegt in public/video/
 videos/raw/
+
+# Fremde Contest-Mitschnitte (NT6X, PJ2T): liegen nur lokal,
+# duerfen nicht mit veroeffentlicht werden.
+public/trainer/audio/pileups

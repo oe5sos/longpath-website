@@ -1147,7 +1147,7 @@ body.layout-c .vfo-freq{font-size:16px;letter-spacing:.06em}
       <button class="noise-btn" id="nb-storm" onclick="toggleNoise('storm')">QRN</button>
       <button class="noise-btn" id="nb-aurora" onclick="toggleNoise('aurora')">Aurora</button>
       <button class="noise-btn" id="nb-fading" onclick="toggleNoise('fading')">Fading</button>
-      <button class="noise-btn" id="nb-real" onclick="toggleNoise('real')" title="Eigener Mitschnitt: CQ WW SSB, 25.10.2026">Echtes Band</button>
+      <button class="noise-btn" id="nb-real" onclick="toggleNoise('real')" title="Echter Contestbetrieb: NT6X und PJ2T, rund 19 Stunden">Echtes Band</button>
     </div>
     <div class="sr-row" style="margin-top:5px">
       <span class="sr-lbl" style="font-size:9px;color:var(--acc3)" title="Lautstärke des eigenen Mitschnitts">MITSCHN.</span>
@@ -3362,20 +3362,25 @@ function stopContestNoise(){
 // aufgenommen). Statt synthetischem Rauschen liegt echtes
 // Contestgewuesel unter dem Betrieb.
 // ═══════════════════════════════════════════════════════════════════
-// Die Mitschnitte laufen in voller Laenge, eine nach der anderen —
-// gestreamt ueber ein <audio>-Element, damit nichts vorab geladen
-// werden muss. Zusammen rund eine Stunde echter Contestbetrieb.
+// Echter Contestbetrieb aus der Sicht des Operators: NT6X (CQ WW SSB
+// 2024/2025/2026, ARRL 10 m) und PJ2T. Knapp 19 Stunden, gestreamt
+// ueber ein <audio>-Element, eine Aufnahme nach der anderen, damit
+// nichts vorab geladen werden muss.
+// ACHTUNG: Das sind FREMDE Aufnahmen. Sie liegen nur hier auf dem
+// Rechner (audio/pileups ist ein Verweis nach Desktop/DATEN und in
+// .gitignore) und gehen NICHT mit auf longpath.at. Fehlen sie, bleibt
+// der Knopf einfach ohne Wirkung.
 const REAL_BAND_TRACKS = [
-  {f:'audio/mitschnitt/mitschnitt-01-21.292MHz-1538Z.m4a', b:'15 m', q:'21,292 MHz USB', z:'15:38Z', d:635},
-  {f:'audio/mitschnitt/mitschnitt-02-21.292MHz-1549Z.m4a', b:'15 m', q:'21,292 MHz USB', z:'15:49Z', d:184},
-  {f:'audio/mitschnitt/mitschnitt-03-21.295MHz-1552Z.m4a', b:'15 m', q:'21,295 MHz USB', z:'15:52Z', d:774},
-  {f:'audio/mitschnitt/mitschnitt-04-21.247MHz-1606Z.m4a', b:'15 m', q:'21,247 MHz USB', z:'16:06Z', d:291},
-  {f:'audio/mitschnitt/mitschnitt-05-21.444MHz-1610Z.m4a', b:'15 m', q:'21,444 MHz USB', z:'16:10Z', d:58},
-  {f:'audio/mitschnitt/mitschnitt-06-21.425MHz-1620Z.m4a', b:'15 m', q:'21,425 MHz USB', z:'16:20Z', d:452},
-  {f:'audio/mitschnitt/mitschnitt-07-28.424MHz-1628Z.m4a', b:'10 m', q:'28,424 MHz USB', z:'16:28Z', d:37},
-  {f:'audio/mitschnitt/mitschnitt-08-7.173MHz-1630Z.m4a', b:'40 m', q:'7,173 MHz LSB', z:'16:30Z', d:356},
-  {f:'audio/mitschnitt/mitschnitt-09-21.425MHz-1639Z.m4a', b:'15 m', q:'21,425 MHz USB', z:'16:39Z', d:342},
-  {f:'audio/mitschnitt/mitschnitt-10-21.416MHz-1645Z.m4a', b:'15 m', q:'21,416 MHz USB', z:'16:45Z', d:344},
+  {f:'audio/pileups/nt6x-cqww-ssb-2026.m4a', b:'NT6X', q:'CQ WW SSB 2026', z:'188 min', d:11284},
+  {f:'audio/pileups/nt6x-cqww-ssb-2025-pt1.m4a', b:'NT6X', q:'CQ WW SSB 2025 · I', z:'139 min', d:8315},
+  {f:'audio/pileups/nt6x-cqww-ssb-2025-pt2.m4a', b:'NT6X', q:'CQ WW SSB 2025 · II', z:'184 min', d:11049},
+  {f:'audio/pileups/nt6x-cqww-ssb-2025-pt3.m4a', b:'NT6X', q:'CQ WW SSB 2025 · III', z:'120 min', d:7208},
+  {f:'audio/pileups/nt6x-cqww-ssb-2024-w6-pt1.m4a', b:'NT6X, W6', q:'CQ WW SSB 2024 · I', z:'181 min', d:10857},
+  {f:'audio/pileups/nt6x-cqww-ssb-2024-w6-pt2.m4a', b:'NT6X, W6', q:'CQ WW SSB 2024 · II', z:'180 min', d:10814},
+  {f:'audio/pileups/nt6x-arrl-10m.m4a', b:'NT6X', q:'ARRL 10 m', z:'99 min', d:5946},
+  {f:'audio/pileups/nt6x-cqww-ssb-kurz.m4a', b:'NT6X', q:'CQ WW SSB', z:'38 min', d:2264},
+  {f:'audio/pileups/pj2t-arrl-ssb-2025-1350-3100.m4a', b:'PJ2T', q:'ARRL DX SSB 2025', z:'17 min', d:1030},
+  {f:'audio/pileups/pj2t-youth-ops-2514-4010.m4a', b:'PJ2T', q:'CQ WW Youth Ops', z:'15 min', d:896},
 ];
 let realBandVol = 30;
 let realIdx  = Math.floor(Math.random() * 10);
@@ -3390,7 +3395,7 @@ function realBandLabel(){
   const tr = realBandTrack();
   el.textContent = tr.b === 'eigen'
     ? ('● eigene Aufnahme · ' + tr.q)
-    : ('● ' + tr.b + ' · ' + tr.q + ' · ' + tr.z + ' · CQ WW 25.10.');
+    : ('● ' + tr.b + ' · ' + tr.q + ' · ' + tr.z);
 }
 
 function startRealBand(){
