@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "npm run fotos && astro build",
+    "entferne-fremdmaterial": "rm -rf dist/trainer/audio/pileups",
+    "veroeffentlichen": "npm run build && npm run entferne-fremdmaterial && npx wrangler pages deploy dist --project-name longpath-website --branch main --commit-dirty=true",
     "preview": "astro preview",
     "fotos": "node scripts/grade-photos.mjs",
     "platzhalter": "node scripts/make-placeholders.mjs",
