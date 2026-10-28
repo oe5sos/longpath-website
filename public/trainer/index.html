@@ -3455,6 +3455,17 @@ function startRealBand(){
       realIdx++;
       if(activeNoiseModes.has('real')) startRealBand();
     });
+    // Die Mitschnitte liegen nur auf dem Uebungsrechner — im Netz
+    // antwortet der Server mit 404. Dann den Punkt abschalten und es
+    // sagen, statt stumm zu bleiben.
+    el.addEventListener('error', () => {
+      try{ activeNoiseModes.delete('real'); }catch(e){}
+      const b = document.getElementById('nb-real');
+      if(b) b.classList.remove('on');
+      const lbl = document.getElementById('realband-lbl');
+      if(lbl) lbl.textContent = '● nicht vorhanden — die Mitschnitte liegen nur auf dem Übungsrechner';
+      stopRealBand();
+    }, {once:true});
     // Nicht immer an derselben Stelle einsteigen.
     el.addEventListener('loadedmetadata', () => {
       try{ if(el.duration > 40) el.currentTime = Math.random()*(el.duration - 30); }catch(e){}
