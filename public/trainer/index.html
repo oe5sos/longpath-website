@@ -6251,6 +6251,39 @@ function clearHeardCallsHistory() {
   heardCallsHistory.clear();
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// LAUTSTAERKE HAENGT AN DER STATION, NICHT AM DURCHGANG
+// ───────────────────────────────────────────────────────────────────
+// Martin 2026-10-28: "wenn ein call leise kommt, sollte er beim 2ten
+// und dritten durchgang nicht lauter werden". Am echten Band aendert
+// sich die Feldstaerke einer Station zwischen zwei Rufen nicht.
+// Jede Station bekommt ihren Faktor also EINMAL — beim ersten Mal,
+// das sie zu hoeren ist — und behaelt ihn, egal ueber welchen Weg sie
+// spaeter spricht (Pile, Restpile, Dauerpile, Zweitstimme).
+// ═══════════════════════════════════════════════════════════════════
+let stationLaut = {};
+function lautFuer(call, zieher){
+  const k = String(call || '').toUpperCase();
+  if(stationLaut[k] == null){
+    // Der Speicher soll nicht unbegrenzt wachsen; nach einer langen
+    // Sitzung faengt er wieder von vorn an.
+    if(Object.keys(stationLaut).length > 600) stationLaut = {};
+    stationLaut[k] = (typeof zieher === 'function') ? zieher() : zieher;
+  }
+  return stationLaut[k];
+}
+function vergissLautstaerken(){ stationLaut = {}; }
+// Eine einzige Ziehung fuer alle Wege. Rollen (Zweitstimme, Vorlaeufer)
+// multiplizieren mit einem FESTEN Bruchteil — sie ziehen nicht selbst,
+// sonst bliebe eine Station fuer immer leise, nur weil sie zufaellig
+// zuerst als Hintergrundrufer auftrat.
+function ziehePileStufe(){
+  const r = Math.random();
+  return r < 0.25 ? (0.20 + Math.random()*0.12)    // leise
+       : r < 0.75 ? (0.36 + Math.random()*0.18)    // mittel
+       :            (0.56 + Math.random()*0.16);   // laut
+}
+
 function speakActivePile(pileCallsigns, opts) {
   stopActivePile();
   if(!pileCallsigns || !pileCallsigns.length) return;
@@ -6284,12 +6317,7 @@ function speakActivePile(pileCallsigns, opts) {
   // ── Per-call volume tier: each station has a persistent loudness level ──
   // This makes the pile feel like real propagation — some stations boom in,
   // others are just audible. Tiers: loud / medium / quiet (roughly 30/50/20%).
-  const callVolTier = pileCallsigns.map(() => {
-    const r = Math.random();
-    return r < 0.20 ? (0.28 + Math.random()*0.14)   // quiet: 28–42%
-         : r < 0.70 ? (0.52 + Math.random()*0.26)   // medium: 52–78%
-         :            (0.82 + Math.random()*0.16);   // loud: 82–98%
-  });
+  const callVolTier = pileCallsigns.map((c) => lautFuer(c, ziehePileStufe) * 1.3);
 
   // ── Spontaneous mid-pile overlap pairs ──
   // Pick ~30% of callers to fire a "ghost" copy ~100–280ms before their
@@ -6327,7 +6355,9 @@ function speakActivePile(pileCallsigns, opts) {
             const ug = new SpeechSynthesisUtterance(callToSpeech(call, false));
             if(voice) ug.voice = voice;
             if(voice && voice.lang) ug.lang = voice.lang;
-            ug.volume = Math.min(1.0, (vol/100) * tierVol * (0.38 + Math.random()*0.17));
+            // Der Vorlaeufer ist derselbe Sender, nur frueher — fester Bruchteil,
+            // keine neue Ziehung.
+            ug.volume = Math.min(1.0, (vol/100) * tierVol * 0.45);
             ug.rate   = 0.90 + Math.random()*0.14;
             ug.pitch  = 0.95 + Math.random()*0.12;
             speechSynthesis.speak(ug);
@@ -6347,8 +6377,8 @@ function speakActivePile(pileCallsigns, opts) {
           // otherwise leave default en — avoids locale mismatches
           // that trigger fallback to a robotic default voice.
           if(voice && voice.lang) u.lang = voice.lang;
-          // Wide volume spread per tier — each repeat adds small random variation
-          u.volume = Math.min(1.0, (vol/100) * (tierVol + (Math.random()*0.08 - 0.04)));
+          // Die Stufe gehoert der Station: jeder Durchgang gleich laut.
+          u.volume = Math.min(1.0, (vol/100) * tierVol);
           u.rate   = 0.90 + Math.random()*0.14;
           u.pitch  = 0.95 + Math.random()*0.12;
           speechSynthesis.speak(u);
@@ -6511,10 +6541,7 @@ function speakActivePileVox(callsigns, opts){
     for(let k=0;k<Math.min(howMany, sh.length);k++) preMainIdx.add(sh[k]);
   }
   callsigns.forEach((call, i) => {
-    const r0   = Math.random();
-    const tier = r0 < 0.25 ? (0.20 + Math.random()*0.12)    // leise
-               : r0 < 0.75 ? (0.36 + Math.random()*0.18)    // mittel
-               :             (0.56 + Math.random()*0.16);   // laut
+    const tier = lautFuer(call, ziehePileStufe);
     const tone = 700 + Math.random()*1100;
     const vkey = voxVoiceFor(call);
     for(let r=0; r<repeats; r++){
@@ -6590,8 +6617,8 @@ function contPileTick(){
     map[u] = c;
     if(!activePileCallsigns.includes(u)) activePileCallsigns.push(u);
     // laut und leise gemischt, jeder mit eigenem Beginn
-    const r0   = Math.random();
-    const tier = (r0 < 0.3 ? 0.30 : r0 < 0.75 ? 0.52 : 0.80) * (contPileVol/55);
+    // Der Regler darf wirken, die Station behaelt ihre Stufe.
+    const tier = lautFuer(c.call, ziehePileStufe) * (contPileVol/55);
     const del  = rI(0, 1200);
     if(voxReady) voxSpeakCall(c.call, {delay:del/1000, gain:tier, bucket:'cont'});
     else         speakBackgroundCallTTS(c.call, del, tier);
@@ -6701,15 +6728,16 @@ function speakPileBild(callsigns){
     const upper = call.toUpperCase();
     if(!activePileCallsigns.includes(upper)) activePileCallsigns.push(upper);
     // Einer traegt deutlich, die uebrigen liegen darunter.
-    const laut = (i === 0) ? (0.40 + Math.random()*0.15)
-                           : (0.19 + Math.random()*0.15);
+    // Einer traegt, die uebrigen liegen darunter — aber die Stufe der
+    // Station selbst bleibt dieselbe, der Platz im Bild wirkt obendrauf.
+    const laut = lautFuer(call, ziehePileStufe) * ((i === 0) ? 1.0 : 0.55);
     const tone = 700 + Math.random()*1100;
     const vkey = voxVoiceFor(call);
     const d0   = Math.random()*spanne;
     voxSpeakCall(call, {delay:d0, gain:laut, tone:tone, voiceKey:vkey});
     if(!einmal){
       voxSpeakCall(call, {delay:d0 + 1.6 + Math.random()*0.9,
-                          gain:laut*0.92, tone:tone, voiceKey:vkey});
+                          gain:laut, tone:tone, voiceKey:vkey});
     }
   });
 }
@@ -6723,7 +6751,7 @@ function speakDualOverlap(secondCall, delayMs){
     // deutlich leiser als der Hauptruf, aber klar hoerbar — mal lauter,
     // mal leiser, nie so laut, dass der Hauptruf untergeht.
     voxSpeakCall(secondCall, {delay:Math.max(0,(delayMs|0))/1000,
-                              gain:0.28 + Math.random()*0.17});
+                              gain:lautFuer(secondCall, ziehePileStufe) * 0.6});
     return;
   }
   if(!window.speechSynthesis) return;
@@ -6742,7 +6770,7 @@ function speakDualOverlap(secondCall, delayMs){
       if(voice && voice.lang) u.lang = voice.lang;
       // Clearly quieter than the main (0.34–0.52 of user volume),
       // but still audible — the main caller is at ~1.0 * vol.
-      u.volume = Math.min(1.0, (vol/100) * (0.34 + Math.random()*0.18));
+      u.volume = Math.min(1.0, (vol/100) * lautFuer(secondCall, ziehePileStufe) * 0.7);
       u.rate   = 0.92 + Math.random()*0.12;
       u.pitch  = 0.95 + Math.random()*0.12;
       speechSynthesis.speak(u);
@@ -6829,10 +6857,10 @@ function startResidualPile(callers){
     const v    = getVoiceForCall(call);
 
     // ── Volume variety: loud (foreground), medium, or quiet (background) ──
-    const roll = Math.random();
-    const callVol = roll < 0.20 ? baseVol * (0.30 + Math.random()*0.15)   // quiet ~30–45%
-                  : roll < 0.75 ? baseVol * (0.60 + Math.random()*0.25)   // medium ~60–85%
-                  :               baseVol * (0.88 + Math.random()*0.12);   // loud ~88–100%
+    // Gezogen wird einmal je Station. Vorher wurde bei JEDEM Durchgang
+    // neu gewuerfelt — eine leise Station kam dann beim zweiten Mal
+    // laut zurueck.
+    const callVol = baseVol * lautFuer(call, ziehePileStufe) * 1.25;
 
     // ── Overlap event (~28% chance): a second caller starts 80–240ms after ──
     // One station is always louder, the other distinctly quieter — realistic
@@ -6852,7 +6880,9 @@ function startResidualPile(callers){
           const u2 = new SpeechSynthesisUtterance(callToSpeech(overlapCall, false));
           if(overlapVoice){ u2.voice = overlapVoice; u2.lang = overlapVoice.lang || 'en-US'; }
           // Noticeably quieter than the foreground caller
-          u2.volume = Math.min(1.0, callVol * (0.35 + Math.random()*0.20));
+          // Der Zweitrufer bringt seine eigene Feldstaerke mit, nicht die
+          // des Vordergrundrufers.
+          u2.volume = Math.min(1.0, baseVol * lautFuer(overlapCall, ziehePileStufe) * 0.6);
           u2.rate   = 0.88 + Math.random()*0.18;
           u2.pitch  = 0.92 + Math.random()*0.18;
           speechSynthesis.speak(u2);
@@ -8302,6 +8332,7 @@ function pauseSess(){
 
 function stopSess(){
   sessActive=false; paused=false;
+  try{ vergissLautstaerken(); }catch(e){}   // naechste Sitzung zieht neu
   stopAdaptTimer();
   stopAutoAdaptTimer();
   cwPlaying=false;
