@@ -6603,6 +6603,55 @@ function setUsSpellMode(m){
 // with a configurable delay (positive = starts after main;
 // if main is delayed by the caller, this runs earlier relative to main).
 // ═══════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════
+// PILE-BILD — 1 bis 3 Stationen fast zu gleicher Zeit
+// ───────────────────────────────────────────────────────────────────
+// Martin 2026-10-28: beim Pile-Up-Knopf sollen mehrere Stationen das
+// Rufzeichen fast gleichzeitig uebermitteln — einmal mehr, einmal
+// weniger, lauter und leiser, zeitlich versetzt. Einfach beginnend:
+// bei niedriger Dichte spricht jeder nur einmal und das Versatzfenster
+// ist breit, mit steigender Dichte ruecken sie zusammen und
+// wiederholen sich.
+// ═══════════════════════════════════════════════════════════════════
+function zieheRuferzahl(){
+  // Oberkante: was Regler und Anpassung hergeben, beim kleinen
+  // Pile-Up aber nie mehr als drei.
+  const kappe = (diffPreset === 'ck') ? 5 : 3;
+  // Der Rufer-Regler (oder die Anpassung) gibt den Regelfall vor. Nach
+  // oben ist eine Station mehr drin, sobald die Anpassung Fahrt
+  // aufnimmt — nach unten geht es immer bis hinunter zu einer.
+  const ober = Math.max(1, Math.min(kappe, pileCount + (adaptCurrentLevel >= 4 ? 1 : 0)));
+  if(ober <= 1) return 1;
+  const r = Math.random();
+  if(r < 0.28) return 1;                 // mal ruft nur einer
+  if(r < 0.68) return Math.min(2, ober); // meistens zwei
+  return rI(Math.min(3, ober), ober);    // und ab und zu das volle Bild
+}
+
+function speakPileBild(callsigns){
+  if(!callsigns || !callsigns.length) return;
+  activePileRunning = true;
+  // Versatzfenster: bei Dichte 1 rund 0,6 s, bei Dichte 10 nur noch
+  // 0,15 s — dann reden alle praktisch uebereinander.
+  const spanne = Math.max(0.15, 0.62 - (pileDensity-1)*0.052);
+  const einmal = pileDensity < 6;
+  callsigns.forEach((call, i) => {
+    const upper = call.toUpperCase();
+    if(!activePileCallsigns.includes(upper)) activePileCallsigns.push(upper);
+    // Einer traegt deutlich, die uebrigen liegen darunter.
+    const laut = (i === 0) ? (0.40 + Math.random()*0.15)
+                           : (0.19 + Math.random()*0.15);
+    const tone = 700 + Math.random()*1100;
+    const vkey = voxVoiceFor(call);
+    const d0   = Math.random()*spanne;
+    voxSpeakCall(call, {delay:d0, gain:laut, tone:tone, voiceKey:vkey});
+    if(!einmal){
+      voxSpeakCall(call, {delay:d0 + 1.6 + Math.random()*0.9,
+                          gain:laut*0.92, tone:tone, voiceKey:vkey});
+    }
+  });
+}
+
 function speakDualOverlap(secondCall, delayMs){
   if(!secondCall) return;
   activePileRunning = true;
@@ -7299,8 +7348,12 @@ function stopWiederholungen(){
 }
 function planeWiederholungen(call){
   stopWiederholungen();
-  // Je schwerer die Stufe, desto weniger oft wiederholt er sich.
-  const wieOft = {easy:3, medium:2, ck:1}[difficulty];
+  // v24 (Martin 2026-10-28): Der Anrufer wiederholt sich NICHT mehr
+  // regelmaessig — das war zu bequem. Nur ab und zu, zufaellig, und
+  // dann genau einmal. Wer ihn verpasst, drueckt AGAIN.
+  const chance = {easy:0.22, medium:0.15, ck:0.10}[difficulty];
+  if(Math.random() >= chance) return;
+  const wieOft = 1;
   let getan = 0;
   const schritt = () => {
     if(!sessActive || paused) return;
@@ -7331,7 +7384,12 @@ function nextQSO(){
   const jitter=difficulty==='ck'?rI(0,2):difficulty==='medium'?rI(0,1):0;
   // Ohne Pile-Up ruft genau eine Station — wie frueher. Durcheinander
   // gibt es nur, wenn Pile-Up gewaehlt ist.
-  const cnt=difficulty==='easy' ? 1 : Math.max(1, Math.min(6, pileCount+jitter));
+  // v24: Der Knopf entscheidet, nicht die Stufe. Wer "Kleines" oder
+  // "Volles Pile-Up" gewaehlt hat, hoert pro Runde mal eine, mal zwei,
+  // mal drei Stationen — auch solange die Anpassung noch niedrig steht.
+  const pileGewaehlt = (diffPreset === 'advanced' || diffPreset === 'ck');
+  const cnt = pileGewaehlt ? zieheRuferzahl()
+            : (difficulty==='easy' ? 1 : Math.max(1, Math.min(6, pileCount+jitter)));
   const used=new Set(),callers=[];
   // ARRL DX: callers are W/VE stations (you work NA from DX side)
   const naPool=PREFIXES.filter(e=>e.p.some(p=>/^(W|K|N|AA|AB|AC|AD|VE|VA)/.test(p)));
@@ -7410,7 +7468,13 @@ function nextQSO(){
   let useDualOverlap = false;
   let allowPreMain   = false;
   let secondStartDelay = 0;
-  if(true){
+  // v24: Beim Pile-Up-Knopf uebernimmt das Pile-Bild. Der Hauptruf
+  // setzt dann in der Haelfte der Faelle etwas spaeter ein, damit er
+  // nicht immer der erste ist, den man hoert.
+  const pileBild = pileGewaehlt && voxReady && cnt > 1;
+  if(pileBild){
+    if(Math.random() < 0.5) mainStartDelay = rI(120, 420);
+  } else if(true){
     // v23: Bei genau zwei Rufern IMMER das klare Zwei-Stimmen-Bild —
     // einer laut, einer leise, versetzter Beginn. Auf jeder Stufe.
     if(cnt === 2){
@@ -7436,7 +7500,9 @@ function nextQSO(){
   planeWiederholungen(main.call);
   // Pile-up background callers — speak simultaneously with main
   if(cnt > 1){
-    if(useDualOverlap){
+    if(pileBild){
+      speakPileBild(callers.slice(1).map(c=>c.call));
+    } else if(useDualOverlap){
       // Genau ein leiserer Störer, einmal gesprochen, mit Offset.
       speakDualOverlap(callers[1].call, secondStartDelay);
     } else {
@@ -8020,13 +8086,13 @@ const DIFF_PRESET_DESCS = {
   ck:       'Volles Pile-Up · starkes QRM · lösbar mit Technik'
 };
 
-const DIFF_PRESET_STARTLEVEL = { easy: 2, advanced: 4, ck: 8 };
+const DIFF_PRESET_STARTLEVEL = { easy: 2, advanced: 2, ck: 5 };
 // Die Voreinstellung setzt den Rahmen, die Automatik bewegt sich nur
 // darin (Martin 2026-10-27: "nicht sehr schwierig", Schwierigkeit am
 // Regler). Kein Pile-Up bleibt eine Station, Kleines Pile-Up bleibt
 // klein.
 const DIFF_PRESET_MAXLEVEL = { easy: 3, advanced: 7, ck: 10 };
-const DIFF_PRESET_MINLEVEL = { easy: 0, advanced: 4, ck: 8 };
+const DIFF_PRESET_MINLEVEL = { easy: 0, advanced: 2, ck: 4 };
 
 // Pile-Up OFF for easy, limited for advanced, full for ck
 const DIFF_PRESET_RPILE = { easy: false, advanced: true, ck: true };
