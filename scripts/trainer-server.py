@@ -76,6 +76,21 @@ class Handler(SimpleHTTPRequestHandler):
 
     def log_message(self, *a): pass
 
+class Server(ThreadingHTTPServer):
+    # Nach einem Abschuss ist der Port sonst eine Minute lang belegt.
+    allow_reuse_address = True
+
 port = int(sys.argv[1]) if len(sys.argv) > 1 else 8774
+try:
+    srv = Server(("127.0.0.1", port), Handler)
+except OSError as e:
+    if e.errno in (48, 98):   # Address already in use
+        # Haeufigster Fall: er laeuft laengst. Das ist kein Fehler,
+        # sondern die Antwort auf die Frage, die man gerade stellt.
+        print("Laeuft schon auf Port %d — einfach aufmachen:" % port)
+        print("  http://localhost:%d/trainer/" % port)
+        print("Beenden mit:  lsof -ti tcp:%d | xargs kill" % port)
+        sys.exit(0)
+    raise
 print("Trainer: http://localhost:%d/trainer/   (Wurzel %s)" % (port, WURZEL), flush=True)
-ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
+srv.serve_forever()
