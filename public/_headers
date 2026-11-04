@@ -20,3 +20,20 @@
 
 /
   Cache-Control: public, max-age=0, must-revalidate
+
+# Der Trainer ist eine einzelne HTML-Datei unter /trainer/ -- die
+# Adresse endet nicht auf .html, die Regel darueber greift also NICHT.
+# Ohne diese Zeilen liegt die Seite im Zwischenspeicher des Browsers,
+# und der Bediener sieht wochenlang dieselbe alte Fassung (genau das,
+# was die Fassungswache am Ende der Datei verhindern soll).
+/trainer/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/trainer/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Die eine Datei, an der die Wache merkt, dass draussen etwas Neueres
+# liegt. Sie darf nie aus dem Zwischenspeicher kommen -- sonst wacht
+# die Wache nie auf.
+/trainer/fassung.json
+  Cache-Control: no-store

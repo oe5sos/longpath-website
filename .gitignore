@@ -15,3 +15,8 @@ videos/raw/
 # Fremde Contest-Mitschnitte (NT6X, PJ2T): liegen nur lokal,
 # duerfen nicht mit veroeffentlicht werden.
 public/trainer/audio/pileups
+
+# Entsteht beim Veroeffentlichen (scripts/trainer-fassung.mjs) und
+# gehoert nach dist/, nicht in die Quellen -- waere sie hier
+# eingecheckt, gaebe es zwei Wahrheiten ueber die Trainer-Fassung.
+public/trainer/fassung.json

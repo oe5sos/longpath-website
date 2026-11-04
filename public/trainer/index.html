@@ -10747,5 +10747,142 @@ try{
 })();
 </script>
 
+<!-- ══════════════════════════════════════════════════════════════
+     FASSUNGSWACHE
+     ══════════════════════════════════════════════════════════════
+
+     Betreiber, 2026-11-03: „grundsaetzlich sollten alle versionen
+     einen automatischen updater haben! auch contesttrainer"
+
+     Longpath und das Contestprogramm holen sich ihre neue Fassung
+     selbst. Diese Seite kann das nicht -- sie liegt nicht auf der
+     Platte, sondern im Zwischenspeicher des Browsers, und genau das
+     ist hier das Problem: wer den Trainer einmal offen hatte, bekommt
+     beim naechsten Aufruf unter Umstaenden wochenlang dieselbe alte
+     Seite zu sehen, ohne je zu erfahren, dass es eine neue gibt. Ein
+     „Updater" heisst hier also: merken, dass draussen etwas Neueres
+     liegt, und es sagen.
+
+     Wie: beim Veroeffentlichen schreibt scripts/trainer-fassung.mjs
+     die Datei fassung.json neben diese Seite (Fassung, Stand,
+     Commit). Diese Wache vergleicht die Nummer darin mit ihrer
+     eigenen -- der Nummer, die in DIESER Datei steht. Stimmen sie
+     nicht, ist die Seite im Browser die alte.
+
+     Nachgesehen wird dreimal: kurz nach dem Laden, alle zehn
+     Minuten, und jedes Mal, wenn der Reiter wieder nach vorne kommt
+     (eine Uebung laeuft oft stundenlang in einem Reiter, der im
+     Hintergrund liegt).
+
+     Was NICHT passiert: nichts laedt von selbst neu. Mitten in einem
+     Durchgang die Seite unter dem Bediener wegzuziehen, waere
+     schlimmer als eine alte Fassung -- der Hinweis steht unten
+     rechts, klein, und wartet.
+     ────────────────────────────────────────────────────────────── -->
+<style>
+#fassungswache{
+  position:fixed;right:14px;bottom:14px;z-index:99999;display:none;
+  max-width:300px;padding:10px 12px;
+  background:var(--bg2,#111113);
+  border:1px solid var(--border-2,#2c2c31);
+  border-left:2px solid var(--measured,#c2924f);
+  border-radius:var(--rad,8px);
+  box-shadow:0 6px 24px rgba(0,0,0,.55);
+  font-family:var(--fui,"Barlow Condensed",Arial,sans-serif);
+  color:var(--txt,#dcdce1);font-size:13px;line-height:1.35;
+}
+#fassungswache b{color:var(--measured,#c2924f);font-weight:600}
+#fassungswache .fw-sub{color:var(--txt2,#909096);font-size:11px;margin-top:2px}
+#fassungswache .fw-row{margin-top:8px;display:flex;gap:6px}
+#fassungswache button{
+  font-family:inherit;font-size:12px;padding:4px 10px;cursor:pointer;
+  background:var(--bg4,#1a1a1e);color:var(--txt,#dcdce1);
+  border:1px solid var(--border-2,#2c2c31);border-radius:5px;
+}
+#fassungswache button:hover{border-color:var(--measured,#c2924f)}
+#fassungswache .fw-spaeter{color:var(--txt2,#909096)}
+</style>
+<div id="fassungswache" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+
+// Die eigene Nummer. Sie MUSS mit dem Titel, der Anmeldezeile und der
+// Fusszeile uebereinstimmen -- scripts/trainer-fassung.mjs bricht das
+// Veroeffentlichen ab, wenn eine davon abweicht. Beim Hochzaehlen also
+// alle vier Stellen anfassen.
+var FASSUNG = '6.53';
+
+var ABSTAND_MS = 10 * 60 * 1000;   // alle zehn Minuten
+var gemeldet   = false;            // einmal gesagt ist genug
+var kasten     = document.getElementById('fassungswache');
+
+function zeige(neueFassung, stand){
+  if (gemeldet || !kasten) { return; }
+  gemeldet = true;
+  var wann = '';
+  if (stand) {
+    var d = new Date(stand);
+    if (!isNaN(d.getTime())) {
+      wann = ' vom ' + ('0'+d.getDate()).slice(-2) + '.' + ('0'+(d.getMonth()+1)).slice(-2) + '.';
+    }
+  }
+  kasten.innerHTML =
+    '<b>Neue Fassung ' + neueFassung + wann + '</b>'
+    + '<div class="fw-sub">Hier laeuft noch ' + FASSUNG + '. Neu laden holt sie — der Fortschritt bleibt gespeichert.</div>'
+    + '<div class="fw-row"><button id="fw-laden">Neu laden</button>'
+    + '<button id="fw-spaeter" class="fw-spaeter">Später</button></div>';
+  kasten.style.display = 'block';
+  var laden = document.getElementById('fw-laden');
+  var spaeter = document.getElementById('fw-spaeter');
+  if (laden) {
+    laden.addEventListener('click', function(){
+      // Erst die Zwischenspeicher der Seite leeren, sonst holt der
+      // Browser bei must-revalidate zwar die Seite, aber nicht
+      // zwangslaeufig jedes Beiwerk.
+      var fertig = function(){ location.reload(); };
+      if (window.caches && caches.keys) {
+        caches.keys().then(function(namen){
+          return Promise.all(namen.map(function(n){ return caches.delete(n); }));
+        }).then(fertig, fertig);
+      } else {
+        fertig();
+      }
+    });
+  }
+  if (spaeter) {
+    spaeter.addEventListener('click', function(){ kasten.style.display = 'none'; });
+  }
+}
+
+function nachsehen(){
+  if (gemeldet) { return; }
+  // no-store und ein Zeitstempel: diese eine Datei darf nie aus dem
+  // Zwischenspeicher kommen, sonst wacht die Wache nie auf.
+  fetch('fassung.json?z=' + Date.now(), { cache: 'no-store' })
+    .then(function(a){ return a.ok ? a.json() : null; })
+    .then(function(d){
+      if (d && d.fassung && String(d.fassung) !== FASSUNG) {
+        zeige(String(d.fassung), d.stand);
+      }
+    })
+    .catch(function(){
+      // Kein Netz, keine Datei (etwa beim Entwickeln mit `astro dev`):
+      // dann gibt es hier nichts zu sagen. Still bleiben ist richtig --
+      // ein Fehlerkasten ueber einer laufenden Uebung ist keine Hilfe.
+    });
+}
+
+// Acht Sekunden nach dem Laden: der Trainer baut beim Start Audio,
+// Karten und den Globus auf, und das soll nicht mit einer
+// Netzabfrage konkurrieren.
+setTimeout(nachsehen, 8000);
+setInterval(nachsehen, ABSTAND_MS);
+document.addEventListener('visibilitychange', function(){
+  if (document.visibilityState === 'visible') { nachsehen(); }
+});
+})();
+</script>
+
 </body>
 </html>

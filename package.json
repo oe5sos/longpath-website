@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run fotos && astro build",
+    "build": "npm run fotos && astro build && npm run trainer-fassung",
+    "trainer-fassung": "node scripts/trainer-fassung.mjs dist",
     "entferne-fremdmaterial": "rm -rf dist/trainer/audio/pileups",
     "veroeffentlichen": "npm run build && npm run entferne-fremdmaterial && npx wrangler pages deploy dist --project-name longpath-website --branch main --commit-dirty=true",
     "preview": "astro preview",
