@@ -227,6 +227,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Bandbild", titel: "Schärfer, und 2 m mit Bandplan",
         text: "Der Wasserfall zeichnet in Geräte-Pixeln, das Raster als Haarlinie, die Kurve mit feiner Kante. Durchlass und Bandbreite zeigen Zahl und Klammern. Am Transverter kennt das Bandbild 144–148 MHz mit Teilsegmenten, sperrt das Senden bei „nur Empfang“ und rechnet die S-Stufen mit VHF-Bezug.",
         marken: ["Geräte-Pixel", "144–148 MHz", "S-Stufen VHF"] },
+      { bereich: "Oberfläche", titel: "Tastenkürzel und Sprachspeicher per Taste",
+        text: "F1 bis F10 senden den Sprachspeicher, Strg+Umschalt+F1 bis F10 nimmt ihn auf, Esc hält an. Schwebende Fenster wachsen im Verhältnis mit dem Hauptfenster, und alles lässt sich mit einem Griff sperren und wieder freigeben. Ein zweiter Start mit demselben Einstellungsordner übergibt an den laufenden, statt ein zweites Longpath aufzumachen.",
+        marken: ["F1–F10", "Sprachspeicher", "Ein Longpath je Ordner"] },
     ],
     hardwareKopf: { kicker: "Am Gerät geprüft", h2: "Auf echter Hardware freigefahren, nicht angenommen." },
     hardware: [
@@ -437,6 +440,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Panadapter", titel: "Sharper, and 2 m with a band plan",
         text: "The waterfall draws in device pixels, the grid as a hairline, the trace with a fine edge. Passband and bandwidth show a number and brackets. With a transverter the band view knows 144–148 MHz with its segments, blocks transmit on “receive only” and reads S-units against the VHF reference.",
         marken: ["Device pixels", "144–148 MHz", "VHF S-units"] },
+      { bereich: "Interface", titel: "Shortcuts, and voice memories on a key",
+        text: "F1 to F10 send the voice memories, Ctrl+Shift+F1 to F10 records them, Esc stops. Floating windows grow in proportion with the main window, and everything can be locked and released in one move. A second start with the same settings folder hands over to the running one instead of opening a second Longpath.",
+        marken: ["F1–F10", "Voice memories", "One Longpath per folder"] },
     ],
     hardwareKopf: { kicker: "Verified on hardware", h2: "Cleared on real hardware, not assumed." },
     hardware: [
@@ -647,6 +653,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Panadaptador", titel: "Más nítido, y 2 m con plan de banda",
         text: "La cascada dibuja en píxeles del dispositivo, la rejilla como línea fina, la curva con borde fino. Paso de banda y ancho muestran número y corchetes. Con transversor la vista conoce 144–148 MHz con sus segmentos, bloquea la transmisión en «solo recepción» y calcula las unidades S con referencia VHF.",
         marken: ["Píxeles del dispositivo", "144–148 MHz", "Unidades S VHF"] },
+      { bereich: "Interfaz", titel: "Atajos de teclado y memorias de voz en una tecla",
+        text: "F1 a F10 envían las memorias de voz, Ctrl+Mayús+F1 a F10 las graban, Esc detiene. Las ventanas flotantes crecen en proporción con la ventana principal, y todo se bloquea y se libera de un solo gesto. Un segundo arranque con la misma carpeta de ajustes pasa el control al que ya está en marcha, en vez de abrir un segundo Longpath.",
+        marken: ["F1–F10", "Memorias de voz", "Un Longpath por carpeta"] },
     ],
     hardwareKopf: { kicker: "Verificado en el equipo", h2: "Probado en hardware real, no supuesto." },
     hardware: [
