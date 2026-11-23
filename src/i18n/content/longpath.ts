@@ -245,6 +245,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Bandbild", titel: "Bandstapel und S-Meter im Panadapter",
         text: "Je Band gespeicherte Stellen, als Applet und als Marken an der Skala; Abstimmschritt und Abtastrate gelten je Scheibe auf jedem Band. Das S-Meter steht wahlweise im Panadapter, als dritte Wahl der Anzeigezeile, und RIT/XIT sitzen dort, wo die Frequenz steht.",
         marken: ["Bandstapel", "S-Meter", "RIT / XIT"] },
+      { bereich: "Digital", titel: "FT8 auf zwei Bändern zugleich",
+        text: "An der FLEX-8400 hört eine zweite Scheibe auf einem weiteren Band mit, über dieselbe Antenne; im FT8-Fenster wählt man es im Feld „Also“, ab Werk aus. Vom zweiten Band erscheinen nur neue DXCC-Länder, mit grauer Bandmarke. Ein Doppelklick tauscht die Bänder — gesendet wird dabei nichts.",
+        marken: ["Zwei Bänder", "Nur neue DXCC", "Kein Senden"], neu: true },
     ],
     hardwareKopf: { kicker: "Am Gerät geprüft", h2: "Auf echter Hardware freigefahren, nicht angenommen." },
     hardware: [
@@ -473,6 +476,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Panadapter", titel: "Band stack and S-meter in the panadapter",
         text: "Spots saved per band, as an applet and as marks on the scale; tuning step and sample rate apply per slice on every band. The S-meter can sit in the panadapter as the third choice of the readout line, and RIT/XIT sit where the frequency is shown.",
         marken: ["Band stack", "S-meter", "RIT / XIT"] },
+      { bereich: "Digital", titel: "FT8 on two bands at once",
+        text: "On the FLEX-8400 a second slice listens on another band, through the same antenna; in the FT8 window it is chosen in the \"Also\" field, off by default. From the second band only new DXCC entities appear, with a grey band mark. A double-click swaps the bands — nothing is transmitted.",
+        marken: ["Two bands", "New DXCC only", "No transmit"], neu: true },
     ],
     hardwareKopf: { kicker: "Verified on hardware", h2: "Cleared on real hardware, not assumed." },
     hardware: [
@@ -701,6 +707,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Panadaptador", titel: "Pila de bandas y S-meter en el panadaptador",
         text: "Puntos guardados por banda, como applet y como marcas en la escala; el paso de sintonía y la frecuencia de muestreo valen por slice en cada banda. El S-meter puede ir en el panadaptador como tercera opción de la línea de lectura, y RIT/XIT están donde se muestra la frecuencia.",
         marken: ["Pila de bandas", "S-meter", "RIT / XIT"] },
+      { bereich: "Digital", titel: "FT8 en dos bandas a la vez",
+        text: "En la FLEX-8400 un segundo slice escucha en otra banda, por la misma antena; en la ventana FT8 se elige en el campo «Also», apagado de fábrica. De la segunda banda solo aparecen entidades DXCC nuevas, con una marca de banda gris. Un doble clic intercambia las bandas — no se transmite nada.",
+        marken: ["Dos bandas", "Solo DXCC nuevas", "Sin transmitir"], neu: true },
     ],
     hardwareKopf: { kicker: "Verificado en el equipo", h2: "Probado en hardware real, no supuesto." },
     hardware: [
