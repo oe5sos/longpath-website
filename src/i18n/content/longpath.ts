@@ -254,6 +254,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Fernbedienung", titel: "Instrumente und Empfangsregler in der App",
         text: "S-Meter, SWR und Rotorkompass stehen als Instrumentenzeile in der App; der Kompass erscheint, sobald Longpath einen Rotor meldet, und ein Antippen öffnet die Rotorsteuerung. SWR und Sendeleistung gibt es nur beim Senden, sonst steht dort ein Strich. NB, NR, ANF und Squelch zeigen den Zustand, den Longpath meldet, nicht den letzten Tipp. Dazu kommen AGC Fast, Med und Slow, RIT und XIT bis ±10 kHz, ein wählbarer Abstimmschritt und Griffe an beiden Filterkanten im Panadapter, mit der Breite als Schild beim Ziehen. ALC fehlt, weil Longpaths TCI-Server sie nicht liefert. Die neuen Regler sind gegen eine Attrappe der Station belegt, nicht am Funkgerät.",
         marken: ["S-Meter, SWR, Rotor", "AGC und RIT/XIT", "Filterkanten ziehen"], neu: true },
+      { bereich: "Fernbedienung", titel: "FT8-Liste und Rotor in der App",
+        text: "Was Longpaths eigener Dekoder in FT8 und FT4 findet, steht in der App als Liste: je Station Rufzeichen, Betriebsart, Abstand zur Dial-Frequenz und Alter, die neueste oben. Ein Antippen hebt die Station im Panadapter hervor — abgestimmt und gesendet wird dabei nicht. Unter der gewählten Station stehen Entfernung und Land, dazu der kurze und der lange Weg als Knöpfe; was der Drehbereich nicht erlaubt, ist grau und gesperrt. Gedreht wird nur mit Freigabe für den Rotor aus dem Netz, und die ist ab Werk aus. Belegt ist beides gegen eine Attrappe der Station.",
+        marken: ["FT8 und FT4", "Kurzer und langer Weg", "Drehen ab Werk aus"], neu: true },
     ],
     hardwareKopf: { kicker: "Am Gerät geprüft", h2: "Auf echter Hardware freigefahren, nicht angenommen." },
     hardware: [
@@ -491,6 +494,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Remote control", titel: "Instruments and receive controls in the app",
         text: "S-meter, SWR and rotor compass form an instrument row in the app; the compass appears as soon as Longpath reports a rotor, and a tap opens the rotor control. SWR and transmit power exist only while transmitting, otherwise there is a dash. NB, NR, ANF and squelch show the state Longpath reports, not the last tap. Added to that: AGC Fast, Med and Slow, RIT and XIT up to ±10 kHz, a selectable tuning step, and handles on both filter edges in the panadapter, with the width on a label while dragging. ALC is missing because Longpath's TCI server does not deliver it. The new controls are verified against a mock of the station, not on the radio.",
         marken: ["S-meter, SWR, rotor", "AGC and RIT/XIT", "Drag filter edges"], neu: true },
+      { bereich: "Remote control", titel: "FT8 list and rotor in the app",
+        text: "What Longpath's own decoder finds in FT8 and FT4 appears as a list in the app: for each station callsign, mode, offset from the dial frequency and age, newest on top. A tap highlights the station in the panadapter — nothing is tuned and nothing transmitted. Under the selected station are distance and country, plus short path and long path as buttons; whatever the rotator's range does not allow is grey and locked. It turns only if turning the rotator from the network has been allowed, which is off by default. Both are verified against a mock of the station.",
+        marken: ["FT8 and FT4", "Short and long path", "Turning off by default"], neu: true },
     ],
     hardwareKopf: { kicker: "Verified on hardware", h2: "Cleared on real hardware, not assumed." },
     hardware: [
@@ -728,6 +734,9 @@ export const longpathContent: Record<Locale, LongpathContent> = {
       { bereich: "Mando a distancia", titel: "Instrumentos y mandos de recepción en la app",
         text: "S-meter, ROE y brújula del rotor forman una fila de instrumentos en la app; la brújula aparece en cuanto Longpath anuncia un rotor, y un toque abre el mando del rotor. La ROE y la potencia de transmisión solo existen al transmitir; si no, hay un guion. NB, NR, ANF y silenciador muestran el estado que Longpath anuncia, no el último toque. Se suman AGC Fast, Med y Slow, RIT y XIT hasta ±10 kHz, un paso de sintonía a elegir y asideros en ambos bordes del filtro en el panadaptador, con la anchura en un rótulo al arrastrar. Falta la ALC porque el servidor TCI de Longpath no la entrega. Los mandos nuevos están comprobados contra una maqueta de la estación, no en la radio.",
         marken: ["S-meter, ROE, rotor", "AGC y RIT/XIT", "Arrastrar el filtro"], neu: true },
+      { bereich: "Mando a distancia", titel: "Lista FT8 y rotor en la app",
+        text: "Lo que el decodificador propio de Longpath encuentra en FT8 y FT4 aparece en la app como lista: de cada estación el indicativo, el modo, la distancia a la frecuencia del dial y la antigüedad, la más reciente arriba. Un toque resalta la estación en el panadaptador — no se sintoniza ni se transmite nada. Bajo la estación elegida están la distancia y el país, además del camino corto y el largo como botones; lo que el margen de giro no permite queda gris y bloqueado. Solo gira si se ha autorizado girar el rotor desde la red, y de fábrica está desactivado. Ambas cosas están comprobadas contra una maqueta de la estación.",
+        marken: ["FT8 y FT4", "Camino corto y largo", "Giro apagado de fábrica"], neu: true },
     ],
     hardwareKopf: { kicker: "Verificado en el equipo", h2: "Probado en hardware real, no supuesto." },
     hardware: [
